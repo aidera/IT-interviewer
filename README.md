@@ -1,3 +1,23 @@
+# Run with Docker
+
+## Available Scripts
+
+### `docker compose up`
+
+Create all images and run the app
+
+### `docker ps`
+
+To check the container name
+
+### `docker exec -itu 1000:1000 <container-name> node -v`
+
+To use node/npm commands
+
+### `docker compose run --rm node npm i axios `
+
+Or if all containers up
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

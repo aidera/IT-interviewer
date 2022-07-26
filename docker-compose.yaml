@@ -1,0 +1,16 @@
+version: "3.8" 
+services: 
+  node: 
+    image: "node:18.2" 
+    working_dir: /app 
+    tty: true 
+    volumes: 
+    - ./:/app 
+  frontend: 
+    build: ./ 
+    ports: 
+    - "3000:3000" 
+    volumes: 
+    - ./src:/app/src 
+    stdin_open: true 
+    tty: true 
