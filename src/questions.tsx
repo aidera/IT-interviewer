@@ -37,13 +37,13 @@ export interface QuizletQuestion {
 export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 1,
-    title: "Какие бывают методы HTTP-запросов?",
+    title: 'Какие бывают методы HTTP-запросов?',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Про HTTP",
-        href: "https://developer.mozilla.org/ru/docs/Web/HTTP",
+        label: 'Про HTTP',
+        href: 'https://developer.mozilla.org/ru/docs/Web/HTTP',
       },
     ],
     answer: `
@@ -139,17 +139,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
   {
     id: 2,
-    title: "Какие версии HTTP-протокола вам известны?",
+    title: 'Какие версии HTTP-протокола вам известны?',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Протоколы",
-        href: "https://developer.mozilla.org/ru/docs/Web/HTTP/Overview",
+        label: 'Протоколы',
+        href: 'https://developer.mozilla.org/ru/docs/Web/HTTP/Overview',
       },
       {
-        label: "Версии протоколов",
-        href: "https://zametkinapolyah.ru/servera-i-protokoly/standarty-http-protokola-istoriya-razvitiya-http-protokola-versii-http-protokola.html",
+        label: 'Версии протоколов',
+        href: 'https://zametkinapolyah.ru/servera-i-protokoly/standarty-http-protokola-istoriya-razvitiya-http-protokola-versii-http-protokola.html',
       },
     ],
     answer: `
@@ -162,13 +162,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
   {
     id: 3,
-    title: "Какие бывают коды ответа (состояния) HTTP?",
+    title: 'Какие бывают коды ответа (состояния) HTTP?',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Коды ответа",
-        href: "https://developer.mozilla.org/ru/docs/Web/HTTP/Status",
+        label: 'Коды ответа',
+        href: 'https://developer.mozilla.org/ru/docs/Web/HTTP/Status',
       },
     ],
     answer: ` 
@@ -183,17 +183,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
   {
     id: 4,
-    title: "Что такое Cross-Origin Resource Sharing (CORS)?",
+    title: 'Что такое Cross-Origin Resource Sharing (CORS)?',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "CORS",
-        href: "https://developer.mozilla.org/ru/docs/Web/HTTP/CORS",
+        label: 'CORS',
+        href: 'https://developer.mozilla.org/ru/docs/Web/HTTP/CORS',
       },
       {
-        label: "Решение проблем с CORS",
-        href: "https://habr.com/ru/company/macloud/blog/553826/",
+        label: 'Решение проблем с CORS',
+        href: 'https://habr.com/ru/company/macloud/blog/553826/',
       },
     ],
     answer: `
@@ -233,10 +233,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
   {
     id: 5,
-    title: "Что такое cookie?",
+    title: 'Что такое cookie?',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.junior,
-    links: [{ label: "Ссылка 1", href: "https://learn.javascript.ru/cookie" }],
+    links: [{ label: 'Ссылка 1', href: 'https://learn.javascript.ru/cookie' }],
     answer: `
         <p>
           <b> Cookies</b> — это небольшие строки данных, которые хранятся
@@ -261,10 +261,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
   {
     id: 6,
-    title: "Какие ограничения есть у cookie?",
+    title: 'Какие ограничения есть у cookie?',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.junior,
-    links: [{ label: "Ссылка 1", href: "https://learn.javascript.ru/cookie" }],
+    links: [{ label: 'Ссылка 1', href: 'https://learn.javascript.ru/cookie' }],
     answer: `
         <ul>
           <li>
@@ -285,12 +285,12 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Strict_mode",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Strict_mode',
       },
       {
-        label: "LearnJS",
-        href: "https://learn.javascript.ru/strict-mode",
+        label: 'LearnJS',
+        href: 'https://learn.javascript.ru/strict-mode',
       },
     ],
     answer: `
@@ -330,7 +330,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 8,
-    title: "Чем JS отличается при работе на front-end и back-end?",
+    title: 'Чем JS отличается при работе на front-end и back-end?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -352,13 +352,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
   {
     id: 9,
-    title: "Что такое статическая и динамическая типизация?",
+    title: 'Что такое статическая и динамическая типизация?',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://senior.ua/articles/kak-ponyat-raznicu-mezhdu-staticheskoy-i-dinamicheskoy-tipizaciey",
+        label: 'Ссылка 1',
+        href: 'https://senior.ua/articles/kak-ponyat-raznicu-mezhdu-staticheskoy-i-dinamicheskoy-tipizaciey',
       },
     ],
     answer: `
@@ -433,13 +433,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
   {
     id: 10,
-    title: "Как клиент взаимодействует с сервером?",
+    title: 'Как клиент взаимодействует с сервером?',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Википедия",
-        href: "https://ru.wikipedia.org/wiki/%D0%9A%D0%BB%D0%B8%D0%B5%D0%BD%D1%82_%E2%80%94_%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80#:~:text=%D0%92%D0%B7%D0%B0%D0%B8%D0%BC%D0%BE%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D0%B5%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0%20%D0%B8%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0,-%D0%92%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%20%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D1%8F%2C%20%D1%81%D0%BB%D1%83%D0%B6%D0%B1%D0%B0&text=%D0%9A%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%20%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D0%B5%D1%82%20%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%2C%20%D0%B0%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80,%D0%B8%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%B7%D0%BD%D0%B0%D0%BB%D0%B8%2C%20%D1%87%D0%B5%D0%B3%D0%BE%20%D0%BE%D0%B6%D0%B8%D0%B4%D0%B0%D1%82%D1%8C.",
+        label: 'Википедия',
+        href: 'https://ru.wikipedia.org/wiki/%D0%9A%D0%BB%D0%B8%D0%B5%D0%BD%D1%82_%E2%80%94_%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80#:~:text=%D0%92%D0%B7%D0%B0%D0%B8%D0%BC%D0%BE%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D0%B5%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0%20%D0%B8%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0,-%D0%92%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%20%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D1%8F%2C%20%D1%81%D0%BB%D1%83%D0%B6%D0%B1%D0%B0&text=%D0%9A%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%20%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D0%B5%D1%82%20%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%2C%20%D0%B0%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80,%D0%B8%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%B7%D0%BD%D0%B0%D0%BB%D0%B8%2C%20%D1%87%D0%B5%D0%B3%D0%BE%20%D0%BE%D0%B6%D0%B8%D0%B4%D0%B0%D1%82%D1%8C.',
       },
     ],
     answer: `
@@ -475,21 +475,21 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
   {
     id: 11,
-    title: "Что такое REST?",
+    title: 'Что такое REST?',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://systems.education/what-is-rest",
+        label: 'Ссылка 1',
+        href: 'https://systems.education/what-is-rest',
       },
       {
-        label: "Ссылка 2 (медиум)",
-        href: "https://medium.com/@andr.ivas12/rest-%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%8B%D0%BC-%D1%8F%D0%B7%D1%8B%D0%BA%D0%BE%D0%BC-90a0bca0bc78",
+        label: 'Ссылка 2 (медиум)',
+        href: 'https://medium.com/@andr.ivas12/rest-%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%8B%D0%BC-%D1%8F%D0%B7%D1%8B%D0%BA%D0%BE%D0%BC-90a0bca0bc78',
       },
       {
-        label: "Youtube",
-        href: "https://www.youtube.com/watch?v=we4NVJtY_4E",
+        label: 'Youtube',
+        href: 'https://www.youtube.com/watch?v=we4NVJtY_4E',
       },
     ],
     answer: `
@@ -551,13 +551,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 12,
-    title: "Что такое SOAP?",
+    title: 'Что такое SOAP?',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Youtube",
-        href: "https://www.youtube.com/watch?v=we4NVJtY_4E",
+        label: 'Youtube',
+        href: 'https://www.youtube.com/watch?v=we4NVJtY_4E',
       },
     ],
     answer: `
@@ -609,7 +609,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 13,
-    title: "Что такое мутабельность и иммутабельность?",
+    title: 'Что такое мутабельность и иммутабельность?',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -631,7 +631,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 14,
-    title: "Типы данных в JavaScript",
+    title: 'Типы данных в JavaScript',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -679,7 +679,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 15,
-    title: "Как проверить, является ли объект массивом",
+    title: 'Как проверить, является ли объект массивом',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -689,7 +689,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 16,
-    title: "Как проверить, является ли число целым",
+    title: 'Как проверить, является ли число целым',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -699,7 +699,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 17,
-    title: "Как проверить, является ли переменная NaN?",
+    title: 'Как проверить, является ли переменная NaN?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -732,7 +732,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 18,
-    title: "Чем отличается isNaN() и Number.isNaN()?",
+    title: 'Чем отличается isNaN() и Number.isNaN()?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -753,7 +753,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 19,
-    title: "Чем отличается var, let и const?",
+    title: 'Чем отличается var, let и const?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -783,13 +783,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 20,
-    title: "Что такое область видимости (scope)?",
+    title: 'Что такое область видимости (scope)?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://itchief.ru/javascript/scope-and-context",
+        label: 'Ссылка 1',
+        href: 'https://itchief.ru/javascript/scope-and-context',
       },
     ],
     answer: `
@@ -858,13 +858,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 21,
-    title: "Что такое контекст?",
+    title: 'Что такое контекст?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://itchief.ru/javascript/scope-and-context",
+        label: 'Ссылка 1',
+        href: 'https://itchief.ru/javascript/scope-and-context',
       },
     ],
     answer: `
@@ -910,7 +910,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 22,
-    title: "Чем отличается контекст от области вызова (scope)?",
+    title: 'Чем отличается контекст от области вызова (scope)?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -928,13 +928,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 23,
-    title: "Что такое деструктуризация?",
+    title: 'Что такое деструктуризация?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/destructuring-assignment",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/destructuring-assignment',
       },
     ],
     answer: `
@@ -1005,13 +1005,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 24,
-    title: "Для чего предназначены методы setTimeout и setInterval?",
+    title: 'Для чего предназначены методы setTimeout и setInterval?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/settimeout-setinterval",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/settimeout-setinterval',
       },
     ],
     answer: `
@@ -1037,7 +1037,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 25,
-    title: "Чем отличаются callbacks, promises и async/await?",
+    title: 'Чем отличаются callbacks, promises и async/await?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -1057,13 +1057,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 26,
-    title: "Можно ли записывать новые функции в прототипы стандартных классов?",
+    title: 'Можно ли записывать новые функции в прототипы стандартных классов?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/native-prototypes",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/native-prototypes',
       },
     ],
     answer: `
@@ -1090,13 +1090,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 27,
-    title: "Методы массивов",
+    title: 'Методы массивов',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/array-methods",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/array-methods',
       },
     ],
     answer: `
@@ -1148,13 +1148,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 28,
-    title: "Какие перебирающие способы массива знаете?",
+    title: 'Какие перебирающие способы массива знаете?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/array-methods",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/array-methods',
       },
     ],
     answer: `
@@ -1179,13 +1179,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 29,
-    title: "Какие бывают операторы в Javascript?",
+    title: 'Какие бывают операторы в Javascript?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators',
       },
     ],
     answer: `
@@ -1207,13 +1207,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 30,
-    title: "Операторы присваивания",
+    title: 'Операторы присваивания',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators',
       },
     ],
     answer: `
@@ -1312,13 +1312,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 31,
-    title: "Операторы сравнения",
+    title: 'Операторы сравнения',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators',
       },
     ],
     answer: `
@@ -1339,13 +1339,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 32,
-    title: "Арифметические операторы",
+    title: 'Арифметические операторы',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators',
       },
     ],
     answer: `
@@ -1368,13 +1368,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 33,
-    title: "Битовые (поразрядные) операторы",
+    title: 'Битовые (поразрядные) операторы',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators',
       },
     ],
     answer: `
@@ -1432,13 +1432,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 34,
-    title: "Логические операторы",
+    title: 'Логические операторы',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators',
       },
     ],
     answer: `
@@ -1454,13 +1454,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 35,
-    title: "Строковые операторы",
+    title: 'Строковые операторы',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators',
       },
     ],
     answer: `
@@ -1473,13 +1473,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 36,
-    title: "Условный (тернарный) оператор",
+    title: 'Условный (тернарный) оператор',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators',
       },
     ],
     answer: `
@@ -1490,13 +1490,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 37,
-    title: "Унарные операторы",
+    title: 'Унарные операторы',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators',
       },
     ],
     answer: `
@@ -1563,13 +1563,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 38,
-    title: "Операторы отношения",
+    title: 'Операторы отношения',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators',
       },
     ],
     answer: `
@@ -1626,13 +1626,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 39,
-    title: "Оператор запятая",
+    title: 'Оператор запятая',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators',
       },
     ],
     answer: `
@@ -1651,13 +1651,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 40,
-    title: "Приоритет операторов",
+    title: 'Приоритет операторов',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators',
       },
     ],
     answer: `
@@ -1741,13 +1741,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 41,
-    title: "Map",
+    title: 'Map',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/map-set#map",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/map-set#map',
       },
     ],
     answer: `
@@ -1778,13 +1778,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 42,
-    title: "Set",
+    title: 'Set',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/map-set#set",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/map-set#set',
       },
     ],
     answer: `
@@ -1817,13 +1817,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 43,
-    title: "WeakMap и WeakSet",
+    title: 'WeakMap и WeakSet',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/weakmap-weakset",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/weakmap-weakset',
       },
     ],
     answer: `
@@ -1842,17 +1842,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 44,
-    title: "Deep (глубокое) и shallow (поверхностное) копирование",
+    title: 'Deep (глубокое) и shallow (поверхностное) копирование',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/object-copy",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/object-copy',
       },
       {
-        label: "Ссылка 2",
-        href: "https://doka.guide/js/shallow-or-deep-clone/#:~:text=%D0%9A%D1%80%D0%B0%D1%82%D0%BA%D0%BE,-%D0%A1%D0%B5%D0%BA%D1%86%D0%B8%D1%8F%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%22%D0%9A%D1%80%D0%B0%D1%82%D0%BA%D0%BE&text=%D0%9F%D1%80%D0%B8%20%D0%BA%D0%BE%D0%BF%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B8%20%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2%20%D0%B8%D0%BB%D0%B8%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%BE%D0%B2,deep)%20%D0%B8%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%BB%D0%BD%D0%BE%D0%B5%20%D0%BA%D0%BE%D0%BF%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85.",
+        label: 'Ссылка 2',
+        href: 'https://doka.guide/js/shallow-or-deep-clone/#:~:text=%D0%9A%D1%80%D0%B0%D1%82%D0%BA%D0%BE,-%D0%A1%D0%B5%D0%BA%D1%86%D0%B8%D1%8F%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%22%D0%9A%D1%80%D0%B0%D1%82%D0%BA%D0%BE&text=%D0%9F%D1%80%D0%B8%20%D0%BA%D0%BE%D0%BF%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B8%20%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2%20%D0%B8%D0%BB%D0%B8%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%BE%D0%B2,deep)%20%D0%B8%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%BB%D0%BD%D0%BE%D0%B5%20%D0%BA%D0%BE%D0%BF%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85.',
       },
     ],
     answer: `
@@ -1878,13 +1878,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 45,
-    title: "Сравнение Function Decaration и Function Expression",
+    title: 'Сравнение Function Decaration и Function Expression',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://behemothoz.gitbooks.io/js-learn/content/chapter1/raznitsa-mezhdu-function-expression-i-function-declaration.html",
+        label: 'Ссылка 1',
+        href: 'https://behemothoz.gitbooks.io/js-learn/content/chapter1/raznitsa-mezhdu-function-expression-i-function-declaration.html',
       },
     ],
     answer: `
@@ -1914,13 +1914,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 46,
-    title: "Что такое анонимная функция?",
+    title: 'Что такое анонимная функция?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Medium (копание)",
-        href: "https://medium.com/devschacht/anonymous-functions-in-javascript-ff6b9ba85de0",
+        label: 'Medium (копание)',
+        href: 'https://medium.com/devschacht/anonymous-functions-in-javascript-ff6b9ba85de0',
       },
     ],
     answer: `
@@ -1936,17 +1936,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 47,
-    title: "Стрелочные (arrow) функции",
+    title: 'Стрелочные (arrow) функции',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/Arrow_functions",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/Arrow_functions',
       },
       {
-        label: "w3s",
-        href: "https://www.w3schools.com/js/js_arrow_function.asp",
+        label: 'w3s',
+        href: 'https://www.w3schools.com/js/js_arrow_function.asp',
       },
     ],
     answer: `
@@ -1959,13 +1959,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 48,
     title:
-      "Что такое и для чего используют IIFE (Immediately Invoked Function Expression)?",
+      'Что такое и для чего используют IIFE (Immediately Invoked Function Expression)?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Glossary/IIFE",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Glossary/IIFE',
       },
     ],
     answer: `
@@ -1988,17 +1988,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 49,
-    title: "Что такое hoisting, как он работает для переменных и функций?",
+    title: 'Что такое hoisting, как он работает для переменных и функций?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Medium",
-        href: "https://medium.com/@stasonmars/%D1%80%D0%B0%D0%B7%D0%B1%D0%B8%D1%80%D0%B0%D0%B5%D0%BC%D1%81%D1%8F-%D1%81-%D0%BF%D0%BE%D0%B4%D0%BD%D1%8F%D1%82%D0%B8%D0%B5%D0%BC-hoisting-%D0%B2-javascript-7d2d27bc51f1#:~:text=%D0%9F%D0%BE%D0%B4%D0%BD%D1%8F%D1%82%D0%B8%D0%B5%20%D0%B8%D0%BB%D0%B8%20hoisting%20%E2%80%94%20%D1%8D%D1%82%D0%BE%20%D0%BC%D0%B5%D1%85%D0%B0%D0%BD%D0%B8%D0%B7%D0%BC,%D1%82%D0%B5%D0%BC%2C%20%D0%BA%D0%B0%D0%BA%20%D0%BA%D0%BE%D0%B4%20%D0%B1%D1%83%D0%B4%D0%B5%D1%82%20%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD.",
+        label: 'Medium',
+        href: 'https://medium.com/@stasonmars/%D1%80%D0%B0%D0%B7%D0%B1%D0%B8%D1%80%D0%B0%D0%B5%D0%BC%D1%81%D1%8F-%D1%81-%D0%BF%D0%BE%D0%B4%D0%BD%D1%8F%D1%82%D0%B8%D0%B5%D0%BC-hoisting-%D0%B2-javascript-7d2d27bc51f1#:~:text=%D0%9F%D0%BE%D0%B4%D0%BD%D1%8F%D1%82%D0%B8%D0%B5%20%D0%B8%D0%BB%D0%B8%20hoisting%20%E2%80%94%20%D1%8D%D1%82%D0%BE%20%D0%BC%D0%B5%D1%85%D0%B0%D0%BD%D0%B8%D0%B7%D0%BC,%D1%82%D0%B5%D0%BC%2C%20%D0%BA%D0%B0%D0%BA%20%D0%BA%D0%BE%D0%B4%20%D0%B1%D1%83%D0%B4%D0%B5%D1%82%20%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD.',
       },
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Glossary/Hoisting",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Glossary/Hoisting',
       },
     ],
     answer: `
@@ -2016,21 +2016,21 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 50,
-    title: "Что такое замыкание (closure)?",
+    title: 'Что такое замыкание (closure)?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/closure",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/closure',
       },
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/Closures",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Closures',
       },
       {
-        label: "Ссылка 3",
-        href: "https://itchief.ru/javascript/closure#:~:text=%D0%97%D0%B0%D0%BC%D1%8B%D0%BA%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%B2%20JavaScript%20%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%20%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%BF%D1%80%D0%B8%D0%B2%D0%B0%D1%82%D0%BD%D1%8B%D1%85%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D0%B8%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B9.",
+        label: 'Ссылка 3',
+        href: 'https://itchief.ru/javascript/closure#:~:text=%D0%97%D0%B0%D0%BC%D1%8B%D0%BA%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%B2%20JavaScript%20%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%20%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%BF%D1%80%D0%B8%D0%B2%D0%B0%D1%82%D0%BD%D1%8B%D1%85%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D0%B8%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B9.',
       },
     ],
     answer: `
@@ -2063,13 +2063,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 51,
-    title: "Что такое рекурсия?",
+    title: 'Что такое рекурсия?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/recursion#:~:text=%D0%A2%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D1%8B%3A,%D1%81%D0%B5%D0%B1%D1%8F%2C%20%D1%8D%D1%82%D0%BE%20%D0%BD%D0%B0%D0%B7%D1%8B%D0%B2%D0%B0%D0%B5%D1%82%D1%81%D1%8F%20%D1%88%D0%B0%D0%B3%D0%BE%D0%BC%20%D1%80%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B8.",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/recursion#:~:text=%D0%A2%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D1%8B%3A,%D1%81%D0%B5%D0%B1%D1%8F%2C%20%D1%8D%D1%82%D0%BE%20%D0%BD%D0%B0%D0%B7%D1%8B%D0%B2%D0%B0%D0%B5%D1%82%D1%81%D1%8F%20%D1%88%D0%B0%D0%B3%D0%BE%D0%BC%20%D1%80%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B8.',
       },
     ],
     answer: `
@@ -2082,17 +2082,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 52,
-    title: "Что такое this?",
+    title: 'Что такое this?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/this",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/this',
       },
       {
-        label: "Ссылка 2",
-        href: "https://habr.com/ru/company/ruvds/blog/419371/",
+        label: 'Ссылка 2',
+        href: 'https://habr.com/ru/company/ruvds/blog/419371/',
       },
     ],
     answer: `
@@ -2110,7 +2110,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 53,
     title:
-      "Что такое потеря контекста, когда происходит и как её предотвратить?",
+      'Что такое потеря контекста, когда происходит и как её предотвратить?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2186,13 +2186,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 54,
-    title: "Методы функций bind/call/apply – зачем и в чем разница?",
+    title: 'Методы функций bind/call/apply – зачем и в чем разница?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://www.8host.com/blog/kak-rabotaet-this-bind-call-i-apply-v-javascript/",
+        label: 'Ссылка 1',
+        href: 'https://www.8host.com/blog/kak-rabotaet-this-bind-call-i-apply-v-javascript/',
       },
     ],
     answer: `
@@ -2205,13 +2205,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 55,
-    title: "Что такое DOM?",
+    title: 'Что такое DOM?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://itchief.ru/javascript/dom",
+        label: 'Ссылка 1',
+        href: 'https://itchief.ru/javascript/dom',
       },
     ],
     answer: `
@@ -2222,13 +2222,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 56,
-    title: "Async и defer",
+    title: 'Async и defer',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Learn javascript",
-        href: "https://learn.javascript.ru/script-async-defer",
+        label: 'Learn javascript',
+        href: 'https://learn.javascript.ru/script-async-defer',
       },
     ],
     answer: `
@@ -2250,13 +2250,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 57,
-    title: "Отличие innerHTML и innerText",
+    title: 'Отличие innerHTML и innerText',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://efim360.ru/javascript-chem-otlichaetsya-innertext-ot-innerhtml/",
+        label: 'Ссылка 1',
+        href: 'https://efim360.ru/javascript-chem-otlichaetsya-innertext-ot-innerhtml/',
       },
     ],
     answer: `
@@ -2283,13 +2283,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 58,
-    title: "Всплытие (bubblind) и погружение (capturing)",
+    title: 'Всплытие (bubblind) и погружение (capturing)',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/bubbling-and-capturing",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/bubbling-and-capturing',
       },
     ],
     answer: `
@@ -2309,13 +2309,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 59,
-    title: "Как остановить дефолтную обработку события?",
+    title: 'Как остановить дефолтную обработку события?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/default-browser-action",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/default-browser-action',
       },
     ],
     answer: `
@@ -2330,13 +2330,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 60,
-    title: "Чему равен this в обработчике событий (event handler)?",
+    title: 'Чему равен this в обработчике событий (event handler)?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://professorweb.ru/my/javascript/js_theory/level2/2_5.php",
+        label: 'Ссылка 1',
+        href: 'https://professorweb.ru/my/javascript/js_theory/level2/2_5.php',
       },
     ],
     answer: `
@@ -2348,13 +2348,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 61,
     title:
-      "Что такое LocalStorage и SessionStorage? Каков максимальный размер LocalStorage?",
+      'Что такое LocalStorage и SessionStorage? Каков максимальный размер LocalStorage?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/localstorage",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/localstorage',
       },
     ],
     answer: `
@@ -2405,13 +2405,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 62,
-    title: "Как получить высоту блока? Его положения о границах документа?",
+    title: 'Как получить высоту блока? Его положения о границах документа?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/coordinatesp",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/coordinatesp',
       },
     ],
     answer: `
@@ -2431,7 +2431,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 63,
-    title: "Что такое webpack?",
+    title: 'Что такое webpack?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2441,7 +2441,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 64,
-    title: "Чем отличается dev-сборник от prod?",
+    title: 'Чем отличается dev-сборник от prod?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2451,7 +2451,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 65,
-    title: "Что такое блочная модель CSS?",
+    title: 'Что такое блочная модель CSS?',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2465,13 +2465,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 66,
     title:
-      "Какие способы центрирования блочного контента по горизонтали и вертикали знаете?",
+      'Какие способы центрирования блочного контента по горизонтали и вертикали знаете?',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/css-center",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/css-center',
       },
     ],
     answer: `
@@ -2499,7 +2499,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 67,
-    title: "Что такое семантическая вёрстка?",
+    title: 'Что такое семантическая вёрстка?',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2512,7 +2512,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 68,
     title:
-      "Зачем нужны префиксы для некоторых CSS-свойств (-webkit-, -moz- и т.п.)?",
+      'Зачем нужны префиксы для некоторых CSS-свойств (-webkit-, -moz- и т.п.)?',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2527,7 +2527,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 69,
-    title: "Как упростить написание кроссбраузерных стилей?",
+    title: 'Как упростить написание кроссбраузерных стилей?',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2541,7 +2541,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 70,
-    title: "Что такое CSS-препроцессоры?",
+    title: 'Что такое CSS-препроцессоры?',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2558,7 +2558,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 71,
-    title: "Перечислите основные компоненты фреймворка?",
+    title: 'Перечислите основные компоненты фреймворка?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2575,7 +2575,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 72,
-    title: "В чем разница между компонентом и директивой?",
+    title: 'В чем разница между компонентом и директивой?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2585,7 +2585,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 73,
-    title: "Расскажите о жизненном цикле компоненты",
+    title: 'Расскажите о жизненном цикле компоненты',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2606,7 +2606,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 74,
     title:
-      "Перечислите часто используемые хуки жизненного цикла компонента и расскажите, зачем они нужны?",
+      'Перечислите часто используемые хуки жизненного цикла компонента и расскажите, зачем они нужны?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2621,7 +2621,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 75,
-    title: "В чем разница между конструктором и ngOnInit-хуком?",
+    title: 'В чем разница между конструктором и ngOnInit-хуком?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2642,7 +2642,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 76,
     title:
-      "Как защитить роут от несанкционированного доступа? Какие механизмы предоставляет для этого фреймворк?",
+      'Как защитить роут от несанкционированного доступа? Какие механизмы предоставляет для этого фреймворк?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2654,7 +2654,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 77,
-    title: "Что такое Lazy loading, как и для чего используется?",
+    title: 'Что такое Lazy loading, как и для чего используется?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2676,7 +2676,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 78,
-    title: "Какое предназначение RouterOutlet?",
+    title: 'Какое предназначение RouterOutlet?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2688,7 +2688,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 79,
-    title: "Как компоненты могут взаимодействовать друг с другом?",
+    title: 'Как компоненты могут взаимодействовать друг с другом?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2704,7 +2704,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 80,
-    title: "Как создать two-way binding свойство для компонента?",
+    title: 'Как создать two-way binding свойство для компонента?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2733,7 +2733,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 81,
     title:
-      "Какие типы форм имеются во фреймворке? В каких случаях и что лучше использовать?",
+      'Какие типы форм имеются во фреймворке? В каких случаях и что лучше использовать?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2748,7 +2748,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 82,
-    title: "Какие состояния есть у формы и как это можно применить?",
+    title: 'Какие состояния есть у формы и как это можно применить?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2765,7 +2765,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 83,
-    title: "Зачем нужны сервисы?",
+    title: 'Зачем нужны сервисы?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2787,7 +2787,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 84,
     title:
-      "Что такое singleton-сервисы? Каково их предназначение? Способ создания?",
+      'Что такое singleton-сервисы? Каково их предназначение? Способ создания?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2804,7 +2804,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 85,
-    title: "Зачем нужны модули? Сколько их должно быть в проекте?",
+    title: 'Зачем нужны модули? Сколько их должно быть в проекте?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2815,7 +2815,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 86,
-    title: "Зачем нужны общие модули (shared)?",
+    title: 'Зачем нужны общие модули (shared)?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2827,7 +2827,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 87,
-    title: "Какие преимущества типизации в TypeScript?",
+    title: 'Какие преимущества типизации в TypeScript?',
     category: [QuizletQuestionCategory.typescript],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2843,7 +2843,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 88,
-    title: "Какая разница между интерфейсом и классом?",
+    title: 'Какая разница между интерфейсом и классом?',
     category: [QuizletQuestionCategory.typescript],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2870,7 +2870,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 89,
-    title: "Какая разница между интерфейсом и абстрактным классом?",
+    title: 'Какая разница между интерфейсом и абстрактным классом?',
     category: [QuizletQuestionCategory.typescript],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2903,13 +2903,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 90,
-    title: "Какая разница между интерфейсом и типом?",
+    title: 'Какая разница между интерфейсом и типом?',
     category: [QuizletQuestionCategory.typescript],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://teletype.in/@alteregor/rkPlgmQz8",
+        label: 'Ссылка 1',
+        href: 'https://teletype.in/@alteregor/rkPlgmQz8',
       },
     ],
     answer: `
@@ -2935,7 +2935,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 91,
-    title: "Что такое RxJS?",
+    title: 'Что такое RxJS?',
     category: [QuizletQuestionCategory.rxjs],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2946,7 +2946,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 92,
-    title: "Чем отличаются Observable и Subject?",
+    title: 'Чем отличаются Observable и Subject?',
     category: [QuizletQuestionCategory.rxjs],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2956,7 +2956,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 93,
-    title: "Какие бывают Subject?",
+    title: 'Какие бывают Subject?',
     category: [QuizletQuestionCategory.rxjs],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -2970,10 +2970,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 94,
     title:
-      "Как сделать несколько последовательных запросов к API с помощью RxJS?",
+      'Как сделать несколько последовательных запросов к API с помощью RxJS?',
     category: [QuizletQuestionCategory.rxjs],
     level: QuizletQuestionLevel.junior,
-    links: [{ label: "Habr", href: "https://habr.com/ru/post/471572/" }],
+    links: [{ label: 'Habr', href: 'https://habr.com/ru/post/471572/' }],
     answer: `
     <p><strong>subscribe</strong></p>
     <p>Довольно простой способ. Делаем первый запрос к API. Затем, во вложенной подписке, чтобы можно было использовать первый ответ, делаем еще два запроса к API.</p>
@@ -2992,7 +2992,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 95,
-    title: "Как можно конфигурировать Angular-приложение?",
+    title: 'Как можно конфигурировать Angular-приложение?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -3002,7 +3002,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 96,
-    title: "Для чего нужны environment-файлы? Когда их лучше не использовать?",
+    title: 'Для чего нужны environment-файлы? Когда их лучше не использовать?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -3013,7 +3013,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 97,
-    title: "В чем разница между умным (smart) и глупым (dumb) компонентами?",
+    title: 'В чем разница между умным (smart) и глупым (dumb) компонентами?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -3025,7 +3025,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 98,
     title:
-      "В чем разница между NgForm, FormGroup и FormControl и как они применяются для построения форм?",
+      'В чем разница между NgForm, FormGroup и FormControl и как они применяются для построения форм?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -3039,7 +3039,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 99,
-    title: "Зачем нужен и как работает async pipe?",
+    title: 'Зачем нужен и как работает async pipe?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -3051,7 +3051,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 100,
-    title: "В чем разница межэу функциональными и классовыми компонентами?",
+    title: 'В чем разница межэу функциональными и классовыми компонентами?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -3079,7 +3079,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 101,
     title:
-      "Какие данные лучше хранить в состоянии компонента, а какие передавать через пропсы?",
+      'Какие данные лучше хранить в состоянии компонента, а какие передавать через пропсы?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -3090,7 +3090,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 102,
-    title: "Минусы и плюсы хуков?",
+    title: 'Минусы и плюсы хуков?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -3101,7 +3101,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 103,
-    title: "Какими могут быть свои кастомные хуки?",
+    title: 'Какими могут быть свои кастомные хуки?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     toBeReviewed: true,
@@ -3113,13 +3113,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 104,
-    title: "Что такое фрагменты?",
+    title: 'Что такое фрагменты?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "React official",
-        href: "https://ru.reactjs.org/docs/fragments.html",
+        label: 'React official',
+        href: 'https://ru.reactjs.org/docs/fragments.html',
       },
     ],
     answer: `
@@ -3129,13 +3129,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 104,
-    title: "Что такое порталы?",
+    title: 'Что такое порталы?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "React official",
-        href: "https://ru.reactjs.org/docs/portals.html",
+        label: 'React official',
+        href: 'https://ru.reactjs.org/docs/portals.html',
       },
     ],
     answer: `
@@ -3146,13 +3146,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 104,
-    title: "Что такое рефы?",
+    title: 'Что такое рефы?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "React official",
-        href: "https://ru.reactjs.org/docs/refs-and-the-dom.html",
+        label: 'React official',
+        href: 'https://ru.reactjs.org/docs/refs-and-the-dom.html',
       },
     ],
     answer: `
@@ -3177,14 +3177,14 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 105,
-    title: "Жизненный цикл компонент?",
+    title: 'Жизненный цикл компонент?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     toBeReviewed: true,
     links: [
       {
-        label: "w3s",
-        href: "https://www.w3schools.com/react/react_lifecycle.asp",
+        label: 'w3s',
+        href: 'https://www.w3schools.com/react/react_lifecycle.asp',
       },
     ],
     answer: `
@@ -3229,7 +3229,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 106,
     title:
-      "В каком методе жизненного цикла компонента лучше делать запросы на сервер? Почему?",
+      'В каком методе жизненного цикла компонента лучше делать запросы на сервер? Почему?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     toBeReviewed: true,
@@ -3242,7 +3242,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 107,
     title:
-      "В каком методе жизненного цикла компонента лучше производить подписку и отписку от листенера? Почему? Зачем отписываться?",
+      'В каком методе жизненного цикла компонента лучше производить подписку и отписку от листенера? Почему? Зачем отписываться?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     toBeReviewed: true,
@@ -3253,13 +3253,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 108,
-    title: "Что такое контекст и где его использовать?",
+    title: 'Что такое контекст и где его использовать?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "React official",
-        href: "https://ru.reactjs.org/docs/context.html",
+        label: 'React official',
+        href: 'https://ru.reactjs.org/docs/context.html',
       },
     ],
     answer: `
@@ -3279,13 +3279,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 109,
-    title: "В чем особенность PureComponent и React.memo?",
+    title: 'В чем особенность PureComponent и React.memo?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/company/redmadrobot/blog/318222/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/company/redmadrobot/blog/318222/',
       },
     ],
     answer: `
@@ -3300,7 +3300,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 110,
-    title: "Что такое мемоизированные селекторы?",
+    title: 'Что такое мемоизированные селекторы?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -3310,7 +3310,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 111,
-    title: "В чем видите преимущества библиотеки React?",
+    title: 'В чем видите преимущества библиотеки React?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -3320,17 +3320,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 112,
-    title: "Что такое Virtual DOM?",
+    title: 'Что такое Virtual DOM?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "React official",
-        href: "https://ru.reactjs.org/docs/faq-internals.html",
+        label: 'React official',
+        href: 'https://ru.reactjs.org/docs/faq-internals.html',
       },
       {
-        label: "Ссылка 2",
-        href: "https://habr.com/ru/company/macloud/blog/558682/",
+        label: 'Ссылка 2',
+        href: 'https://habr.com/ru/company/macloud/blog/558682/',
       },
     ],
     answer: `
@@ -3341,13 +3341,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 113,
-    title: "Зачем в списках ключи?",
+    title: 'Зачем в списках ключи?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "React official",
-        href: "https://ru.reactjs.org/docs/lists-and-keys.html",
+        label: 'React official',
+        href: 'https://ru.reactjs.org/docs/lists-and-keys.html',
       },
     ],
     answer: `
@@ -3359,13 +3359,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 114,
-    title: "В чем основная идея Redux?",
+    title: 'В чем основная идея Redux?',
     category: [QuizletQuestionCategory.redux],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://stepansuvorov.com/blog/2017/05/learn-redux/#:~:text=%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%B0%D1%8F%20%D0%B8%D0%B4%D0%B5%D1%8F%20Redux%20%E2%80%93%20%D0%B2%D1%81%D0%B5%D0%B3%D0%B4%D0%B0%20%D0%B8%D0%BC%D0%B5%D1%82%D1%8C,%D1%87%D1%82%D0%BE%20%D1%82%D0%BE%D0%B6%D0%B5%20%D1%8F%D0%B2%D0%BB%D1%8F%D0%B5%D1%82%D1%81%D1%8F%20Javascript%20%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%BC.",
+        label: 'Ссылка 1',
+        href: 'https://stepansuvorov.com/blog/2017/05/learn-redux/#:~:text=%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%B0%D1%8F%20%D0%B8%D0%B4%D0%B5%D1%8F%20Redux%20%E2%80%93%20%D0%B2%D1%81%D0%B5%D0%B3%D0%B4%D0%B0%20%D0%B8%D0%BC%D0%B5%D1%82%D1%8C,%D1%87%D1%82%D0%BE%20%D1%82%D0%BE%D0%B6%D0%B5%20%D1%8F%D0%B2%D0%BB%D1%8F%D0%B5%D1%82%D1%81%D1%8F%20Javascript%20%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%BC.',
       },
     ],
     answer: `
@@ -3376,13 +3376,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 115,
-    title: "Работа со стилями в React",
+    title: 'Работа со стилями в React',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Medium",
-        href: "https://medium.com/@stasonmars/%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE-%D0%BF%D0%BE-%D1%82%D1%80%D1%91%D0%BC-%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D0%B0%D0%BC-%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8-%D0%B2-react-2ca5c0c7464b",
+        label: 'Medium',
+        href: 'https://medium.com/@stasonmars/%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE-%D0%BF%D0%BE-%D1%82%D1%80%D1%91%D0%BC-%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D0%B0%D0%BC-%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8-%D0%B2-react-2ca5c0c7464b',
       },
     ],
     answer: `
@@ -3398,7 +3398,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 116,
     title:
-      "React — это библиотека или фреймворк? Какая разница между этими двумя понятиями.",
+      'React — это библиотека или фреймворк? Какая разница между этими двумя понятиями.',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -3410,7 +3410,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 117,
-    title: "Можно ли использовать jQuery вместе с React? Почему да/нет?",
+    title: 'Можно ли использовать jQuery вместе с React? Почему да/нет?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -3422,7 +3422,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 118,
-    title: "Перечислите все библиотеки, которые использовались в связи с React",
+    title: 'Перечислите все библиотеки, которые использовались в связи с React',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -3434,13 +3434,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 119,
-    title: "Расскажите о пирамиде тестирования",
+    title: 'Расскажите о пирамиде тестирования',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://dou.ua/lenta/columns/testing-in-jiji/",
+        label: 'Ссылка 1',
+        href: 'https://dou.ua/lenta/columns/testing-in-jiji/',
       },
     ],
     answer: `
@@ -3457,13 +3457,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 120,
-    title: "Типы автотестов",
+    title: 'Типы автотестов',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://logrocon.ru/news/automation_testing",
+        label: 'Ссылка 1',
+        href: 'https://logrocon.ru/news/automation_testing',
       },
     ],
     answer: `
@@ -3483,13 +3483,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 121,
     title:
-      "Что такое unit-тесты? Какое место в пирамиде тестирования занимают unit-тесты?",
+      'Что такое unit-тесты? Какое место в пирамиде тестирования занимают unit-тесты?',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://dou.ua/lenta/columns/testing-in-jiji/",
+        label: 'Ссылка 1',
+        href: 'https://dou.ua/lenta/columns/testing-in-jiji/',
       },
     ],
     answer: `
@@ -3501,7 +3501,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 122,
     title:
-      "Что такое code coverage? Обязательно ли 100% покрытие тестами кода?",
+      'Что такое code coverage? Обязательно ли 100% покрытие тестами кода?',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.middle,
     answer: `
@@ -3511,17 +3511,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 123,
-    title: "Как запретить браузеру отдавать кэш на HTTP-запрос?",
+    title: 'Как запретить браузеру отдавать кэш на HTTP-запрос?',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/HTTP/Caching",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/HTTP/Caching',
       },
       {
-        label: "Ссылка 2",
-        href: "https://qna.habr.com/q/258883",
+        label: 'Ссылка 2',
+        href: 'https://qna.habr.com/q/258883',
       },
     ],
     answer: `
@@ -3544,7 +3544,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 124,
-    title: "Что такое XSS (Cross-Site Scripting)?",
+    title: 'Что такое XSS (Cross-Site Scripting)?',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.middle,
     answer: `
@@ -3556,13 +3556,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 125,
-    title: "Расскажите о паттернах Observer, Pub/Sub и где они используются",
+    title: 'Расскажите о паттернах Observer, Pub/Sub и где они используются',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/post/270339/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/post/270339/',
       },
     ],
     answer: `
@@ -3581,12 +3581,12 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/post/517672/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/post/517672/',
       },
       {
-        label: "Ссылка 2",
-        href: "https://developer.mozilla.org/ru/docs/Web/API/Service_Worker_API/Using_Service_Workers",
+        label: 'Ссылка 2',
+        href: 'https://developer.mozilla.org/ru/docs/Web/API/Service_Worker_API/Using_Service_Workers',
       },
     ],
     answer: `
@@ -3600,21 +3600,21 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 127,
-    title: "Что такое Event loop и как он работает?",
+    title: 'Что такое Event loop и как он работает?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/EventLoop",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/EventLoop',
       },
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/event-loop",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/event-loop',
       },
       {
-        label: "Ссылка 3",
-        href: "https://highload.today/kak-ustroen-event-loop-v-javascript-parallelnaya-model-i-tsikl-sobytij/",
+        label: 'Ссылка 3',
+        href: 'https://highload.today/kak-ustroen-event-loop-v-javascript-parallelnaya-model-i-tsikl-sobytij/',
       },
     ],
     answer: `
@@ -3640,13 +3640,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 127,
-    title: "Расскажите о микрозадачах и макрозадачах.",
+    title: 'Расскажите о микрозадачах и макрозадачах.',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/event-loop",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/event-loop',
       },
     ],
     toBeReviewed: true,
@@ -3675,13 +3675,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 128,
-    title: "Что такое Temporal Dead Zone?",
+    title: 'Что такое Temporal Dead Zone?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://jsinthebits.com/what-is-the-temporal-dead-zone-e41369d4/#:~:text=%D0%9E%D0%B1%D1%8A%D1%8F%D1%81%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20Temporal%20Dead%20Zone,%D0%B2%D0%B8%D0%B4%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8%20%D0%B4%D0%BE%20%D0%BC%D0%BE%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%20%D0%B8%D1%85%20%D0%BE%D0%B1%D1%8A%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F.",
+        label: 'Ссылка 1',
+        href: 'https://jsinthebits.com/what-is-the-temporal-dead-zone-e41369d4/#:~:text=%D0%9E%D0%B1%D1%8A%D1%8F%D1%81%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20Temporal%20Dead%20Zone,%D0%B2%D0%B8%D0%B4%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8%20%D0%B4%D0%BE%20%D0%BC%D0%BE%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%20%D0%B8%D1%85%20%D0%BE%D0%B1%D1%8A%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F.',
       },
     ],
     answer: `
@@ -3702,13 +3702,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 129,
-    title: "Как работает Boxind и Unboxing?",
+    title: 'Как работает Boxind и Unboxing?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://javascript.plainenglish.io/javascript-boxing-wrappers-5b5ff9e5f6ab",
+        label: 'Ссылка 1',
+        href: 'https://javascript.plainenglish.io/javascript-boxing-wrappers-5b5ff9e5f6ab',
       },
     ],
     answer: `
@@ -3720,17 +3720,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 130,
-    title: "В чем разница между оператором in и методом hasOwnProperty?",
+    title: 'В чем разница между оператором in и методом hasOwnProperty?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "MDN 1",
-        href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/in",
+        label: 'MDN 1',
+        href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/in',
       },
       {
-        label: "MDN 2",
-        href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty",
+        label: 'MDN 2',
+        href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty',
       },
     ],
     answer: `
@@ -3742,13 +3742,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 131,
     title:
-      "Опишите, с помощью чего в JS реализуются такие ООП-парадигмы как инкапсуляция, полиморфизм, абстракция?",
+      'Опишите, с помощью чего в JS реализуются такие ООП-парадигмы как инкапсуляция, полиморфизм, абстракция?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://frontend-stuff.com/blog/object-oriented-programming/",
+        label: 'Ссылка 1',
+        href: 'https://frontend-stuff.com/blog/object-oriented-programming/',
       },
     ],
     answer: `
@@ -3768,17 +3768,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 132,
     title:
-      "Что такое прототип? Как работает прототипное подражание в JS? +практическое",
+      'Что такое прототип? Как работает прототипное подражание в JS? +практическое',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript 1 (общее)",
-        href: "https://learn.javascript.ru/prototype-inheritance",
+        label: 'Learn Javascript 1 (общее)',
+        href: 'https://learn.javascript.ru/prototype-inheritance',
       },
       {
-        label: "Learn Javascript 2 (про prototype)",
-        href: "https://learn.javascript.ru/prototype-inheritance",
+        label: 'Learn Javascript 2 (про prototype)',
+        href: 'https://learn.javascript.ru/prototype-inheritance',
       },
     ],
     answer: `
@@ -3808,17 +3808,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 133,
-    title: "Какая разница между композицией и наследованием?",
+    title: 'Какая разница между композицией и наследованием?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://webdevblog.ru/prosto-o-kompozicii-agregacii-i-associacii-v-javascript/",
+        label: 'Ссылка 1',
+        href: 'https://webdevblog.ru/prosto-o-kompozicii-agregacii-i-associacii-v-javascript/',
       },
       {
-        label: "Ссылка 2",
-        href: "https://gist.github.com/sandrig/d776ece2744c5a30883d4da07bca4877/",
+        label: 'Ссылка 2',
+        href: 'https://gist.github.com/sandrig/d776ece2744c5a30883d4da07bca4877/',
       },
     ],
     answer: `
@@ -3830,13 +3830,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 134,
-    title: "Почему не следует использовать конструкторы типа new String?",
+    title: 'Почему не следует использовать конструкторы типа new String?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://javascript.plainenglish.io/javascript-boxing-wrappers-5b5ff9e5f6ab",
+        label: 'Ссылка 1',
+        href: 'https://javascript.plainenglish.io/javascript-boxing-wrappers-5b5ff9e5f6ab',
       },
     ],
     answer: `
@@ -3847,13 +3847,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 135,
     title:
-      "Что такое записи (records) и кортежи (tuples)? Чем они отличаются от обычных объектов?",
+      'Что такое записи (records) и кортежи (tuples)? Чем они отличаются от обычных объектов?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/post/504092/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/post/504092/',
       },
     ],
     answer: `
@@ -3876,7 +3876,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 136,
     title:
-      "Какие отличия в поведении ES5 функции-конструктора и класса ES2015?",
+      'Какие отличия в поведении ES5 функции-конструктора и класса ES2015?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     answer: `
@@ -3886,13 +3886,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 137,
-    title: "Как реализовать паттерн «Модуль»?",
+    title: 'Как реализовать паттерн «Модуль»?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://metanit.com/web/javascript/3.9.php",
+        label: 'Ссылка 1',
+        href: 'https://metanit.com/web/javascript/3.9.php',
       },
     ],
     answer: `
@@ -3918,8 +3918,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/post/200664/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/post/200664/',
       },
     ],
     answer: `
@@ -3929,13 +3929,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 139,
-    title: "Что такое приведение (преобразование) типов в JS?",
+    title: 'Что такое приведение (преобразование) типов в JS?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/type-conversions",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/type-conversions',
       },
     ],
     answer: `
@@ -3952,18 +3952,18 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 130,
     title:
-      "Что такое явное и неявное приведение (преобразование) типов? + практическое",
+      'Что такое явное и неявное приведение (преобразование) типов? + практическое',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     isPractise: true,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/type-conversions",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/type-conversions',
       },
       {
-        label: "Объяснения задачи",
-        href: "https://www.destroyallsoftware.com/talks/wat",
+        label: 'Объяснения задачи',
+        href: 'https://www.destroyallsoftware.com/talks/wat',
       },
     ],
     answer: `
@@ -3996,13 +3996,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 131,
-    title: "Что такое Garbage Collector и как он работает?",
+    title: 'Что такое Garbage Collector и как он работает?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/garbage-collection",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/garbage-collection',
       },
     ],
     answer: `
@@ -4022,13 +4022,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 132,
-    title: "Что такое Garbage Collector и как он работает?",
+    title: 'Что такое Garbage Collector и как он работает?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/garbage-collection",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/garbage-collection',
       },
     ],
     answer: `
@@ -4048,13 +4048,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 133,
-    title: "Чем отличаются Observable и Promise?",
+    title: 'Чем отличаются Observable и Promise?',
     category: [QuizletQuestionCategory.rxjs],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://nicecoding.ru/v-chem-otlichie-observable-ot-promise.html",
+        label: 'Ссылка 1',
+        href: 'https://nicecoding.ru/v-chem-otlichie-observable-ot-promise.html',
       },
     ],
     answer: `
@@ -4066,13 +4066,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 134,
-    title: "Практическое на промисы",
+    title: 'Практическое на промисы',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/garbage-collection",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/garbage-collection',
       },
     ],
     answer: `
@@ -4111,13 +4111,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 135,
     title:
-      "Статические методы промиса: Promise.all(), Promise.allSettled(), Promise.race()",
+      'Статические методы промиса: Promise.all(), Promise.allSettled(), Promise.race()',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/promise-api#promise-resolve-reject",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/promise-api#promise-resolve-reject',
       },
     ],
     answer: `
@@ -4141,17 +4141,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 136,
     title:
-      "Что такое дескрипторы свойств объектов? Расскажите об их практическом применении.",
+      'Что такое дескрипторы свойств объектов? Расскажите об их практическом применении.',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript 1 (+ getters, setters)",
-        href: "https://learn.javascript.ru/descriptors-getters-setters",
+        label: 'Learn Javascript 1 (+ getters, setters)',
+        href: 'https://learn.javascript.ru/descriptors-getters-setters',
       },
       {
-        label: "Learn Javascript 2",
-        href: "https://learn.javascript.ru/property-descriptors",
+        label: 'Learn Javascript 2',
+        href: 'https://learn.javascript.ru/property-descriptors',
       },
     ],
     answer: `
@@ -4169,17 +4169,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 137,
-    title: "Как защитить объект?",
+    title: 'Как защитить объект?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript 1 (+ getters, setters)",
-        href: "https://learn.javascript.ru/descriptors-getters-setters",
+        label: 'Learn Javascript 1 (+ getters, setters)',
+        href: 'https://learn.javascript.ru/descriptors-getters-setters',
       },
       {
-        label: "Learn Javascript 2",
-        href: "https://learn.javascript.ru/property-descriptors",
+        label: 'Learn Javascript 2',
+        href: 'https://learn.javascript.ru/property-descriptors',
       },
     ],
     answer: `
@@ -4210,13 +4210,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 138,
-    title: "Зачем нужен конструктор Proxy?",
+    title: 'Зачем нужен конструктор Proxy?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/proxy",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/proxy',
       },
     ],
     answer: `
@@ -4227,7 +4227,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 139,
-    title: "Какие отличия меж encodeURI() и encodeURIComponent()?",
+    title: 'Какие отличия меж encodeURI() и encodeURIComponent()?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     answer: `
@@ -4242,13 +4242,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 140,
-    title: "Что такое генераторы?",
+    title: 'Что такое генераторы?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/generators",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/generators',
       },
     ],
     answer: `
@@ -4273,17 +4273,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 141,
-    title: "Что такое итераторы?",
+    title: 'Что такое итераторы?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript 1",
-        href: "https://learn.javascript.ru/iterable",
+        label: 'Learn Javascript 1',
+        href: 'https://learn.javascript.ru/iterable',
       },
       {
-        label: "Learn Javascript 2",
-        href: "https://learn.javascript.ru/iterator",
+        label: 'Learn Javascript 2',
+        href: 'https://learn.javascript.ru/iterator',
       },
     ],
     answer: `
@@ -4299,13 +4299,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 142,
-    title: "Что такое Symbol?",
+    title: 'Что такое Symbol?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/symbol",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/symbol',
       },
     ],
     answer: `
@@ -4330,7 +4330,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 143,
-    title: "Как перевести число в другую разрядную систему?",
+    title: 'Как перевести число в другую разрядную систему?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     answer: `
@@ -4348,13 +4348,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 144,
-    title: "Что такое карирование (currying)?",
+    title: 'Что такое карирование (currying)?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/currying-partials",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/currying-partials',
       },
     ],
     answer: `
@@ -4366,17 +4366,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 145,
-    title: "Что такое мемоизация?",
+    title: 'Что такое мемоизация?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/company/ruvds/blog/332384/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/company/ruvds/blog/332384/',
       },
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/currying-partials",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/currying-partials',
       },
     ],
     answer: `
@@ -4417,13 +4417,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 146,
-    title: "Что такое чейнинг функций?",
+    title: 'Что такое чейнинг функций?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/task/chain-calls",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/task/chain-calls',
       },
     ],
     answer: `
@@ -4452,13 +4452,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 147,
-    title: "Чем отличаются mouseout от mouseleave?",
+    title: 'Чем отличаются mouseout от mouseleave?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/mousemove-mouseover-mouseout-mouseenter-mouseleave",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/mousemove-mouseover-mouseout-mouseenter-mouseleave',
       },
     ],
     answer: `
@@ -4476,13 +4476,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 148,
     title:
-      "В каком порядке обрабатываются пользовательские события в DOM (click, mouseover и т.п.)?",
+      'В каком порядке обрабатываются пользовательские события в DOM (click, mouseover и т.п.)?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/events-and-timing-depth",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/events-and-timing-depth',
       },
     ],
     answer: `
@@ -4505,14 +4505,14 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 149,
-    title: "Что такое FIFO и LIFO? + практическое",
+    title: 'Что такое FIFO и LIFO? + практическое',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.middle,
     isPractise: true,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://webdevblog.ru/stek-i-ochered-v-javascript/",
+        label: 'Ссылка 1',
+        href: 'https://webdevblog.ru/stek-i-ochered-v-javascript/',
       },
     ],
     answer: `
@@ -4537,7 +4537,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 150,
     title:
-      "Сравните методы объекта event stopPropagation и stopImmediateProparation",
+      'Сравните методы объекта event stopPropagation и stopImmediateProparation',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.middle,
     answer: `
@@ -4547,13 +4547,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 151,
-    title: "Каковы есть подходы к оптимизации производительности вебстраницы?",
+    title: 'Каковы есть подходы к оптимизации производительности вебстраницы?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/post/112720/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/post/112720/',
       },
     ],
     answer: `
@@ -4574,21 +4574,21 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 152,
-    title: "Как реализован механизм same-origin policy в браузере?",
+    title: 'Как реализован механизм same-origin policy в браузере?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/Security/Same-origin_policy",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/Security/Same-origin_policy',
       },
       {
-        label: "Learn Javascript 1",
-        href: "https://learn.javascript.ru/same-origin-policy",
+        label: 'Learn Javascript 1',
+        href: 'https://learn.javascript.ru/same-origin-policy',
       },
       {
-        label: "Learn Javascript 2",
-        href: "https://learn.javascript.ru/cross-window-communication",
+        label: 'Learn Javascript 2',
+        href: 'https://learn.javascript.ru/cross-window-communication',
       },
     ],
     answer: `
@@ -4602,13 +4602,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 153,
-    title: "Назовите способы хранения данных в браузере",
+    title: 'Назовите способы хранения данных в браузере',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/data-storage",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/data-storage',
       },
     ],
     answer: `
@@ -4623,18 +4623,18 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 154,
-    title: "Что такое Web Workers и зачем они нужны?",
+    title: 'Что такое Web Workers и зачем они нужны?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.middle,
     toBeReviewed: true,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/company/ruvds/blog/348424/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/company/ruvds/blog/348424/',
       },
       {
-        label: "Ссылка 2",
-        href: "https://habr.com/ru/company/ruvds/blog/348424/",
+        label: 'Ссылка 2',
+        href: 'https://habr.com/ru/company/ruvds/blog/348424/',
       },
     ],
     answer: `
@@ -4652,7 +4652,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 155,
-    title: "Что такое Transferable-объекты?",
+    title: 'Что такое Transferable-объекты?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.middle,
     toBeReviewed: true,
@@ -4665,13 +4665,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 156,
-    title: "Что такое ResizeObserver?",
+    title: 'Что такое ResizeObserver?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://web.dev/i18n/ru/resize-observer/",
+        label: 'Ссылка 1',
+        href: 'https://web.dev/i18n/ru/resize-observer/',
       },
     ],
     answer: `
@@ -4695,21 +4695,21 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 157,
-    title: "Что такое Web Accessibility?",
+    title: 'Что такое Web Accessibility?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Learn/Accessibility",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Learn/Accessibility',
       },
       {
-        label: "Ссылка 1",
-        href: "https://www.w3.org/WAI/fundamentals/accessibility-intro/ru",
+        label: 'Ссылка 1',
+        href: 'https://www.w3.org/WAI/fundamentals/accessibility-intro/ru',
       },
       {
-        label: "Ссылка 2",
-        href: "https://medium.com/web-standards/pragmatic-a11y-rules-b16dd2f77685",
+        label: 'Ссылка 2',
+        href: 'https://medium.com/web-standards/pragmatic-a11y-rules-b16dd2f77685',
       },
     ],
     answer: `
@@ -4726,14 +4726,14 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 158,
     title:
-      "Опишите алгоритм создания функционала, обеспечивающий чтение содержимого .txt-файла при перетаскивании его из файловой системы в окно браузера",
+      'Опишите алгоритм создания функционала, обеспечивающий чтение содержимого .txt-файла при перетаскивании его из файловой системы в окно браузера',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.middle,
     isPractise: true,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://professorweb.ru/my/html/html5/level5/5_4.php",
+        label: 'Ссылка 1',
+        href: 'https://professorweb.ru/my/html/html5/level5/5_4.php',
       },
     ],
     answer: `
@@ -4746,13 +4746,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 159,
-    title: "Объясните разницу между единицами измерения px, em, rem.",
+    title: 'Объясните разницу между единицами измерения px, em, rem.',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/css-units",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/css-units',
       },
     ],
     answer: `
@@ -4768,13 +4768,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 160,
-    title: "Использование переменных в CSS",
+    title: 'Использование переменных в CSS',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/CSS/Using_CSS_custom_properties",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/CSS/Using_CSS_custom_properties',
       },
     ],
     answer: `
@@ -4784,14 +4784,14 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 161,
-    title: "Практическое на селектор * и свойство box-sizing",
+    title: 'Практическое на селектор * и свойство box-sizing',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     isPractise: true,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/CSS/Using_CSS_custom_properties",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/CSS/Using_CSS_custom_properties',
       },
     ],
     answer: `
@@ -4803,13 +4803,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 162,
-    title: "Как адаптировать страницу для печати?",
+    title: 'Как адаптировать страницу для печати?',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://vc.ru/flood/23660-print-style-sheets",
+        label: 'Ссылка 1',
+        href: 'https://vc.ru/flood/23660-print-style-sheets',
       },
     ],
     answer: `
@@ -4828,7 +4828,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 163,
-    title: "Опишите особенности кастомизации стилей обычных частей форм.",
+    title: 'Опишите особенности кастомизации стилей обычных частей форм.',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     answer: `
@@ -4838,13 +4838,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 164,
-    title: "Что такое прогрессивный рендеринг? Какие подходы используются?",
+    title: 'Что такое прогрессивный рендеринг? Какие подходы используются?',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/company/skillfactory/blog/540294/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/company/skillfactory/blog/540294/',
       },
     ],
     answer: `
@@ -4864,13 +4864,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 165,
     title:
-      "Назовите несколько способов реализации lazy-loading медиаресурсов на странице.",
+      'Назовите несколько способов реализации lazy-loading медиаресурсов на странице.',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/Performance/Lazy_loading",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/Performance/Lazy_loading',
       },
     ],
     answer: `
@@ -4896,13 +4896,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 166,
-    title: "Популярные шаблонизаторы и их особенности",
+    title: 'Популярные шаблонизаторы и их особенности',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://proglib.io/p/templating-languages-and-engines",
+        label: 'Ссылка 1',
+        href: 'https://proglib.io/p/templating-languages-and-engines',
       },
     ],
     answer: `
@@ -4913,17 +4913,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 167,
-    title: "Популярные CSS методологии",
+    title: 'Популярные CSS методологии',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://webformyself.com/css-metodologii-css-bem-smacss-ecss/",
+        label: 'Ссылка 1',
+        href: 'https://webformyself.com/css-metodologii-css-bem-smacss-ecss/',
       },
       {
-        label: "Ссылка 2",
-        href: "https://habr.com/ru/post/256109/",
+        label: 'Ссылка 2',
+        href: 'https://habr.com/ru/post/256109/',
       },
     ],
     answer: `
@@ -4937,13 +4937,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 168,
-    title: "Как работает CSS Grid?",
+    title: 'Как работает CSS Grid?',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout',
       },
     ],
     answer: `
@@ -4963,13 +4963,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 169,
-    title: "Какие форматы изображений поддерживают анимацию?",
+    title: 'Какие форматы изображений поддерживают анимацию?',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/company/io/blog/261083/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/company/io/blog/261083/',
       },
     ],
     answer: `
@@ -4988,13 +4988,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 170,
     title:
-      "Как отследить прогресс / окончание CSS @keyframes анимаций или плавных переходов, реализуемых с помощью transition, в JS?",
+      'Как отследить прогресс / окончание CSS @keyframes анимаций или плавных переходов, реализуемых с помощью transition, в JS?',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/css-animations",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/css-animations',
       },
     ],
     answer: `
@@ -5005,17 +5005,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 171,
     title:
-      "Какие свойства CSS могут быть обработаны непосредственно через GPU? Аппаратное ускорение",
+      'Какие свойства CSS могут быть обработаны непосредственно через GPU? Аппаратное ускорение',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/company/odnoklassniki/blog/313978/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/company/odnoklassniki/blog/313978/',
       },
       {
-        label: "Ссылка 2",
-        href: "https://webformyself.com/apparatnoe-uskorenie-v-css-animacii/",
+        label: 'Ссылка 2',
+        href: 'https://webformyself.com/apparatnoe-uskorenie-v-css-animacii/',
       },
     ],
     answer: `
@@ -5025,17 +5025,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 172,
-    title: "Как переиспользовать элементы SVG на странице?",
+    title: 'Как переиспользовать элементы SVG на странице?',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "http://css.yoksel.ru/svg-groups-use/#:~:text=%3E-,use,%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%B8%D1%85%20%D0%B2%20%D0%BD%D1%83%D0%B6%D0%BD%D1%8B%D1%85%20%D0%BC%D0%B5%D1%81%D1%82%D0%B0%D1%85.",
+        label: 'Ссылка 1',
+        href: 'http://css.yoksel.ru/svg-groups-use/#:~:text=%3E-,use,%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%B8%D1%85%20%D0%B2%20%D0%BD%D1%83%D0%B6%D0%BD%D1%8B%D1%85%20%D0%BC%D0%B5%D1%81%D1%82%D0%B0%D1%85.',
       },
       {
-        label: "Ссылка 2",
-        href: "https://habr.com/ru/post/260645/",
+        label: 'Ссылка 2',
+        href: 'https://habr.com/ru/post/260645/',
       },
     ],
     answer: `
@@ -5051,13 +5051,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 173,
     title:
-      "Как реализовать иконочный шрифт из определенного набора SVG-файлов?",
+      'Как реализовать иконочный шрифт из определенного набора SVG-файлов?',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://itchief.ru/html-and-css/icomoon",
+        label: 'Ссылка 1',
+        href: 'https://itchief.ru/html-and-css/icomoon',
       },
     ],
     answer: `
@@ -5072,7 +5072,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 174,
     title:
-      "Что такое ложное жирное или ложное курсивное (Faux) начертание шрифтов?",
+      'Что такое ложное жирное или ложное курсивное (Faux) начертание шрифтов?',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     answer: `
@@ -5082,13 +5082,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 175,
-    title: "Что такое #shadow-root в инспекторе HTML-страницы?",
+    title: 'Что такое #shadow-root в инспекторе HTML-страницы?',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "MDN",
-        href: "https://habr.com/ru/post/180377/",
+        label: 'MDN',
+        href: 'https://habr.com/ru/post/180377/',
       },
     ],
     answer: `
@@ -5098,13 +5098,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 176,
-    title: "Зачем нужны Custom Elements?",
+    title: 'Зачем нужны Custom Elements?',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Learn Javascript",
-        href: "https://learn.javascript.ru/custom-elements",
+        label: 'Learn Javascript',
+        href: 'https://learn.javascript.ru/custom-elements',
       },
     ],
     answer: `
@@ -5123,7 +5123,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 177,
     title:
-      "Почему удаление лишних символов пробелов/символов переноса в HTML не отражается на конечной производительности загрузки страницы?",
+      'Почему удаление лишних символов пробелов/символов переноса в HTML не отражается на конечной производительности загрузки страницы?',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     answer: `
@@ -5133,13 +5133,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 178,
-    title: "Что такое контекст отображения canvas?",
+    title: 'Что такое контекст отображения canvas?',
     category: [QuizletQuestionCategory.markup],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/API/Canvas_API/Tutorial/Basic_usage",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/API/Canvas_API/Tutorial/Basic_usage',
       },
     ],
     answer: `
@@ -5150,13 +5150,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 179,
-    title: "Как работает Dependency Injection?",
+    title: 'Как работает Dependency Injection?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/post/232851/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/post/232851/',
       },
     ],
     answer: `
@@ -5167,21 +5167,21 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 180,
-    title: "Что такое zone.js и ngZone?",
+    title: 'Что такое zone.js и ngZone?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/company/ruvds/blog/476956/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/company/ruvds/blog/476956/',
       },
       {
-        label: "Ссылка 2",
-        href: "https://angular.io/guide/zone",
+        label: 'Ссылка 2',
+        href: 'https://angular.io/guide/zone',
       },
       {
-        label: "Ссылка 3",
-        href: "https://medium.com/@overthesanity/zone-js-%D0%BE%D1%82-%D0%B0-%D0%B4%D0%BE-%D1%8F-fdb995917968",
+        label: 'Ссылка 3',
+        href: 'https://medium.com/@overthesanity/zone-js-%D0%BE%D1%82-%D0%B0-%D0%B4%D0%BE-%D1%8F-fdb995917968',
       },
     ],
     answer: `
@@ -5196,17 +5196,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 181,
-    title: "Как работает Change detection?",
+    title: 'Как работает Change detection?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://angular.io/api/core/ChangeDetectorRef",
+        label: 'Ссылка 1',
+        href: 'https://angular.io/api/core/ChangeDetectorRef',
       },
       {
-        label: "Ссылка 2",
-        href: "https://habr.com/ru/post/327004/",
+        label: 'Ссылка 2',
+        href: 'https://habr.com/ru/post/327004/',
       },
     ],
     answer: `
@@ -5221,7 +5221,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 182,
-    title: "Как выполнить конфигурацию HTTP-сервиса?",
+    title: 'Как выполнить конфигурацию HTTP-сервиса?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -5231,7 +5231,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 183,
-    title: "Как подготовить сборку к деплою?",
+    title: 'Как подготовить сборку к деплою?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -5241,7 +5241,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 184,
-    title: "Что такое NgRx? Когда следует использовать?",
+    title: 'Что такое NgRx? Когда следует использовать?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -5252,13 +5252,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 185,
     title:
-      "В каких вариантах лучше использовать Renderer-сервис заместо нативных способов?",
+      'В каких вариантах лучше использовать Renderer-сервис заместо нативных способов?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/company/infowatch/blog/330030/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/company/infowatch/blog/330030/',
       },
     ],
     answer: `
@@ -5268,13 +5268,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 186,
-    title: "Зачем нужен Resolver?",
+    title: 'Зачем нужен Resolver?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://medium.com/nuances-of-programming/%D1%80%D0%B5%D0%B7%D0%BE%D0%BB%D0%B2%D0%B5%D1%80-%D0%B2-angular-%D0%B4%D0%BB%D1%8F-%D0%BF%D1%80%D0%B5%D0%B4%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D0%BA%D0%B8-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-932bf2c43ef1#:~:text=%D0%94%D0%BB%D1%8F%20%D1%87%D0%B5%D0%B3%D0%BE%20%D0%B2%20%D0%BC%D0%B0%D1%80%D1%88%D1%80%D1%83%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0,%D0%B4%D0%BE%D0%BB%D0%B6%D0%BD%D1%8B%20%D0%B1%D1%8B%D1%82%D1%8C%20%D0%BE%D1%82%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D1%8B%20%D0%B2%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D0%B5.",
+        label: 'Ссылка 1',
+        href: 'https://medium.com/nuances-of-programming/%D1%80%D0%B5%D0%B7%D0%BE%D0%BB%D0%B2%D0%B5%D1%80-%D0%B2-angular-%D0%B4%D0%BB%D1%8F-%D0%BF%D1%80%D0%B5%D0%B4%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D0%BA%D0%B8-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-932bf2c43ef1#:~:text=%D0%94%D0%BB%D1%8F%20%D1%87%D0%B5%D0%B3%D0%BE%20%D0%B2%20%D0%BC%D0%B0%D1%80%D1%88%D1%80%D1%83%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BD%D0%B0,%D0%B4%D0%BE%D0%BB%D0%B6%D0%BD%D1%8B%20%D0%B1%D1%8B%D1%82%D1%8C%20%D0%BE%D1%82%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D1%8B%20%D0%B2%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D0%B5.',
       },
     ],
     answer: `
@@ -5284,13 +5284,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 187,
-    title: "Как работают и зачем нужны динамические компоненты?",
+    title: 'Как работают и зачем нужны динамические компоненты?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://angdev.ru/doc/dynamic-components/",
+        label: 'Ссылка 1',
+        href: 'https://angdev.ru/doc/dynamic-components/',
       },
     ],
     answer: `
@@ -5336,13 +5336,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 188,
-    title: "Какая разница между @ViewChild и @ContentChild?",
+    title: 'Какая разница между @ViewChild и @ContentChild?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://tyapk.ru/blog/post/viewchildren-viewchild-contentchildren-and-contentchild",
+        label: 'Ссылка 1',
+        href: 'https://tyapk.ru/blog/post/viewchildren-viewchild-contentchildren-and-contentchild',
       },
     ],
     answer: `
@@ -5357,13 +5357,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 189,
-    title: "Что такое @HostBinding и @HostListener?",
+    title: 'Что такое @HostBinding и @HostListener?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://metanit.com/web/angular2/3.3.php",
+        label: 'Ссылка 1',
+        href: 'https://metanit.com/web/angular2/3.3.php',
       },
     ],
     answer: `
@@ -5375,13 +5375,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 190,
-    title: "Как кэшировать данные, используя сервисы или RxJS?",
+    title: 'Как кэшировать данные, используя сервисы или RxJS?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://tyapk.ru/blog/post/rxjs-simple-cache",
+        label: 'Ссылка 1',
+        href: 'https://tyapk.ru/blog/post/rxjs-simple-cache',
       },
     ],
     answer: `
@@ -5412,13 +5412,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 191,
-    title: "Что такое асинхронная валидация форм?",
+    title: 'Что такое асинхронная валидация форм?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://angdev.ru/doc/forms-validation/#angular_2",
+        label: 'Ссылка 1',
+        href: 'https://angdev.ru/doc/forms-validation/#angular_2',
       },
     ],
     answer: `
@@ -5468,17 +5468,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 192,
-    title: "Зачем нужна forRoot-функция модуля?",
+    title: 'Зачем нужна forRoot-функция модуля?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/company/tinkoff/blog/467525/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/company/tinkoff/blog/467525/',
       },
       {
-        label: "Ссылка 2",
-        href: "https://tyapk.ru/blog/post/angular-configurable-modules",
+        label: 'Ссылка 2',
+        href: 'https://tyapk.ru/blog/post/angular-configurable-modules',
       },
     ],
     answer: `
@@ -5490,7 +5490,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 193,
     title:
-      "Какая разница между декларированием и экспортом компонента из модуля?",
+      'Какая разница между декларированием и экспортом компонента из модуля?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.middle,
     answer: `
@@ -5501,7 +5501,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 194,
     title:
-      "Почему плохо «провайдировать» сервис из shared-модуля в lazy-loaded модуль?",
+      'Почему плохо «провайдировать» сервис из shared-модуля в lazy-loaded модуль?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.middle,
     answer: `
@@ -5511,7 +5511,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 195,
-    title: "Что такое ::ng-deep",
+    title: 'Что такое ::ng-deep',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.middle,
     answer: `
@@ -5521,13 +5521,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 196,
-    title: "Что такое ViewEncapsulation",
+    title: 'Что такое ViewEncapsulation',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/post/588969/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/post/588969/',
       },
     ],
     answer: `
@@ -5543,7 +5543,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 197,
-    title: "Какие тесты есть в Angular?",
+    title: 'Какие тесты есть в Angular?',
     category: [QuizletQuestionCategory.angular],
     level: QuizletQuestionLevel.middle,
     answer: `
@@ -5553,17 +5553,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 198,
-    title: "Что такое JSX?",
+    title: 'Что такое JSX?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     links: [
       {
-        label: "React Official 1",
-        href: "https://ru.reactjs.org/docs/introducing-jsx.html",
+        label: 'React Official 1',
+        href: 'https://ru.reactjs.org/docs/introducing-jsx.html',
       },
       {
-        label: "React Official 2",
-        href: "https://ru.reactjs.org/docs/rendering-elements.html",
+        label: 'React Official 2',
+        href: 'https://ru.reactjs.org/docs/rendering-elements.html',
       },
     ],
     answer: `
@@ -5582,7 +5582,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 199,
-    title: "В чем разница между функциональными и классовыми компонентами?",
+    title: 'В чем разница между функциональными и классовыми компонентами?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -5593,13 +5593,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 200,
     title:
-      "Зачем и когда нужно передавать props в super() при использовании классовых компонентов?",
+      'Зачем и когда нужно передавать props в super() при использовании классовых компонентов?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/post/648987/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/post/648987/',
       },
     ],
     answer: `
@@ -5610,13 +5610,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 201,
     title:
-      "Почему необходимо использовать setState() для обновления внутреннего состояния компонента?",
+      'Почему необходимо использовать setState() для обновления внутреннего состояния компонента?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "React Official",
-        href: "https://ru.reactjs.org/docs/faq-state.html",
+        label: 'React Official',
+        href: 'https://ru.reactjs.org/docs/faq-state.html',
       },
     ],
     answer: `
@@ -5626,13 +5626,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 202,
-    title: "В чем заключается принцип подъема состояния?",
+    title: 'В чем заключается принцип подъема состояния?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "React Official",
-        href: "https://ru.reactjs.org/docs/lifting-state-up.html#:~:text=%D0%9A%D0%BE%D0%B3%D0%B4%D0%B0%20%D0%BC%D1%8B%20%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D1%8F%D0%B5%D0%BC%20%D0%BF%D0%BE%D0%BB%D0%B5%20%D0%B2%D0%B2%D0%BE%D0%B4%D0%B0,%D0%AD%D1%82%D0%BE%20%D0%BD%D0%B0%D0%B7%D1%8B%D0%B2%D0%B0%D0%B5%D1%82%D1%81%D1%8F%20%C2%AB%D0%BF%D0%BE%D0%B4%D1%8A%D1%91%D0%BC%20%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F%C2%BB.",
+        label: 'React Official',
+        href: 'https://ru.reactjs.org/docs/lifting-state-up.html#:~:text=%D0%9A%D0%BE%D0%B3%D0%B4%D0%B0%20%D0%BC%D1%8B%20%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D1%8F%D0%B5%D0%BC%20%D0%BF%D0%BE%D0%BB%D0%B5%20%D0%B2%D0%B2%D0%BE%D0%B4%D0%B0,%D0%AD%D1%82%D0%BE%20%D0%BD%D0%B0%D0%B7%D1%8B%D0%B2%D0%B0%D0%B5%D1%82%D1%81%D1%8F%20%C2%AB%D0%BF%D0%BE%D0%B4%D1%8A%D1%91%D0%BC%20%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F%C2%BB.',
       },
     ],
     answer: `
@@ -5642,7 +5642,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 203,
-    title: "Какие библиотеки менеджмента состояния React-приложения вы знаете?",
+    title: 'Какие библиотеки менеджмента состояния React-приложения вы знаете?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.junior,
     answer: `
@@ -5657,13 +5657,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 204,
-    title: "Расскажите о базовом принципе работы React Hooks",
+    title: 'Расскажите о базовом принципе работы React Hooks',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "React Official",
-        href: "https://ru.reactjs.org/docs/hooks-intro.html",
+        label: 'React Official',
+        href: 'https://ru.reactjs.org/docs/hooks-intro.html',
       },
     ],
     answer: `
@@ -5674,13 +5674,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 205,
-    title: "Что такое createRef и useRef?",
+    title: 'Что такое createRef и useRef?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "React Official",
-        href: "https://ru.reactjs.org/docs/refs-and-the-dom.html",
+        label: 'React Official',
+        href: 'https://ru.reactjs.org/docs/refs-and-the-dom.html',
       },
     ],
     answer: `
@@ -5702,13 +5702,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 206,
-    title: "Когда следует использовать Ref?",
+    title: 'Когда следует использовать Ref?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "React Official",
-        href: "https://ru.reactjs.org/docs/refs-and-the-dom.html",
+        label: 'React Official',
+        href: 'https://ru.reactjs.org/docs/refs-and-the-dom.html',
       },
     ],
     answer: `
@@ -5718,7 +5718,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 207,
-    title: "Какие минусы есть у библиотеки React?",
+    title: 'Какие минусы есть у библиотеки React?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.middle,
     answer: `
@@ -5732,13 +5732,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 208,
-    title: "Какие паттерны используете вместе с React?",
+    title: 'Какие паттерны используете вместе с React?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/post/309422/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/post/309422/',
       },
     ],
     answer: `
@@ -5765,13 +5765,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 209,
-    title: "Что такое HOC?",
+    title: 'Что такое HOC?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "React Official",
-        href: "https://ru.reactjs.org/docs/higher-order-components.html",
+        label: 'React Official',
+        href: 'https://ru.reactjs.org/docs/higher-order-components.html',
       },
     ],
     answer: `
@@ -5783,13 +5783,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 210,
     title:
-      "Оптимизация React-приложений. Инструменты оценки производительности",
+      'Оптимизация React-приложений. Инструменты оценки производительности',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "React Official",
-        href: "https://ru.reactjs.org/docs/optimizing-performance.html",
+        label: 'React Official',
+        href: 'https://ru.reactjs.org/docs/optimizing-performance.html',
       },
     ],
     answer: `
@@ -5806,7 +5806,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 211,
-    title: "Можно ли приложение React встроить в другое приложение React?",
+    title: 'Можно ли приложение React встроить в другое приложение React?',
     category: [QuizletQuestionCategory.react],
     level: QuizletQuestionLevel.middle,
     answer: `
@@ -5817,7 +5817,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 212,
     title:
-      "Каждый раз, когда вы делаете pull, почему-то случается конфликт в последней строке во всех редактируемых файлах. Что происходит?",
+      'Каждый раз, когда вы делаете pull, почему-то случается конфликт в последней строке во всех редактируемых файлах. Что происходит?',
     category: [QuizletQuestionCategory.git],
     level: QuizletQuestionLevel.middle,
     answer: `
@@ -5827,13 +5827,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 213,
-    title: "Что делает команда git fetch? Чем она отличается от git pull?",
+    title: 'Что делает команда git fetch? Чем она отличается от git pull?',
     category: [QuizletQuestionCategory.git],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://tproger.ru/explain/git-pull-and-git-fetch-whats-the-difference/l",
+        label: 'Ссылка 1',
+        href: 'https://tproger.ru/explain/git-pull-and-git-fetch-whats-the-difference/l',
       },
     ],
     answer: `
@@ -5845,13 +5845,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 214,
-    title: "Что такое CI/CD? Зачем это нужно?",
+    title: 'Что такое CI/CD? Зачем это нужно?',
     category: [QuizletQuestionCategory.other],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/company/southbridge/blog/649027/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/company/southbridge/blog/649027/',
       },
     ],
     answer: `
@@ -5866,13 +5866,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 215,
-    title: "Зачем нужен package-lock.json?",
+    title: 'Зачем нужен package-lock.json?',
     category: [QuizletQuestionCategory.other],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://defront.ru/posts/2020/10-october/22-lockfile-guide/",
+        label: 'Ссылка 1',
+        href: 'https://defront.ru/posts/2020/10-october/22-lockfile-guide/',
       },
     ],
     answer: `
@@ -5884,13 +5884,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 216,
-    title: "В чем разница между npm install и npm ci?",
+    title: 'В чем разница между npm install и npm ci?',
     category: [QuizletQuestionCategory.other],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://defront.ru/posts/2020/10-october/22-lockfile-guide/",
+        label: 'Ссылка 1',
+        href: 'https://defront.ru/posts/2020/10-october/22-lockfile-guide/',
       },
     ],
     answer: `
@@ -5900,7 +5900,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 217,
-    title: "Зачем нужны бандлеры?",
+    title: 'Зачем нужны бандлеры?',
     category: [QuizletQuestionCategory.other],
     level: QuizletQuestionLevel.middle,
     answer: `
@@ -5911,13 +5911,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 218,
-    title: "В чем разница между git merge и git rebase?",
+    title: 'В чем разница между git merge и git rebase?',
     category: [QuizletQuestionCategory.git],
     level: QuizletQuestionLevel.middle,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/post/432420/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/post/432420/',
       },
     ],
     answer: `
@@ -5930,7 +5930,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 219,
-    title: "Что такое staging area в git?",
+    title: 'Что такое staging area в git?',
     category: [QuizletQuestionCategory.git],
     level: QuizletQuestionLevel.middle,
     answer: `
@@ -5941,7 +5941,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 220,
-    title: "Опишите процесс code review",
+    title: 'Опишите процесс code review',
     category: [QuizletQuestionCategory.git],
     level: QuizletQuestionLevel.middle,
     answer: `
@@ -5957,17 +5957,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 221,
-    title: "Что представляет собой функциональное программирование?",
+    title: 'Что представляет собой функциональное программирование?',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.senior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/post/570642/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/post/570642/',
       },
       {
-        label: "Ссылка 2",
-        href: "https://habr.com/ru/post/479238/",
+        label: 'Ссылка 2',
+        href: 'https://habr.com/ru/post/479238/',
       },
     ],
     answer: `
@@ -5984,17 +5984,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 222,
     title:
-      "Что такое TDD (Test Driven Development) / BDD (Behavior Driven Development)?",
+      'Что такое TDD (Test Driven Development) / BDD (Behavior Driven Development)?',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.senior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/post/570642/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/post/570642/',
       },
       {
-        label: "Ссылка 2",
-        href: "https://habr.com/ru/post/479238/",
+        label: 'Ссылка 2',
+        href: 'https://habr.com/ru/post/479238/',
       },
     ],
     answer: `
@@ -6024,13 +6024,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 223,
-    title: "Расскажите подробно о работе HTTPS",
+    title: 'Расскажите подробно о работе HTTPS',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.senior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://firstssl.ru/faq/general-questions/chto-takoe-https",
+        label: 'Ссылка 1',
+        href: 'https://firstssl.ru/faq/general-questions/chto-takoe-https',
       },
     ],
     answer: `
@@ -6047,17 +6047,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 224,
-    title: "Что такое V8 Engine?",
+    title: 'Что такое V8 Engine?',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.senior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/company/ruvds/blog/337460/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/company/ruvds/blog/337460/',
       },
       {
-        label: "Ссылка 2",
-        href: "https://medium.com/nuances-of-programming/%D0%B4%D0%B2%D0%B8%D0%B6%D0%BE%D0%BA-javascript-%D1%87%D1%82%D0%BE-%D0%B2%D0%BD%D1%83%D1%82%D1%80%D0%B8-f0db9b988b90",
+        label: 'Ссылка 2',
+        href: 'https://medium.com/nuances-of-programming/%D0%B4%D0%B2%D0%B8%D0%B6%D0%BE%D0%BA-javascript-%D1%87%D1%82%D0%BE-%D0%B2%D0%BD%D1%83%D1%82%D1%80%D0%B8-f0db9b988b90',
       },
     ],
     answer: `
@@ -6072,13 +6072,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 224,
     title:
-      "В чем отличие компилируемыми и интерпритируемыми языками программирования?",
+      'В чем отличие компилируемыми и интерпритируемыми языками программирования?',
     category: [QuizletQuestionCategory.common],
     level: QuizletQuestionLevel.senior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://tproger.ru/translations/programming-concepts-compilation-vs-interpretation/",
+        label: 'Ссылка 1',
+        href: 'https://tproger.ru/translations/programming-concepts-compilation-vs-interpretation/',
       },
     ],
     answer: `
@@ -6103,14 +6103,14 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 225,
-    title: "Реализация паттерна Class Free OOP",
+    title: 'Реализация паттерна Class Free OOP',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.senior,
     isPractise: true,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://observablehq.com/@bratter/class-free-oop",
+        label: 'Ссылка 1',
+        href: 'https://observablehq.com/@bratter/class-free-oop',
       },
     ],
     answer: `
@@ -6147,15 +6147,15 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 226,
-    title: "Реализация паттерна async disposer",
+    title: 'Реализация паттерна async disposer',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.senior,
     isPractise: true,
     toBeReviewed: true,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://advancedweb.hu/what-is-the-async-disposer-pattern-in-javascript/",
+        label: 'Ссылка 1',
+        href: 'https://advancedweb.hu/what-is-the-async-disposer-pattern-in-javascript/',
       },
     ],
     answer: ``,
@@ -6163,14 +6163,14 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 227,
-    title: "Использование регулярных выражений. Когда приемлемо/неприемлемо?",
+    title: 'Использование регулярных выражений. Когда приемлемо/неприемлемо?',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.senior,
     toBeReviewed: true,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://habr.com/ru/company/badoo/blog/343310/",
+        label: 'Ссылка 1',
+        href: 'https://habr.com/ru/company/badoo/blog/343310/',
       },
     ],
     answer: `
@@ -6190,13 +6190,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 228,
-    title: "Как обмениваться данными между вкладками?",
+    title: 'Как обмениваться данными между вкладками?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.senior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://medium.com/nuances-of-programming/4-%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D0%B0-%D0%BE%D0%B1%D0%BC%D0%B5%D0%BD%D0%B0-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-%D0%B2%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B0%D0%BC%D0%B8-%D0%B1%D1%80%D0%B0%D1%83%D0%B7%D0%B5%D1%80%D0%B0-%D0%B2-%D1%80%D0%B5%D0%B6%D0%B8%D0%BC%D0%B5-%D1%80%D0%B5%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8-4d6e81b0f934",
+        label: 'Ссылка 1',
+        href: 'https://medium.com/nuances-of-programming/4-%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D0%B0-%D0%BE%D0%B1%D0%BC%D0%B5%D0%BD%D0%B0-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-%D0%B2%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B0%D0%BC%D0%B8-%D0%B1%D1%80%D0%B0%D1%83%D0%B7%D0%B5%D1%80%D0%B0-%D0%B2-%D1%80%D0%B5%D0%B6%D0%B8%D0%BC%D0%B5-%D1%80%D0%B5%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8-4d6e81b0f934',
       },
     ],
     answer: `
@@ -6265,7 +6265,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 229,
-    title: "Как браузер определяет, можно ли общаться между вкладками?",
+    title: 'Как браузер определяет, можно ли общаться между вкладками?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.senior,
     answer: `
@@ -6275,21 +6275,21 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 230,
-    title: "Что такое Content Security Policy?",
+    title: 'Что такое Content Security Policy?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.senior,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/HTTP/CSP",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/HTTP/CSP',
       },
       {
-        label: "Ссылка 2",
-        href: "https://habr.com/ru/company/nix/blog/271575/",
+        label: 'Ссылка 2',
+        href: 'https://habr.com/ru/company/nix/blog/271575/',
       },
       {
-        label: "Ссылка 3",
-        href: "https://habr.com/ru/company/nix/blog/271575/",
+        label: 'Ссылка 3',
+        href: 'https://habr.com/ru/company/nix/blog/271575/',
       },
     ],
     toBeReviewed: true,
@@ -6301,13 +6301,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 231,
-    title: "Что такое requestAnimationFrame?",
+    title: 'Что такое requestAnimationFrame?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.senior,
     links: [
       {
-        label: "MDN",
-        href: "https://developer.mozilla.org/ru/docs/Web/API/window/requestAnimationFrame",
+        label: 'MDN',
+        href: 'https://developer.mozilla.org/ru/docs/Web/API/window/requestAnimationFrame',
       },
     ],
     answer: `
@@ -6317,13 +6317,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 232,
-    title: "Микросервисный подход в веб-разработке",
+    title: 'Микросервисный подход в веб-разработке',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.senior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://dou.ua/lenta/articles/micro-frontend/#:~:text=%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D1%84%D1%80%D0%BE%D0%BD%D1%82%D0%B5%D0%BD%D0%B4%20(micro%20frontend)%20%E2%80%94%20%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B9,%D1%81%20%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%D0%BC%20%D1%80%D0%B0%D0%B7%D0%BD%D1%8B%D1%85%20%D1%84%D1%80%D0%B5%D0%B9%D0%BC%D0%B2%D0%BE%D1%80%D0%BA%D0%BE%D0%B2%20(%D1%81%D0%BC.",
+        label: 'Ссылка 1',
+        href: 'https://dou.ua/lenta/articles/micro-frontend/#:~:text=%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D1%84%D1%80%D0%BE%D0%BD%D1%82%D0%B5%D0%BD%D0%B4%20(micro%20frontend)%20%E2%80%94%20%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B9,%D1%81%20%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%D0%BC%20%D1%80%D0%B0%D0%B7%D0%BD%D1%8B%D1%85%20%D1%84%D1%80%D0%B5%D0%B9%D0%BC%D0%B2%D0%BE%D1%80%D0%BA%D0%BE%D0%B2%20(%D1%81%D0%BC.',
       },
     ],
     answer: `
@@ -6341,7 +6341,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 233,
-    title: "Порівняйте nextElementSibling та nextSibling",
+    title: 'Порівняйте nextElementSibling та nextSibling',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.senior,
     answer: `
@@ -6352,7 +6352,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 234,
-    title: "Какие есть метрики сайта?",
+    title: 'Какие есть метрики сайта?',
     category: [QuizletQuestionCategory.frontend],
     level: QuizletQuestionLevel.senior,
     answer: `
@@ -6362,13 +6362,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 235,
-    title: "Методология git flow",
+    title: 'Методология git flow',
     category: [QuizletQuestionCategory.git],
     level: QuizletQuestionLevel.senior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://www.atlassian.com/ru/git/tutorials/comparing-workflows/gitflow-workflow#:~:text=Git%2Dflow%20%E2%80%94%20%D0%B0%D0%BB%D1%8C%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F%20%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C%20%D0%B2%D0%B5%D1%82%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F,%D0%92%D0%B8%D0%BD%D1%81%D0%B5%D0%BD%D1%82%D0%BE%D0%BC%20%D0%94%D1%80%D0%B8%D1%81%D1%81%D0%B5%D0%BD%D0%BE%D0%BC%20%D0%BD%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B5%20nvie.",
+        label: 'Ссылка 1',
+        href: 'https://www.atlassian.com/ru/git/tutorials/comparing-workflows/gitflow-workflow#:~:text=Git%2Dflow%20%E2%80%94%20%D0%B0%D0%BB%D1%8C%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F%20%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C%20%D0%B2%D0%B5%D1%82%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F,%D0%92%D0%B8%D0%BD%D1%81%D0%B5%D0%BD%D1%82%D0%BE%D0%BC%20%D0%94%D1%80%D0%B8%D1%81%D1%81%D0%B5%D0%BD%D0%BE%D0%BC%20%D0%BD%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B5%20nvie.',
       },
     ],
     answer: `
@@ -6378,13 +6378,13 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 236,
-    title: "Что означает требование делать squash commits во время rebase?",
+    title: 'Что означает требование делать squash commits во время rebase?',
     category: [QuizletQuestionCategory.git],
     level: QuizletQuestionLevel.senior,
     links: [
       {
-        label: "Ссылка 1",
-        href: "https://git-scm.com/book/ru/v2/%D0%98%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B-Git-%D0%9F%D0%B5%D1%80%D0%B5%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D1%8C-%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D0%B8",
+        label: 'Ссылка 1',
+        href: 'https://git-scm.com/book/ru/v2/%D0%98%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B-Git-%D0%9F%D0%B5%D1%80%D0%B5%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D1%8C-%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D0%B8',
       },
     ],
     answer: `
@@ -6397,7 +6397,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 237,
-    title: "Расскажите об обобщённых типах (generics) в TypeScript",
+    title: 'Расскажите об обобщённых типах (generics) в TypeScript',
     category: [QuizletQuestionCategory.typescript],
     level: QuizletQuestionLevel.senior,
     answer: `
@@ -6418,7 +6418,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 238,
     title:
-      "Как в TypeScript реализовать свойства класса, являющиеся константами?",
+      'Как в TypeScript реализовать свойства класса, являющиеся константами?',
     category: [QuizletQuestionCategory.typescript],
     level: QuizletQuestionLevel.senior,
     answer: `
@@ -6437,7 +6437,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 239,
-    title: "Что представляют собой .map-файлы в TypeScript?",
+    title: 'Что представляют собой .map-файлы в TypeScript?',
     category: [QuizletQuestionCategory.typescript],
     level: QuizletQuestionLevel.senior,
     answer: `
@@ -6447,7 +6447,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 240,
-    title: "Есть ли в предоставленном вам TypeScript-коде ошибки?",
+    title: 'Есть ли в предоставленном вам TypeScript-коде ошибки?',
     category: [QuizletQuestionCategory.typescript],
     level: QuizletQuestionLevel.senior,
     isPractise: true,
@@ -6468,7 +6468,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 241,
-    title: "Расскажите об использовании декораторов свойств в TypeScript",
+    title: 'Расскажите об использовании декораторов свойств в TypeScript',
     category: [QuizletQuestionCategory.typescript],
     level: QuizletQuestionLevel.senior,
     answer: `
@@ -6502,17 +6502,17 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 242,
-    title: "Ключевые слова module и namespace",
+    title: 'Ключевые слова module и namespace',
     category: [QuizletQuestionCategory.typescript],
     level: QuizletQuestionLevel.senior,
     links: [
       {
-        label: "Typescript Official",
-        href: "https://www.typescriptlang.org/docs/handbook/namespaces-and-modules.html",
+        label: 'Typescript Official',
+        href: 'https://www.typescriptlang.org/docs/handbook/namespaces-and-modules.html',
       },
       {
-        label: "Ссылка 2",
-        href: "https://runebook.dev/ru/docs/typescript/namespaces-and-modules",
+        label: 'Ссылка 2',
+        href: 'https://runebook.dev/ru/docs/typescript/namespaces-and-modules',
       },
     ],
     answer: `
@@ -6550,7 +6550,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 243,
     title:
-      "Как сделать так, чтобы классы, объявленные в модуле, были бы доступны и за пределами этого модуля?",
+      'Как сделать так, чтобы классы, объявленные в модуле, были бы доступны и за пределами этого модуля?',
     category: [QuizletQuestionCategory.typescript],
     level: QuizletQuestionLevel.senior,
     isPractise: true,
@@ -6582,7 +6582,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 244,
-    title: "Поддерживает ли TypeScript перегрузку функций?",
+    title: 'Поддерживает ли TypeScript перегрузку функций?',
     category: [QuizletQuestionCategory.typescript],
     level: QuizletQuestionLevel.senior,
     answer: `
@@ -6600,7 +6600,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 245,
-    title: "Внешнее объявление переменной (ambient declaration) и declare",
+    title: 'Внешнее объявление переменной (ambient declaration) и declare',
     category: [QuizletQuestionCategory.typescript],
     level: QuizletQuestionLevel.senior,
     answer: `
@@ -6613,7 +6613,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 246,
-    title: "Что такое тип never?",
+    title: 'Что такое тип never?',
     category: [QuizletQuestionCategory.typescript],
     level: QuizletQuestionLevel.senior,
     answer: `
@@ -6628,7 +6628,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 247,
-    title: "Что такое keyof?",
+    title: 'Что такое keyof?',
     category: [QuizletQuestionCategory.typescript],
     level: QuizletQuestionLevel.senior,
     answer: `
@@ -6643,7 +6643,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 248,
-    title: "Конструкция key in",
+    title: 'Конструкция key in',
     category: [QuizletQuestionCategory.typescript],
     level: QuizletQuestionLevel.senior,
     answer: `
@@ -6661,7 +6661,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 249,
-    title: "Отличие typeof от ReturnType",
+    title: 'Отличие typeof от ReturnType',
     category: [QuizletQuestionCategory.typescript],
     level: QuizletQuestionLevel.senior,
     answer: `
@@ -6675,7 +6675,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 250,
-    title: "Что такое Utility Types и какими они бывают",
+    title: 'Что такое Utility Types и какими они бывают',
     category: [QuizletQuestionCategory.typescript],
     level: QuizletQuestionLevel.senior,
     answer: `
@@ -6808,7 +6808,7 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 251,
-    title: "Напишите deep clone для объекта",
+    title: 'Напишите deep clone для объекта',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.senior,
     isPractise: true,
@@ -6839,10 +6839,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 252,
-    title: "Способы поменять местами значения переменных",
+    title: 'Способы поменять местами значения переменных',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.senior,
-    links: [{ label: "Ссылка 1", href: "https://habr.com/ru/post/657625/" }],
+    links: [{ label: 'Ссылка 1', href: 'https://habr.com/ru/post/657625/' }],
     answer: `
       <ul>
         <li>Через временную переменную</li>
@@ -6854,7 +6854,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
 
   {
     id: 253,
-    title: "Напишите функцию Sleep (ms), которая останавливает выполнение async-функции на заданный промежуток времени.",
+    title:
+      'Напишите функцию Sleep (ms), которая останавливает выполнение async-функции на заданный промежуток времени.',
     category: [QuizletQuestionCategory.javascript],
     level: QuizletQuestionLevel.senior,
     answer: `

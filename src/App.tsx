@@ -1,27 +1,27 @@
-import React from "react";
-import "./App.css";
-import "antd/dist/antd.min.css";
-import { Card, Collapse, Layout, Menu } from "antd";
-import { Content, Footer, Header } from "antd/lib/layout/layout";
-import Sider from "antd/lib/layout/Sider";
-import { ItemType } from "antd/lib/menu/hooks/useItems";
+import React from 'react';
+import './App.css';
+import 'antd/dist/antd.min.css';
+import { Card, Collapse, Layout, Menu } from 'antd';
+import { Content, Footer, Header } from 'antd/lib/layout/layout';
+import Sider from 'antd/lib/layout/Sider';
+import { ItemType } from 'antd/lib/menu/hooks/useItems';
 import {
   QuizletQuestionCategory,
   QuizletQuestionLevel,
   QUIZLET_QUESTIONS,
-} from "./questions";
-import { getEnumKeys } from "./utils";
-import Title from "antd/lib/typography/Title";
+} from './questions';
+import { getEnumKeys } from './utils';
+import Title from 'antd/lib/typography/Title';
 
 function App() {
   const menuItems: ItemType[] = [
     {
       key: 1,
-      label: "All Questions",
+      label: 'All Questions',
     },
     {
       key: 2,
-      label: "Quizlet",
+      label: 'Quizlet',
     },
   ];
 
@@ -30,20 +30,20 @@ function App() {
   const questions = QUIZLET_QUESTIONS;
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
-      <Header className="site-layout-background" style={{ padding: 0 }} />
-      <Layout style={{ flexDirection: "row" }}>
+    <Layout style={{ minHeight: '100vh' }}>
+      <Header className='site-layout-background' style={{ padding: 0 }} />
+      <Layout style={{ flexDirection: 'row' }}>
         <Sider>
-          <div className="logo" />
+          <div className='logo' />
           <Menu
-            theme="dark"
-            defaultSelectedKeys={["1"]}
-            mode="inline"
+            theme='dark'
+            defaultSelectedKeys={['1']}
+            mode='inline'
             items={menuItems}
           />
         </Sider>
-        <Layout className="site-layout">
-          <Content style={{ margin: "0 16px" }}>
+        <Layout className='site-layout'>
+          <Content style={{ margin: '0 16px' }}>
             {levels.map((level) => {
               return (
                 <div key={level}>
@@ -56,16 +56,16 @@ function App() {
                         </Title>
                         <div
                           style={{
-                            display: "flex",
-                            gap: "16px",
-                            flexDirection: "column",
+                            display: 'flex',
+                            gap: '16px',
+                            flexDirection: 'column',
                           }}
                         >
                           {questions
                             .filter(
                               (question) =>
                                 question.level === level &&
-                                question.category.includes(category)
+                                question.category.includes(category),
                             )
                             .map((question) => {
                               return (
@@ -110,7 +110,7 @@ function App() {
               );
             })}
           </Content>
-          <Footer style={{ textAlign: "center" }}>
+          <Footer style={{ textAlign: 'center' }}>
             Ant Design ©2018 Created by Ant UED
           </Footer>
         </Layout>

@@ -12,7 +12,7 @@ To check the container name
 
 ### `docker exec -itu 1000:1000 <container-name> node -v`
 
-To use node/npm commands
+To use node/npm/npx commands
 
 ### `docker compose run --rm node npm i axios `
 
