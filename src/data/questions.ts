@@ -1,45 +1,12 @@
-export enum QuizletQuestionCategory {
-  common,
-  markup,
-  javascript,
-  typescript,
-  frontend,
-  angular,
-  rxjs,
-  react,
-  redux,
-  git,
-  other,
-}
-
-export enum QuizletQuestionLevel {
-  junior,
-  middle,
-  senior,
-}
-
-export interface QuizletQuestionLink {
-  label: string;
-  href: string;
-}
-
-export interface QuizletQuestion {
-  id: number;
-  title: string;
-  category: QuizletQuestionCategory[];
-  level: QuizletQuestionLevel;
-  answer: string;
-  links?: QuizletQuestionLink[];
-  toBeReviewed?: boolean;
-  isPractise?: boolean;
-}
+import { QuizletQuestionCategoryEnum } from '../models/category';
+import { QuizletQuestion } from '../models/question';
 
 export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 1,
     title: 'Какие бывают методы HTTP-запросов?',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 1,
     links: [
       {
         label: 'Про HTTP',
@@ -140,8 +107,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 2,
     title: 'Какие версии HTTP-протокола вам известны?',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 1,
     links: [
       {
         label: 'Протоколы',
@@ -163,8 +130,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 3,
     title: 'Какие бывают коды ответа (состояния) HTTP?',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 1,
     links: [
       {
         label: 'Коды ответа',
@@ -184,8 +151,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 4,
     title: 'Что такое Cross-Origin Resource Sharing (CORS)?',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 1,
     links: [
       {
         label: 'CORS',
@@ -234,8 +201,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 5,
     title: 'Что такое cookie?',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 1,
     links: [{ label: 'Ссылка 1', href: 'https://learn.javascript.ru/cookie' }],
     answer: `
         <p>
@@ -262,8 +229,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 6,
     title: 'Какие ограничения есть у cookie?',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 1,
     links: [{ label: 'Ссылка 1', href: 'https://learn.javascript.ru/cookie' }],
     answer: `
         <ul>
@@ -281,8 +248,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 7,
     title: 'Что означает "use strict"?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'MDN',
@@ -331,8 +298,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 8,
     title: 'Чем JS отличается при работе на front-end и back-end?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     answer: `
         <p>
           На фронтенде мы работаем с интерфейсом браузера либо инерпритатором
@@ -353,8 +320,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 9,
     title: 'Что такое статическая и динамическая типизация?',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 1,
     links: [
       {
         label: 'Ссылка 1',
@@ -434,8 +401,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 10,
     title: 'Как клиент взаимодействует с сервером?',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 1,
     links: [
       {
         label: 'Википедия',
@@ -476,8 +443,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 11,
     title: 'Что такое REST?',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 1,
     links: [
       {
         label: 'Ссылка 1',
@@ -552,8 +519,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 12,
     title: 'Что такое SOAP?',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 1,
     links: [
       {
         label: 'Youtube',
@@ -610,8 +577,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 13,
     title: 'Что такое мутабельность и иммутабельность?',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 1,
     answer: `
         <p>
           Мутабельность - то что можно мутировать. Иммутабельность - то что
@@ -632,8 +599,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 14,
     title: 'Типы данных в JavaScript',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     answer: `
         <p>Есть 8 основных типов данных в JavaScript.</p>
         <ol>
@@ -680,8 +647,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 15,
     title: 'Как проверить, является ли объект массивом',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     answer: `
         <code>Array.isArray(obj)</code>
     `,
@@ -690,8 +657,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 16,
     title: 'Как проверить, является ли число целым',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     answer: `
         <code>isInteger(myNum)</code>
     `,
@@ -700,8 +667,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 17,
     title: 'Как проверить, является ли переменная NaN?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     answer: `
         <p>
           <code>
@@ -733,8 +700,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 18,
     title: 'Чем отличается isNaN() и Number.isNaN()?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     answer: `
         <p>
           isNaN() вернёт true, если значение в настоящий момент является NaN,
@@ -754,8 +721,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 19,
     title: 'Чем отличается var, let и const?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     answer: `
         <p>
           До стандарта ES-2015 существовал лишь один способ декларирования
@@ -784,8 +751,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 20,
     title: 'Что такое область видимости (scope)?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'Ссылка 1',
@@ -859,8 +826,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 21,
     title: 'Что такое контекст?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'Ссылка 1',
@@ -911,8 +878,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 22,
     title: 'Чем отличается контекст от области вызова (scope)?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     answer: `
         <p>Контекст - это то на что указывает this объект.</p>
         <p>
@@ -929,8 +896,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 23,
     title: 'Что такое деструктуризация?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'Learn Javascript',
@@ -1006,8 +973,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 24,
     title: 'Для чего предназначены методы setTimeout и setInterval?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'Learn Javascript',
@@ -1038,8 +1005,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 25,
     title: 'Чем отличаются callbacks, promises и async/await?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     answer: `
       <p>Callbacks, promises и async/await - это способ выполнения одного кода после выполнения другого, подождав его завершения</p>
 
@@ -1058,8 +1025,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 26,
     title: 'Можно ли записывать новые функции в прототипы стандартных классов?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'Learn Javascript',
@@ -1091,8 +1058,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 27,
     title: 'Методы массивов',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'Learn Javascript',
@@ -1149,8 +1116,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 28,
     title: 'Какие перебирающие способы массива знаете?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'Learn Javascript',
@@ -1180,8 +1147,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 29,
     title: 'Какие бывают операторы в Javascript?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'MDN',
@@ -1208,8 +1175,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 30,
     title: 'Операторы присваивания',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'MDN',
@@ -1313,8 +1280,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 31,
     title: 'Операторы сравнения',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'MDN',
@@ -1340,8 +1307,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 32,
     title: 'Арифметические операторы',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'MDN',
@@ -1369,8 +1336,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 33,
     title: 'Битовые (поразрядные) операторы',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'MDN',
@@ -1433,8 +1400,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 34,
     title: 'Логические операторы',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'MDN',
@@ -1455,8 +1422,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 35,
     title: 'Строковые операторы',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'MDN',
@@ -1474,8 +1441,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 36,
     title: 'Условный (тернарный) оператор',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'MDN',
@@ -1491,8 +1458,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 37,
     title: 'Унарные операторы',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'MDN',
@@ -1564,8 +1531,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 38,
     title: 'Операторы отношения',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'MDN',
@@ -1627,8 +1594,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 39,
     title: 'Оператор запятая',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'MDN',
@@ -1652,8 +1619,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 40,
     title: 'Приоритет операторов',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'MDN',
@@ -1742,8 +1709,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 41,
     title: 'Map',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'Learn Javascript',
@@ -1779,8 +1746,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 42,
     title: 'Set',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'Learn Javascript',
@@ -1818,8 +1785,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 43,
     title: 'WeakMap и WeakSet',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'Learn Javascript',
@@ -1843,8 +1810,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 44,
     title: 'Deep (глубокое) и shallow (поверхностное) копирование',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'Learn Javascript',
@@ -1879,8 +1846,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 45,
     title: 'Сравнение Function Decaration и Function Expression',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'Ссылка 1',
@@ -1915,8 +1882,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 46,
     title: 'Что такое анонимная функция?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'Medium (копание)',
@@ -1937,8 +1904,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 47,
     title: 'Стрелочные (arrow) функции',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'MDN',
@@ -1960,8 +1927,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
     id: 48,
     title:
       'Что такое и для чего используют IIFE (Immediately Invoked Function Expression)?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'MDN',
@@ -1989,8 +1956,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 49,
     title: 'Что такое hoisting, как он работает для переменных и функций?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'Medium',
@@ -2017,8 +1984,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 50,
     title: 'Что такое замыкание (closure)?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'Learn Javascript',
@@ -2064,8 +2031,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 51,
     title: 'Что такое рекурсия?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'Learn Javascript',
@@ -2083,8 +2050,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 52,
     title: 'Что такое this?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'MDN',
@@ -2111,8 +2078,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
     id: 53,
     title:
       'Что такое потеря контекста, когда происходит и как её предотвратить?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     answer: `
       <p>Значение this внутри функции зависит от того как вызывается функция и как создана функция.</p>
       <p>
@@ -2187,8 +2154,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 54,
     title: 'Методы функций bind/call/apply – зачем и в чем разница?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 1,
     links: [
       {
         label: 'Ссылка 1',
@@ -2206,8 +2173,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 55,
     title: 'Что такое DOM?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 1,
     links: [
       {
         label: 'Ссылка 1',
@@ -2223,8 +2190,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 56,
     title: 'Async и defer',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 1,
     links: [
       {
         label: 'Learn javascript',
@@ -2251,8 +2218,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 57,
     title: 'Отличие innerHTML и innerText',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 1,
     links: [
       {
         label: 'Ссылка 1',
@@ -2284,8 +2251,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 58,
     title: 'Всплытие (bubblind) и погружение (capturing)',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 1,
     links: [
       {
         label: 'Learn Javascript',
@@ -2310,8 +2277,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 59,
     title: 'Как остановить дефолтную обработку события?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 1,
     links: [
       {
         label: 'Learn Javascript',
@@ -2331,8 +2298,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 60,
     title: 'Чему равен this в обработчике событий (event handler)?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 1,
     links: [
       {
         label: 'Ссылка 1',
@@ -2349,8 +2316,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
     id: 61,
     title:
       'Что такое LocalStorage и SessionStorage? Каков максимальный размер LocalStorage?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 1,
     links: [
       {
         label: 'Learn Javascript',
@@ -2406,8 +2373,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 62,
     title: 'Как получить высоту блока? Его положения о границах документа?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 1,
     links: [
       {
         label: 'Learn Javascript',
@@ -2432,8 +2399,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 63,
     title: 'Что такое webpack?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 1,
     answer: `
       <p>Webpack - это сборщик кода по заранее указанным правилам. Как правило исходный код является объемным, модульным и который не всегда может запустить браузер буз сторонней помощи. Сборщик кода может как собрать все необходимые части приложения, оптимизировать и сжать их</p>
     `,
@@ -2442,8 +2409,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 64,
     title: 'Чем отличается dev-сборник от prod?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 1,
     answer: `
       <p>Дев версия как правило содержит более обширный код с помошниками кода, линтерами и комментариями. Прод сборщик нацелен на оптимизацию и минимизацию. Также дев и прод сборки могут отличаться env переменными</p>
     `,
@@ -2452,8 +2419,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 65,
     title: 'Что такое блочная модель CSS?',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 1,
     answer: `
       <p>В CSS мы, говоря упрощённо, имеем два типа элементов — блочные (block) и строчные (inline). Эти характеристики относятся к поведению блоков в контексте потока страницы и относительно других блоков на странице.</p>
       <p><strong>Блочные (block)</strong> элементы имеют высоту, ширину, padding, margin, border, а также располагаются вертикально, друг под другом.</p>
@@ -2466,8 +2433,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
     id: 66,
     title:
       'Какие способы центрирования блочного контента по горизонтали и вертикали знаете?',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 1,
     links: [
       {
         label: 'Learn Javascript',
@@ -2500,8 +2467,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 67,
     title: 'Что такое семантическая вёрстка?',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 1,
     answer: `
       <p>Семантическая вёрстка, или семантический HTML-код, — это подход к созданию веб-страниц на языке HTML, основанный на использовании HTML-тегов в соответствии с их семантикой (предназначением), а также предполагающий логичную и последовательную иерархию страницы. Он противопоставляется подходу, при котором написание HTML-кода определяется внешним видом веб-страницы. Для оформления веб-страниц, написанных в соответствии с семантикой, используются каскадные таблицы стилей (CSS). Стандарт HTML с самого начала включал в себя ряд семантических тегов, но большую популярность семантическая вёрстка получила после начала работ над HTML5.
       <br/>
@@ -2513,8 +2480,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
     id: 68,
     title:
       'Зачем нужны префиксы для некоторых CSS-свойств (-webkit-, -moz- и т.п.)?',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 1,
     answer: `
       <p>Они нужны для совместимости со старыми версиями браузеров либо для конкретных элементов текущего браузера, которые явно отличаются от остальных. Например скроллеры и другие встроенные элементы</p>
       <p>-webkit-transition: all 4s ease;<br/>
@@ -2528,8 +2495,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 69,
     title: 'Как упростить написание кроссбраузерных стилей?',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 1,
     answer: `
       <ul>
         <li>Резетать стили по умолчанию</li>
@@ -2542,8 +2509,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 70,
     title: 'Что такое CSS-препроцессоры?',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 1,
     answer: `
       <p>CSS препроцессор (CSS preprocessor) - это программа, которая имеет свой собственный синтаксис (syntax (en-US)), но может сгенерировать из него CSS код . Существует множество препроцессоров. Большинство из них расширяет возможности чистого CSS, добавляя такие опции как: примеси, вложенные правила, селекторы наследования и др. Эти особенности облегчают работу с CSS: упрощают чтение кода и его дальнейшую поддержку.</p>
       <p>Несколько самых популярных CSS препоцессоров:</p>
@@ -2559,8 +2526,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 71,
     title: 'Перечислите основные компоненты фреймворка?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
       <ul>
         <li><strong>Component</strong></li>
@@ -2576,8 +2543,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 72,
     title: 'В чем разница между компонентом и директивой?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
       <p>Компонента имеет свой шаблон и с ним работает (как изолированное под-приложение), директива не имеет шаблона (хотя возможность есть) и ставится на чужой шаблон чтобы изменить поведение.</p>
       `,
@@ -2586,8 +2553,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 73,
     title: 'Расскажите о жизненном цикле компоненты',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
       <ul>
         <li><strong>constructor</strong> +- основной инициализатор любого объекта из класса</li>
@@ -2607,8 +2574,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
     id: 74,
     title:
       'Перечислите часто используемые хуки жизненного цикла компонента и расскажите, зачем они нужны?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
       <ul>
         <li><strong>ngOnChanges</strong> - когда нужна реакция на изменения входной проперти</li>
@@ -2622,8 +2589,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 75,
     title: 'В чем разница между конструктором и ngOnInit-хуком?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
       <p>
         <strong>Конструктор</strong> - это новая вещь, появившаяся после того, как в ES6 была введена концепция классов. Это свойство самого класса и не относится к категории Angular, поэтому Angular не имеет возможности управлять конструктором.
@@ -2643,8 +2610,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
     id: 76,
     title:
       'Как защитить роут от несанкционированного доступа? Какие механизмы предоставляет для этого фреймворк?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
       <p>
         Нужно использовать guard межанизм, который ставится в роутинг-модуле на нужный роут. Гвард можен возвращать как булево, так и промис с булевым либо обзервер с булевыи
@@ -2655,8 +2622,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 77,
     title: 'Что такое Lazy loading, как и для чего используется?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
       <p>
         Это загрузка кода одного из МОДУЛЕЙ приложения по запросу, а не сразу при первом обращении.
@@ -2677,8 +2644,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 78,
     title: 'Какое предназначение RouterOutlet?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
       <p>
         Это компонент, который указывает место для дочерних роут-компонентов, которые задаст роутер-модуль
@@ -2689,8 +2656,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 79,
     title: 'Как компоненты могут взаимодействовать друг с другом?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
       <ul>
         <li>Через @Input() - @Output()</li>
@@ -2705,8 +2672,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 80,
     title: 'Как создать two-way binding свойство для компонента?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
       <p>
         Механизм двустороннего связывания (angular two way binding) используется, когда необходимо отобразить свойство в шаблоне (одностороннее связывание) и обновить его при изменении значения (возникновение события) без перезагрузки страницы.
@@ -2734,8 +2701,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
     id: 81,
     title:
       'Какие типы форм имеются во фреймворке? В каких случаях и что лучше использовать?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
       <p>Angular предоставляет два разных подхода по работе с формами: реактивные формы (reactive forms) и формы на основе шаблонов (template-driven forms).</p>
     
@@ -2749,8 +2716,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 82,
     title: 'Какие состояния есть у формы и как это можно применить?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
       <ul>
         <li><p>Если элемент ввода еще не получал фокус, то устанавливается класс <strong>ng-untouched</strong>. Если же поле ввода уже получало фокус, то к нему применяется 
@@ -2766,8 +2733,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 83,
     title: 'Зачем нужны сервисы?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
     <p>Сервисы в Angular представляют довольно широкий спектр классов, которые выполняют некоторые специфические задачи, 
     например, логгирование, работу с данными и т.д.</p>
@@ -2788,8 +2755,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
     id: 84,
     title:
       'Что такое singleton-сервисы? Каково их предназначение? Способ создания?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
     <p> Singleton - это класс, который позволяет создавать только один его экземпляр и предоставляет доступ к этому созданному экземпляру. Он содержит статические переменные, которые могут содержать уникальные и частные экземпляры самого себя. Он используется в сценариях, когда пользователь хочет ограничить создание экземпляра класса только одним объектом. </p>
     <p> Одноэлементный сервис - это экземпляр сервиса, который совместно используется компонентами. </p>
@@ -2805,8 +2772,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 85,
     title: 'Зачем нужны модули? Сколько их должно быть в проекте?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
     <p>Модули Angular помогают разбивать приложение на части (модули), которые взаимодействуют между собой и представляют в конечном итоге целостное приложение. Иными словами, модуль — это упаковка или инкапсуляция части функционала приложения. Модули можно проектировать с учетом многократного использования, т.е. не зависящие от конкретной реализации приложения. </p>
     <p>Корневой модуль в приложении Angular используется в качестве точки входа. Модуль — это класс, который декорирован при помощи @NgModule. </p>
@@ -2816,8 +2783,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 86,
     title: 'Зачем нужны общие модули (shared)?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
       <p>Все переиспользуемые в проекте компоненты можно хранить в одном модуле, экспортируя их из него и импортируя его в те модули проекта, где эти компоненты могут понадобиться.</p>
       <p>В такой модуль можно поместить компоненты кнопки, выпадающего списка, какого нибудь стилизованного блока текста и т.д, а также кастомные директивы и пайпы.</p>
@@ -2828,8 +2795,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 87,
     title: 'Какие преимущества типизации в TypeScript?',
-    category: [QuizletQuestionCategory.typescript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.typescript],
+    level: 1,
     answer: `
       <ul>
         <li>TypeScript поддерживает статическую типизацию</li>
@@ -2844,8 +2811,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 88,
     title: 'Какая разница между интерфейсом и классом?',
-    category: [QuizletQuestionCategory.typescript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.typescript],
+    level: 1,
     answer: `
       <p>
       <strong>Интерфейсы:</strong> позволяют определить тип, который будет использоваться во время разработки при компиляции для строгой типизации. Они могут быть "реализованы" или "расширены", но не могут создавать новые объекты (например через new). Они удаляются при переносе в JS, поэтому они не занимают места, но они также не могут быть проверены на тип во время выполнения, поэтому вы не можете проверить, реализует ли переменная определенный тип во время выполнения (например, foo instanceof bar), за исключением проверки свойства, которые он имеет: Проверка типа интерфейса с помощью Typescript.
@@ -2871,8 +2838,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 89,
     title: 'Какая разница между интерфейсом и абстрактным классом?',
-    category: [QuizletQuestionCategory.typescript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.typescript],
+    level: 1,
     answer: `
       <p>
         <strong>Абстрактный класс</strong>  — это класс, у которого не реализован один или больше методов (некоторые языки требуют такие методы помечать специальными ключевыми словами).
@@ -2904,8 +2871,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 90,
     title: 'Какая разница между интерфейсом и типом?',
-    category: [QuizletQuestionCategory.typescript],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.typescript],
+    level: 1,
     links: [
       {
         label: 'Ссылка 1',
@@ -2936,8 +2903,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 91,
     title: 'Что такое RxJS?',
-    category: [QuizletQuestionCategory.rxjs],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.rxjs],
+    level: 1,
     answer: `
       <p>RxJs - это библиотека для реактивного программирования, которая позволит удобно организовать работу с событиями и асинхронным кодом, писать сложную логику декларативно.</p>
       <p>RxJs позволяет создавать паттерн обзёрвер, дополнительно с фильтрами и модификациями в виде Subject, merge потоков, их фильтрацией и обработкой</p>
@@ -2947,8 +2914,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 92,
     title: 'Чем отличаются Observable и Subject?',
-    category: [QuizletQuestionCategory.rxjs],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.rxjs],
+    level: 1,
     answer: `
       <p>Observable генерирует новые события для подписки внутри своего тела. Subject позволяет генерировать новые события вне своего тела.</p>
     `,
@@ -2957,8 +2924,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 93,
     title: 'Какие бывают Subject?',
-    category: [QuizletQuestionCategory.rxjs],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.rxjs],
+    level: 1,
     answer: `
       <p>Subject - обыкновенный</p>
       <p>BehaviorSubject — вариант Subject, который требует начального значения и имеет свойство хранить текущее значение. В случаях, если нам важно иметь начальное значение у подписок, то BehaviorSubject просто незаменим. Таким образом, подписка всегда будет иметь последнее (текущее) значение, с которым можно будет работать.</p>
@@ -2971,8 +2938,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
     id: 94,
     title:
       'Как сделать несколько последовательных запросов к API с помощью RxJS?',
-    category: [QuizletQuestionCategory.rxjs],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.rxjs],
+    level: 1,
     links: [{ label: 'Habr', href: 'https://habr.com/ru/post/471572/' }],
     answer: `
     <p><strong>subscribe</strong></p>
@@ -2993,8 +2960,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 95,
     title: 'Как можно конфигурировать Angular-приложение?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
       <p>Через файлы environment, команды в package.json, angular.json позволит менять папки для стейджа и прода</p>
     `,
@@ -3003,8 +2970,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 96,
     title: 'Для чего нужны environment-файлы? Когда их лучше не использовать?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
       <p>Environment файлы нужны дя франения статичной информации, которая отличается в зависимости от окружения, будь то stage, uat, prod, pred-prod, localhost и т.д.</p>
       <p>Желательно не использовать эти файлы для динамеческой информации, а также для хранения констант, не связанных с окружением</p>
@@ -3014,8 +2981,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 97,
     title: 'В чем разница между умным (smart) и глупым (dumb) компонентами?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 1,
     answer: `
       <p>Смысл в разделении ответственности. Глупые компоненты должны лишь отображать уже подготовленую информацию, имет стили и являться максимально мало-функциональными.</p>
       <p>Умные компоненты являются оберткой для одной или множества глупых компонент. Они берут на себя максимально больше вычислительных инструментов и нужны для предоставления глупым компонентам максимально просчитанной информации</p>
@@ -3026,8 +2993,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
     id: 98,
     title:
       'В чем разница между NgForm, FormGroup и FormControl и как они применяются для построения форм?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
       <p><strong>ngForm</strong> - это директива, которая позволяет сгруппировать темплейт-форму. Также это интерфейс, который при отправки формы будет выдаваться как эвент</p>
       <p><strong>FormGroup</strong> - группировка контролов в реактивных формах в виде объекта</p>
@@ -3040,8 +3007,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 99,
     title: 'Зачем нужен и как работает async pipe?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
       <p>Одним из встроенных классов, который в отличие от других pipes уже по умолчанию представляет тип impure. AsyncPipe позволяет получить результат асинхронной операции.</p>
 
@@ -3052,8 +3019,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 100,
     title: 'В чем разница межэу функциональными и классовыми компонентами?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     answer: `
       <p>Практически никакой. И там и там можно следить за состоянием, реагировать на уровнях жизненного цикла компонент</p>
       <p>Отличия в подходе. Классовые компоненты - это ООП, явные методы жизненного цикла, строгие правила</p>
@@ -3080,8 +3047,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
     id: 101,
     title:
       'Какие данные лучше хранить в состоянии компонента, а какие передавать через пропсы?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     answer: `
       <p>В зависимости от ситуации. Как правило, в состоянии компонента лучше хранить те данные, с которыми работает конкретно этот компонент и за которое он ответственен</p>
       <p>Через пропсы передавать уже подготовленные данные например от контейнерной компоненты до глупой. Либо если идет связь один - много, чтобы не делать лишних вычислений</p>
@@ -3091,8 +3058,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 102,
     title: 'Минусы и плюсы хуков?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     answer: `
       <p>Хуки дают новый мощный способ повторного использования кода в компонентах. В классах были HOC, однако они вызывали ад оберток.</p>
       <p> Пока не существует хуков, реализующих методы жизненного цикла getSnapshotBeforeUpdate, getDerivedStateFromError и componentDidCatch</p>
@@ -3102,8 +3069,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 103,
     title: 'Какими могут быть свои кастомные хуки?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     toBeReviewed: true,
     answer: `
       <p>Создание пользовательских хуков позволяет вам перенести логику компонентов в функции, которые можно повторно использовать.</p>
@@ -3114,8 +3081,8 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {
     id: 104,
     title: 'Что такое фрагменты?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     links: [
       {
         label: 'React official',
@@ -3128,10 +3095,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 104,
+    id: 105,
     title: 'Что такое порталы?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     links: [
       {
         label: 'React official',
@@ -3145,10 +3112,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 104,
+    id: 106,
     title: 'Что такое рефы?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     links: [
       {
         label: 'React official',
@@ -3176,10 +3143,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 105,
+    id: 107,
     title: 'Жизненный цикл компонент?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     toBeReviewed: true,
     links: [
       {
@@ -3227,11 +3194,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 106,
+    id: 108,
     title:
       'В каком методе жизненного цикла компонента лучше делать запросы на сервер? Почему?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     toBeReviewed: true,
     answer: `
       <p>В componentDidMount(), если не будет меняться входная информация через пропс, которая нужна для обраотки запроса.
@@ -3240,11 +3207,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 107,
+    id: 109,
     title:
       'В каком методе жизненного цикла компонента лучше производить подписку и отписку от листенера? Почему? Зачем отписываться?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     toBeReviewed: true,
     answer: `
       <p>Подписку в componentDidMount(), отписку в componentWillUnmount(). Если не сделать отписку, то велика вероятность получить мемори лик, особенно если несколько компонентов и постоянные обновления</p>
@@ -3252,10 +3219,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 108,
+    id: 110,
     title: 'Что такое контекст и где его использовать?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     links: [
       {
         label: 'React official',
@@ -3278,10 +3245,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 109,
+    id: 111,
     title: 'В чем особенность PureComponent и React.memo?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     links: [
       {
         label: 'Ссылка 1',
@@ -3299,30 +3266,30 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 110,
+    id: 112,
     title: 'Что такое мемоизированные селекторы?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     answer: `
       <p>Мемоизированные селекторы - это например библиотека реакт-реселект. Это такие чистые функции, которые вычисляют какие-либо данные на основе получаемых аргументов и запоминают результат. Если произойдет повторное обращение, то функция возьмет кешированный результат из памяти.</p>
       `,
   },
 
   {
-    id: 111,
+    id: 113,
     title: 'В чем видите преимущества библиотеки React?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     answer: `
       <p>Скорость разработки, свобода действий по сравнению с другими фреймворками</p>
       `,
   },
 
   {
-    id: 112,
+    id: 114,
     title: 'Что такое Virtual DOM?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     links: [
       {
         label: 'React official',
@@ -3340,10 +3307,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 113,
+    id: 115,
     title: 'Зачем в списках ключи?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     links: [
       {
         label: 'React official',
@@ -3358,10 +3325,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 114,
+    id: 116,
     title: 'В чем основная идея Redux?',
-    category: [QuizletQuestionCategory.redux],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.redux],
+    level: 1,
     links: [
       {
         label: 'Ссылка 1',
@@ -3375,10 +3342,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 115,
+    id: 117,
     title: 'Работа со стилями в React',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     links: [
       {
         label: 'Medium',
@@ -3396,11 +3363,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 116,
+    id: 118,
     title:
       'React — это библиотека или фреймворк? Какая разница между этими двумя понятиями.',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     answer: `
       <p>
       Фреймворк - это набор библиотек и инструментов. Библиотека - это просто программный модуль на определенном языке. React - библиотека
@@ -3409,10 +3376,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 117,
+    id: 119,
     title: 'Можно ли использовать jQuery вместе с React? Почему да/нет?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     answer: `
       <p>
       Крайне не рекомендуется использовать jQuery с реактом. Обе библиотеки взаимодействуют с ДОМ. При этом, у каждой разный принцип взаимодействия: напрямую и виртуальный ДОМ. Они будут друг другу мешать 
@@ -3421,10 +3388,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 118,
+    id: 120,
     title: 'Перечислите все библиотеки, которые использовались в связи с React',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     answer: `
       <p>
         Router, Redux (thunk, saga), axios, jest, testing-library, momentjs, lodash
@@ -3433,10 +3400,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 119,
+    id: 121,
     title: 'Расскажите о пирамиде тестирования',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -3456,10 +3423,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 120,
+    id: 122,
     title: 'Типы автотестов',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -3481,11 +3448,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 121,
+    id: 123,
     title:
       'Что такое unit-тесты? Какое место в пирамиде тестирования занимают unit-тесты?',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -3499,21 +3466,21 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 122,
+    id: 124,
     title:
       'Что такое code coverage? Обязательно ли 100% покрытие тестами кода?',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 2,
     answer: `
     <p>Покрытие кода тестами. Не обязательно, но к этому надо стремиться</p>
      `,
   },
 
   {
-    id: 123,
+    id: 125,
     title: 'Как запретить браузеру отдавать кэш на HTTP-запрос?',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 2,
     links: [
       {
         label: 'MDN',
@@ -3543,10 +3510,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 124,
+    id: 126,
     title: 'Что такое XSS (Cross-Site Scripting)?',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 2,
     answer: `
       <p><strong>XSS (англ. Cross-Site Scripting — «межсайтовый скриптинг»)</strong> — довольно распространенная уязвимость, которую можно обнаружить на множестве веб-приложений. Ее суть довольно проста, злоумышленнику удается внедрить на страницу JavaScript-код, который не был предусмотрен разработчиками. Этот код будет выполняться каждый раз, когда жертвы (обычные пользователи) будут заходить на страницу приложения, куда этот код был добавлен.</p>
       <p>Например, можно добавить JavaScript-код в поле ввода, текст из которого сохраняется и в дальнейшем отображается на странице для всех пользователей. Это может быть поле для ввода информации о себе на странице профиля социальной сети или комментарии на форуме.</p>
@@ -3555,10 +3522,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 125,
+    id: 127,
     title: 'Расскажите о паттернах Observer, Pub/Sub и где они используются',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -3574,11 +3541,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 126,
+    id: 128,
     title:
       "С какой целью может быть использован self.addEventListener('fetch', event => {})?",
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -3599,10 +3566,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 127,
+    id: 129,
     title: 'Что такое Event loop и как он работает?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'MDN',
@@ -3639,10 +3606,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 127,
+    id: 130,
     title: 'Расскажите о микрозадачах и макрозадачах.',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript',
@@ -3674,10 +3641,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 128,
+    id: 131,
     title: 'Что такое Temporal Dead Zone?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -3701,10 +3668,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 129,
+    id: 132,
     title: 'Как работает Boxind и Unboxing?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -3719,10 +3686,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 130,
+    id: 133,
     title: 'В чем разница между оператором in и методом hasOwnProperty?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'MDN 1',
@@ -3740,11 +3707,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 131,
+    id: 134,
     title:
       'Опишите, с помощью чего в JS реализуются такие ООП-парадигмы как инкапсуляция, полиморфизм, абстракция?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -3766,11 +3733,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 132,
+    id: 135,
     title:
       'Что такое прототип? Как работает прототипное подражание в JS? +практическое',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript 1 (общее)',
@@ -3807,10 +3774,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 133,
+    id: 136,
     title: 'Какая разница между композицией и наследованием?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -3829,10 +3796,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 134,
+    id: 137,
     title: 'Почему не следует использовать конструкторы типа new String?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -3845,11 +3812,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 135,
+    id: 138,
     title:
       'Что такое записи (records) и кортежи (tuples)? Чем они отличаются от обычных объектов?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -3874,21 +3841,21 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 136,
+    id: 139,
     title:
       'Какие отличия в поведении ES5 функции-конструктора и класса ES2015?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     answer: `
       <p>По сути лишь записью и синтаксическим сахаром. Все равно все наследование происходит от прототипов. Однако в классе можно перезаписать конструктор</p>
     `,
   },
 
   {
-    id: 137,
+    id: 140,
     title: 'Как реализовать паттерн «Модуль»?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -3912,10 +3879,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 138,
+    id: 141,
     title: "Почему typeof null === 'object'?",
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -3928,10 +3895,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 139,
+    id: 142,
     title: 'Что такое приведение (преобразование) типов в JS?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript',
@@ -3950,11 +3917,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 130,
+    id: 143,
     title:
       'Что такое явное и неявное приведение (преобразование) типов? + практическое',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     isPractise: true,
     links: [
       {
@@ -3995,10 +3962,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 131,
+    id: 144,
     title: 'Что такое Garbage Collector и как он работает?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript',
@@ -4021,10 +3988,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 132,
+    id: 145,
     title: 'Что такое Garbage Collector и как он работает?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript',
@@ -4047,10 +4014,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 133,
+    id: 146,
     title: 'Чем отличаются Observable и Promise?',
-    category: [QuizletQuestionCategory.rxjs],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.rxjs],
+    level: 1,
     links: [
       {
         label: 'Ссылка 1',
@@ -4065,10 +4032,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 134,
+    id: 147,
     title: 'Практическое на промисы',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript',
@@ -4109,11 +4076,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 135,
+    id: 148,
     title:
       'Статические методы промиса: Promise.all(), Promise.allSettled(), Promise.race()',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript',
@@ -4139,11 +4106,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 136,
+    id: 149,
     title:
       'Что такое дескрипторы свойств объектов? Расскажите об их практическом применении.',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript 1 (+ getters, setters)',
@@ -4168,10 +4135,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 137,
+    id: 150,
     title: 'Как защитить объект?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript 1 (+ getters, setters)',
@@ -4209,10 +4176,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 138,
+    id: 151,
     title: 'Зачем нужен конструктор Proxy?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript',
@@ -4226,10 +4193,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 139,
+    id: 152,
     title: 'Какие отличия меж encodeURI() и encodeURIComponent()?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     answer: `
     <p>JavaScript метод encodeURI() объекта Global кодирует URI (англ. Uniform Resource Identifier – унифицированный идентификатор ресурса) заменяя каждый экземпляр определенных символов одной, двумя, тремя или четырьмя управ­ляю­щих по­сле­до­ва­тель­но­стей, представляющими кодировку символа UTF-8. Для того, чтобы декодировать URI, ранее созданный функцией encodeURI() вы можете воспользоваться методом decodeURI().</p>
     <p>Обращаю Ваше внимание на то, что метод encodeURI() не кодирует зарезервированные символы, имеющие особое значение в URI, а именно:</p>
@@ -4241,10 +4208,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 140,
+    id: 153,
     title: 'Что такое генераторы?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript',
@@ -4272,10 +4239,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 141,
+    id: 154,
     title: 'Что такое итераторы?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript 1',
@@ -4298,10 +4265,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 142,
+    id: 155,
     title: 'Что такое Symbol?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript',
@@ -4329,10 +4296,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 143,
+    id: 156,
     title: 'Как перевести число в другую разрядную систему?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     answer: `
     <p>Преобразуйте число в шестнадцатеричную строку с помощью:</p>
     <code>
@@ -4347,10 +4314,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 144,
+    id: 157,
     title: 'Что такое карирование (currying)?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript',
@@ -4365,10 +4332,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 145,
+    id: 158,
     title: 'Что такое мемоизация?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -4416,10 +4383,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 146,
+    id: 159,
     title: 'Что такое чейнинг функций?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript',
@@ -4451,10 +4418,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 147,
+    id: 160,
     title: 'Чем отличаются mouseout от mouseleave?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript',
@@ -4474,11 +4441,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 148,
+    id: 161,
     title:
       'В каком порядке обрабатываются пользовательские события в DOM (click, mouseover и т.п.)?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript',
@@ -4504,10 +4471,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 149,
+    id: 162,
     title: 'Что такое FIFO и LIFO? + практическое',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 2,
     isPractise: true,
     links: [
       {
@@ -4535,21 +4502,21 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 150,
+    id: 163,
     title:
       'Сравните методы объекта event stopPropagation и stopImmediateProparation',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 2,
     answer: `
     <p>stopPropagation предотвратит выполнение любых родительских обработчиков stopImmediatePropagation, предотвратит выполнение каких-либо родительских обработчиков , а также любых других обработчиков</p>
     `,
   },
 
   {
-    id: 151,
+    id: 164,
     title: 'Каковы есть подходы к оптимизации производительности вебстраницы?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -4573,10 +4540,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 152,
+    id: 165,
     title: 'Как реализован механизм same-origin policy в браузере?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 2,
     links: [
       {
         label: 'MDN',
@@ -4601,10 +4568,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 153,
+    id: 166,
     title: 'Назовите способы хранения данных в браузере',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript',
@@ -4622,10 +4589,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 154,
+    id: 167,
     title: 'Что такое Web Workers и зачем они нужны?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 2,
     toBeReviewed: true,
     links: [
       {
@@ -4651,10 +4618,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 155,
+    id: 168,
     title: 'Что такое Transferable-объекты?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 2,
     toBeReviewed: true,
     answer: `
     <p>Для обмена данными между основным процессом и воркером без копирования памяти в js были введены transferable objects. Если коротко, то при передаче объекта arrayBuffer вместо того, чтобы копировать данные из памяти основного потока в поток воркера, вы можете их просто делегировать</p>
@@ -4664,10 +4631,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 156,
+    id: 169,
     title: 'Что такое ResizeObserver?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -4694,10 +4661,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 157,
+    id: 170,
     title: 'Что такое Web Accessibility?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 2,
     links: [
       {
         label: 'MDN',
@@ -4724,11 +4691,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 158,
+    id: 171,
     title:
       'Опишите алгоритм создания функционала, обеспечивающий чтение содержимого .txt-файла при перетаскивании его из файловой системы в окно браузера',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 2,
     isPractise: true,
     links: [
       {
@@ -4745,10 +4712,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 159,
+    id: 172,
     title: 'Объясните разницу между единицами измерения px, em, rem.',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript',
@@ -4767,10 +4734,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 160,
+    id: 173,
     title: 'Использование переменных в CSS',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     links: [
       {
         label: 'MDN',
@@ -4783,10 +4750,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 161,
+    id: 174,
     title: 'Практическое на селектор * и свойство box-sizing',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     isPractise: true,
     links: [
       {
@@ -4802,10 +4769,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 162,
+    id: 175,
     title: 'Как адаптировать страницу для печати?',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -4827,20 +4794,20 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 163,
+    id: 176,
     title: 'Опишите особенности кастомизации стилей обычных частей форм.',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     answer: `
     <p>Нужно учитывать shadow dom, еще что разные браузеры по разному могут отображать поля и кнопки. Рекомендуется сбрасывать стили</p>
     `,
   },
 
   {
-    id: 164,
+    id: 177,
     title: 'Что такое прогрессивный рендеринг? Какие подходы используются?',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -4862,11 +4829,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 165,
+    id: 178,
     title:
       'Назовите несколько способов реализации lazy-loading медиаресурсов на странице.',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     links: [
       {
         label: 'MDN',
@@ -4895,10 +4862,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 166,
+    id: 179,
     title: 'Популярные шаблонизаторы и их особенности',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -4912,10 +4879,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 167,
+    id: 180,
     title: 'Популярные CSS методологии',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -4936,10 +4903,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 168,
+    id: 181,
     title: 'Как работает CSS Grid?',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     links: [
       {
         label: 'MDN',
@@ -4962,10 +4929,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 169,
+    id: 182,
     title: 'Какие форматы изображений поддерживают анимацию?',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -4986,11 +4953,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 170,
+    id: 183,
     title:
       'Как отследить прогресс / окончание CSS @keyframes анимаций или плавных переходов, реализуемых с помощью transition, в JS?',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript',
@@ -5003,11 +4970,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 171,
+    id: 184,
     title:
       'Какие свойства CSS могут быть обработаны непосредственно через GPU? Аппаратное ускорение',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5024,10 +4991,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 172,
+    id: 185,
     title: 'Как переиспользовать элементы SVG на странице?',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5049,11 +5016,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 173,
+    id: 186,
     title:
       'Как реализовать иконочный шрифт из определенного набора SVG-файлов?',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5070,21 +5037,21 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 174,
+    id: 187,
     title:
       'Что такое ложное жирное или ложное курсивное (Faux) начертание шрифтов?',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     answer: `
     <p>Браузеры могут вытворять ужасные вещи с текстом. Если текст стилизован как жирный или курсив, но в данном шрифте отсутствует жирное или курсивное начертание, то браузеры компенсируют их отсутствие, пытаясь создать подобное начертание самостоятельно. В результате мы наблюдаем неуклюжую попытку подражания настоящему шрифтовому дизайну.</p>
     `,
   },
 
   {
-    id: 175,
+    id: 188,
     title: 'Что такое #shadow-root в инспекторе HTML-страницы?',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     links: [
       {
         label: 'MDN',
@@ -5097,10 +5064,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 176,
+    id: 189,
     title: 'Зачем нужны Custom Elements?',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     links: [
       {
         label: 'Learn Javascript',
@@ -5121,21 +5088,21 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 177,
+    id: 190,
     title:
       'Почему удаление лишних символов пробелов/символов переноса в HTML не отражается на конечной производительности загрузки страницы?',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     answer: `
     <p>Пробелы не учитываются, переносы строк в коде HTML игнорируются, весь текст отображается одной строкой; вместе с тем, добавление тега <br> переносит текст</p>
     `,
   },
 
   {
-    id: 178,
+    id: 191,
     title: 'Что такое контекст отображения canvas?',
-    category: [QuizletQuestionCategory.markup],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.markup],
+    level: 2,
     links: [
       {
         label: 'MDN',
@@ -5149,10 +5116,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 179,
+    id: 192,
     title: 'Как работает Dependency Injection?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5166,10 +5133,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 180,
+    id: 193,
     title: 'Что такое zone.js и ngZone?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5195,10 +5162,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 181,
+    id: 194,
     title: 'Как работает Change detection?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5220,41 +5187,41 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 182,
+    id: 195,
     title: 'Как выполнить конфигурацию HTTP-сервиса?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
     <p>Через интерсепторы. Интерсепторы - это перехватчики, которые могут реагировать как на реквест, так и на респонс, модифицируя запрос</p>
     `,
   },
 
   {
-    id: 183,
+    id: 196,
     title: 'Как подготовить сборку к деплою?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
     <p>Проверить environments, тесты и запуститть ng build -prod</p>
     `,
   },
 
   {
-    id: 184,
+    id: 197,
     title: 'Что такое NgRx? Когда следует использовать?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 1,
     answer: `
     <p>NgRx - библиотека, которая позволяет создавать паттерны обзервер. Используется постоянно при использовании ангуляра, а также когда нам нужны обрерверы, потоки и подписки</p>
     `,
   },
 
   {
-    id: 185,
+    id: 198,
     title:
       'В каких вариантах лучше использовать Renderer-сервис заместо нативных способов?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5267,10 +5234,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 186,
+    id: 199,
     title: 'Зачем нужен Resolver?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5283,10 +5250,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 187,
+    id: 200,
     title: 'Как работают и зачем нужны динамические компоненты?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5335,10 +5302,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 188,
+    id: 201,
     title: 'Какая разница между @ViewChild и @ContentChild?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5356,10 +5323,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 189,
+    id: 202,
     title: 'Что такое @HostBinding и @HostListener?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5374,10 +5341,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 190,
+    id: 203,
     title: 'Как кэшировать данные, используя сервисы или RxJS?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5411,10 +5378,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 191,
+    id: 204,
     title: 'Что такое асинхронная валидация форм?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5467,10 +5434,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 192,
+    id: 205,
     title: 'Зачем нужна forRoot-функция модуля?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5488,42 +5455,42 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 193,
+    id: 206,
     title:
       'Какая разница между декларированием и экспортом компонента из модуля?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 2,
     answer: `
     <p>Обычное декларирование позволяет использовать компонент внутри текущего модуля, а экспорт внутри других модулей при импорте</p>
     `,
   },
 
   {
-    id: 194,
+    id: 207,
     title:
       'Почему плохо «провайдировать» сервис из shared-модуля в lazy-loaded модуль?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 2,
     answer: `
     <p>Он уже там будет, и это лишний код в бандл.</p>
     `,
   },
 
   {
-    id: 195,
+    id: 208,
     title: 'Что такое ::ng-deep',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 2,
     answer: `
     <p>Так как все стили у нас в компоненте модульные - они не расрпространяются на дочерние классы. Но если очень хочется, то можно использовать блок ::ng-deep</p>
     `,
   },
 
   {
-    id: 196,
+    id: 209,
     title: 'Что такое ViewEncapsulation',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5542,20 +5509,20 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 197,
+    id: 210,
     title: 'Какие тесты есть в Angular?',
-    category: [QuizletQuestionCategory.angular],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.angular],
+    level: 2,
     answer: `
     <p>Unit и e2e. Простые (без использования частей ангуляр) и сложные (с использованием частей ангуляр)</p>
     `,
   },
 
   {
-    id: 198,
+    id: 211,
     title: 'Что такое JSX?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     links: [
       {
         label: 'React Official 1',
@@ -5581,21 +5548,21 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 199,
+    id: 212,
     title: 'В чем разница между функциональными и классовыми компонентами?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     answer: `
     <p>Способом мысли (ООП и ФП) и написания. Функциональные лаконичные. У классовых есть методы жизненного цикла. У функциональных хуки. Еще классовых нужно постоянно биндить методы внутри.</p>
     `,
   },
 
   {
-    id: 200,
+    id: 213,
     title:
       'Зачем и когда нужно передавать props в super() при использовании классовых компонентов?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5608,11 +5575,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 201,
+    id: 214,
     title:
       'Почему необходимо использовать setState() для обновления внутреннего состояния компонента?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 2,
     links: [
       {
         label: 'React Official',
@@ -5625,10 +5592,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 202,
+    id: 215,
     title: 'В чем заключается принцип подъема состояния?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 2,
     links: [
       {
         label: 'React Official',
@@ -5641,10 +5608,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 203,
+    id: 216,
     title: 'Какие библиотеки менеджмента состояния React-приложения вы знаете?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.junior,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 1,
     answer: `
     <ul>
       <li>Redux - самый популярный способ хранения глобального стейта. Крайне многословный</li>
@@ -5656,10 +5623,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 204,
+    id: 217,
     title: 'Расскажите о базовом принципе работы React Hooks',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 2,
     links: [
       {
         label: 'React Official',
@@ -5673,10 +5640,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 205,
+    id: 218,
     title: 'Что такое createRef и useRef?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 2,
     links: [
       {
         label: 'React Official',
@@ -5701,10 +5668,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 206,
+    id: 219,
     title: 'Когда следует использовать Ref?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 2,
     links: [
       {
         label: 'React Official',
@@ -5717,10 +5684,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 207,
+    id: 220,
     title: 'Какие минусы есть у библиотеки React?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 2,
     answer: `
       <ul>
         <li>Не фреймворк а библиотека, все части добавляются отдельно</li>
@@ -5731,10 +5698,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 208,
+    id: 221,
     title: 'Какие паттерны используете вместе с React?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5764,10 +5731,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 209,
+    id: 222,
     title: 'Что такое HOC?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 2,
     links: [
       {
         label: 'React Official',
@@ -5781,11 +5748,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 210,
+    id: 223,
     title:
       'Оптимизация React-приложений. Инструменты оценки производительности',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 2,
     links: [
       {
         label: 'React Official',
@@ -5805,31 +5772,31 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 211,
+    id: 224,
     title: 'Можно ли приложение React встроить в другое приложение React?',
-    category: [QuizletQuestionCategory.react],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.react],
+    level: 2,
     answer: `
     <p>Нет. Но можно запустить их из разных контейнеров. И то будет куча ререндера.</p>
     `,
   },
 
   {
-    id: 212,
+    id: 225,
     title:
       'Каждый раз, когда вы делаете pull, почему-то случается конфликт в последней строке во всех редактируемых файлах. Что происходит?',
-    category: [QuizletQuestionCategory.git],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.git],
+    level: 2,
     answer: `
     <p>Изменения с удаленного (origin) репозитория конфликтуют с текущими и не могут вставиться через fast-forward. Конфликт требует решения на стороне локального репозитория</p>
     `,
   },
 
   {
-    id: 213,
+    id: 226,
     title: 'Что делает команда git fetch? Чем она отличается от git pull?',
-    category: [QuizletQuestionCategory.git],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.git],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5844,10 +5811,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 214,
+    id: 227,
     title: 'Что такое CI/CD? Зачем это нужно?',
-    category: [QuizletQuestionCategory.other],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.other],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5865,10 +5832,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 215,
+    id: 228,
     title: 'Зачем нужен package-lock.json?',
-    category: [QuizletQuestionCategory.other],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.other],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5883,10 +5850,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 216,
+    id: 229,
     title: 'В чем разница между npm install и npm ci?',
-    category: [QuizletQuestionCategory.other],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.other],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5899,10 +5866,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 217,
+    id: 230,
     title: 'Зачем нужны бандлеры?',
-    category: [QuizletQuestionCategory.other],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.other],
+    level: 2,
     answer: `
     <p>И здесь появляется бандлер (bundler). Это инструмент для сборки модулей в единые пакеты, имеющий доступ к файловой системе. Получающиеся пакеты совместимы с браузером, которому не нужен доступ к файловой системе. Бандлеры собирают скрипты в нужные файлики, подключают в нужном порядке, также могут добавлять функиональность, полиморфы (ie11) и минимизировать</p>
     <p>Примеры: webpack, browserify</p>
@@ -5910,10 +5877,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 218,
+    id: 231,
     title: 'В чем разница между git merge и git rebase?',
-    category: [QuizletQuestionCategory.git],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.git],
+    level: 2,
     links: [
       {
         label: 'Ссылка 1',
@@ -5929,10 +5896,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 219,
+    id: 232,
     title: 'Что такое staging area в git?',
-    category: [QuizletQuestionCategory.git],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.git],
+    level: 2,
     answer: `
     <p>Staging area переводится как "перевалочный пункт". То-есть это место, где хранится груз, готовый к дальнейшей отправке.</p>
     <p>Область подготовленных файлов (staging area) — это обычный файл, обычно хранящийся в каталоге Git, который содержит информацию о том, что должно войти в следующий коммит. Иногда его называют индексом (index), но в последнее время становится стандартом называть его областью подготовленных файлов. Область подготовленных файлов это уже не рабочий каталог, но ещё и не коммит.</p>
@@ -5940,10 +5907,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 220,
+    id: 233,
     title: 'Опишите процесс code review',
-    category: [QuizletQuestionCategory.git],
-    level: QuizletQuestionLevel.middle,
+    category: [QuizletQuestionCategoryEnum.git],
+    level: 2,
     answer: `
     <p>Как следует из названия, code review — это процесс, при котором один или несколько разработчиков просматривают код, написанный другим разработчиком (автором), чтобы убедиться, что:</p>
     <ul>
@@ -5956,10 +5923,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 221,
+    id: 234,
     title: 'Что представляет собой функциональное программирование?',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 3,
     links: [
       {
         label: 'Ссылка 1',
@@ -5982,11 +5949,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 222,
+    id: 235,
     title:
       'Что такое TDD (Test Driven Development) / BDD (Behavior Driven Development)?',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 3,
     links: [
       {
         label: 'Ссылка 1',
@@ -6023,10 +5990,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 223,
+    id: 236,
     title: 'Расскажите подробно о работе HTTPS',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 3,
     links: [
       {
         label: 'Ссылка 1',
@@ -6046,10 +6013,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 224,
+    id: 237,
     title: 'Что такое V8 Engine?',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 3,
     links: [
       {
         label: 'Ссылка 1',
@@ -6070,11 +6037,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 224,
+    id: 238,
     title:
       'В чем отличие компилируемыми и интерпритируемыми языками программирования?',
-    category: [QuizletQuestionCategory.common],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.common],
+    level: 3,
     links: [
       {
         label: 'Ссылка 1',
@@ -6102,10 +6069,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 225,
+    id: 239,
     title: 'Реализация паттерна Class Free OOP',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 3,
     isPractise: true,
     links: [
       {
@@ -6146,10 +6113,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 226,
+    id: 240,
     title: 'Реализация паттерна async disposer',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 3,
     isPractise: true,
     toBeReviewed: true,
     links: [
@@ -6162,10 +6129,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 227,
+    id: 241,
     title: 'Использование регулярных выражений. Когда приемлемо/неприемлемо?',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 3,
     toBeReviewed: true,
     links: [
       {
@@ -6189,10 +6156,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 228,
+    id: 242,
     title: 'Как обмениваться данными между вкладками?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 3,
     links: [
       {
         label: 'Ссылка 1',
@@ -6264,20 +6231,20 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 229,
+    id: 243,
     title: 'Как браузер определяет, можно ли общаться между вкладками?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 3,
     answer: `
     <p>Same-origin policy</p>
     `,
   },
 
   {
-    id: 230,
+    id: 244,
     title: 'Что такое Content Security Policy?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 3,
     links: [
       {
         label: 'MDN',
@@ -6300,10 +6267,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 231,
+    id: 245,
     title: 'Что такое requestAnimationFrame?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 3,
     links: [
       {
         label: 'MDN',
@@ -6316,10 +6283,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 232,
+    id: 246,
     title: 'Микросервисный подход в веб-разработке',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 3,
     links: [
       {
         label: 'Ссылка 1',
@@ -6340,10 +6307,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 233,
+    id: 247,
     title: 'Порівняйте nextElementSibling та nextSibling',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 3,
     answer: `
     <p>nextSibling возвращает следующий объект Node, тогда как nextElementSibling возвращает следующий объект Element</p>
     <p>node может быть просто текстом</p>
@@ -6351,20 +6318,20 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 234,
+    id: 248,
     title: 'Какие есть метрики сайта?',
-    category: [QuizletQuestionCategory.frontend],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.frontend],
+    level: 3,
     answer: `
     <p>Скорость загрузки первого экрана, производительность, скорость загрузки, посещения, клики, вовлеченность</p>
     `,
   },
 
   {
-    id: 235,
+    id: 249,
     title: 'Методология git flow',
-    category: [QuizletQuestionCategory.git],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.git],
+    level: 3,
     links: [
       {
         label: 'Ссылка 1',
@@ -6377,10 +6344,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 236,
+    id: 250,
     title: 'Что означает требование делать squash commits во время rebase?',
-    category: [QuizletQuestionCategory.git],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.git],
+    level: 3,
     links: [
       {
         label: 'Ссылка 1',
@@ -6396,10 +6363,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 237,
+    id: 251,
     title: 'Расскажите об обобщённых типах (generics) в TypeScript',
-    category: [QuizletQuestionCategory.typescript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.typescript],
+    level: 3,
     answer: `
       <p>Обобщённые типы (generics) позволяют создавать компоненты или функции, которые могут работать с различными типами, а не с каким-то одним. </p>
       <code>/** Объявление класса с параметром обобщённого типа */
@@ -6416,11 +6383,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 238,
+    id: 252,
     title:
       'Как в TypeScript реализовать свойства класса, являющиеся константами?',
-    category: [QuizletQuestionCategory.typescript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.typescript],
+    level: 3,
     answer: `
       <p>В TypeScript, при объявлении свойств классов, нельзя использовать ключевое слово const. При попытке использования этого ключевого слова выводится следующее сообщение об ошибке: A class member cannot have the ‘const’ keyword. В TypeScript 2.0 имеется модификатор readonly, позволяющий создавать свойства класса, предназначенные только для чтения</p>
       <code>class MyClass {
@@ -6436,20 +6403,20 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 239,
+    id: 253,
     title: 'Что представляют собой .map-файлы в TypeScript?',
-    category: [QuizletQuestionCategory.typescript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.typescript],
+    level: 3,
     answer: `
       <p>Файлы с расширением .map хранят карты кода (source map), которые содержат данные о соответствии кода, написанного на TypeScript, JavaScript-коду, созданному на его основе. С этим файлами могут работать многие отладчики (например — Visual Studio и инструменты разработчика Chrome). Это позволяет, в ходе отладки, работать с исходным кодом программ на TypeScript, а не с их JS-эквивалентами.</p>
     `,
   },
 
   {
-    id: 240,
+    id: 254,
     title: 'Есть ли в предоставленном вам TypeScript-коде ошибки?',
-    category: [QuizletQuestionCategory.typescript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.typescript],
+    level: 3,
     isPractise: true,
     answer: `
     <code>class Point {
@@ -6467,10 +6434,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 241,
+    id: 255,
     title: 'Расскажите об использовании декораторов свойств в TypeScript',
-    category: [QuizletQuestionCategory.typescript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.typescript],
+    level: 3,
     answer: `
       <p>Декораторы можно использовать для изменения поведения классов, при этом ещё больше пользы от них можно получить при их использовании с каким-либо фреймворком. Например, если в вашем фреймворке есть методы, доступ к которым ограничен (скажем, они предназначены только для администратора), несложно будет написать декоратор метода @admin, который будет запрещать доступ к соответствующим методам пользователям, не являющимся администраторами. Можно создать декоратор @owner, который позволяет модифицировать объект только его владельцу. Вот как может выглядеть использование декораторов</p>
       <p>Декоратор — это специальный вид описания, который можно присоединить к декларации класса, метода, get свойства, свойства или параметра. Декораторы используют форму @expression, то есть при использовании ставится символ @ перед именем декоратора. Хотя по сути expression может быть любая функция. Эта функция будет вызвана в процессе выполнения программы, причем вызывающий код добавит аргументы с информацией о том объекте, который был задекорирован.</p>
@@ -6501,10 +6468,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 242,
+    id: 256,
     title: 'Ключевые слова module и namespace',
-    category: [QuizletQuestionCategory.typescript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.typescript],
+    level: 3,
     links: [
       {
         label: 'Typescript Official',
@@ -6548,11 +6515,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 243,
+    id: 257,
     title:
       'Как сделать так, чтобы классы, объявленные в модуле, были бы доступны и за пределами этого модуля?',
-    category: [QuizletQuestionCategory.typescript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.typescript],
+    level: 3,
     isPractise: true,
     answer: `
       <p>Классы, объявленные в модуле, доступны в пределах этого модуля. За его пределами доступ к ним получить нельзя.</p>
@@ -6581,10 +6548,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 244,
+    id: 258,
     title: 'Поддерживает ли TypeScript перегрузку функций?',
-    category: [QuizletQuestionCategory.typescript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.typescript],
+    level: 3,
     answer: `
       <p>TypeScript поддерживает перегрузку функций, но реализация этого механизма отличается от той, которую можно видеть в других объектно-ориентированных языках. А именно, в TS создают лишь одну функцию и некоторое количество объявлений. Когда такой код компилируется в JavaScript, видимой оказывается лишь одна конкретная функция. Этот механизм работает из-за того, что JS-функции можно вызывать, передавая им разное количество параметров.</p>
       <code>class Foo {
@@ -6599,10 +6566,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 245,
+    id: 259,
     title: 'Внешнее объявление переменной (ambient declaration) и declare',
-    category: [QuizletQuestionCategory.typescript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.typescript],
+    level: 3,
     answer: `
       <p>Ключевое слово declare используется в TypeScript для объявления переменных, источником которых может служить некий файл, не являющийся TypeScript-файлом.</p>
       <p>Например, представим, что у нас имеется библиотека, которая называется myLibrary. У неё нет файла с объявлениями типов TypeScript, у неё имеется лишь пространство имён myLibrary в глобальном пространстве имён.</p>
@@ -6612,10 +6579,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 246,
+    id: 260,
     title: 'Что такое тип never?',
-    category: [QuizletQuestionCategory.typescript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.typescript],
+    level: 3,
     answer: `
       <p>Тип never - примитивный тип, который олицетворяет значения, которых никогда не будет</p>
       <ul>
@@ -6627,10 +6594,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 247,
+    id: 261,
     title: 'Что такое keyof?',
-    category: [QuizletQuestionCategory.typescript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.typescript],
+    level: 3,
     answer: `
       <p>keyof возвращает ключи типа</p>
       <code>
@@ -6642,10 +6609,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 248,
+    id: 262,
     title: 'Конструкция key in',
-    category: [QuizletQuestionCategory.typescript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.typescript],
+    level: 3,
     answer: `
       <p>Конструкция, которая вмесие с keyof позволяет перебирать ключи</p>
       <code>
@@ -6660,10 +6627,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 249,
+    id: 263,
     title: 'Отличие typeof от ReturnType',
-    category: [QuizletQuestionCategory.typescript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.typescript],
+    level: 3,
     answer: `
       <p>typeof позволяет вернуть тип от какой-то переменной</p>
       <p>ReturnType позволяет вернуть тип возвращаемый функцией. Используется вместе с typeof</p>
@@ -6674,10 +6641,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 250,
+    id: 264,
     title: 'Что такое Utility Types и какими они бывают',
-    category: [QuizletQuestionCategory.typescript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.typescript],
+    level: 3,
     answer: `
       <p>Утилити типы - это помошники, которые позволяют создать новые типы из уже существующих</p>
       <ol>
@@ -6807,10 +6774,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 251,
+    id: 265,
     title: 'Напишите deep clone для объекта',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 3,
     isPractise: true,
     answer: `
       <code>
@@ -6838,10 +6805,10 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 252,
+    id: 266,
     title: 'Способы поменять местами значения переменных',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 3,
     links: [{ label: 'Ссылка 1', href: 'https://habr.com/ru/post/657625/' }],
     answer: `
       <ul>
@@ -6853,11 +6820,11 @@ export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   },
 
   {
-    id: 253,
+    id: 267,
     title:
       'Напишите функцию Sleep (ms), которая останавливает выполнение async-функции на заданный промежуток времени.',
-    category: [QuizletQuestionCategory.javascript],
-    level: QuizletQuestionLevel.senior,
+    category: [QuizletQuestionCategoryEnum.javascript],
+    level: 3,
     answer: `
       <code>
         let sleep = ms => new Promise(res=>setTimeout(res,ms)); <br/>
