@@ -6,6 +6,8 @@ COPY package.json .
 
 RUN npm install
 
+RUN npm rebuild sass
+
 # for Ubuntu user permission fix
 RUN mkdir -p node_modules/.cache && chmod -R 777 node_modules/.cache
 

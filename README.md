@@ -14,7 +14,7 @@ To check the container name
 
 To use node/npm/npx commands
 
-### `docker compose run --rm node npm i axios `
+### `docker compose run --rm node npm i axios`
 
 Or if all containers up
 
