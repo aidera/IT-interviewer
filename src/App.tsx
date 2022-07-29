@@ -3,7 +3,6 @@ import './App.css';
 import 'antd/dist/antd.min.css';
 import { Layout, Menu } from 'antd';
 import { Content, Footer, Header } from 'antd/lib/layout/layout';
-import Title from 'antd/lib/typography/Title';
 import { ItemType } from 'antd/lib/menu/hooks/useItems';
 import Glossary from './pages/Glossary';
 
