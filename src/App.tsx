@@ -3,9 +3,8 @@ import './App.css';
 import 'antd/dist/antd.min.css';
 import { Layout, Menu } from 'antd';
 import { Content, Footer, Header } from 'antd/lib/layout/layout';
-import Title from 'antd/lib/typography/Title';
 import { ItemType } from 'antd/lib/menu/hooks/useItems';
-import Glossary from './pages/Glossary';
+import Glossary from './pages/Glossary/Glossary';
 
 function App() {
   const menuItems: ItemType[] = [
@@ -31,7 +30,7 @@ function App() {
         />
       </Header>
       <Layout className='site-layout'>
-        <Content style={{ margin: '0 16px' }}>
+        <Content style={{ margin: '0 16px', padding: '24px 0' }}>
           <Glossary />
         </Content>
         <Footer style={{ textAlign: 'center' }}></Footer>

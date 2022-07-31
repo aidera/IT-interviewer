@@ -5,3 +5,7 @@
   font-weight: bold;
   margin: 0 24px;
 }
+
+.ant-collapse-header-text {
+  width: 100%;
+}
