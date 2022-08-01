@@ -5,6 +5,7 @@ import React, {
   useState,
 } from 'react';
 import { Form, Input, InputNumber, Modal, Select } from 'antd';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { EditTypeEnum } from '../../models/utils';
 import { CATEGORIES } from '../../data/categories';
 import { QuizletQuestionCategory } from '../../models/category';
@@ -18,6 +19,13 @@ type OpenModalType = {
   type?: EditTypeEnum;
 };
 
+interface IFormInput {
+  title: string;
+  category: number;
+  level: number;
+  answer: string;
+}
+
 export type EditQuestionModalRefType = {
   openModal: (props: OpenModalType) => void;
 };
@@ -26,6 +34,7 @@ const EditQuestionModal = forwardRef(
   (props: PropsType, ref: ForwardedRef<EditQuestionModalRefType>) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [title, setTitle] = useState('');
+    const { control, handleSubmit } = useForm<IFormInput>();
 
     const categories: QuizletQuestionCategory[] = JSON.parse(
       JSON.stringify(CATEGORIES),
@@ -44,25 +53,35 @@ const EditQuestionModal = forwardRef(
       setIsModalVisible(false);
     };
 
+    const submit: SubmitHandler<IFormInput> = (data) => {
+      console.log(data);
+    };
+
     return (
       <Modal
         title={title}
         visible={isModalVisible}
         onCancel={closeModal}
         okText='Submit'
+        onOk={handleSubmit(submit)}
       >
         <Form
           labelCol={{ span: 4 }}
           wrapperCol={{ span: 20 }}
           initialValues={{ remember: true }}
           autoComplete='off'
+          onFinish={handleSubmit(submit)}
         >
           <Form.Item
             label='Title'
             name='title'
             rules={[{ required: true, message: 'Please input a title!' }]}
           >
-            <Input />
+            <Controller
+              name='title'
+              control={control}
+              render={({ field }) => <Input {...field} />}
+            />
           </Form.Item>
 
           <Form.Item
@@ -70,15 +89,24 @@ const EditQuestionModal = forwardRef(
             label='Category'
             rules={[{ required: true }]}
           >
-            <Select placeholder='Select a option and change input text above'>
-              {categories.map((category) => {
-                return (
-                  <Select.Option value={category.id} key={category.id}>
-                    {category.label}
-                  </Select.Option>
-                );
-              })}
-            </Select>
+            <Controller
+              name='category'
+              control={control}
+              render={({ field }) => (
+                <Select
+                  placeholder='Select a option and change input text above'
+                  {...field}
+                >
+                  {categories.map((category) => {
+                    return (
+                      <Select.Option value={category.id} key={category.id}>
+                        {category.label}
+                      </Select.Option>
+                    );
+                  })}
+                </Select>
+              )}
+            />
           </Form.Item>
 
           <Form.Item
@@ -86,16 +114,27 @@ const EditQuestionModal = forwardRef(
             name='level'
             rules={[{ required: true, message: 'Please input a level!' }]}
           >
-            <InputNumber
-              max={10}
-              min={1}
-              step={1}
-              formatter={(value) => `${value}`.replaceAll('.', '')}
+            <Controller
+              name='level'
+              control={control}
+              render={({ field }) => (
+                <InputNumber
+                  max={10}
+                  min={1}
+                  step={1}
+                  formatter={(value) => `${value}`.replaceAll('.', '')}
+                  {...field}
+                />
+              )}
             />
           </Form.Item>
 
           <Form.Item label='Answer' name='answer'>
-            <Input.TextArea rows={4} />
+            <Controller
+              name='answer'
+              control={control}
+              render={({ field }) => <Input.TextArea rows={4} {...field} />}
+            />
           </Form.Item>
         </Form>
       </Modal>
