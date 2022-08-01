@@ -16,4 +16,7 @@ export interface QuizletQuestion {
   isPractise?: boolean;
 }
 
-export type EditQuizletQuestion = Omit<QuizletQuestion, 'id'>;
+export type EditQuizletQuestion = Pick<
+  QuizletQuestion,
+  'title' | 'category' | 'level' | 'answer'
+>;

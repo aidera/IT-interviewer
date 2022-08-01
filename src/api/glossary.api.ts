@@ -1,9 +1,9 @@
-import { IndexableType } from 'dexie';
 import { APIResponse, APIResponseStatusEnum } from '../models/api.model';
+import { EditQuizletQuestion } from '../models/question.model';
 import { db } from './indexedDB';
 
 class GlossaryAPI {
-  async addQuestion(data: any): Promise<APIResponse<number>> {
+  async addQuestion(data: EditQuizletQuestion): Promise<APIResponse<number>> {
     try {
       const id = await db.glossary.add({
         answer: data.answer,

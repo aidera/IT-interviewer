@@ -10,6 +10,7 @@ import { EditTypeEnum } from '../../models/utils.model';
 import { CATEGORIES } from '../../data/categories';
 import { QuizletQuestionCategory } from '../../models/category.model';
 import GlossaryAPIInstance from '../../api/glossary.api';
+import { EditQuizletQuestion } from '../../models/question.model';
 
 type PropsType = {
   onOkCallback?: () => void;
@@ -20,12 +21,7 @@ type OpenModalType = {
   type?: EditTypeEnum;
 };
 
-interface IFormInput {
-  title: string;
-  category: number;
-  level: number;
-  answer: string;
-}
+type FormInput = EditQuizletQuestion;
 
 export type EditQuestionModalRefType = {
   openModal: (props: OpenModalType) => void;
@@ -35,7 +31,7 @@ const EditQuestionModal = forwardRef(
   (props: PropsType, ref: ForwardedRef<EditQuestionModalRefType>) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [title, setTitle] = useState('');
-    const { control, handleSubmit, reset } = useForm<IFormInput>();
+    const { control, handleSubmit, reset } = useForm<FormInput>();
 
     const categories: QuizletQuestionCategory[] = JSON.parse(
       JSON.stringify(CATEGORIES),
@@ -54,7 +50,7 @@ const EditQuestionModal = forwardRef(
       setIsModalVisible(false);
     };
 
-    const submit: SubmitHandler<IFormInput> = (data) => {
+    const submit: SubmitHandler<FormInput> = (data) => {
       GlossaryAPIInstance.addQuestion(data).then(() => {
         reset();
         closeModal();
