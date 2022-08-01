@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './QuestionCard.module.scss';
 import { Collapse } from 'antd';
 import Title from 'antd/lib/typography/Title';
-import { QuizletQuestion } from '../../models/question';
+import { QuizletQuestion } from '../../models/question.model';
 
 type PropsType = {
   question: QuizletQuestion;

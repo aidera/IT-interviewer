@@ -1,7 +1,7 @@
 import {
   QuizletQuestionCategory,
   QuizletQuestionCategoryEnum,
-} from '../models/category';
+} from '../models/category.model';
 
 export const CATEGORIES: QuizletQuestionCategory[] = [
   {

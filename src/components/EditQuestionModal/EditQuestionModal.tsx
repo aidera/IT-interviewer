@@ -6,9 +6,10 @@ import React, {
 } from 'react';
 import { Form, Input, InputNumber, Modal, Select } from 'antd';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import { EditTypeEnum } from '../../models/utils';
+import { EditTypeEnum } from '../../models/utils.model';
 import { CATEGORIES } from '../../data/categories';
-import { QuizletQuestionCategory } from '../../models/category';
+import { QuizletQuestionCategory } from '../../models/category.model';
+import GlossaryAPIInstance from '../../api/glossary.api';
 
 type PropsType = {
   onOkCallback?: () => void;
@@ -34,7 +35,7 @@ const EditQuestionModal = forwardRef(
   (props: PropsType, ref: ForwardedRef<EditQuestionModalRefType>) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [title, setTitle] = useState('');
-    const { control, handleSubmit } = useForm<IFormInput>();
+    const { control, handleSubmit, reset } = useForm<IFormInput>();
 
     const categories: QuizletQuestionCategory[] = JSON.parse(
       JSON.stringify(CATEGORIES),
@@ -54,7 +55,10 @@ const EditQuestionModal = forwardRef(
     };
 
     const submit: SubmitHandler<IFormInput> = (data) => {
-      console.log(data);
+      GlossaryAPIInstance.addQuestion(data).then(() => {
+        reset();
+        closeModal();
+      });
     };
 
     return (

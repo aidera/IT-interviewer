@@ -1,7 +1,7 @@
 import React from 'react';
 import Title from 'antd/lib/typography/Title';
 import QuestionCardList from '../QuestionCardList/QuestionCardList';
-import { QuizletQuestionCategory } from '../../models/category';
+import { QuizletQuestionCategory } from '../../models/category.model';
 
 type PropsType = {
   category: QuizletQuestionCategory;

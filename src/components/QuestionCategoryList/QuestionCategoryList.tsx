@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './QuestionCategoryList.module.scss';
 import { CATEGORIES } from '../../data/categories';
-import { QuizletQuestionCategory } from '../../models/category';
+import { QuizletQuestionCategory } from '../../models/category.model';
 import QuestionCategory from '../QuestionCategory/QuestionCategory';
 
 const QuestionCategoryList = () => {

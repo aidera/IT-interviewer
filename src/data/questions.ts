@@ -1,5 +1,5 @@
-import { QuizletQuestionCategoryEnum } from '../models/category';
-import { QuizletQuestion } from '../models/question';
+import { QuizletQuestionCategoryEnum } from '../models/category.model';
+import { QuizletQuestion } from '../models/question.model';
 
 export const QUIZLET_QUESTIONS: QuizletQuestion[] = [
   {

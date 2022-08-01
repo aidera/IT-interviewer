@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './QuestionCardList.module.scss';
 import { QUIZLET_QUESTIONS } from '../../data/questions';
-import { QuizletQuestionCategory } from '../../models/category';
+import { QuizletQuestionCategory } from '../../models/category.model';
 import QuestionCard from '../QuestionCard/QuestionCard';
 
 type PropsType = {

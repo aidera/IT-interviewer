@@ -1,4 +1,4 @@
-import { QuizletQuestionCategoryEnum } from './category';
+import { QuizletQuestionCategoryEnum } from './category.model';
 
 export interface QuizletQuestionLink {
   label: string;
@@ -15,3 +15,5 @@ export interface QuizletQuestion {
   toBeReviewed?: boolean;
   isPractise?: boolean;
 }
+
+export type EditQuizletQuestion = Omit<QuizletQuestion, 'id'>;

@@ -3,7 +3,7 @@ import classes from './Glossary.module.scss';
 import { Button } from 'antd';
 import QuestionCategoryList from '../../components/QuestionCategoryList/QuestionCategoryList';
 import EditQuestionModal from '../../components/EditQuestionModal/EditQuestionModal';
-import { EditTypeEnum } from '../../models/utils';
+import { EditTypeEnum } from '../../models/utils.model';
 
 const Glossary = () => {
   const editModalRef = useRef<ElementRef<typeof EditQuestionModal>>(null);
