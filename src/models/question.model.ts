@@ -6,9 +6,9 @@ export interface QuizletQuestionLink {
 }
 
 export interface QuizletQuestion {
-  id: number;
+  id?: number;
   title: string;
-  category: QuizletQuestionCategoryEnum[];
+  category: QuizletQuestionCategoryEnum;
   level: number;
   answer: string;
   links?: QuizletQuestionLink[];
@@ -16,7 +16,12 @@ export interface QuizletQuestion {
   isPractise?: boolean;
 }
 
-export type EditQuizletQuestion = Pick<
+export type AddQuizletQuestion = Pick<
   QuizletQuestion,
   'title' | 'category' | 'level' | 'answer'
+>;
+
+export type EditQuizletQuestion = Pick<
+  QuizletQuestion,
+  'id' | 'title' | 'category' | 'level' | 'answer'
 >;

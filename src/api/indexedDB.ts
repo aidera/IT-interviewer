@@ -1,8 +1,8 @@
 import Dexie, { Table } from 'dexie';
-import { EditQuizletQuestion } from '../models/question.model';
+import { QuizletQuestion } from './../models/question.model';
 
 export class IndexedDB extends Dexie {
-  glossary!: Table<EditQuizletQuestion>;
+  glossary!: Table<QuizletQuestion>;
 
   constructor() {
     super('ITinterviewer');

@@ -11,6 +11,7 @@ import { CATEGORIES } from '../../data/categories';
 import { QuizletQuestionCategory } from '../../models/category.model';
 import GlossaryAPIInstance from '../../api/glossary.api';
 import { EditQuizletQuestion } from '../../models/question.model';
+import { APIResponse } from '../../models/api.model';
 
 type PropsType = {
   onOkCallback?: () => void;
@@ -18,7 +19,8 @@ type PropsType = {
 };
 
 type OpenModalType = {
-  type?: EditTypeEnum;
+  type: EditTypeEnum;
+  initialValues?: EditQuizletQuestion;
 };
 
 type FormInput = EditQuizletQuestion;
@@ -31,7 +33,8 @@ const EditQuestionModal = forwardRef(
   (props: PropsType, ref: ForwardedRef<EditQuestionModalRefType>) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [title, setTitle] = useState('');
-    const { control, handleSubmit, reset } = useForm<FormInput>();
+    const [modalProps, setModalProps] = useState<OpenModalType>();
+    const form = useForm<FormInput>();
 
     const categories: QuizletQuestionCategory[] = JSON.parse(
       JSON.stringify(CATEGORIES),
@@ -39,9 +42,13 @@ const EditQuestionModal = forwardRef(
 
     useImperativeHandle(ref, () => ({
       openModal(modalProps: OpenModalType) {
+        setModalProps(modalProps);
         setTitle(
           (modalProps.type === EditTypeEnum.add ? 'Add' : 'Edit') + ' Question',
         );
+        if (modalProps.type === EditTypeEnum.edit && modalProps.initialValues) {
+          form.reset(modalProps.initialValues);
+        }
         setIsModalVisible(true);
       },
     }));
@@ -51,8 +58,30 @@ const EditQuestionModal = forwardRef(
     };
 
     const submit: SubmitHandler<FormInput> = (data) => {
-      GlossaryAPIInstance.addQuestion(data).then(() => {
-        reset();
+      let request: Promise<APIResponse<number>> | undefined;
+      switch (modalProps?.type) {
+        case EditTypeEnum.add:
+          request = GlossaryAPIInstance.addQuestion(data);
+          break;
+        case EditTypeEnum.edit:
+          if (modalProps?.initialValues?.id) {
+            request = GlossaryAPIInstance.editQuestion(
+              modalProps.initialValues.id,
+              data,
+            );
+          }
+          break;
+      }
+
+      if (!request) {
+        return;
+      }
+
+      request.then(() => {
+        form.reset();
+        if (props.onOkCallback) {
+          props.onOkCallback();
+        }
         closeModal();
       });
     };
@@ -62,15 +91,16 @@ const EditQuestionModal = forwardRef(
         title={title}
         visible={isModalVisible}
         onCancel={closeModal}
-        okText='Submit'
-        onOk={handleSubmit(submit)}
+        okText={modalProps?.type === EditTypeEnum.edit ? 'Save' : 'Submit'}
+        onOk={form.handleSubmit(submit)}
+        mask={false}
       >
         <Form
           labelCol={{ span: 4 }}
           wrapperCol={{ span: 20 }}
           initialValues={{ remember: true }}
           autoComplete='off'
-          onFinish={handleSubmit(submit)}
+          onFinish={form.handleSubmit(submit)}
         >
           <Form.Item
             label='Title'
@@ -79,7 +109,7 @@ const EditQuestionModal = forwardRef(
           >
             <Controller
               name='title'
-              control={control}
+              control={form.control}
               render={({ field }) => <Input {...field} />}
             />
           </Form.Item>
@@ -91,7 +121,7 @@ const EditQuestionModal = forwardRef(
           >
             <Controller
               name='category'
-              control={control}
+              control={form.control}
               render={({ field }) => (
                 <Select
                   placeholder='Select a option and change input text above'
@@ -116,7 +146,7 @@ const EditQuestionModal = forwardRef(
           >
             <Controller
               name='level'
-              control={control}
+              control={form.control}
               render={({ field }) => (
                 <InputNumber
                   max={10}
@@ -132,7 +162,7 @@ const EditQuestionModal = forwardRef(
           <Form.Item label='Answer' name='answer'>
             <Controller
               name='answer'
-              control={control}
+              control={form.control}
               render={({ field }) => <Input.TextArea rows={4} {...field} />}
             />
           </Form.Item>

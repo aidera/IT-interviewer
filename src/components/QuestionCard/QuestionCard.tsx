@@ -1,49 +1,78 @@
 import React from 'react';
 import classes from './QuestionCard.module.scss';
-import { Collapse } from 'antd';
+import { Button, Collapse } from 'antd';
 import Title from 'antd/lib/typography/Title';
+import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { QuizletQuestion } from '../../models/question.model';
 
 type PropsType = {
   question: QuizletQuestion;
+  editQuestion: (question: QuizletQuestion) => void;
+  deleteQuestion: (id: number) => void;
 };
 
 const QuestionCard = (props: PropsType) => {
-  const { question } = props;
+  const openEditQuestionModal = (event: React.MouseEvent<HTMLElement>) => {
+    event.stopPropagation();
+    props.editQuestion(props.question);
+  };
+
+  const openDeleteQuestionModal = (event: React.MouseEvent<HTMLElement>) => {
+    event.stopPropagation();
+    if (props.question.id) {
+      props.deleteQuestion(props.question.id);
+    }
+  };
 
   return (
-    <Collapse key={question.id}>
-      <Collapse.Panel
-        header={
-          <div className={classes.headerPanel}>
-            <strong>{question.title}</strong>
-            <i>Level: {question.level}</i>
-          </div>
-        }
-        key={question.id}
-      >
-        <div
-          dangerouslySetInnerHTML={{
-            __html: question.answer,
-          }}
-        ></div>
+    <>
+      {props.question && props.question.id && (
+        <Collapse key={props.question.id}>
+          <Collapse.Panel
+            header={
+              <div className={classes.headerPanel}>
+                <div>
+                  <Button
+                    shape='circle'
+                    icon={<EditOutlined />}
+                    onClick={openEditQuestionModal}
+                  />
+                  <Button
+                    shape='circle'
+                    icon={<DeleteOutlined />}
+                    onClick={openDeleteQuestionModal}
+                  />
+                  <strong>{props.question.title}</strong>
+                </div>
+                <i>Level: {props.question.level}</i>
+              </div>
+            }
+            key={props.question.id}
+          >
+            <div
+              dangerouslySetInnerHTML={{
+                __html: props.question.answer,
+              }}
+            ></div>
 
-        {question.links && (
-          <div className={classes.links}>
-            <Title level={5}>Ссылки на материалы:</Title>
-            <ul>
-              {question.links.map((link) => {
-                return (
-                  <li key={link.href}>
-                    <a href={link.href}>{link.label}</a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        )}
-      </Collapse.Panel>
-    </Collapse>
+            {props.question.links && (
+              <div className={classes.links}>
+                <Title level={5}>Ссылки на материалы:</Title>
+                <ul>
+                  {props.question.links.map((link) => {
+                    return (
+                      <li key={link.href}>
+                        <a href={link.href}>{link.label}</a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
+          </Collapse.Panel>
+        </Collapse>
+      )}
+    </>
   );
 };
 
