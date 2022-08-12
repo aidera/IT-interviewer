@@ -3,3 +3,9 @@
   flex-direction: column;
   gap: 24px;
 }
+
+.buttonsContainer {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}

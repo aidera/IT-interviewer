@@ -40,6 +40,48 @@ class GlossaryAPI {
     }
   }
 
+  async addQuestionsBulk(
+    data: QuizletQuestion[],
+  ): Promise<APIResponse<number>> {
+    try {
+      const mappedData = data.map((el) => {
+        return {
+          answer: el.answer,
+          category: el.category,
+          title: el.title,
+          level: el.level,
+        };
+      });
+      const lastId = await db.glossary.bulkAdd(mappedData);
+      return {
+        status: APIResponseStatusEnum.success,
+        data: +lastId.toString(),
+      };
+    } catch (error) {
+      return {
+        status: APIResponseStatusEnum.error,
+        error: error as string,
+      };
+    }
+  }
+
+  async addAndUpdateQuestionsBulk(
+    data: QuizletQuestion[],
+  ): Promise<APIResponse<number>> {
+    try {
+      const lastId = await db.glossary.bulkPut(data);
+      return {
+        status: APIResponseStatusEnum.success,
+        data: +lastId.toString(),
+      };
+    } catch (error) {
+      return {
+        status: APIResponseStatusEnum.error,
+        error: error as string,
+      };
+    }
+  }
+
   async editQuestion(
     id: number,
     data: AddQuizletQuestion,
