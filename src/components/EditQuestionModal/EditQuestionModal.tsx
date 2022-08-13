@@ -12,6 +12,7 @@ import { QuizletQuestionCategory } from '../../models/category.model';
 import GlossaryAPIInstance from '../../api/glossary.api';
 import { EditQuizletQuestion } from '../../models/question.model';
 import { APIResponse } from '../../models/api.model';
+import RichEditor from '../RichEditor/RichEditor';
 
 type PropsType = {
   onOkCallback?: () => void;
@@ -163,7 +164,14 @@ const EditQuestionModal = forwardRef(
             <Controller
               name='answer'
               control={form.control}
-              render={({ field }) => <Input.TextArea rows={4} {...field} />}
+              render={({ field }) => {
+                return (
+                  <>
+                    <Input.TextArea rows={4} {...field} />
+                    <RichEditor />
+                  </>
+                );
+              }}
             />
           </Form.Item>
         </Form>
