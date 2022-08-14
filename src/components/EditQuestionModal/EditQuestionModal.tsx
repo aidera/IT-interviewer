@@ -4,8 +4,21 @@ import React, {
   useImperativeHandle,
   useState,
 } from 'react';
-import { Form, Input, InputNumber, Modal, Select } from 'antd';
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import {
+  Button,
+  Form,
+  Input,
+  InputNumber,
+  Modal,
+  Select,
+  Typography,
+} from 'antd';
+import {
+  Controller,
+  ControllerFieldState,
+  SubmitHandler,
+  useForm,
+} from 'react-hook-form';
 import { EditTypeEnum } from '../../models/utils.model';
 import { CATEGORIES } from '../../data/categories';
 import { QuizletQuestionCategory } from '../../models/category.model';
@@ -13,6 +26,7 @@ import GlossaryAPIInstance from '../../api/glossary.api';
 import { EditQuizletQuestion } from '../../models/question.model';
 import { APIResponse } from '../../models/api.model';
 import RichEditor from '../RichEditor/RichEditor';
+import { formUtils } from '../../utils';
 
 type PropsType = {
   onOkCallback?: () => void;
@@ -43,7 +57,10 @@ const EditQuestionModal = forwardRef(
     const [title, setTitle] = useState('');
     const [modalProps, setModalProps] = useState<OpenModalType>();
 
-    const form = useForm<FormInput>();
+    const form = useForm<FormInput>({
+      mode: 'onTouched',
+      reValidateMode: 'onChange',
+    });
 
     const categories: QuizletQuestionCategory[] = JSON.parse(
       JSON.stringify(CATEGORIES),
@@ -69,6 +86,10 @@ const EditQuestionModal = forwardRef(
     };
 
     const submit: SubmitHandler<FormInput> = (data) => {
+      if (!form.formState.isValid) {
+        return;
+      }
+
       let request: Promise<APIResponse<number>> | undefined;
       switch (modalProps?.type) {
         case EditTypeEnum.add:
@@ -102,9 +123,19 @@ const EditQuestionModal = forwardRef(
         title={title}
         visible={isModalVisible}
         onCancel={closeModal}
-        okText={modalProps?.type === EditTypeEnum.edit ? 'Save' : 'Submit'}
-        onOk={form.handleSubmit(submit)}
         mask={false}
+        footer={[
+          <Button key='back' onClick={closeModal}>
+            Cancel
+          </Button>,
+          <Button
+            key='submit'
+            type='primary'
+            onClick={form.handleSubmit(submit)}
+          >
+            {modalProps?.type === EditTypeEnum.edit ? 'Save' : 'Submit'}
+          </Button>,
+        ]}
       >
         <Form
           labelCol={{ span: 4 }}
@@ -112,59 +143,71 @@ const EditQuestionModal = forwardRef(
           autoComplete='off'
           onFinish={form.handleSubmit(submit)}
         >
-          <Form.Item
-            label='Title'
-            name='title'
-            rules={[{ required: true, message: 'Please input a title!' }]}
-          >
+          <Form.Item label='Title' name='title' required={true}>
             <Controller
               name='title'
               control={form.control}
-              render={({ field }) => <Input {...field} />}
+              rules={{ required: 'Required' }}
+              render={({ field, fieldState }) => {
+                return (
+                  <>
+                    <Input
+                      {...field}
+                      status={formUtils.returnFieldStatus(fieldState)}
+                    />
+
+                    {formUtils.drawError(fieldState)}
+                  </>
+                );
+              }}
             />
           </Form.Item>
 
-          <Form.Item
-            name='category'
-            label='Category'
-            rules={[{ required: true }]}
-          >
+          <Form.Item name='category' label='Category' required={true}>
             <Controller
               name='category'
               control={form.control}
-              render={({ field }) => (
-                <Select
-                  placeholder='Select a option and change input text above'
-                  {...field}
-                >
-                  {categories.map((category) => {
-                    return (
-                      <Select.Option value={category.id} key={category.id}>
-                        {category.label}
-                      </Select.Option>
-                    );
-                  })}
-                </Select>
+              rules={{ required: 'Required' }}
+              render={({ field, fieldState }) => (
+                <>
+                  <Select
+                    placeholder='Select a option and change input text above'
+                    status={formUtils.returnFieldStatus(fieldState)}
+                    {...field}
+                  >
+                    {categories.map((category) => {
+                      return (
+                        <Select.Option value={category.id} key={category.id}>
+                          {category.label}
+                        </Select.Option>
+                      );
+                    })}
+                  </Select>
+
+                  {formUtils.drawError(fieldState)}
+                </>
               )}
             />
           </Form.Item>
 
-          <Form.Item
-            label='Level'
-            name='level'
-            rules={[{ required: true, message: 'Please input a level!' }]}
-          >
+          <Form.Item label='Level' name='level' required={true}>
             <Controller
               name='level'
               control={form.control}
-              render={({ field }) => (
-                <InputNumber
-                  max={10}
-                  min={1}
-                  step={1}
-                  formatter={(value) => `${value}`.replaceAll('.', '')}
-                  {...field}
-                />
+              rules={{ required: 'Required' }}
+              render={({ field, fieldState }) => (
+                <>
+                  <InputNumber
+                    max={10}
+                    min={1}
+                    step={1}
+                    formatter={(value) => `${value}`.replaceAll('.', '')}
+                    status={formUtils.returnFieldStatus(fieldState)}
+                    {...field}
+                  />
+
+                  {formUtils.drawError(fieldState)}
+                </>
               )}
             />
           </Form.Item>
