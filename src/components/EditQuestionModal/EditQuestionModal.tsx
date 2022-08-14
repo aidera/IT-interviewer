@@ -30,11 +30,19 @@ export type EditQuestionModalRefType = {
   openModal: (props: OpenModalType) => void;
 };
 
+const defaultValues = {
+  answer: null,
+  category: null,
+  level: null,
+  title: null,
+};
+
 const EditQuestionModal = forwardRef(
   (props: PropsType, ref: ForwardedRef<EditQuestionModalRefType>) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [title, setTitle] = useState('');
     const [modalProps, setModalProps] = useState<OpenModalType>();
+
     const form = useForm<FormInput>();
 
     const categories: QuizletQuestionCategory[] = JSON.parse(
@@ -49,6 +57,8 @@ const EditQuestionModal = forwardRef(
         );
         if (modalProps.type === EditTypeEnum.edit && modalProps.initialValues) {
           form.reset(modalProps.initialValues);
+        } else {
+          form.reset(defaultValues as unknown as FormInput);
         }
         setIsModalVisible(true);
       },
@@ -99,7 +109,6 @@ const EditQuestionModal = forwardRef(
         <Form
           labelCol={{ span: 4 }}
           wrapperCol={{ span: 20 }}
-          initialValues={{ remember: true }}
           autoComplete='off'
           onFinish={form.handleSubmit(submit)}
         >
@@ -165,11 +174,10 @@ const EditQuestionModal = forwardRef(
               name='answer'
               control={form.control}
               render={({ field }) => {
-                return (
-                  <>
-                    <Input.TextArea rows={4} {...field} />
-                    <RichEditor />
-                  </>
+                return isModalVisible ? (
+                  <RichEditor value={field.value} onChange={field.onChange} />
+                ) : (
+                  <></>
                 );
               }}
             />

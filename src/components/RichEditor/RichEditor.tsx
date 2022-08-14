@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import {
   ContentBlock,
+  ContentState,
+  convertFromHTML,
   convertToRaw,
   Editor,
   EditorState,
@@ -18,19 +20,37 @@ import draftToHtml from 'draftjs-to-html';
 
 type PropsType = {
   placeholder?: string;
+  value?: string;
+  onChange: (e: any) => void;
 };
 
 const RichEditor = (props: PropsType) => {
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty(),
   );
+  const [savedValue, setSavedValue] = useState<string | null>(null);
   const [isFocused, setIsFocused] = useState<boolean>(false);
 
   useEffect(() => {
+    /** Save html value and do not redraw the current view if it's the same */
+    if (props.value !== savedValue) {
+      const blocksFromHTML = convertFromHTML(props.value || '');
+      const newState = ContentState.createFromBlockArray(
+        blocksFromHTML.contentBlocks,
+        blocksFromHTML.entityMap,
+      );
+      setEditorState(EditorState.createWithContent(newState));
+      setSavedValue(props.value || null);
+    }
+  }, [props.value]);
+
+  const handleOnChange = (editorState: EditorState): void => {
+    setEditorState(editorState);
     const rawContentState = convertToRaw(editorState.getCurrentContent());
     const markup = draftToHtml(rawContentState);
-    console.log(markup);
-  }, [editorState]);
+    setSavedValue(markup);
+    props.onChange?.(markup);
+  };
 
   const handleKeyCommand = (command: string, editorState: EditorState) => {
     const newState = RichUtils.handleKeyCommand(editorState, command);
@@ -143,7 +163,7 @@ const RichEditor = (props: PropsType) => {
       >
         <Editor
           editorState={editorState}
-          onChange={setEditorState}
+          onChange={handleOnChange}
           handleKeyCommand={handleKeyCommand}
           blockStyleFn={handleBlockStyling}
           onFocus={() => setIsFocused(true)}
