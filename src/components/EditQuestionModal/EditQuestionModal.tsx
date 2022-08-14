@@ -4,21 +4,8 @@ import React, {
   useImperativeHandle,
   useState,
 } from 'react';
-import {
-  Button,
-  Form,
-  Input,
-  InputNumber,
-  Modal,
-  Select,
-  Typography,
-} from 'antd';
-import {
-  Controller,
-  ControllerFieldState,
-  SubmitHandler,
-  useForm,
-} from 'react-hook-form';
+import { Button, Form, Input, InputNumber, Modal, Select } from 'antd';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { EditTypeEnum } from '../../models/utils.model';
 import { CATEGORIES } from '../../data/categories';
 import { QuizletQuestionCategory } from '../../models/category.model';

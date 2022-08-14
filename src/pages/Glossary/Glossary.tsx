@@ -1,6 +1,6 @@
 import React, { ElementRef, useEffect, useRef, useState } from 'react';
 import classes from './Glossary.module.scss';
-import { Button } from 'antd';
+import { Button, Spin } from 'antd';
 import { saveAs } from 'file-saver';
 import QuestionCategoryList from '../../components/QuestionCategoryList/QuestionCategoryList';
 import EditQuestionModal from '../../components/EditQuestionModal/EditQuestionModal';
@@ -15,6 +15,8 @@ const Glossary = () => {
   const addOrOverwriteModalRef =
     useRef<ElementRef<typeof AddOrOverwriteConfirmModal>>(null);
   const uploadFileInput = useRef<HTMLInputElement>(null);
+  const [questionsAreLoading, setQuestionsAreLoading] =
+    useState<boolean>(false);
   const [questions, setQuestions] = useState<QuizletQuestion[]>([]);
   const [uploadFile, setUploadFile] = useState<string | null>(null);
 
@@ -95,11 +97,16 @@ const Glossary = () => {
   };
 
   const getQuestions = () => {
-    GlossaryAPIInstance.getQuestions().then((res) => {
-      if (res.data) {
-        setQuestions(res.data);
-      }
-    });
+    setQuestionsAreLoading(true);
+    GlossaryAPIInstance.getQuestions()
+      .then((res) => {
+        if (res.data) {
+          setQuestions(res.data);
+        }
+      })
+      .finally(() => {
+        setQuestionsAreLoading(false);
+      });
   };
 
   const deleteQuestion = (id: number) => {
@@ -139,11 +146,19 @@ const Glossary = () => {
           />
         </div>
 
-        <QuestionCategoryList
-          editQuestion={editQuestion}
-          questions={questions}
-          deleteQuestion={deleteQuestion}
-        />
+        {questionsAreLoading && (
+          <div className={classes.loaderContainer}>
+            <Spin size='large' />
+          </div>
+        )}
+
+        {!questionsAreLoading && (
+          <QuestionCategoryList
+            editQuestion={editQuestion}
+            questions={questions}
+            deleteQuestion={deleteQuestion}
+          />
+        )}
       </div>
 
       <EditQuestionModal ref={editModalRef} onOkCallback={onModalSucceed} />
