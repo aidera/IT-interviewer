@@ -38,6 +38,10 @@ const defaultValues = {
   title: null,
 };
 
+const categories: QuizletQuestionCategory[] = JSON.parse(
+  JSON.stringify(CATEGORIES),
+);
+
 const EditQuestionModal = forwardRef(
   (props: PropsType, ref: ForwardedRef<EditQuestionModalRefType>) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -48,10 +52,6 @@ const EditQuestionModal = forwardRef(
       mode: 'onTouched',
       reValidateMode: 'onChange',
     });
-
-    const categories: QuizletQuestionCategory[] = JSON.parse(
-      JSON.stringify(CATEGORIES),
-    );
 
     useImperativeHandle(ref, () => ({
       openModal(modalProps: OpenModalType) {
@@ -188,7 +188,7 @@ const EditQuestionModal = forwardRef(
                     max={10}
                     min={1}
                     step={1}
-                    formatter={(value) => `${value}`.replaceAll('.', '')}
+                    formatter={formUtils.toFieldIntegerNumber}
                     status={formUtils.returnFieldStatus(fieldState)}
                     {...field}
                   />

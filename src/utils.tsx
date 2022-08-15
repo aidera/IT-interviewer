@@ -10,6 +10,9 @@ export const getEnumKeys = (en: {}): number[] => {
 };
 
 const formUtilsTemplate = {
+  toFieldIntegerNumber(value: number | string | undefined) {
+    return `${value}`.replaceAll('.', '');
+  },
   returnFieldStatus(fieldState: ControllerFieldState) {
     return fieldState.isTouched && fieldState.error ? 'error' : '';
   },

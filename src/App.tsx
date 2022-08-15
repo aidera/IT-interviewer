@@ -14,7 +14,7 @@ const menuItems: ItemType[] = [
   },
   {
     key: '/quiz',
-    label: 'Quizlet',
+    label: 'Quiz',
   },
 ];
 
