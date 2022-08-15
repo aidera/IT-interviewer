@@ -1,22 +1,39 @@
 import React from 'react';
 import './App.css';
 import 'antd/dist/antd.min.css';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, MenuProps } from 'antd';
 import { Content, Footer, Header } from 'antd/lib/layout/layout';
 import { ItemType } from 'antd/lib/menu/hooks/useItems';
-import Glossary from './pages/Glossary/Glossary';
+import { useLocation, useNavigate } from 'react-router-dom';
+import AppRouter from './AppRouter';
+
+const menuItems: ItemType[] = [
+  {
+    key: '/questions',
+    label: 'All Questions',
+  },
+  {
+    key: '/quiz',
+    label: 'Quizlet',
+  },
+];
 
 function App() {
-  const menuItems: ItemType[] = [
-    {
-      key: 1,
-      label: 'All Questions',
-    },
-    {
-      key: 2,
-      label: 'Quizlet',
-    },
-  ];
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  let selectedRoutes: string[] = [];
+
+  menuItems.forEach((el) => {
+    if (el && location.pathname.includes(el.key as string)) {
+      selectedRoutes.push(el.key as string);
+    }
+  });
+
+  const onMenuClickHandler: MenuProps['onClick'] = (event) => {
+    selectedRoutes = [event.key];
+    navigate(event.key);
+  };
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -25,13 +42,14 @@ function App() {
         <Menu
           theme='dark'
           mode='horizontal'
-          defaultSelectedKeys={['1']}
+          selectedKeys={selectedRoutes}
           items={menuItems}
+          onClick={onMenuClickHandler}
         />
       </Header>
       <Layout className='site-layout'>
         <Content style={{ margin: '0 16px', padding: '24px 0' }}>
-          <Glossary />
+          <AppRouter />
         </Content>
         <Footer style={{ textAlign: 'center' }}></Footer>
       </Layout>
