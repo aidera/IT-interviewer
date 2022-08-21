@@ -18,7 +18,7 @@ const menuItems: ItemType[] = [
   },
 ];
 
-function App() {
+const App = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -55,6 +55,6 @@ function App() {
       </Layout>
     </Layout>
   );
-}
+};
 
 export default App;

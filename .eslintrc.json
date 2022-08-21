@@ -25,7 +25,8 @@
     "spaced-comment": "error",
     "no-duplicate-imports": "error",
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/ban-types": "off"
+    "@typescript-eslint/ban-types": "off",
+    "react/display-name": "off"
   },
   "settings": {
     "import/resolver": {

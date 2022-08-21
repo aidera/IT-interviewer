@@ -1,33 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { Button, Form, Input, InputNumber, Select, Typography } from 'antd';
 import { formUtils } from '../../../utils';
 import { QuizletQuestionCategory } from '../../../models/category.model';
 import { CATEGORIES } from '../../../data/categories';
+import { QuizCreationData, QuizData } from '../../../models/quiz.model';
+import QuizAPIInstance from '../../../api/quiz.api';
 
-type FormInput = {
-  questionsCount: number;
-  levelFrom?: number;
-  levelTo?: number;
-  categories: number[];
+type PropsType = {
+  setQuizData: (quizData: QuizData | null) => void;
 };
 
-const defaultValues = {
-  questionsCount: 10,
-};
+type FormInput = QuizCreationData;
 
 const categories: QuizletQuestionCategory[] = JSON.parse(
   JSON.stringify(CATEGORIES),
 );
 
-const QuizConditionsForm = () => {
+const defaultValues = {
+  questionsCount: 10,
+  categories: categories.map((category) => category.id),
+};
+
+const QuizConditionsForm = (props: PropsType) => {
   const form = useForm<FormInput>({
     mode: 'onTouched',
     reValidateMode: 'onChange',
   });
 
+  useEffect(() => {
+    form.reset(defaultValues as unknown as FormInput);
+  }, []);
+
   const submit: SubmitHandler<FormInput> = (data) => {
-    console.log(data);
+    QuizAPIInstance.createQuiz(data).then((res) => {
+      props.setQuizData(res.data || null);
+    });
   };
 
   return (

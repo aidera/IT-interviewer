@@ -20,6 +20,38 @@ class GlossaryAPI {
     }
   }
 
+  async getQuestionsByIds(
+    ids: number[],
+  ): Promise<APIResponse<QuizletQuestion[]>> {
+    try {
+      const quesitons = await db.glossary.where('id').anyOf(ids).toArray();
+      return {
+        status: APIResponseStatusEnum.success,
+        data: quesitons,
+      };
+    } catch (error) {
+      return {
+        status: APIResponseStatusEnum.error,
+        error: error as string,
+      };
+    }
+  }
+
+  async getQuestion(id: number): Promise<APIResponse<QuizletQuestion>> {
+    try {
+      const quesiton = await db.glossary.get(id);
+      return {
+        status: APIResponseStatusEnum.success,
+        data: quesiton,
+      };
+    } catch (error) {
+      return {
+        status: APIResponseStatusEnum.error,
+        error: error as string,
+      };
+    }
+  }
+
   async addQuestion(data: AddQuizletQuestion): Promise<APIResponse<number>> {
     try {
       const id = await db.glossary.add({
