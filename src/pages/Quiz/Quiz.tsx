@@ -8,11 +8,15 @@ import QuizQuestionsRunner from './QuizQuestionsRunner/QuizQuestionsRunner';
 const Quiz = () => {
   const [quizData, setQuizData] = useState<QuizData | null>(null);
 
-  const getQuizData = useCallback(() => {
-    QuizAPIInstance.getQuiz().then((res) => {
-      setQuizData(res.data || null);
-    });
-  }, []);
+  const getQuizData = useCallback(
+    (callback?: (data: QuizData | null) => void) => {
+      QuizAPIInstance.getQuiz().then((res) => {
+        setQuizData(res.data || null);
+        if (callback) callback(res.data || null);
+      });
+    },
+    [],
+  );
 
   useEffect(() => {
     getQuizData();
@@ -22,8 +26,10 @@ const Quiz = () => {
     <>
       <Typography.Title>Quiz</Typography.Title>
       <Card>
-        {!quizData && <QuizConditionsForm setQuizData={setQuizData} />}
-        {quizData && (
+        {(!quizData || !quizData.questionIds.length) && (
+          <QuizConditionsForm setQuizData={setQuizData} />
+        )}
+        {quizData && quizData.questionIds.length !== 0 && (
           <QuizQuestionsRunner quizData={quizData} getQuizData={getQuizData} />
         )}
       </Card>

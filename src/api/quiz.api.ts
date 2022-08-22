@@ -54,7 +54,6 @@ class QuizAPI {
             questionIds: selected.map((el) => el.id as number),
             completedQuestionIds: [],
             notCompletedQuestionIds: [],
-            isFinished: false,
           }
         : null;
 
@@ -120,6 +119,39 @@ class QuizAPI {
         response = 'Updated';
       } else {
         response = 'Question ID not found in quiz questions array';
+      }
+
+      return {
+        status: APIResponseStatusEnum.success,
+        data: response,
+      };
+    } catch (error) {
+      return {
+        status: APIResponseStatusEnum.error,
+        error: error as string,
+      };
+    }
+  }
+
+  async finishQuiz(): Promise<APIResponse<string>> {
+    try {
+      let response: string;
+      const quiz = await db.quiz.toArray();
+      if (quiz?.[0]) {
+        const newQuiz: QuizData = JSON.parse(JSON.stringify(quiz[0]));
+
+        newQuiz.questionIds = newQuiz.questionIds.filter(
+          (id) => !newQuiz.completedQuestionIds.includes(id),
+        );
+        newQuiz.completedQuestionIds = [];
+        newQuiz.notCompletedQuestionIds = [];
+
+        await db.quiz.clear();
+        await db.quiz.add(newQuiz);
+
+        response = 'Finished Iteration';
+      } else {
+        response = 'Quiz not found';
       }
 
       return {

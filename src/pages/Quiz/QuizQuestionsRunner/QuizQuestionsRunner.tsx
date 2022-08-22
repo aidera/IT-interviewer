@@ -10,7 +10,7 @@ import QuizFinalCard from './QuizFinalCard/QuizFinalCard';
 
 type PropsType = {
   quizData: QuizData;
-  getQuizData: () => void;
+  getQuizData: (callback?: (data: QuizData | null) => void) => void;
 };
 
 const QuizQuestionsRunner = (props: PropsType) => {
@@ -55,12 +55,13 @@ const QuizQuestionsRunner = (props: PropsType) => {
             (el) => el === currentQuestionId,
           );
 
-          if (props.quizData.questionIds.length > currentQuestionIndex) {
+          if (props.quizData.questionIds.length - 1 > currentQuestionIndex) {
             setCurrentQuestionId(
               props.quizData.questionIds[currentQuestionIndex + 1],
             );
           }
-          if (props.quizData.questionIds.length === currentQuestionIndex) {
+          if (props.quizData.questionIds.length - 1 === currentQuestionIndex) {
+            setCurrentQuestionId(null);
             setIsFinalOpen(true);
           }
 
@@ -70,6 +71,19 @@ const QuizQuestionsRunner = (props: PropsType) => {
     },
     [currentQuestionId, props.quizData],
   );
+
+  const finishQuiz = useCallback(() => {
+    QuizAPIInstance.finishQuiz().then(() => {
+      const callback = (data: QuizData | null) => {
+        if (data && data.questionIds.length) {
+          setCurrentQuestionId(data.questionIds[0]);
+        }
+        setIsFinalOpen(false);
+      };
+
+      props.getQuizData(callback);
+    });
+  }, [props.quizData]);
 
   return (
     <div>
@@ -87,7 +101,7 @@ const QuizQuestionsRunner = (props: PropsType) => {
             answerQuiz={answerQuiz}
           />
         )}
-        {isFinalOpen && <QuizFinalCard />}
+        {isFinalOpen && <QuizFinalCard runNewIteration={finishQuiz} />}
       </div>
 
       <div>

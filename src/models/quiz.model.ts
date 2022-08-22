@@ -2,7 +2,6 @@ export interface QuizData {
   questionIds: number[];
   completedQuestionIds: number[];
   notCompletedQuestionIds: number[];
-  isFinished: boolean;
 }
 
 export enum QuizQuestionAnswerType {
