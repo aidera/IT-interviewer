@@ -1,23 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Button, Typography } from 'antd';
-import { QuizData } from '../../../models/quiz.model';
+import { QuizData, QuizQuestionAnswerType } from '../../../models/quiz.model';
 import QuizAPIInstance from '../../../api/quiz.api';
 import GlossaryAPIInstance from '../../../api/glossary.api';
 import { QuizletQuestion } from '../../../models/question.model';
+import QuizQuestionCard from './QuizQuestionCard/QuizQuestionCard';
+import classes from './QuizQuestionsRunner.module.scss';
+import QuizFinalCard from './QuizFinalCard/QuizFinalCard';
 
 type PropsType = {
   quizData: QuizData;
-  setQuizData: (quizData: QuizData | null) => void;
+  getQuizData: () => void;
 };
 
 const QuizQuestionsRunner = (props: PropsType) => {
   const [questions, setQuestions] = useState<QuizletQuestion[]>([]);
+  const [currentQuestionId, setCurrentQuestionId] = useState<number | null>(
+    null,
+  );
+  const [isFinalOpen, setIsFinalOpen] = useState<boolean>(false);
 
   useEffect(() => {
     if (props.quizData.questionIds.length) {
       GlossaryAPIInstance.getQuestionsByIds(props.quizData.questionIds).then(
         (res) => {
           setQuestions(res.data || []);
+          if (props.quizData.questionIds.length) {
+            setCurrentQuestionId(props.quizData.questionIds[0]);
+          }
         },
       );
     }
@@ -25,9 +35,41 @@ const QuizQuestionsRunner = (props: PropsType) => {
 
   const clearQuiz = () => {
     QuizAPIInstance.clearQuiz().then(() => {
-      props.setQuizData(null);
+      props.getQuizData();
     });
   };
+
+  const getQuestionMemo = useMemo(() => {
+    return questions.find((el) => el.id === currentQuestionId);
+  }, [currentQuestionId, props.quizData]);
+
+  const answerQuiz = useCallback(
+    (result: QuizQuestionAnswerType) => {
+      if (!currentQuestionId) {
+        return;
+      }
+
+      QuizAPIInstance.answearQuizQuestion(currentQuestionId, result).then(
+        () => {
+          const currentQuestionIndex = props.quizData.questionIds.findIndex(
+            (el) => el === currentQuestionId,
+          );
+
+          if (props.quizData.questionIds.length > currentQuestionIndex) {
+            setCurrentQuestionId(
+              props.quizData.questionIds[currentQuestionIndex + 1],
+            );
+          }
+          if (props.quizData.questionIds.length === currentQuestionIndex) {
+            setIsFinalOpen(true);
+          }
+
+          props.getQuizData();
+        },
+      );
+    },
+    [currentQuestionId, props.quizData],
+  );
 
   return (
     <div>
@@ -38,16 +80,18 @@ const QuizQuestionsRunner = (props: PropsType) => {
         {props.quizData.notCompletedQuestionIds.length}
       </Typography.Text>
 
-      <div>
-        <ol>
-          {questions.map((question) => {
-            return <li key={question.id}>{question.title}</li>;
-          })}
-        </ol>
+      <div className={classes.cardContainer}>
+        {currentQuestionId && !isFinalOpen && (
+          <QuizQuestionCard
+            question={getQuestionMemo as QuizletQuestion}
+            answerQuiz={answerQuiz}
+          />
+        )}
+        {isFinalOpen && <QuizFinalCard />}
       </div>
 
       <div>
-        <Button onClick={clearQuiz}>Clear</Button>
+        <Button onClick={clearQuiz}>Start Over</Button>
       </div>
     </div>
   );

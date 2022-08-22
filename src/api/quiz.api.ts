@@ -54,6 +54,7 @@ class QuizAPI {
             questionIds: selected.map((el) => el.id as number),
             completedQuestionIds: [],
             notCompletedQuestionIds: [],
+            isFinished: false,
           }
         : null;
 

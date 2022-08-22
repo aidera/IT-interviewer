@@ -1,0 +1,20 @@
+.mainCardContainer {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.titlesContainer {
+  text-align: left;
+}
+
+.snowButtonContainer {
+  text-align: left;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: flex-start;
+  gap: 24px;
+}

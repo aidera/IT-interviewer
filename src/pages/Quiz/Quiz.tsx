@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Card, Typography } from 'antd';
 import QuizConditionsForm from './QuizConditionsForm/QuizConditionsForm';
 import QuizAPIInstance from '../../api/quiz.api';
@@ -8,10 +8,14 @@ import QuizQuestionsRunner from './QuizQuestionsRunner/QuizQuestionsRunner';
 const Quiz = () => {
   const [quizData, setQuizData] = useState<QuizData | null>(null);
 
-  useEffect(() => {
+  const getQuizData = useCallback(() => {
     QuizAPIInstance.getQuiz().then((res) => {
       setQuizData(res.data || null);
     });
+  }, []);
+
+  useEffect(() => {
+    getQuizData();
   }, []);
 
   return (
@@ -20,7 +24,7 @@ const Quiz = () => {
       <Card>
         {!quizData && <QuizConditionsForm setQuizData={setQuizData} />}
         {quizData && (
-          <QuizQuestionsRunner quizData={quizData} setQuizData={setQuizData} />
+          <QuizQuestionsRunner quizData={quizData} getQuizData={getQuizData} />
         )}
       </Card>
     </>
