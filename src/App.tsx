@@ -13,6 +13,10 @@ const menuItems: ItemType[] = [
     label: 'All Questions',
   },
   {
+    key: '/categories',
+    label: 'Categories',
+  },
+  {
     key: '/quiz',
     label: 'Quiz',
   },

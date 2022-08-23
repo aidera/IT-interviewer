@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Common"
+  },
+  {
+    "id": 2,
+    "title": "Markup (HTML & CSS)"
+  },
+  {
+    "id": 3,
+    "title": "Javascript"
+  },
+  {
+    "id": 4,
+    "title": "Typescript"
+  },
+  {
+    "id": 5,
+    "title": "Frontend & Browser"
+  },
+  {
+    "id": 6,
+    "title": "Angular"
+  },
+  {
+    "id": 7,
+    "title": "RxJS"
+  },
+  {
+    "id": 8,
+    "title": "React JS"
+  },
+  {
+    "id": 9,
+    "title": "Redux"
+  },
+  {
+    "id": 10,
+    "title": "Git & GitHub"
+  }
+]

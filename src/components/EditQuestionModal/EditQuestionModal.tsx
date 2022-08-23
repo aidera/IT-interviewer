@@ -1,19 +1,20 @@
 import React, {
   ForwardedRef,
   forwardRef,
+  useEffect,
   useImperativeHandle,
   useState,
 } from 'react';
 import { Button, Form, Input, InputNumber, Modal, Select } from 'antd';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { EditTypeEnum } from '../../models/utils.model';
-import { CATEGORIES } from '../../data/categories';
 import { QuizletQuestionCategory } from '../../models/category.model';
 import GlossaryAPIInstance from '../../api/glossary.api';
 import { EditQuizletQuestion } from '../../models/question.model';
 import { APIResponse } from '../../models/api.model';
 import RichEditor from '../RichEditor/RichEditor';
 import { formUtils } from '../../utils';
+import CategoriesAPIInstance from '../../api/categories.api';
 
 type PropsType = {
   onOkCallback?: () => void;
@@ -38,15 +39,27 @@ const defaultValues = {
   title: null,
 };
 
-const categories: QuizletQuestionCategory[] = JSON.parse(
-  JSON.stringify(CATEGORIES),
-);
-
 const EditQuestionModal = forwardRef(
   (props: PropsType, ref: ForwardedRef<EditQuestionModalRefType>) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [title, setTitle] = useState('');
     const [modalProps, setModalProps] = useState<OpenModalType>();
+    const [categories, setCategories] = useState<QuizletQuestionCategory[]>([]);
+    const [categoriesAreLoading, setCategoriesAreLoading] =
+      useState<boolean>(false);
+
+    const getCategories = () => {
+      setCategoriesAreLoading(true);
+      CategoriesAPIInstance.getCategories()
+        .then((res) => {
+          if (res.data) {
+            setCategories(res.data);
+          }
+        })
+        .finally(() => {
+          setCategoriesAreLoading(false);
+        });
+    };
 
     const form = useForm<FormInput>({
       mode: 'onTouched',
@@ -105,6 +118,10 @@ const EditQuestionModal = forwardRef(
       });
     };
 
+    useEffect(() => {
+      getCategories();
+    }, []);
+
     return (
       <Modal
         title={title}
@@ -160,12 +177,13 @@ const EditQuestionModal = forwardRef(
                   <Select
                     placeholder='Select a option and change input text above'
                     status={formUtils.returnFieldStatus(fieldState)}
+                    loading={categoriesAreLoading}
                     {...field}
                   >
                     {categories.map((category) => {
                       return (
                         <Select.Option value={category.id} key={category.id}>
-                          {category.label}
+                          {category.title}
                         </Select.Option>
                       );
                     })}

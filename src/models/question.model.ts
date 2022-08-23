@@ -1,5 +1,3 @@
-import { QuizletQuestionCategoryEnum } from './category.model';
-
 export interface QuizletQuestionLink {
   label: string;
   href: string;
@@ -8,7 +6,7 @@ export interface QuizletQuestionLink {
 export interface QuizletQuestion {
   id?: number;
   title: string;
-  category: QuizletQuestionCategoryEnum;
+  category: number;
   level: number;
   answer: string;
   links?: QuizletQuestionLink[];

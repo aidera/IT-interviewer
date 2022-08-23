@@ -3,3 +3,10 @@
   flex-direction: column;
   gap: 48px;
 }
+
+.loaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}

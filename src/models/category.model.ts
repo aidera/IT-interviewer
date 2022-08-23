@@ -1,19 +1,8 @@
-export enum QuizletQuestionCategoryEnum {
-  none,
-  common,
-  markup,
-  javascript,
-  typescript,
-  frontend,
-  angular,
-  rxjs,
-  react,
-  redux,
-  git,
-  other,
+export interface QuizletQuestionCategory {
+  id?: number;
+  title: string;
 }
 
-export interface QuizletQuestionCategory {
-  id: QuizletQuestionCategoryEnum;
-  label: string;
+export interface EditQuizletQuestionCategory {
+  title: string;
 }

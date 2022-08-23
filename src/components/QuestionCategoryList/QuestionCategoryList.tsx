@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import classes from './QuestionCategoryList.module.scss';
-import { CATEGORIES } from '../../data/categories';
 import { QuizletQuestionCategory } from '../../models/category.model';
 import QuestionCategory from '../QuestionCategory/QuestionCategory';
 import { QuizletQuestion } from '../../models/question.model';
+import CategoriesAPIInstance from '../../api/categories.api';
+import { Spin } from 'antd';
 
 type PropsType = {
   questions: QuizletQuestion[];
@@ -12,23 +13,50 @@ type PropsType = {
 };
 
 const QuestionCategoryList = (props: PropsType) => {
-  const categories: QuizletQuestionCategory[] = JSON.parse(
-    JSON.stringify(CATEGORIES),
-  );
+  const [categories, setCategories] = useState<QuizletQuestionCategory[]>([]);
+  const [categoriesAreLoading, setCategoriesAreLoading] =
+    useState<boolean>(false);
+
+  const getCategories = () => {
+    setCategoriesAreLoading(true);
+    CategoriesAPIInstance.getCategories()
+      .then((res) => {
+        if (res.data) {
+          setCategories(res.data);
+        }
+      })
+      .finally(() => {
+        setCategoriesAreLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
   return (
-    <div className={classes.categories}>
-      {categories.map((category) => {
-        return (
-          <QuestionCategory
-            key={category.id}
-            category={category}
-            questions={props.questions}
-            editQuestion={props.editQuestion}
-            deleteQuestion={props.deleteQuestion}
-          />
-        );
-      })}
-    </div>
+    <>
+      {categoriesAreLoading && (
+        <div className={classes.loaderContainer}>
+          <Spin size='large' />
+        </div>
+      )}
+      {!categoriesAreLoading && (
+        <div className={classes.categories}>
+          {categories.map((category) => {
+            return (
+              <QuestionCategory
+                key={category.id}
+                category={category}
+                questions={props.questions}
+                editQuestion={props.editQuestion}
+                deleteQuestion={props.deleteQuestion}
+              />
+            );
+          })}
+        </div>
+      )}
+    </>
   );
 };
 

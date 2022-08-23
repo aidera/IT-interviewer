@@ -24,7 +24,7 @@ const QuestionCategory = (props: PropsType) => {
 
   return (
     <div>
-      <Title level={2}>{props.category.label}</Title>
+      <Title level={2}>{props.category.title}</Title>
       <QuestionCardList
         category={props.category}
         editQuestion={props.editQuestion}

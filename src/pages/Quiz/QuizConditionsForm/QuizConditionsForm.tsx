@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { Button, Form, Input, InputNumber, Select, Typography } from 'antd';
 import { formUtils } from '../../../utils';
 import { QuizletQuestionCategory } from '../../../models/category.model';
-import { CATEGORIES } from '../../../data/categories';
 import { QuizCreationData, QuizData } from '../../../models/quiz.model';
 import QuizAPIInstance from '../../../api/quiz.api';
+import CategoriesAPIInstance from '../../../api/categories.api';
 
 type PropsType = {
   setQuizData: (quizData: QuizData | null) => void;
@@ -13,23 +13,38 @@ type PropsType = {
 
 type FormInput = QuizCreationData;
 
-const categories: QuizletQuestionCategory[] = JSON.parse(
-  JSON.stringify(CATEGORIES),
-);
-
 const defaultValues = {
   questionsCount: 10,
-  categories: categories.map((category) => category.id),
+  categories: [] as number[],
 };
 
 const QuizConditionsForm = (props: PropsType) => {
+  const [categories, setCategories] = useState<QuizletQuestionCategory[]>([]);
+  const [categoriesAreLoading, setCategoriesAreLoading] =
+    useState<boolean>(false);
+
+  const getCategories = () => {
+    setCategoriesAreLoading(true);
+    CategoriesAPIInstance.getCategories()
+      .then((res) => {
+        if (res.data) {
+          setCategories(res.data);
+          defaultValues.categories = res.data.map((el) => el.id as number);
+          form.reset(defaultValues as unknown as FormInput);
+        }
+      })
+      .finally(() => {
+        setCategoriesAreLoading(false);
+      });
+  };
+
   const form = useForm<FormInput>({
     mode: 'onTouched',
     reValidateMode: 'onChange',
   });
 
   useEffect(() => {
-    form.reset(defaultValues as unknown as FormInput);
+    getCategories();
   }, []);
 
   const submit: SubmitHandler<FormInput> = (data) => {
@@ -136,12 +151,13 @@ const QuizConditionsForm = (props: PropsType) => {
                   status={formUtils.returnFieldStatus(fieldState)}
                   mode='multiple'
                   allowClear
+                  loading={categoriesAreLoading}
                   {...field}
                 >
                   {categories.map((category) => {
                     return (
                       <Select.Option value={category.id} key={category.id}>
-                        {category.label}
+                        {category.title}
                       </Select.Option>
                     );
                   })}

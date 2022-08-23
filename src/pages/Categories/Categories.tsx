@@ -1,26 +1,26 @@
 import React, { ElementRef, useEffect, useRef, useState } from 'react';
-import classes from './Glossary.module.scss';
-import { Button, Spin, Typography } from 'antd';
+import { Button, Card, List, Spin, Typography } from 'antd';
+import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { saveAs } from 'file-saver';
-import QuestionCategoryList from '../../components/QuestionCategoryList/QuestionCategoryList';
-import EditQuestionModal from '../../components/EditQuestionModal/EditQuestionModal';
-import { EditTypeEnum } from '../../models/utils.model';
-import { QuizletQuestion } from '../../models/question.model';
-import GlossaryAPIInstance from '../../api/glossary.api';
+import classes from './Categories.module.scss';
+import { QuizletQuestionCategory } from '../../models/category.model';
+import EditCategoryModal from '../../components/EditCategoryModal/EditCategoryModal';
 import AddOrOverwriteConfirmModal from '../../components/AddOrOverwriteConfirmModal/AddOrOverwriteConfirmModal';
+import { EditTypeEnum } from '../../models/utils.model';
 import { APIResponse } from '../../models/api.model';
+import CategoriesAPIInstance from '../../api/categories.api';
 
-const Glossary = () => {
-  const editModalRef = useRef<ElementRef<typeof EditQuestionModal>>(null);
+const Categories = () => {
+  const editModalRef = useRef<ElementRef<typeof EditCategoryModal>>(null);
   const addOrOverwriteModalRef =
     useRef<ElementRef<typeof AddOrOverwriteConfirmModal>>(null);
   const uploadFileInput = useRef<HTMLInputElement>(null);
-  const [questionsAreLoading, setQuestionsAreLoading] =
+  const [categories, setCategories] = useState<QuizletQuestionCategory[]>([]);
+  const [categoriesAreLoading, setCategoriesAreLoading] =
     useState<boolean>(false);
-  const [questions, setQuestions] = useState<QuizletQuestion[]>([]);
   const [uploadFile, setUploadFile] = useState<string | null>(null);
 
-  const openAddQuestionModal = () => {
+  const openAddCategoryModal = () => {
     if (editModalRef.current) {
       editModalRef.current.openModal({ type: EditTypeEnum.add });
     }
@@ -51,7 +51,7 @@ const Glossary = () => {
     request
       .then((res) => {
         if (res.data) {
-          getQuestions();
+          getCategories();
         }
       })
       .finally(() => {
@@ -67,7 +67,7 @@ const Glossary = () => {
       return;
     }
     uploadCommonTemplate(
-      GlossaryAPIInstance.addAndUpdateQuestionsBulk(JSON.parse(uploadFile)),
+      CategoriesAPIInstance.addAndUpdateCategoriesBulk(JSON.parse(uploadFile)),
     );
   };
 
@@ -76,63 +76,63 @@ const Glossary = () => {
       return;
     }
     uploadCommonTemplate(
-      GlossaryAPIInstance.addQuestionsBulk(JSON.parse(uploadFile)),
+      CategoriesAPIInstance.addCategoriesBulk(JSON.parse(uploadFile)),
     );
   };
 
   const downloadToJSON = () => {
-    const data = new Blob([JSON.stringify(questions)], {
+    const data = new Blob([JSON.stringify(categories)], {
       type: 'text/plain;charset=utf-8',
     });
-    saveAs(data, 'questions.json');
+    saveAs(data, 'categories.json');
   };
 
-  const editQuestion = (question: QuizletQuestion) => {
+  const editCategory = (category: QuizletQuestionCategory) => {
     if (editModalRef.current) {
       editModalRef.current.openModal({
         type: EditTypeEnum.edit,
-        initialValues: question,
+        initialValues: category,
       });
     }
   };
 
-  const getQuestions = () => {
-    setQuestionsAreLoading(true);
-    GlossaryAPIInstance.getQuestions()
+  const getCategories = () => {
+    setCategoriesAreLoading(true);
+    CategoriesAPIInstance.getCategories()
       .then((res) => {
         if (res.data) {
-          setQuestions(res.data);
+          setCategories(res.data);
         }
       })
       .finally(() => {
-        setQuestionsAreLoading(false);
+        setCategoriesAreLoading(false);
       });
   };
 
-  const deleteQuestion = (id: number) => {
-    GlossaryAPIInstance.deleteQuestion(id).then((res) => {
+  const deleteCategory = (id: number) => {
+    CategoriesAPIInstance.deleteCategory(id).then((res) => {
       if (res.data) {
-        getQuestions();
+        getCategories();
       }
     });
   };
 
   const onModalSucceed = () => {
-    getQuestions();
+    getCategories();
   };
 
   useEffect(() => {
-    getQuestions();
+    getCategories();
   }, []);
 
   return (
     <>
       <div className={classes.container}>
-        <Typography.Title>All Questions</Typography.Title>
+        <Typography.Title>Categories</Typography.Title>
 
         <div className={classes.buttonsContainer}>
-          <Button type='primary' onClick={openAddQuestionModal}>
-            Add question
+          <Button type='primary' onClick={openAddCategoryModal}>
+            Add category
           </Button>
           <Button onClick={uploadFromJSON}>Upload (.json)</Button>
           <Button onClick={downloadToJSON}>Download (.json)</Button>
@@ -148,22 +148,43 @@ const Glossary = () => {
           />
         </div>
 
-        {questionsAreLoading && (
+        {categoriesAreLoading && (
           <div className={classes.loaderContainer}>
             <Spin size='large' />
           </div>
         )}
 
-        {!questionsAreLoading && (
-          <QuestionCategoryList
-            editQuestion={editQuestion}
-            questions={questions}
-            deleteQuestion={deleteQuestion}
-          />
+        {!categoriesAreLoading && (
+          <Card>
+            <List
+              size='small'
+              bordered
+              dataSource={categories}
+              renderItem={(item) => (
+                <List.Item key={item.id} className={classes.listElement}>
+                  <Button
+                    shape='circle'
+                    icon={<EditOutlined />}
+                    onClick={() => {
+                      editCategory(item);
+                    }}
+                  />
+                  <Button
+                    shape='circle'
+                    icon={<DeleteOutlined />}
+                    onClick={() => {
+                      deleteCategory(item.id as number);
+                    }}
+                  />
+                  <strong>{item.title}</strong>
+                </List.Item>
+              )}
+            />
+          </Card>
         )}
       </div>
 
-      <EditQuestionModal ref={editModalRef} onOkCallback={onModalSucceed} />
+      <EditCategoryModal ref={editModalRef} onOkCallback={onModalSucceed} />
       <AddOrOverwriteConfirmModal
         ref={addOrOverwriteModalRef}
         onOverwriteSelected={uploadOverwrite}
@@ -173,4 +194,4 @@ const Glossary = () => {
   );
 };
 
-export default Glossary;
+export default Categories;
