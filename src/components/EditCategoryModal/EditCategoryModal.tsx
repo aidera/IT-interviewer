@@ -62,6 +62,7 @@ const EditCategoryModal = forwardRef(
     }));
 
     const closeModal = () => {
+      form.reset(defaultValues as unknown as FormInput);
       setIsModalVisible(false);
     };
 
