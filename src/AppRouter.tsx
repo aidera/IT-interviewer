@@ -1,20 +1,20 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Categories from './pages/Categories/Categories';
-import Glossary from './pages/Glossary/Glossary';
-import NotFound from './pages/NotFound/NotFound';
-import Quiz from './pages/Quiz/Quiz';
+import CategoriesPage from './pages/CategoriesPage/CategoriesPage';
+import GlossaryPage from './pages/GlossaryPage/GlossaryPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import QuizPage from './pages/QuizPage/QuizPage';
 
 const AppRouter = () => {
   return (
     <Routes>
       <Route path='/'>
         <Route index element={<Navigate to='/questions' replace />} />
-        <Route path='/questions' element={<Glossary />} />
-        <Route path='/categories' element={<Categories />} />
-        <Route path='/quiz' element={<Quiz />} />
+        <Route path='/questions' element={<GlossaryPage />} />
+        <Route path='/categories' element={<CategoriesPage />} />
+        <Route path='/quiz' element={<QuizPage />} />
       </Route>
-      <Route path='*' element={<NotFound />} />
+      <Route path='*' element={<NotFoundPage />} />
     </Routes>
   );
 };

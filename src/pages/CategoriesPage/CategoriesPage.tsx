@@ -2,7 +2,7 @@ import React, { ElementRef, useEffect, useRef, useState } from 'react';
 import { Button, Card, List, Spin, Typography } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { saveAs } from 'file-saver';
-import classes from './Categories.module.scss';
+import classes from './CategoriesPage.module.scss';
 import { QuizletQuestionCategory } from '../../models/category.model';
 import EditCategoryModal from '../../components/EditCategoryModal/EditCategoryModal';
 import AddOrOverwriteConfirmModal from '../../components/AddOrOverwriteConfirmModal/AddOrOverwriteConfirmModal';
@@ -10,7 +10,7 @@ import { EditTypeEnum } from '../../models/utils.model';
 import { APIResponse } from '../../models/api.model';
 import CategoriesAPIInstance from '../../api/categories.api';
 
-const Categories = () => {
+const CategoriesPage = () => {
   const editModalRef = useRef<ElementRef<typeof EditCategoryModal>>(null);
   const addOrOverwriteModalRef =
     useRef<ElementRef<typeof AddOrOverwriteConfirmModal>>(null);
@@ -194,4 +194,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default CategoriesPage;

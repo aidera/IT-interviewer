@@ -1,5 +1,5 @@
 import React, { ElementRef, useEffect, useRef, useState } from 'react';
-import classes from './Glossary.module.scss';
+import classes from './GlossaryPage.module.scss';
 import { Button, Spin, Typography } from 'antd';
 import { saveAs } from 'file-saver';
 import QuestionCategoryList from '../../components/QuestionCategoryList/QuestionCategoryList';
@@ -10,7 +10,7 @@ import GlossaryAPIInstance from '../../api/glossary.api';
 import AddOrOverwriteConfirmModal from '../../components/AddOrOverwriteConfirmModal/AddOrOverwriteConfirmModal';
 import { APIResponse } from '../../models/api.model';
 
-const Glossary = () => {
+const GlossaryPage = () => {
   const editModalRef = useRef<ElementRef<typeof EditQuestionModal>>(null);
   const addOrOverwriteModalRef =
     useRef<ElementRef<typeof AddOrOverwriteConfirmModal>>(null);
@@ -173,4 +173,4 @@ const Glossary = () => {
   );
 };
 
-export default Glossary;
+export default GlossaryPage;

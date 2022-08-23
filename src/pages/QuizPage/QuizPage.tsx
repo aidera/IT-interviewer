@@ -5,7 +5,7 @@ import QuizAPIInstance from '../../api/quiz.api';
 import { QuizData } from '../../models/quiz.model';
 import QuizQuestionsRunner from './QuizQuestionsRunner/QuizQuestionsRunner';
 
-const Quiz = () => {
+const QuizPage = () => {
   const [quizData, setQuizData] = useState<QuizData | null>(null);
 
   const getQuizData = useCallback(
@@ -37,4 +37,4 @@ const Quiz = () => {
   );
 };
 
-export default Quiz;
+export default QuizPage;
