@@ -100,7 +100,7 @@ const EditCategoryModal = forwardRef(
         title={title}
         visible={isModalVisible}
         onCancel={closeModal}
-        mask={false}
+        transitionName=''
         footer={[
           <Button key='back' onClick={closeModal}>
             Cancel

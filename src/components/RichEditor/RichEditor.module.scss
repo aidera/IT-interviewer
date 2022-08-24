@@ -2,6 +2,16 @@
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+
+  :global {
+    .ant-btn {
+      border-radius: 0 !important;
+      margin-left: -1px;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
 }
 
 .editorContainer {
@@ -18,7 +28,7 @@
       padding: 4px 11px;
       color: rgba(0, 0, 0, 0.85);
       font-size: 14px;
-      border: 1px solid #d9d9d9;
+      border: 1px solid #29e6ff;
       border-radius: 2px;
       transition: all 0.3s, height 0s;
     }
@@ -28,7 +38,7 @@
 .editorCardFocus {
   :global {
     .public-DraftEditor-content {
-      border-color: #40a9ff;
+      border-color: #29e6ff;
       box-shadow: 0 0 0 2px rgb(24 144 255 / 20%);
     }
   }

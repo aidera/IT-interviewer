@@ -128,7 +128,8 @@ const EditQuestionModal = forwardRef(
         title={title}
         visible={isModalVisible}
         onCancel={closeModal}
-        mask={false}
+        width='700px'
+        transitionName=''
         footer={[
           <Button key='back' onClick={closeModal}>
             Cancel
@@ -152,7 +153,7 @@ const EditQuestionModal = forwardRef(
             <Controller
               name='title'
               control={form.control}
-              rules={{ required: 'Required' }}
+              // rules={{ required: 'Required' }}
               render={({ field, fieldState }) => {
                 return (
                   <>

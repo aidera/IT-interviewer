@@ -1,5 +1,5 @@
 import React, { ElementRef, useEffect, useRef, useState } from 'react';
-import { Button, Card, List, Spin, Typography } from 'antd';
+import { Button, List, Spin, Typography } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { saveAs } from 'file-saver';
 import classes from './CategoriesPage.module.scss';
@@ -155,32 +155,30 @@ const CategoriesPage = () => {
         )}
 
         {!categoriesAreLoading && (
-          <Card>
-            <List
-              size='small'
-              bordered
-              dataSource={categories}
-              renderItem={(item) => (
-                <List.Item key={item.id} className={classes.listElement}>
-                  <Button
-                    shape='circle'
-                    icon={<EditOutlined />}
-                    onClick={() => {
-                      editCategory(item);
-                    }}
-                  />
-                  <Button
-                    shape='circle'
-                    icon={<DeleteOutlined />}
-                    onClick={() => {
-                      deleteCategory(item.id as number);
-                    }}
-                  />
-                  <strong>{item.title}</strong>
-                </List.Item>
-              )}
-            />
-          </Card>
+          <List
+            size='small'
+            bordered
+            dataSource={categories}
+            renderItem={(item) => (
+              <List.Item key={item.id} className={classes.listElement}>
+                <Button
+                  shape='circle'
+                  icon={<EditOutlined />}
+                  onClick={() => {
+                    editCategory(item);
+                  }}
+                />
+                <Button
+                  shape='circle'
+                  icon={<DeleteOutlined />}
+                  onClick={() => {
+                    deleteCategory(item.id as number);
+                  }}
+                />
+                <strong>{item.title}</strong>
+              </List.Item>
+            )}
+          />
         )}
       </div>
 

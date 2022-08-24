@@ -18,6 +18,14 @@ To use node/npm/npx commands
 
 Or if all containers up
 
+# Styling
+
+## Available Scripts
+
+### lessc ./src/styles/main.less ./src/styles/antd.css --js
+
+Will overwrite the theme colors in main.less file. Has less to be installed globally with >npm i less -g. The path to find all variables: /node_modules/antd/lib/style/themes/variable.less
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
