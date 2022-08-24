@@ -6,20 +6,46 @@
   background: white;
   box-shadow: 0 2px 8px #f0f1f2;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  @media (max-width: 600px) {
+    justify-content: space-between;
+  }
+  @media (max-width: 576px) {
+    padding: 0 32px;
+  }
 }
 
 .logo {
   float: left;
   font-size: 24px;
-  margin: 0 24px;
   color: #00d0f7;
   font-family: 'Montserrat', sans-serif;
+  margin-right: 12px;
 }
 
 .menu {
   border: none;
 }
 
+.drawer {
+  :global {
+    .ant-drawer-body {
+      padding: 0;
+      padding-top: 24px;
+    }
+  }
+}
+
 .contentLayout {
   background: white;
+}
+
+.content {
+  margin: 0 60px;
+  padding-top: 60px;
+  padding-bottom: 32px;
+  @media (max-width: 576px) {
+    margin: 0 32px;
+  }
 }

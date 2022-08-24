@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Layout, Menu, MenuProps } from 'antd';
+import { Button, Drawer, Layout, Menu, MenuProps } from 'antd';
 import { Content, Header } from 'antd/lib/layout/layout';
 import { ItemType } from 'antd/lib/menu/hooks/useItems';
 import classes from './MainLayout.module.scss';
+import { useMediaQuery } from '@react-hook/media-query';
+import { MenuOutlined } from '@ant-design/icons';
 
 type PropsType = {
   children?: React.ReactNode;
@@ -27,6 +29,8 @@ const menuItems: ItemType[] = [
 const MainLayout = (props: PropsType) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [isDrawerVisible, setIsDrawerVisible] = useState<boolean>(false);
+  const isHeaderSmallScreen = useMediaQuery('(max-width: 600px)');
 
   let selectedRoutes: string[] = [];
 
@@ -39,25 +43,57 @@ const MainLayout = (props: PropsType) => {
   const onMenuClickHandler: MenuProps['onClick'] = (event) => {
     selectedRoutes = [event.key];
     navigate(event.key);
+    setIsDrawerVisible(false);
   };
+
   return (
     <Layout className={classes.layout}>
       <Header className={classes.header}>
         <div className={classes.logo}>IT-interviewer</div>
-        <Menu
-          className={classes.menu}
-          theme='light'
-          mode='horizontal'
-          selectedKeys={selectedRoutes}
-          items={menuItems}
-          onClick={onMenuClickHandler}
-        />
+        {!isHeaderSmallScreen && (
+          <Menu
+            className={classes.menu}
+            theme='light'
+            mode='horizontal'
+            selectedKeys={selectedRoutes}
+            items={menuItems}
+            onClick={onMenuClickHandler}
+          />
+        )}
+
+        {isHeaderSmallScreen && (
+          <Button
+            type='text'
+            icon={<MenuOutlined />}
+            onClick={() => {
+              setIsDrawerVisible(true);
+            }}
+          ></Button>
+        )}
+
+        <Drawer
+          className={classes.drawer}
+          title='IT-interviewer'
+          placement='left'
+          closable={true}
+          onClose={() => {
+            setIsDrawerVisible(false);
+          }}
+          visible={isDrawerVisible}
+        >
+          <Menu
+            className={classes.menu}
+            theme='light'
+            mode='vertical'
+            selectedKeys={selectedRoutes}
+            items={menuItems}
+            onClick={onMenuClickHandler}
+          />
+        </Drawer>
       </Header>
 
       <Layout className={classes.contentLayout}>
-        <Content style={{ margin: '0 16px', padding: '24px 0' }}>
-          {props.children}
-        </Content>
+        <Content className={classes.content}>{props.children}</Content>
       </Layout>
     </Layout>
   );
