@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Title from 'antd/lib/typography/Title';
-import QuestionCardList from '../QuestionCardList/QuestionCardList';
+import classes from './QuestionCategory.module.scss';
 import { QuizletQuestionCategory } from '../../models/category.model';
 import { QuizletQuestion } from '../../models/question.model';
+import QuestionCard from '../QuestionCard/QuestionCard';
 
 type PropsType = {
+  isUpdating?: boolean;
   category: QuizletQuestionCategory;
   questions: QuizletQuestion[];
   editQuestion: (question: QuizletQuestion) => void;
@@ -25,12 +27,19 @@ const QuestionCategory = (props: PropsType) => {
   return (
     <div>
       <Title level={2}>{props.category.title}</Title>
-      <QuestionCardList
-        category={props.category}
-        editQuestion={props.editQuestion}
-        questions={questions}
-        deleteQuestion={props.deleteQuestion}
-      />
+      <div className={classes.cards}>
+        {questions.map((question) => {
+          return (
+            <QuestionCard
+              key={question.id}
+              question={question}
+              editQuestion={props.editQuestion}
+              deleteQuestion={props.deleteQuestion}
+              isUpdating={props.isUpdating}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

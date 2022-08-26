@@ -7,6 +7,7 @@ import CategoriesAPIInstance from '../../api/categories.api';
 import { Spin } from 'antd';
 
 type PropsType = {
+  isUpdating?: boolean;
   questions: QuizletQuestion[];
   editQuestion: (question: QuizletQuestion) => void;
   deleteQuestion: (id: number) => void;
@@ -44,15 +45,20 @@ const QuestionCategoryList = (props: PropsType) => {
       {!categoriesAreLoading && (
         <div className={classes.categories}>
           {categories.map((category) => {
-            return (
-              <QuestionCategory
-                key={category.id}
-                category={category}
-                questions={props.questions}
-                editQuestion={props.editQuestion}
-                deleteQuestion={props.deleteQuestion}
-              />
-            );
+            if (props.questions.some((el) => el.category === category.id)) {
+              return (
+                <QuestionCategory
+                  key={category.id}
+                  category={category}
+                  questions={props.questions}
+                  editQuestion={props.editQuestion}
+                  deleteQuestion={props.deleteQuestion}
+                  isUpdating={props.isUpdating}
+                />
+              );
+            } else {
+              return;
+            }
           })}
         </div>
       )}

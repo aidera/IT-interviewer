@@ -15,7 +15,9 @@ const GlossaryPage = () => {
   const addOrOverwriteModalRef =
     useRef<ElementRef<typeof AddOrOverwriteConfirmModal>>(null);
   const uploadFileInput = useRef<HTMLInputElement>(null);
-  const [questionsAreLoading, setQuestionsAreLoading] =
+  const [questionsAreFetching, setQuestionsAreFetching] =
+    useState<boolean>(false);
+  const [questionsAreUpdating, setQuestionsAreUpdating] =
     useState<boolean>(false);
   const [questions, setQuestions] = useState<QuizletQuestion[]>([]);
   const [uploadFile, setUploadFile] = useState<string | null>(null);
@@ -51,7 +53,7 @@ const GlossaryPage = () => {
     request
       .then((res) => {
         if (res.data) {
-          getQuestions();
+          getQuestions(true);
         }
       })
       .finally(() => {
@@ -96,8 +98,13 @@ const GlossaryPage = () => {
     }
   };
 
-  const getQuestions = () => {
-    setQuestionsAreLoading(true);
+  const getQuestions = (useUpdateingInsteadOfFetching?: boolean) => {
+    if (!useUpdateingInsteadOfFetching) {
+      setQuestionsAreFetching(true);
+    } else {
+      setQuestionsAreUpdating(true);
+    }
+
     GlossaryAPIInstance.getQuestions()
       .then((res) => {
         if (res.data) {
@@ -105,20 +112,24 @@ const GlossaryPage = () => {
         }
       })
       .finally(() => {
-        setQuestionsAreLoading(false);
+        if (!useUpdateingInsteadOfFetching) {
+          setQuestionsAreFetching(false);
+        } else {
+          setQuestionsAreUpdating(false);
+        }
       });
   };
 
   const deleteQuestion = (id: number) => {
     GlossaryAPIInstance.deleteQuestion(id).then((res) => {
       if (res.data) {
-        getQuestions();
+        getQuestions(true);
       }
     });
   };
 
   const onModalSucceed = () => {
-    getQuestions();
+    getQuestions(true);
   };
 
   useEffect(() => {
@@ -148,17 +159,18 @@ const GlossaryPage = () => {
           />
         </div>
 
-        {questionsAreLoading && (
+        {questionsAreFetching && (
           <div className={classes.loaderContainer}>
             <Spin size='large' />
           </div>
         )}
 
-        {!questionsAreLoading && (
+        {!questionsAreFetching && (
           <QuestionCategoryList
             editQuestion={editQuestion}
             questions={questions}
             deleteQuestion={deleteQuestion}
+            isUpdating={questionsAreUpdating}
           />
         )}
       </div>
