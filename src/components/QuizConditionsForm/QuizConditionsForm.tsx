@@ -1,14 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import {
-  Button,
-  Card,
-  Form,
-  Input,
-  InputNumber,
-  Select,
-  Typography,
-} from 'antd';
+import { Button, Card, Form, Input, InputNumber, Select } from 'antd';
 import classes from './QuizConditionsForm.module.scss';
 import { formUtils } from '../../utils';
 import { QuizletQuestionCategory } from '../../models/category.model';

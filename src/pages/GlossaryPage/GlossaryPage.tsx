@@ -1,6 +1,6 @@
 import React, { ElementRef, useEffect, useRef, useState } from 'react';
 import classes from './GlossaryPage.module.scss';
-import { Button, Spin, Typography } from 'antd';
+import { Button, Typography } from 'antd';
 import { saveAs } from 'file-saver';
 import QuestionCategoryList from '../../components/QuestionCategoryList/QuestionCategoryList';
 import EditQuestionModal from '../../components/EditQuestionModal/EditQuestionModal';
@@ -9,6 +9,7 @@ import { QuizletQuestion } from '../../models/question.model';
 import GlossaryAPIInstance from '../../api/glossary.api';
 import AddOrOverwriteConfirmModal from '../../components/AddOrOverwriteConfirmModal/AddOrOverwriteConfirmModal';
 import { APIResponse } from '../../models/api.model';
+import FullWidthLoader from '../../components/FullWidthLoader/FullWidthLoader';
 
 const GlossaryPage = () => {
   const editModalRef = useRef<ElementRef<typeof EditQuestionModal>>(null);
@@ -159,11 +160,7 @@ const GlossaryPage = () => {
           />
         </div>
 
-        {questionsAreFetching && (
-          <div className={classes.loaderContainer}>
-            <Spin size='large' />
-          </div>
-        )}
+        {questionsAreFetching && <FullWidthLoader />}
 
         {!questionsAreFetching && (
           <QuestionCategoryList

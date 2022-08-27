@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Button, Card, Typography } from 'antd';
+import { Button, Card } from 'antd';
 import { QuizData, QuizQuestionAnswerType } from '../../models/quiz.model';
 import QuizAPIInstance from '../../api/quiz.api';
 import GlossaryAPIInstance from '../../api/glossary.api';
@@ -7,6 +7,7 @@ import { QuizletQuestion } from '../../models/question.model';
 import QuizQuestionCard from '../QuizQuestionCard/QuizQuestionCard';
 import classes from './QuizQuestionsRunner.module.scss';
 import QuizFinalCard from '../QuizFinalCard/QuizFinalCard';
+import FullWidthLoader from '../FullWidthLoader/FullWidthLoader';
 
 type PropsType = {
   quizData: QuizData;
@@ -14,6 +15,8 @@ type PropsType = {
 };
 
 const QuizQuestionsRunner = (props: PropsType) => {
+  const [areQuestionsFetching, setAreQuestionsFetching] =
+    useState<boolean>(false);
   const [questions, setQuestions] = useState<QuizletQuestion[]>([]);
   const [currentQuestionId, setCurrentQuestionId] = useState<number | null>(
     null,
@@ -22,12 +25,15 @@ const QuizQuestionsRunner = (props: PropsType) => {
 
   useEffect(() => {
     if (props.quizData.questionIds.length) {
+      setAreQuestionsFetching(true);
+
       GlossaryAPIInstance.getQuestionsByIds(props.quizData.questionIds).then(
         (res) => {
           setQuestions(res.data || []);
           if (props.quizData.questionIds.length) {
             setCurrentQuestionId(props.quizData.questionIds[0]);
           }
+          setAreQuestionsFetching(false);
         },
       );
     }
@@ -97,68 +103,80 @@ const QuizQuestionsRunner = (props: PropsType) => {
 
   return (
     <>
-      <div className={classes.runnerDescription}>
-        <span>Summary: {props.quizData.questionIds.length}, </span>
-        <span className={classes.runnerDescription__success}>
-          completed: {props.quizData.completedQuestionIds.length},{' '}
-        </span>
-        <span className={classes.runnerDescription__failure}>
-          not completed: {props.quizData.notCompletedQuestionIds.length}
-        </span>
-      </div>
+      {areQuestionsFetching && <FullWidthLoader />}
 
-      <Card className={classes.wrapper}>
-        <div>
-          {currentQuestionId && !isCongratsCardOpen && (
-            <QuizQuestionCard question={getQuestionMemo as QuizletQuestion} />
-          )}
-          {isCongratsCardOpen && (
-            <QuizFinalCard type={getIsFinalMemo ? 'finished' : 'iteration'} />
-          )}
-        </div>
-
-        <div className={classes.buttonsContainer}>
-          <div>
-            {!isCongratsCardOpen && (
-              <>
-                <Button
-                  type='primary'
-                  size='large'
-                  onClick={() => answerQuiz(QuizQuestionAnswerType.completed)}
-                >
-                  I know it
-                </Button>
-                <Button
-                  type='primary'
-                  size='large'
-                  danger={true}
-                  onClick={() =>
-                    answerQuiz(QuizQuestionAnswerType.notCompleted)
-                  }
-                >
-                  Learn later
-                </Button>
-              </>
-            )}
-
-            {isCongratsCardOpen && (
-              <>
-                <Button type='primary' size='large' onClick={finishQuiz}>
-                  {getIsFinalMemo ? 'Start Over' : 'Next round'}
-                </Button>
-              </>
-            )}
-
-            <div className='spacer'></div>
-            {((!getIsFinalMemo && isCongratsCardOpen) ||
-              !isCongratsCardOpen) && (
-              <Button size='large' onClick={clearQuiz}>
-                Start Over
-              </Button>
-            )}
+      {!areQuestionsFetching && (
+        <>
+          <div className={classes.runnerDescription}>
+            <span>Summary: {props.quizData.questionIds.length}, </span>
+            <span className={classes.runnerDescription__success}>
+              completed: {props.quizData.completedQuestionIds.length},{' '}
+            </span>
+            <span className={classes.runnerDescription__failure}>
+              not completed: {props.quizData.notCompletedQuestionIds.length}
+            </span>
           </div>
-        </div>
-      </Card>
+
+          <Card className={classes.wrapper}>
+            <div>
+              {currentQuestionId && !isCongratsCardOpen && (
+                <QuizQuestionCard
+                  question={getQuestionMemo as QuizletQuestion}
+                />
+              )}
+              {isCongratsCardOpen && (
+                <QuizFinalCard
+                  type={getIsFinalMemo ? 'finished' : 'iteration'}
+                />
+              )}
+            </div>
+
+            <div className={classes.buttonsContainer}>
+              <div>
+                {!isCongratsCardOpen && (
+                  <>
+                    <Button
+                      type='primary'
+                      size='large'
+                      onClick={() =>
+                        answerQuiz(QuizQuestionAnswerType.completed)
+                      }
+                    >
+                      I know it
+                    </Button>
+                    <Button
+                      type='primary'
+                      size='large'
+                      danger={true}
+                      onClick={() =>
+                        answerQuiz(QuizQuestionAnswerType.notCompleted)
+                      }
+                    >
+                      Learn later
+                    </Button>
+                  </>
+                )}
+
+                {isCongratsCardOpen && (
+                  <>
+                    <Button type='primary' size='large' onClick={finishQuiz}>
+                      {getIsFinalMemo ? 'Start Over' : 'Next round'}
+                    </Button>
+                  </>
+                )}
+
+                <div className='spacer'></div>
+                {((!getIsFinalMemo && isCongratsCardOpen) ||
+                  !isCongratsCardOpen) && (
+                  <Button size='large' onClick={clearQuiz}>
+                    Start Over
+                  </Button>
+                )}
+              </div>
+            </div>
+          </Card>
+        </>
+      )}
     </>
   );
 };
