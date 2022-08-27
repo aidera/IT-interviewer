@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Typography } from 'antd';
-import { QuizletQuestion } from '../../models/question.model';
+import { QuizQuestion } from '../../models/question.model';
 import classes from './QuizQuestionCard.module.scss';
 
 type PropsType = {
-  question: QuizletQuestion;
+  question: QuizQuestion;
 };
 
 const QuizQuestionCard = (props: PropsType) => {

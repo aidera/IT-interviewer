@@ -3,7 +3,7 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { Button, Card, Form, Input, InputNumber, Select } from 'antd';
 import classes from './QuizConditionsForm.module.scss';
 import { formUtils } from '../../utils';
-import { QuizletQuestionCategory } from '../../models/category.model';
+import { QuizQuestionCategory } from '../../models/category.model';
 import { QuizCreationData, QuizData } from '../../models/quiz.model';
 import QuizAPIInstance from '../../api/quiz.api';
 import CategoriesAPIInstance from '../../api/categories.api';
@@ -20,7 +20,7 @@ const defaultValues = {
 };
 
 const QuizConditionsForm = (props: PropsType) => {
-  const [categories, setCategories] = useState<QuizletQuestionCategory[]>([]);
+  const [categories, setCategories] = useState<QuizQuestionCategory[]>([]);
   const [categoriesAreLoading, setCategoriesAreLoading] =
     useState<boolean>(false);
 

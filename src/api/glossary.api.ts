@@ -1,11 +1,11 @@
-import { QuizletQuestion } from './../models/question.model';
+import { QuizQuestion } from './../models/question.model';
 import { APIResponse, APIResponseStatusEnum } from '../models/api.model';
-import { AddQuizletQuestion } from '../models/question.model';
+import { AddQuizQuestion } from '../models/question.model';
 import { db } from './indexedDB';
 import { IndexableType } from 'dexie';
 
 class GlossaryAPI {
-  async getQuestions(): Promise<APIResponse<QuizletQuestion[]>> {
+  async getQuestions(): Promise<APIResponse<QuizQuestion[]>> {
     try {
       const quesitons = await db.glossary.toArray();
       return {
@@ -20,9 +20,7 @@ class GlossaryAPI {
     }
   }
 
-  async getQuestionsByIds(
-    ids: number[],
-  ): Promise<APIResponse<QuizletQuestion[]>> {
+  async getQuestionsByIds(ids: number[]): Promise<APIResponse<QuizQuestion[]>> {
     try {
       const quesitons = await db.glossary.where('id').anyOf(ids).toArray();
       return {
@@ -37,7 +35,7 @@ class GlossaryAPI {
     }
   }
 
-  async getQuestion(id: number): Promise<APIResponse<QuizletQuestion>> {
+  async getQuestion(id: number): Promise<APIResponse<QuizQuestion>> {
     try {
       const quesiton = await db.glossary.get(id);
       return {
@@ -52,7 +50,7 @@ class GlossaryAPI {
     }
   }
 
-  async addQuestion(data: AddQuizletQuestion): Promise<APIResponse<number>> {
+  async addQuestion(data: AddQuizQuestion): Promise<APIResponse<number>> {
     try {
       const id = await db.glossary.add({
         answer: data.answer,
@@ -72,9 +70,7 @@ class GlossaryAPI {
     }
   }
 
-  async addQuestionsBulk(
-    data: QuizletQuestion[],
-  ): Promise<APIResponse<number>> {
+  async addQuestionsBulk(data: QuizQuestion[]): Promise<APIResponse<number>> {
     try {
       const mappedData = data.map((el) => {
         return {
@@ -98,7 +94,7 @@ class GlossaryAPI {
   }
 
   async addAndUpdateQuestionsBulk(
-    data: QuizletQuestion[],
+    data: QuizQuestion[],
   ): Promise<APIResponse<number>> {
     try {
       const lastId = await db.glossary.bulkPut(data);
@@ -116,7 +112,7 @@ class GlossaryAPI {
 
   async editQuestion(
     id: number,
-    data: AddQuizletQuestion,
+    data: AddQuizQuestion,
   ): Promise<APIResponse<number>> {
     try {
       await db.glossary.update(id as IndexableType, {

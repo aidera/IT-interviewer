@@ -3,7 +3,7 @@ import { Button, Card } from 'antd';
 import { QuizData, QuizQuestionAnswerType } from '../../models/quiz.model';
 import QuizAPIInstance from '../../api/quiz.api';
 import GlossaryAPIInstance from '../../api/glossary.api';
-import { QuizletQuestion } from '../../models/question.model';
+import { QuizQuestion } from '../../models/question.model';
 import QuizQuestionCard from '../QuizQuestionCard/QuizQuestionCard';
 import classes from './QuizQuestionsRunner.module.scss';
 import QuizFinalCard from '../QuizFinalCard/QuizFinalCard';
@@ -17,7 +17,7 @@ type PropsType = {
 const QuizQuestionsRunner = (props: PropsType) => {
   const [areQuestionsFetching, setAreQuestionsFetching] =
     useState<boolean>(false);
-  const [questions, setQuestions] = useState<QuizletQuestion[]>([]);
+  const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const [currentQuestionId, setCurrentQuestionId] = useState<number | null>(
     null,
   );
@@ -120,9 +120,7 @@ const QuizQuestionsRunner = (props: PropsType) => {
           <Card className={classes.wrapper}>
             <div>
               {currentQuestionId && !isCongratsCardOpen && (
-                <QuizQuestionCard
-                  question={getQuestionMemo as QuizletQuestion}
-                />
+                <QuizQuestionCard question={getQuestionMemo as QuizQuestion} />
               )}
               {isCongratsCardOpen && (
                 <QuizFinalCard

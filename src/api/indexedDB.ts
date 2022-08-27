@@ -1,11 +1,11 @@
 import Dexie, { Table } from 'dexie';
-import { QuizletQuestionCategory } from '../models/category.model';
+import { QuizQuestionCategory } from '../models/category.model';
 import { QuizData } from '../models/quiz.model';
-import { QuizletQuestion } from './../models/question.model';
+import { QuizQuestion } from './../models/question.model';
 
 export class IndexedDB extends Dexie {
-  categories!: Table<QuizletQuestionCategory>;
-  glossary!: Table<QuizletQuestion>;
+  categories!: Table<QuizQuestionCategory>;
+  glossary!: Table<QuizQuestion>;
   quiz!: Table<QuizData>;
 
   constructor() {

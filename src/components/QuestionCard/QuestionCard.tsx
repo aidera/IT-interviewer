@@ -3,13 +3,13 @@ import classes from './QuestionCard.module.scss';
 import { Button, Collapse } from 'antd';
 import Title from 'antd/lib/typography/Title';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-import { QuizletQuestion } from '../../models/question.model';
+import { QuizQuestion } from '../../models/question.model';
 import useOnScreen from '../../hooks/useOnScreen';
 
 type PropsType = {
   isUpdating?: boolean;
-  question: QuizletQuestion;
-  editQuestion: (question: QuizletQuestion) => void;
+  question: QuizQuestion;
+  editQuestion: (question: QuizQuestion) => void;
   deleteQuestion: (id: number) => void;
 };
 

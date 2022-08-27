@@ -1,8 +1,8 @@
-export interface QuizletQuestionCategory {
+export interface QuizQuestionCategory {
   id?: number;
   title: string;
 }
 
-export interface EditQuizletQuestionCategory {
+export interface EditQuizQuestionCategory {
   title: string;
 }

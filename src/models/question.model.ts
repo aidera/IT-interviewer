@@ -1,25 +1,25 @@
-export interface QuizletQuestionLink {
+export interface QuizQuestionLink {
   label: string;
   href: string;
 }
 
-export interface QuizletQuestion {
+export interface QuizQuestion {
   id?: number;
   title: string;
   category: number;
   level: number;
   answer: string;
-  links?: QuizletQuestionLink[];
+  links?: QuizQuestionLink[];
   toBeReviewed?: boolean;
   isPractise?: boolean;
 }
 
-export type AddQuizletQuestion = Pick<
-  QuizletQuestion,
+export type AddQuizQuestion = Pick<
+  QuizQuestion,
   'title' | 'category' | 'level' | 'answer'
 >;
 
-export type EditQuizletQuestion = Pick<
-  QuizletQuestion,
+export type EditQuizQuestion = Pick<
+  QuizQuestion,
   'id' | 'title' | 'category' | 'level' | 'answer'
 >;

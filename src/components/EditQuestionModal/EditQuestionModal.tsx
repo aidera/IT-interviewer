@@ -8,9 +8,9 @@ import React, {
 import { Button, Form, Input, InputNumber, Modal, Select } from 'antd';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { EditTypeEnum } from '../../models/utils.model';
-import { QuizletQuestionCategory } from '../../models/category.model';
+import { QuizQuestionCategory } from '../../models/category.model';
 import GlossaryAPIInstance from '../../api/glossary.api';
-import { EditQuizletQuestion } from '../../models/question.model';
+import { EditQuizQuestion } from '../../models/question.model';
 import { APIResponse } from '../../models/api.model';
 import RichEditor from '../RichEditor/RichEditor';
 import { formUtils } from '../../utils';
@@ -23,10 +23,10 @@ type PropsType = {
 
 type OpenModalType = {
   type: EditTypeEnum;
-  initialValues?: EditQuizletQuestion;
+  initialValues?: EditQuizQuestion;
 };
 
-type FormInput = EditQuizletQuestion;
+type FormInput = EditQuizQuestion;
 
 export type EditQuestionModalRefType = {
   openModal: (props: OpenModalType) => void;
@@ -44,7 +44,7 @@ const EditQuestionModal = forwardRef(
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [title, setTitle] = useState('');
     const [modalProps, setModalProps] = useState<OpenModalType>();
-    const [categories, setCategories] = useState<QuizletQuestionCategory[]>([]);
+    const [categories, setCategories] = useState<QuizQuestionCategory[]>([]);
     const [categoriesAreLoading, setCategoriesAreLoading] =
       useState<boolean>(false);
 

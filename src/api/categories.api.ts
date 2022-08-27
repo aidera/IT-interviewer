@@ -2,12 +2,12 @@ import { IndexableType } from 'dexie';
 import { db } from './indexedDB';
 import { APIResponse, APIResponseStatusEnum } from '../models/api.model';
 import {
-  EditQuizletQuestionCategory,
-  QuizletQuestionCategory,
+  EditQuizQuestionCategory,
+  QuizQuestionCategory,
 } from '../models/category.model';
 
 class CategoriesAPI {
-  async getCategories(): Promise<APIResponse<QuizletQuestionCategory[]>> {
+  async getCategories(): Promise<APIResponse<QuizQuestionCategory[]>> {
     try {
       const categories = await db.categories.toArray();
       return {
@@ -22,7 +22,7 @@ class CategoriesAPI {
     }
   }
 
-  async getCategory(id: number): Promise<APIResponse<QuizletQuestionCategory>> {
+  async getCategory(id: number): Promise<APIResponse<QuizQuestionCategory>> {
     try {
       const category = await db.categories.get(id);
       return {
@@ -38,7 +38,7 @@ class CategoriesAPI {
   }
 
   async addCategory(
-    data: EditQuizletQuestionCategory,
+    data: EditQuizQuestionCategory,
   ): Promise<APIResponse<number>> {
     console.log('add');
     try {
@@ -59,7 +59,7 @@ class CategoriesAPI {
   }
 
   async addCategoriesBulk(
-    data: QuizletQuestionCategory[],
+    data: QuizQuestionCategory[],
   ): Promise<APIResponse<number>> {
     try {
       const mappedData = data.map((el) => {
@@ -81,7 +81,7 @@ class CategoriesAPI {
   }
 
   async addAndUpdateCategoriesBulk(
-    data: QuizletQuestionCategory[],
+    data: QuizQuestionCategory[],
   ): Promise<APIResponse<number>> {
     try {
       const lastId = await db.categories.bulkPut(data);
@@ -99,7 +99,7 @@ class CategoriesAPI {
 
   async editCategory(
     id: number,
-    data: EditQuizletQuestionCategory,
+    data: EditQuizQuestionCategory,
   ): Promise<APIResponse<number>> {
     try {
       await db.categories.update(id as IndexableType, {

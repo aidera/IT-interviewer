@@ -8,8 +8,8 @@ import { Button, Form, Input, Modal } from 'antd';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { EditTypeEnum } from '../../models/utils.model';
 import {
-  EditQuizletQuestionCategory,
-  QuizletQuestionCategory,
+  EditQuizQuestionCategory,
+  QuizQuestionCategory,
 } from '../../models/category.model';
 import { APIResponse } from '../../models/api.model';
 import { formUtils } from '../../utils';
@@ -22,10 +22,10 @@ type PropsType = {
 
 type OpenModalType = {
   type: EditTypeEnum;
-  initialValues?: QuizletQuestionCategory;
+  initialValues?: QuizQuestionCategory;
 };
 
-type FormInput = EditQuizletQuestionCategory;
+type FormInput = EditQuizQuestionCategory;
 
 export type EditQuestionCategoryModalRefType = {
   openModal: (props: OpenModalType) => void;

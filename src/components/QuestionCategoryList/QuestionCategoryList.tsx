@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import classes from './QuestionCategoryList.module.scss';
-import { QuizletQuestionCategory } from '../../models/category.model';
+import { QuizQuestionCategory } from '../../models/category.model';
 import QuestionCategory from '../QuestionCategory/QuestionCategory';
-import { QuizletQuestion } from '../../models/question.model';
+import { QuizQuestion } from '../../models/question.model';
 import CategoriesAPIInstance from '../../api/categories.api';
 import { Spin } from 'antd';
 
 type PropsType = {
   isUpdating?: boolean;
-  questions: QuizletQuestion[];
-  editQuestion: (question: QuizletQuestion) => void;
+  questions: QuizQuestion[];
+  editQuestion: (question: QuizQuestion) => void;
   deleteQuestion: (id: number) => void;
 };
 
 const QuestionCategoryList = (props: PropsType) => {
-  const [categories, setCategories] = useState<QuizletQuestionCategory[]>([]);
+  const [categories, setCategories] = useState<QuizQuestionCategory[]>([]);
   const [categoriesAreLoading, setCategoriesAreLoading] =
     useState<boolean>(false);
 

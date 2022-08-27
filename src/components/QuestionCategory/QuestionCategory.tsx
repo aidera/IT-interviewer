@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import Title from 'antd/lib/typography/Title';
 import classes from './QuestionCategory.module.scss';
-import { QuizletQuestionCategory } from '../../models/category.model';
-import { QuizletQuestion } from '../../models/question.model';
+import { QuizQuestionCategory } from '../../models/category.model';
+import { QuizQuestion } from '../../models/question.model';
 import QuestionCard from '../QuestionCard/QuestionCard';
 
 type PropsType = {
   isUpdating?: boolean;
-  category: QuizletQuestionCategory;
-  questions: QuizletQuestion[];
-  editQuestion: (question: QuizletQuestion) => void;
+  category: QuizQuestionCategory;
+  questions: QuizQuestion[];
+  editQuestion: (question: QuizQuestion) => void;
   deleteQuestion: (id: number) => void;
 };
 
 const QuestionCategory = (props: PropsType) => {
-  const [questions, setQuestions] = useState<QuizletQuestion[]>([]);
+  const [questions, setQuestions] = useState<QuizQuestion[]>([]);
 
   useEffect(() => {
     setQuestions(

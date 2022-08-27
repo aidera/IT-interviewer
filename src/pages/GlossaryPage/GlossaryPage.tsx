@@ -5,7 +5,7 @@ import { saveAs } from 'file-saver';
 import QuestionCategoryList from '../../components/QuestionCategoryList/QuestionCategoryList';
 import EditQuestionModal from '../../components/EditQuestionModal/EditQuestionModal';
 import { EditTypeEnum } from '../../models/utils.model';
-import { QuizletQuestion } from '../../models/question.model';
+import { QuizQuestion } from '../../models/question.model';
 import GlossaryAPIInstance from '../../api/glossary.api';
 import AddOrOverwriteConfirmModal from '../../components/AddOrOverwriteConfirmModal/AddOrOverwriteConfirmModal';
 import { APIResponse } from '../../models/api.model';
@@ -20,7 +20,7 @@ const GlossaryPage = () => {
     useState<boolean>(false);
   const [questionsAreUpdating, setQuestionsAreUpdating] =
     useState<boolean>(false);
-  const [questions, setQuestions] = useState<QuizletQuestion[]>([]);
+  const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const [uploadFile, setUploadFile] = useState<string | null>(null);
 
   const openAddQuestionModal = () => {
@@ -90,7 +90,7 @@ const GlossaryPage = () => {
     saveAs(data, 'questions.json');
   };
 
-  const editQuestion = (question: QuizletQuestion) => {
+  const editQuestion = (question: QuizQuestion) => {
     if (editModalRef.current) {
       editModalRef.current.openModal({
         type: EditTypeEnum.edit,

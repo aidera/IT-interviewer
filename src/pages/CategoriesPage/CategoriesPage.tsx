@@ -3,7 +3,7 @@ import { Button, List, Spin, Typography } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { saveAs } from 'file-saver';
 import classes from './CategoriesPage.module.scss';
-import { QuizletQuestionCategory } from '../../models/category.model';
+import { QuizQuestionCategory } from '../../models/category.model';
 import EditCategoryModal from '../../components/EditCategoryModal/EditCategoryModal';
 import AddOrOverwriteConfirmModal from '../../components/AddOrOverwriteConfirmModal/AddOrOverwriteConfirmModal';
 import { EditTypeEnum } from '../../models/utils.model';
@@ -15,7 +15,7 @@ const CategoriesPage = () => {
   const addOrOverwriteModalRef =
     useRef<ElementRef<typeof AddOrOverwriteConfirmModal>>(null);
   const uploadFileInput = useRef<HTMLInputElement>(null);
-  const [categories, setCategories] = useState<QuizletQuestionCategory[]>([]);
+  const [categories, setCategories] = useState<QuizQuestionCategory[]>([]);
   const [categoriesAreLoading, setCategoriesAreLoading] =
     useState<boolean>(false);
   const [uploadFile, setUploadFile] = useState<string | null>(null);
@@ -87,7 +87,7 @@ const CategoriesPage = () => {
     saveAs(data, 'categories.json');
   };
 
-  const editCategory = (category: QuizletQuestionCategory) => {
+  const editCategory = (category: QuizQuestionCategory) => {
     if (editModalRef.current) {
       editModalRef.current.openModal({
         type: EditTypeEnum.edit,
