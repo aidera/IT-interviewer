@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Typography } from 'antd';
-import { QuizletQuestion } from '../../../../models/question.model';
-import { QuizQuestionAnswerType } from '../../../../models/quiz.model';
+import { Typography } from 'antd';
+import { QuizletQuestion } from '../../models/question.model';
 import classes from './QuizQuestionCard.module.scss';
 
 type PropsType = {
   question: QuizletQuestion;
-  answerQuiz: (result: QuizQuestionAnswerType) => void;
 };
 
 const QuizQuestionCard = (props: PropsType) => {
@@ -41,21 +39,6 @@ const QuizQuestionCard = (props: PropsType) => {
             Hide answer
           </Typography.Link>
         )}
-      </div>
-
-      <div className={classes.buttonsContainer}>
-        <Button
-          type='primary'
-          onClick={() => props.answerQuiz(QuizQuestionAnswerType.completed)}
-        >
-          Know
-        </Button>
-        <Button
-          type='primary'
-          onClick={() => props.answerQuiz(QuizQuestionAnswerType.notCompleted)}
-        >
-          Learn
-        </Button>
       </div>
     </div>
   );

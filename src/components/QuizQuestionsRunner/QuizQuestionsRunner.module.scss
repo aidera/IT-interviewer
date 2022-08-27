@@ -1,0 +1,42 @@
+.wrapper {
+  margin-bottom: 80px;
+}
+
+.runnerDescription {
+  margin-bottom: 32px;
+  margin-top: -8px;
+}
+
+.runnerDescription__success {
+  color: green;
+}
+
+.runnerDescription__failure {
+  color: red;
+}
+
+.buttonsContainer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  background-color: white;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    max-width: 700px;
+    width: 100%;
+    padding: 24px;
+  }
+}

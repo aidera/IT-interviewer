@@ -1,0 +1,24 @@
+.form {
+  max-width: 500px;
+}
+
+.flexField {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.questionsCountColumn {
+  width: 150px;
+  :global {
+    .ant-input-number {
+      width: 100%;
+    }
+  }
+}
