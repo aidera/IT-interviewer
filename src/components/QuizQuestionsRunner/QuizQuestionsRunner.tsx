@@ -96,8 +96,7 @@ const QuizQuestionsRunner = (props: PropsType) => {
   }, [props.quizData]);
 
   return (
-    <Card className={classes.wrapper}>
-      <Typography.Title level={2}>Answer Questions</Typography.Title>
+    <>
       <div className={classes.runnerDescription}>
         <span>Summary: {props.quizData.questionIds.length}, </span>
         <span className={classes.runnerDescription__success}>
@@ -108,54 +107,59 @@ const QuizQuestionsRunner = (props: PropsType) => {
         </span>
       </div>
 
-      <div>
-        {currentQuestionId && !isCongratsCardOpen && (
-          <QuizQuestionCard question={getQuestionMemo as QuizletQuestion} />
-        )}
-        {isCongratsCardOpen && (
-          <QuizFinalCard type={getIsFinalMemo ? 'finished' : 'iteration'} />
-        )}
-      </div>
-
-      <div className={classes.buttonsContainer}>
+      <Card className={classes.wrapper}>
         <div>
-          {!isCongratsCardOpen && (
-            <>
-              <Button
-                type='primary'
-                size='large'
-                onClick={() => answerQuiz(QuizQuestionAnswerType.completed)}
-              >
-                I know it
-              </Button>
-              <Button
-                type='primary'
-                size='large'
-                danger={true}
-                onClick={() => answerQuiz(QuizQuestionAnswerType.notCompleted)}
-              >
-                Learn later
-              </Button>
-            </>
+          {currentQuestionId && !isCongratsCardOpen && (
+            <QuizQuestionCard question={getQuestionMemo as QuizletQuestion} />
           )}
-
           {isCongratsCardOpen && (
-            <>
-              <Button type='primary' size='large' onClick={finishQuiz}>
-                {getIsFinalMemo ? 'Start Over' : 'Next round'}
-              </Button>
-            </>
-          )}
-
-          <div className='spacer'></div>
-          {((!getIsFinalMemo && isCongratsCardOpen) || !isCongratsCardOpen) && (
-            <Button size='large' onClick={clearQuiz}>
-              Start Over
-            </Button>
+            <QuizFinalCard type={getIsFinalMemo ? 'finished' : 'iteration'} />
           )}
         </div>
-      </div>
-    </Card>
+
+        <div className={classes.buttonsContainer}>
+          <div>
+            {!isCongratsCardOpen && (
+              <>
+                <Button
+                  type='primary'
+                  size='large'
+                  onClick={() => answerQuiz(QuizQuestionAnswerType.completed)}
+                >
+                  I know it
+                </Button>
+                <Button
+                  type='primary'
+                  size='large'
+                  danger={true}
+                  onClick={() =>
+                    answerQuiz(QuizQuestionAnswerType.notCompleted)
+                  }
+                >
+                  Learn later
+                </Button>
+              </>
+            )}
+
+            {isCongratsCardOpen && (
+              <>
+                <Button type='primary' size='large' onClick={finishQuiz}>
+                  {getIsFinalMemo ? 'Start Over' : 'Next round'}
+                </Button>
+              </>
+            )}
+
+            <div className='spacer'></div>
+            {((!getIsFinalMemo && isCongratsCardOpen) ||
+              !isCongratsCardOpen) && (
+              <Button size='large' onClick={clearQuiz}>
+                Start Over
+              </Button>
+            )}
+          </div>
+        </div>
+      </Card>
+    </>
   );
 };
 
