@@ -44,7 +44,7 @@ const AddOrOverwriteConfirmModal = forwardRef(
         title={'Upload method'}
         visible={isModalVisible}
         onCancel={closeModal}
-        mask={false}
+        transitionName=''
         footer={[
           <Button key='back' onClick={closeModal}>
             Return
