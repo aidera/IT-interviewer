@@ -5,6 +5,7 @@ import {
   EditQuizQuestionCategory,
   QuizQuestionCategory,
 } from '../models/category.model';
+import DEFAULT_CATEGORIES from '../data/categories.json';
 
 class CategoriesAPI {
   async getCategories(): Promise<APIResponse<QuizQuestionCategory[]>> {
@@ -123,6 +124,27 @@ class CategoriesAPI {
       return {
         status: APIResponseStatusEnum.success,
         data: +id.toString(),
+      };
+    } catch (error) {
+      return {
+        status: APIResponseStatusEnum.error,
+        error: error as string,
+      };
+    }
+  }
+
+  async setDefaultCategories(): Promise<APIResponse<null>> {
+    try {
+      await db.quiz.clear();
+      await db.glossary.clear();
+      await db.categories.clear();
+
+      const defaultCategories = JSON.parse(JSON.stringify(DEFAULT_CATEGORIES));
+      await db.categories.bulkAdd(defaultCategories);
+
+      return {
+        status: APIResponseStatusEnum.success,
+        data: null,
       };
     } catch (error) {
       return {

@@ -1,8 +1,9 @@
+import { IndexableType } from 'dexie';
+import { db } from './indexedDB';
 import { QuizQuestion } from './../models/question.model';
 import { APIResponse, APIResponseStatusEnum } from '../models/api.model';
 import { AddQuizQuestion } from '../models/question.model';
-import { db } from './indexedDB';
-import { IndexableType } from 'dexie';
+import DEFAULT_QUESTIONS from '../data/questions.json';
 
 class GlossaryAPI {
   async getQuestions(): Promise<APIResponse<QuizQuestion[]>> {
@@ -139,6 +140,26 @@ class GlossaryAPI {
       return {
         status: APIResponseStatusEnum.success,
         data: +id.toString(),
+      };
+    } catch (error) {
+      return {
+        status: APIResponseStatusEnum.error,
+        error: error as string,
+      };
+    }
+  }
+
+  async setDefaultQuestions(): Promise<APIResponse<null>> {
+    try {
+      await db.quiz.clear();
+      await db.glossary.clear();
+
+      const defaultQuestions = JSON.parse(JSON.stringify(DEFAULT_QUESTIONS));
+      await db.glossary.bulkAdd(defaultQuestions);
+
+      return {
+        status: APIResponseStatusEnum.success,
+        data: null,
       };
     } catch (error) {
       return {

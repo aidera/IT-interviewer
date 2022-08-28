@@ -10,12 +10,16 @@ import GlossaryAPIInstance from '../../api/glossary.api';
 import AddOrOverwriteConfirmModal from '../../components/AddOrOverwriteConfirmModal/AddOrOverwriteConfirmModal';
 import { APIResponse } from '../../models/api.model';
 import FullWidthLoader from '../../components/FullWidthLoader/FullWidthLoader';
+import SetDefaultDataModal from '../../components/SetDefaultDataModal/SetDefaultDataModal';
 
 const GlossaryPage = () => {
+  const defaultsModalRef = useRef<ElementRef<typeof SetDefaultDataModal>>(null);
   const editModalRef = useRef<ElementRef<typeof EditQuestionModal>>(null);
   const addOrOverwriteModalRef =
     useRef<ElementRef<typeof AddOrOverwriteConfirmModal>>(null);
+
   const uploadFileInput = useRef<HTMLInputElement>(null);
+
   const [questionsAreFetching, setQuestionsAreFetching] =
     useState<boolean>(false);
   const [questionsAreUpdating, setQuestionsAreUpdating] =
@@ -133,8 +137,21 @@ const GlossaryPage = () => {
     getQuestions(true);
   };
 
+  const setDefaults = () => {
+    const beenAskedAboutDefaults =
+      localStorage.getItem('beenAskedAboutDefaults') === 'true';
+    if (!beenAskedAboutDefaults) {
+      defaultsModalRef?.current?.openModal();
+    }
+  };
+
+  const onSetDefaultsSucceed = () => {
+    getQuestions();
+  };
+
   useEffect(() => {
     getQuestions();
+    setDefaults();
   }, []);
 
   return (
@@ -177,6 +194,10 @@ const GlossaryPage = () => {
         ref={addOrOverwriteModalRef}
         onOverwriteSelected={uploadOverwrite}
         onAddSelected={uploadAdd}
+      />
+      <SetDefaultDataModal
+        ref={defaultsModalRef}
+        onSet={onSetDefaultsSucceed}
       />
     </>
   );
