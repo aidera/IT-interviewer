@@ -1,6 +1,14 @@
-import React, { ElementRef, useEffect, useRef, useState } from 'react';
+import React, { ElementRef, useEffect, useMemo, useRef, useState } from 'react';
 import classes from './GlossaryPage.module.scss';
-import { Button, Dropdown, Menu, Typography, message, MenuProps } from 'antd';
+import {
+  Button,
+  Dropdown,
+  Menu,
+  Typography,
+  MenuProps,
+  Input,
+  Select,
+} from 'antd';
 import {
   DownloadOutlined,
   EllipsisOutlined,
@@ -17,6 +25,15 @@ import { APIResponse } from '../../models/api.model';
 import FullWidthLoader from '../../components/FullWidthLoader/FullWidthLoader';
 import SetDefaultDataModal from '../../components/SetDefaultDataModal/SetDefaultDataModal';
 
+const levelOptions: React.ReactNode[] = [];
+for (let i = 1; i <= 10; i++) {
+  levelOptions.push(
+    <Select.Option key={i} value={i}>
+      {i}
+    </Select.Option>,
+  );
+}
+
 const GlossaryPage = () => {
   const defaultsModalRef = useRef<ElementRef<typeof SetDefaultDataModal>>(null);
   const editModalRef = useRef<ElementRef<typeof EditQuestionModal>>(null);
@@ -30,6 +47,10 @@ const GlossaryPage = () => {
   const [questionsAreUpdating, setQuestionsAreUpdating] =
     useState<boolean>(false);
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
+  const [filters, setFilters] = useState<{ title: string; level: number[] }>({
+    title: '',
+    level: [],
+  });
   const [uploadFile, setUploadFile] = useState<string | null>(null);
 
   const openAddQuestionModal = () => {
@@ -183,6 +204,20 @@ const GlossaryPage = () => {
     />
   );
 
+  const getFilteredQuestions = useMemo(() => {
+    const filtered = questions.filter((question) => {
+      const clearedTitle = question.title.trim().toLowerCase();
+      const clearedTitleFilter = filters.title.trim().toLowerCase();
+      const titleFits = clearedTitle.includes(clearedTitleFilter);
+      const levelFits =
+        filters.level.includes(question.level) || filters.level.length === 0;
+
+      return titleFits && levelFits;
+    });
+
+    return filtered;
+  }, [questions, filters]);
+
   useEffect(() => {
     getQuestions();
     setDefaults();
@@ -193,17 +228,43 @@ const GlossaryPage = () => {
       <div className={classes.container}>
         <Typography.Title>All Questions</Typography.Title>
 
-        <div className={classes.buttonsContainer}>
-          <Button type='primary' onClick={openAddQuestionModal}>
-            Add question
-          </Button>
-          <Dropdown
-            overlay={moreActionsMenu}
-            placement='bottomRight'
-            arrow={{ pointAtCenter: true }}
-          >
-            <Button icon={<EllipsisOutlined />}></Button>
-          </Dropdown>
+        <div className={classes.toolbar}>
+          <div className={classes.filters}>
+            <span>Filters: </span>
+            <Input
+              placeholder='Search by title...'
+              allowClear
+              value={filters.title}
+              onChange={(e) => {
+                setFilters({ ...filters, title: e.target.value });
+              }}
+            />
+            <Select
+              mode='multiple'
+              allowClear
+              placeholder='Levels'
+              maxTagCount='responsive'
+              value={filters.level}
+              onChange={(e) => {
+                setFilters({ ...filters, level: e });
+              }}
+            >
+              {levelOptions}
+            </Select>
+          </div>
+
+          <div className={classes.buttonsContainer}>
+            <Button type='primary' onClick={openAddQuestionModal}>
+              Add question
+            </Button>
+            <Dropdown
+              overlay={moreActionsMenu}
+              placement='bottomRight'
+              arrow={{ pointAtCenter: true }}
+            >
+              <Button icon={<EllipsisOutlined />}></Button>
+            </Dropdown>
+          </div>
         </div>
 
         <div style={{ display: 'none' }}>
@@ -221,7 +282,7 @@ const GlossaryPage = () => {
         {!questionsAreFetching && (
           <QuestionCategoryList
             editQuestion={editQuestion}
-            questions={questions}
+            questions={getFilteredQuestions}
             deleteQuestion={deleteQuestion}
             isUpdating={questionsAreUpdating}
           />

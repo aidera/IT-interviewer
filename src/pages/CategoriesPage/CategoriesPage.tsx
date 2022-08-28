@@ -1,7 +1,8 @@
-import React, { ElementRef, useEffect, useRef, useState } from 'react';
+import React, { ElementRef, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Button,
   Dropdown,
+  Input,
   List,
   Menu,
   MenuProps,
@@ -29,7 +30,11 @@ const CategoriesPage = () => {
   const addOrOverwriteModalRef =
     useRef<ElementRef<typeof AddOrOverwriteConfirmModal>>(null);
   const uploadFileInput = useRef<HTMLInputElement>(null);
+
   const [categories, setCategories] = useState<QuizQuestionCategory[]>([]);
+  const [filters, setFilters] = useState<{ title: string }>({
+    title: '',
+  });
   const [categoriesAreLoading, setCategoriesAreLoading] =
     useState<boolean>(false);
   const [uploadFile, setUploadFile] = useState<string | null>(null);
@@ -164,6 +169,18 @@ const CategoriesPage = () => {
     />
   );
 
+  const getFilteredCategories = useMemo(() => {
+    const filtered = categories.filter((category) => {
+      const clearedTitle = category.title.trim().toLowerCase();
+      const clearedTitleFilter = filters.title.trim().toLowerCase();
+      const titleFits = clearedTitle.includes(clearedTitleFilter);
+
+      return titleFits;
+    });
+
+    return filtered;
+  }, [categories, filters]);
+
   useEffect(() => {
     getCategories();
   }, []);
@@ -173,17 +190,31 @@ const CategoriesPage = () => {
       <div className={classes.container}>
         <Typography.Title>Categories</Typography.Title>
 
-        <div className={classes.buttonsContainer}>
-          <Button type='primary' onClick={openAddCategoryModal}>
-            Add category
-          </Button>
-          <Dropdown
-            overlay={moreActionsMenu}
-            placement='bottomRight'
-            arrow={{ pointAtCenter: true }}
-          >
-            <Button icon={<EllipsisOutlined />}></Button>
-          </Dropdown>
+        <div className={classes.toolbar}>
+          <div className={classes.filters}>
+            <span>Filters: </span>
+            <Input
+              placeholder='Search by title...'
+              allowClear
+              value={filters.title}
+              onChange={(e) => {
+                setFilters({ ...filters, title: e.target.value });
+              }}
+            />
+          </div>
+
+          <div className={classes.buttonsContainer}>
+            <Button type='primary' onClick={openAddCategoryModal}>
+              Add category
+            </Button>
+            <Dropdown
+              overlay={moreActionsMenu}
+              placement='bottomRight'
+              arrow={{ pointAtCenter: true }}
+            >
+              <Button icon={<EllipsisOutlined />}></Button>
+            </Dropdown>
+          </div>
         </div>
 
         <div style={{ display: 'none' }}>
@@ -206,7 +237,7 @@ const CategoriesPage = () => {
           <List
             size='small'
             bordered
-            dataSource={categories}
+            dataSource={getFilteredCategories}
             renderItem={(item) => (
               <List.Item key={item.id} className={classes.listElement}>
                 <Button
