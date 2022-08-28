@@ -13,7 +13,9 @@ class CategoriesAPI {
       const categories = await db.categories.toArray();
       return {
         status: APIResponseStatusEnum.success,
-        data: categories,
+        data: categories.sort((a, b) => {
+          return a.title.localeCompare(b.title);
+        }),
       };
     } catch (error) {
       return {

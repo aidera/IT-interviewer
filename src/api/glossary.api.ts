@@ -11,7 +11,9 @@ class GlossaryAPI {
       const quesitons = await db.glossary.toArray();
       return {
         status: APIResponseStatusEnum.success,
-        data: quesitons,
+        data: quesitons.sort((a, b) => {
+          return a.level - b.level || a.title.localeCompare(b.title);
+        }),
       };
     } catch (error) {
       return {
