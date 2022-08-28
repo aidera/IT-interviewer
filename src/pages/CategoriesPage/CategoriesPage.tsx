@@ -1,6 +1,20 @@
 import React, { ElementRef, useEffect, useRef, useState } from 'react';
-import { Button, List, Spin, Typography } from 'antd';
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import {
+  Button,
+  Dropdown,
+  List,
+  Menu,
+  MenuProps,
+  Spin,
+  Typography,
+} from 'antd';
+import {
+  DeleteOutlined,
+  DownloadOutlined,
+  EditOutlined,
+  EllipsisOutlined,
+  UploadOutlined,
+} from '@ant-design/icons';
 import { saveAs } from 'file-saver';
 import classes from './CategoriesPage.module.scss';
 import { QuizQuestionCategory } from '../../models/category.model';
@@ -121,6 +135,35 @@ const CategoriesPage = () => {
     getCategories();
   };
 
+  const handleMoreActionsMenuClick: MenuProps['onClick'] = (e) => {
+    switch (e.key) {
+      case 'download':
+        downloadToJSON();
+        break;
+      case 'upload':
+        uploadFromJSON();
+        break;
+    }
+  };
+
+  const moreActionsMenu = (
+    <Menu
+      onClick={handleMoreActionsMenuClick}
+      items={[
+        {
+          label: 'Download (.json)',
+          key: 'download',
+          icon: <DownloadOutlined />,
+        },
+        {
+          label: 'Upload (.json)',
+          key: 'upload',
+          icon: <UploadOutlined />,
+        },
+      ]}
+    />
+  );
+
   useEffect(() => {
     getCategories();
   }, []);
@@ -134,8 +177,13 @@ const CategoriesPage = () => {
           <Button type='primary' onClick={openAddCategoryModal}>
             Add category
           </Button>
-          <Button onClick={uploadFromJSON}>Upload (.json)</Button>
-          <Button onClick={downloadToJSON}>Download (.json)</Button>
+          <Dropdown
+            overlay={moreActionsMenu}
+            placement='bottomRight'
+            arrow={{ pointAtCenter: true }}
+          >
+            <Button icon={<EllipsisOutlined />}></Button>
+          </Dropdown>
         </div>
 
         <div style={{ display: 'none' }}>
