@@ -1,8 +1,7 @@
 import { IndexableType } from 'dexie';
 import { db } from './indexedDB';
-import { QuizQuestion } from '../models/question.model';
+import { QuizQuestion, AddQuizQuestion } from '../models/question.model';
 import { APIResponse, APIResponseStatusEnum } from '../models/api.model';
-import { AddQuizQuestion } from '../models/question.model';
 import DEFAULT_QUESTIONS from '../data/questions.json';
 
 class QuestionsAPI {
