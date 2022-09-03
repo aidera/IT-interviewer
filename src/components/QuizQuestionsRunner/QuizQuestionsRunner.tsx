@@ -1,137 +1,68 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useEffect } from 'react';
+import { observer } from 'mobx-react';
 import { Button, Card } from 'antd';
-import { QuizData, QuizQuestionAnswerType } from '../../models/quiz.model';
-import QuizAPIInstance from '../../api/quiz.api';
-import GlossaryAPIInstance from '../../api/glossary.api';
+import { QuizQuestionAnswerType } from '../../models/quiz.model';
 import { QuizQuestion } from '../../models/question.model';
 import QuizQuestionCard from '../QuizQuestionCard/QuizQuestionCard';
 import classes from './QuizQuestionsRunner.module.scss';
 import QuizFinalCard from '../QuizFinalCard/QuizFinalCard';
 import FullWidthLoader from '../FullWidthLoader/FullWidthLoader';
+import { quizStore } from '../../store';
 
-type PropsType = {
-  quizData: QuizData;
-  getQuizData: (callback?: (data: QuizData | null) => void) => void;
-};
-
-const QuizQuestionsRunner = (props: PropsType) => {
-  const [areQuestionsFetching, setAreQuestionsFetching] =
-    useState<boolean>(false);
-  const [questions, setQuestions] = useState<QuizQuestion[]>([]);
-  const [currentQuestionId, setCurrentQuestionId] = useState<number | null>(
-    null,
-  );
-  const [isCongratsCardOpen, setIsCongratsCardOpen] = useState<boolean>(false);
-
+const QuizQuestionsRunner = () => {
   useEffect(() => {
-    if (props.quizData.questionIds.length) {
-      setAreQuestionsFetching(true);
-
-      GlossaryAPIInstance.getQuestionsByIds(props.quizData.questionIds).then(
-        (res) => {
-          setQuestions(res.data || []);
-          if (props.quizData.questionIds.length) {
-            setCurrentQuestionId(props.quizData.questionIds[0]);
-          }
-          setAreQuestionsFetching(false);
-        },
-      );
-    }
+    quizStore.getQuestions();
   }, []);
 
   const clearQuiz = () => {
-    QuizAPIInstance.clearQuiz().then(() => {
-      props.getQuizData();
-    });
+    quizStore.clearQuiz();
   };
 
-  const getIsFinalMemo = useMemo(() => {
-    return (
-      props.quizData.questionIds.length ===
-      props.quizData.completedQuestionIds.length
-    );
-  }, [
-    props.quizData.questionIds.length,
-    props.quizData.completedQuestionIds.length,
-  ]);
+  const answerQuiz = (result: QuizQuestionAnswerType) => {
+    quizStore.answerQuiz(result);
+  };
 
-  const getQuestionMemo = useMemo(() => {
-    return questions.find((el) => el.id === currentQuestionId);
-  }, [currentQuestionId, props.quizData]);
-
-  const answerQuiz = useCallback(
-    (result: QuizQuestionAnswerType) => {
-      if (!currentQuestionId) {
-        return;
-      }
-
-      QuizAPIInstance.answearQuizQuestion(currentQuestionId, result).then(
-        () => {
-          const currentQuestionIndex = props.quizData.questionIds.findIndex(
-            (el) => el === currentQuestionId,
-          );
-
-          if (props.quizData.questionIds.length - 1 > currentQuestionIndex) {
-            setCurrentQuestionId(
-              props.quizData.questionIds[currentQuestionIndex + 1],
-            );
-          }
-          if (props.quizData.questionIds.length - 1 === currentQuestionIndex) {
-            setCurrentQuestionId(null);
-            setIsCongratsCardOpen(true);
-          }
-
-          props.getQuizData();
-        },
-      );
-    },
-    [currentQuestionId, props.quizData],
-  );
-
-  const finishQuiz = useCallback(() => {
-    QuizAPIInstance.finishQuiz().then(() => {
-      const callback = (data: QuizData | null) => {
-        if (data && data.questionIds.length) {
-          setCurrentQuestionId(data.questionIds[0]);
-        }
-        setIsCongratsCardOpen(false);
-      };
-
-      props.getQuizData(callback);
-    });
-  }, [props.quizData]);
+  const finishQuiz = () => {
+    quizStore.finishQuiz();
+  };
 
   return (
     <>
-      {areQuestionsFetching && <FullWidthLoader />}
+      {quizStore.areQuestionsFetching && <FullWidthLoader />}
 
-      {!areQuestionsFetching && (
+      {!quizStore.areQuestionsFetching && (
         <>
           <div className={classes.runnerDescription}>
-            <span>Summary: {props.quizData.questionIds.length}, </span>
+            <span>Summary: {quizStore.questionIds.length}, </span>
             <span className={classes.runnerDescription__success}>
-              completed: {props.quizData.completedQuestionIds.length},{' '}
+              completed: {quizStore.completedQuestionIds.length},{' '}
             </span>
             <span className={classes.runnerDescription__failure}>
-              not completed: {props.quizData.notCompletedQuestionIds.length}
+              not completed: {quizStore.notCompletedQuestionIds.length}
             </span>
           </div>
 
           <Card className={classes.wrapper}>
             <div>
-              {currentQuestionId && !isCongratsCardOpen && (
-                <QuizQuestionCard question={getQuestionMemo as QuizQuestion} />
-              )}
-              {isCongratsCardOpen && (
-                <QuizFinalCard
-                  type={getIsFinalMemo ? 'finished' : 'iteration'}
-                />
+              {quizStore.currentQuestionId &&
+                !quizStore.isQuizFullyCompleted &&
+                !quizStore.isIterationCompleted && (
+                  <QuizQuestionCard
+                    question={quizStore.currentQuestion as QuizQuestion}
+                  />
+                )}
+              {quizStore.isIterationCompleted &&
+                !quizStore.isQuizFullyCompleted && (
+                  <QuizFinalCard type={'iteration'} />
+                )}
+              {quizStore.isQuizFullyCompleted && (
+                <QuizFinalCard type={'finished'} />
               )}
             </div>
 
             <div className={classes.buttonsContainer}>
               <div>
-                {!isCongratsCardOpen && (
+                {!quizStore.isIterationCompleted && (
                   <>
                     <Button
                       type='primary'
@@ -155,17 +86,20 @@ const QuizQuestionsRunner = (props: PropsType) => {
                   </>
                 )}
 
-                {isCongratsCardOpen && (
+                {quizStore.isIterationCompleted && (
                   <>
                     <Button type='primary' size='large' onClick={finishQuiz}>
-                      {getIsFinalMemo ? 'Start Over' : 'Next round'}
+                      {quizStore.isQuizFullyCompleted
+                        ? 'Start Over'
+                        : 'Next round'}
                     </Button>
                   </>
                 )}
 
                 <div className='spacer'></div>
-                {((!getIsFinalMemo && isCongratsCardOpen) ||
-                  !isCongratsCardOpen) && (
+                {((!quizStore.isQuizFullyCompleted &&
+                  quizStore.isIterationCompleted) ||
+                  !quizStore.isIterationCompleted) && (
                   <Button size='large' onClick={clearQuiz}>
                     Start Over
                   </Button>
@@ -179,4 +113,4 @@ const QuizQuestionsRunner = (props: PropsType) => {
   );
 };
 
-export default QuizQuestionsRunner;
+export default observer(QuizQuestionsRunner);

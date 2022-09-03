@@ -5,13 +5,8 @@ import { Button, Card, Form, Input, InputNumber, Select } from 'antd';
 import classes from './QuizConditionsForm.module.scss';
 import { formUtils } from '../../utils';
 import { QuizQuestionCategory } from '../../models/category.model';
-import { QuizCreationData, QuizData } from '../../models/quiz.model';
-import QuizAPIInstance from '../../api/quiz.api';
-import { categoriesStore } from '../../store';
-
-type PropsType = {
-  setQuizData: (quizData: QuizData | null) => void;
-};
+import { QuizCreationData } from '../../models/quiz.model';
+import { categoriesStore, quizStore } from '../../store';
 
 type FormInput = QuizCreationData;
 
@@ -20,7 +15,7 @@ const defaultValues = {
   categories: [] as number[],
 };
 
-const QuizConditionsForm = (props: PropsType) => {
+const QuizConditionsForm = () => {
   const form = useForm<FormInput>({
     mode: 'onTouched',
     reValidateMode: 'onChange',
@@ -35,9 +30,7 @@ const QuizConditionsForm = (props: PropsType) => {
   }, []);
 
   const submit: SubmitHandler<FormInput> = (data) => {
-    QuizAPIInstance.createQuiz(data).then((res) => {
-      props.setQuizData(res.data || null);
-    });
+    quizStore.createQuiz(data);
   };
 
   return (
