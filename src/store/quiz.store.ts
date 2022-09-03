@@ -1,5 +1,5 @@
 import { action, computed, makeObservable, observable } from 'mobx';
-import GlossaryAPIInstance from '../api/glossary.api';
+import QuestionsAPIInstance from '../api/questions.api';
 import QuizAPIInstance from '../api/quiz.api';
 import { QuizQuestion } from '../models/question.model';
 import {
@@ -78,7 +78,7 @@ class QuizStore {
     if (this.questionIds.length) {
       this.setAreQuestionsFetching(true);
 
-      GlossaryAPIInstance.getQuestionsByIds(this.questionIds).then((res) => {
+      QuestionsAPIInstance.getQuestionsByIds(this.questionIds).then((res) => {
         this.setQuestions(res.data || []);
         if (this.questionIds.length) {
           this.setCurrentQuestionId(this.questionIds[0]);

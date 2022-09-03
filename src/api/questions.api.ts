@@ -1,14 +1,14 @@
 import { IndexableType } from 'dexie';
 import { db } from './indexedDB';
-import { QuizQuestion } from './../models/question.model';
+import { QuizQuestion } from '../models/question.model';
 import { APIResponse, APIResponseStatusEnum } from '../models/api.model';
 import { AddQuizQuestion } from '../models/question.model';
 import DEFAULT_QUESTIONS from '../data/questions.json';
 
-class GlossaryAPI {
+class QuestionsAPI {
   async getQuestions(): Promise<APIResponse<QuizQuestion[]>> {
     try {
-      const quesitons = await db.glossary.toArray();
+      const quesitons = await db.questions.toArray();
       return {
         status: APIResponseStatusEnum.success,
         data: quesitons.sort((a, b) => {
@@ -25,7 +25,7 @@ class GlossaryAPI {
 
   async getQuestionsByIds(ids: number[]): Promise<APIResponse<QuizQuestion[]>> {
     try {
-      const quesitons = await db.glossary.where('id').anyOf(ids).toArray();
+      const quesitons = await db.questions.where('id').anyOf(ids).toArray();
       return {
         status: APIResponseStatusEnum.success,
         data: quesitons,
@@ -40,7 +40,7 @@ class GlossaryAPI {
 
   async getQuestion(id: number): Promise<APIResponse<QuizQuestion>> {
     try {
-      const quesiton = await db.glossary.get(id);
+      const quesiton = await db.questions.get(id);
       return {
         status: APIResponseStatusEnum.success,
         data: quesiton,
@@ -55,7 +55,7 @@ class GlossaryAPI {
 
   async addQuestion(data: AddQuizQuestion): Promise<APIResponse<number>> {
     try {
-      const id = await db.glossary.add({
+      const id = await db.questions.add({
         answer: data.answer,
         category: data.category,
         title: data.title,
@@ -83,7 +83,7 @@ class GlossaryAPI {
           level: el.level,
         };
       });
-      const lastId = await db.glossary.bulkAdd(mappedData);
+      const lastId = await db.questions.bulkAdd(mappedData);
       return {
         status: APIResponseStatusEnum.success,
         data: +lastId.toString(),
@@ -100,7 +100,7 @@ class GlossaryAPI {
     data: QuizQuestion[],
   ): Promise<APIResponse<number>> {
     try {
-      const lastId = await db.glossary.bulkPut(data);
+      const lastId = await db.questions.bulkPut(data);
       return {
         status: APIResponseStatusEnum.success,
         data: +lastId.toString(),
@@ -118,7 +118,7 @@ class GlossaryAPI {
     data: AddQuizQuestion,
   ): Promise<APIResponse<number>> {
     try {
-      await db.glossary.update(id as IndexableType, {
+      await db.questions.update(id as IndexableType, {
         answer: data.answer,
         category: data.category,
         title: data.title,
@@ -138,7 +138,7 @@ class GlossaryAPI {
 
   async deleteQuestion(id: number): Promise<APIResponse<number>> {
     try {
-      await db.glossary.delete(id as IndexableType);
+      await db.questions.delete(id as IndexableType);
       return {
         status: APIResponseStatusEnum.success,
         data: +id.toString(),
@@ -154,10 +154,10 @@ class GlossaryAPI {
   async setDefaultQuestions(): Promise<APIResponse<null>> {
     try {
       await db.quiz.clear();
-      await db.glossary.clear();
+      await db.questions.clear();
 
       const defaultQuestions = JSON.parse(JSON.stringify(DEFAULT_QUESTIONS));
-      await db.glossary.bulkAdd(defaultQuestions);
+      await db.questions.bulkAdd(defaultQuestions);
 
       return {
         status: APIResponseStatusEnum.success,
@@ -172,8 +172,8 @@ class GlossaryAPI {
   }
 }
 
-const GlossaryAPIInstance = new GlossaryAPI();
+const QuestionsAPIInstance = new QuestionsAPI();
 
-Object.freeze(GlossaryAPIInstance);
+Object.freeze(QuestionsAPIInstance);
 
-export default GlossaryAPIInstance;
+export default QuestionsAPIInstance;

@@ -5,14 +5,14 @@ import { QuizQuestion } from './../models/question.model';
 
 export class IndexedDB extends Dexie {
   categories!: Table<QuizQuestionCategory>;
-  glossary!: Table<QuizQuestion>;
+  questions!: Table<QuizQuestion>;
   quiz!: Table<QuizData>;
 
   constructor() {
     super('ITinterviewer');
     this.version(1).stores({
       categories: '++id',
-      glossary: '++id, category',
+      questions: '++id, category',
       quiz: '++id',
     });
   }

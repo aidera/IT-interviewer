@@ -2,7 +2,7 @@ import { action, computed, makeObservable, observable } from 'mobx';
 import { EditQuizQuestion } from './../models/question.model';
 import { APIResponse } from '../models/api.model';
 import { QuizQuestion } from '../models/question.model';
-import GlossaryAPIInstance from '../api/glossary.api';
+import QuestionsAPIInstance from '../api/questions.api';
 
 export interface IQuestionsStoreFilters {
   title: string;
@@ -39,7 +39,7 @@ class QuestionsStore {
 
   @action getQuestions(callback?: (questions: QuizQuestion[]) => void): void {
     this.setIsFetching(true);
-    GlossaryAPIInstance.getQuestions()
+    QuestionsAPIInstance.getQuestions()
       .then((res) => {
         if (res.data) {
           this.setQuestions(res.data);
@@ -52,7 +52,7 @@ class QuestionsStore {
   }
 
   @action addQuestion(question: EditQuizQuestion, callback?: () => void): void {
-    GlossaryAPIInstance.addQuestion(question).then(() => {
+    QuestionsAPIInstance.addQuestion(question).then(() => {
       this.getQuestions();
       callback?.();
     });
@@ -63,7 +63,7 @@ class QuestionsStore {
     question: EditQuizQuestion,
     callback?: () => void,
   ): void {
-    GlossaryAPIInstance.editQuestion(id, question).then(() => {
+    QuestionsAPIInstance.editQuestion(id, question).then(() => {
       this.getQuestions();
       callback?.();
     });
@@ -78,10 +78,10 @@ class QuestionsStore {
 
     switch (type) {
       case 'add':
-        request = GlossaryAPIInstance.addQuestionsBulk(questions);
+        request = QuestionsAPIInstance.addQuestionsBulk(questions);
         break;
       case 'overwrite':
-        request = GlossaryAPIInstance.addAndUpdateQuestionsBulk(questions);
+        request = QuestionsAPIInstance.addAndUpdateQuestionsBulk(questions);
         break;
     }
 
@@ -97,7 +97,7 @@ class QuestionsStore {
   }
 
   @action deleteQuestion(id: number): void {
-    GlossaryAPIInstance.deleteQuestion(id).then((res) => {
+    QuestionsAPIInstance.deleteQuestion(id).then((res) => {
       if (res.data) {
         this.setQuestions(this.questions.filter((el) => el.id !== id));
       }
@@ -105,7 +105,7 @@ class QuestionsStore {
   }
 
   @action setDefaultQuestions(callback?: () => void): void {
-    GlossaryAPIInstance.setDefaultQuestions().then(() => {
+    QuestionsAPIInstance.setDefaultQuestions().then(() => {
       this.getQuestions();
       callback?.();
     });

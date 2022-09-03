@@ -27,7 +27,7 @@ class QuizAPI {
   ): Promise<APIResponse<QuizData | null>> {
     try {
       // Unfortunately, only one clause is available
-      let questions = await db.glossary
+      let questions = await db.questions
         .where('category')
         .anyOf(data.categories)
         .toArray();

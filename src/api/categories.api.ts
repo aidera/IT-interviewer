@@ -138,7 +138,7 @@ class CategoriesAPI {
   async setDefaultCategories(): Promise<APIResponse<null>> {
     try {
       await db.quiz.clear();
-      await db.glossary.clear();
+      await db.questions.clear();
       await db.categories.clear();
 
       const defaultCategories = JSON.parse(JSON.stringify(DEFAULT_CATEGORIES));

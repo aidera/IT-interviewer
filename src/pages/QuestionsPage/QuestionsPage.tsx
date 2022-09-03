@@ -1,5 +1,5 @@
 import React, { ElementRef, useEffect, useRef, useState } from 'react';
-import classes from './GlossaryPage.module.scss';
+import classes from './QuestionsPage.module.scss';
 import { observer } from 'mobx-react';
 import {
   Button,
@@ -34,7 +34,7 @@ for (let i = 1; i <= 10; i++) {
   );
 }
 
-const GlossaryPage = () => {
+const QuestionsPage = () => {
   const defaultsModalRef = useRef<ElementRef<typeof SetDefaultDataModal>>(null);
   const editModalRef = useRef<ElementRef<typeof EditQuestionModal>>(null);
   const addOrOverwriteModalRef =
@@ -222,4 +222,4 @@ const GlossaryPage = () => {
   );
 };
 
-export default observer(GlossaryPage);
+export default observer(QuestionsPage);
