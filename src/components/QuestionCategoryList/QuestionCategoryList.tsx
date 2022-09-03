@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { observer } from 'mobx-react';
+import { Spin } from 'antd';
 import classes from './QuestionCategoryList.module.scss';
-import { QuizQuestionCategory } from '../../models/category.model';
 import QuestionCategory from '../QuestionCategory/QuestionCategory';
 import { QuizQuestion } from '../../models/question.model';
-import CategoriesAPIInstance from '../../api/categories.api';
-import { Spin } from 'antd';
+import { categoriesStore } from '../../store';
 
 type PropsType = {
   isUpdating?: boolean;
@@ -14,37 +14,20 @@ type PropsType = {
 };
 
 const QuestionCategoryList = (props: PropsType) => {
-  const [categories, setCategories] = useState<QuizQuestionCategory[]>([]);
-  const [categoriesAreLoading, setCategoriesAreLoading] =
-    useState<boolean>(false);
-
-  const getCategories = () => {
-    setCategoriesAreLoading(true);
-    CategoriesAPIInstance.getCategories()
-      .then((res) => {
-        if (res.data) {
-          setCategories(res.data);
-        }
-      })
-      .finally(() => {
-        setCategoriesAreLoading(false);
-      });
-  };
-
   useEffect(() => {
-    getCategories();
+    categoriesStore.getCategories();
   }, []);
 
   return (
     <>
-      {categoriesAreLoading && (
+      {categoriesStore.isFetching && (
         <div className={classes.loaderContainer}>
           <Spin size='large' />
         </div>
       )}
-      {!categoriesAreLoading && (
+      {!categoriesStore.isFetching && (
         <div className={classes.categories}>
-          {categories.map((category) => {
+          {categoriesStore.categories.map((category) => {
             if (props.questions.some((el) => el.category === category.id)) {
               return (
                 <QuestionCategory
@@ -66,4 +49,4 @@ const QuestionCategoryList = (props: PropsType) => {
   );
 };
 
-export default QuestionCategoryList;
+export default observer(QuestionCategoryList);

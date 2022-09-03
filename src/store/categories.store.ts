@@ -1,5 +1,8 @@
 import { action, computed, makeObservable, observable } from 'mobx';
-import { QuizQuestionCategory } from '../models/category.model';
+import {
+  EditQuizQuestionCategory,
+  QuizQuestionCategory,
+} from '../models/category.model';
 import CategoriesAPIInstance from '../api/categories.api';
 import { APIResponse } from '../models/api.model';
 
@@ -32,12 +35,15 @@ class CategoriesStore {
     this.isFetching = status;
   }
 
-  @action getCategories(): void {
+  @action getCategories(
+    callback?: (categories: QuizQuestionCategory[]) => void,
+  ): void {
     this.setIsFetching(true);
     CategoriesAPIInstance.getCategories()
       .then((res) => {
         if (res.data) {
           this.setCategories(res.data);
+          callback?.(res.data);
         }
       })
       .finally(() => {
@@ -45,8 +51,25 @@ class CategoriesStore {
       });
   }
 
-  @action setFilters(type: keyof ICategoriesStoreFilters, value: string) {
-    this.filters[type] = value;
+  @action addCategory(
+    category: EditQuizQuestionCategory,
+    callback?: () => void,
+  ): void {
+    CategoriesAPIInstance.addCategory(category).then(() => {
+      this.getCategories();
+      callback?.();
+    });
+  }
+
+  @action editCategory(
+    id: number,
+    category: EditQuizQuestionCategory,
+    callback?: () => void,
+  ): void {
+    CategoriesAPIInstance.editCategory(id, category).then(() => {
+      this.getCategories();
+      callback?.();
+    });
   }
 
   @action uploadBulkCategories(
@@ -82,6 +105,16 @@ class CategoriesStore {
         this.setCategories(this.categories.filter((el) => el.id !== id));
       }
     });
+  }
+
+  @action setDefaultCategories(callback?: () => void): void {
+    CategoriesAPIInstance.setDefaultCategories().then(() => {
+      callback?.();
+    });
+  }
+
+  @action setFilters(type: keyof ICategoriesStoreFilters, value: string) {
+    this.filters[type] = value;
   }
 
   constructor() {

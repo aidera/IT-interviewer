@@ -11,9 +11,8 @@ import {
   EditQuizQuestionCategory,
   QuizQuestionCategory,
 } from '../../models/category.model';
-import { APIResponse } from '../../models/api.model';
 import { formUtils } from '../../utils';
-import CategoriesAPIInstance from '../../api/categories.api';
+import { categoriesStore } from '../../store';
 
 type PropsType = {
   onOkCallback?: () => void;
@@ -67,32 +66,28 @@ const EditCategoryModal = forwardRef(
     };
 
     const submit: SubmitHandler<FormInput> = (data) => {
-      let request: Promise<APIResponse<number>> | undefined;
-      switch (modalProps?.type) {
-        case EditTypeEnum.add:
-          request = CategoriesAPIInstance.addCategory(data);
-          break;
-        case EditTypeEnum.edit:
-          if (modalProps?.initialValues?.id) {
-            request = CategoriesAPIInstance.editCategory(
-              modalProps.initialValues.id,
-              data,
-            );
-          }
-          break;
-      }
-
-      if (!request) {
-        return;
-      }
-
-      request.then(() => {
+      const callback = () => {
         form.reset();
         if (props.onOkCallback) {
           props.onOkCallback();
         }
         closeModal();
-      });
+      };
+
+      switch (modalProps?.type) {
+        case EditTypeEnum.add:
+          categoriesStore.addCategory(data, callback);
+          break;
+        case EditTypeEnum.edit:
+          if (modalProps?.initialValues?.id) {
+            categoriesStore.editCategory(
+              modalProps.initialValues.id,
+              data,
+              callback,
+            );
+          }
+          break;
+      }
     };
 
     return (

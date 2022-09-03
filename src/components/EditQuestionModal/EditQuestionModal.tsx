@@ -5,16 +5,16 @@ import React, {
   useImperativeHandle,
   useState,
 } from 'react';
+import { observer } from 'mobx-react';
 import { Button, Form, Input, InputNumber, Modal, Select } from 'antd';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { EditTypeEnum } from '../../models/utils.model';
-import { QuizQuestionCategory } from '../../models/category.model';
 import GlossaryAPIInstance from '../../api/glossary.api';
 import { EditQuizQuestion } from '../../models/question.model';
 import { APIResponse } from '../../models/api.model';
 import RichEditor from '../RichEditor/RichEditor';
 import { formUtils } from '../../utils';
-import CategoriesAPIInstance from '../../api/categories.api';
+import { categoriesStore } from '../../store';
 
 type PropsType = {
   onOkCallback?: () => void;
@@ -44,22 +44,6 @@ const EditQuestionModal = forwardRef(
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [title, setTitle] = useState('');
     const [modalProps, setModalProps] = useState<OpenModalType>();
-    const [categories, setCategories] = useState<QuizQuestionCategory[]>([]);
-    const [categoriesAreLoading, setCategoriesAreLoading] =
-      useState<boolean>(false);
-
-    const getCategories = () => {
-      setCategoriesAreLoading(true);
-      CategoriesAPIInstance.getCategories()
-        .then((res) => {
-          if (res.data) {
-            setCategories(res.data);
-          }
-        })
-        .finally(() => {
-          setCategoriesAreLoading(false);
-        });
-    };
 
     const form = useForm<FormInput>({
       mode: 'onTouched',
@@ -120,7 +104,7 @@ const EditQuestionModal = forwardRef(
     };
 
     useEffect(() => {
-      getCategories();
+      categoriesStore.getCategories();
     }, []);
 
     return (
@@ -179,10 +163,10 @@ const EditQuestionModal = forwardRef(
                   <Select
                     placeholder='Select a option and change input text above'
                     status={formUtils.returnFieldStatus(fieldState)}
-                    loading={categoriesAreLoading}
+                    loading={categoriesStore.isFetching}
                     {...field}
                   >
-                    {categories.map((category) => {
+                    {categoriesStore.categories.map((category) => {
                       return (
                         <Select.Option value={category.id} key={category.id}>
                           {category.title}
@@ -240,4 +224,4 @@ const EditQuestionModal = forwardRef(
 
 EditQuestionModal.displayName = 'EditQuestionModal';
 
-export default EditQuestionModal;
+export default observer(EditQuestionModal);

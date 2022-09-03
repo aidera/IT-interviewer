@@ -96,10 +96,6 @@ const CategoriesPage = () => {
     categoriesStore.deleteCategory(id);
   };
 
-  const onModalSucceed = () => {
-    categoriesStore.getCategories();
-  };
-
   const handleMoreActionsMenuClick: MenuProps['onClick'] = (e) => {
     switch (e.key) {
       case 'download':
@@ -209,7 +205,7 @@ const CategoriesPage = () => {
         )}
       </div>
 
-      <EditCategoryModal ref={editModalRef} onOkCallback={onModalSucceed} />
+      <EditCategoryModal ref={editModalRef} />
       <AddOrOverwriteConfirmModal
         ref={addOrOverwriteModalRef}
         onOverwriteSelected={() => bulkUpload('overwrite')}

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { observer } from 'mobx-react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { Button, Card, Form, Input, InputNumber, Select } from 'antd';
 import classes from './QuizConditionsForm.module.scss';
@@ -6,7 +7,7 @@ import { formUtils } from '../../utils';
 import { QuizQuestionCategory } from '../../models/category.model';
 import { QuizCreationData, QuizData } from '../../models/quiz.model';
 import QuizAPIInstance from '../../api/quiz.api';
-import CategoriesAPIInstance from '../../api/categories.api';
+import { categoriesStore } from '../../store';
 
 type PropsType = {
   setQuizData: (quizData: QuizData | null) => void;
@@ -20,32 +21,17 @@ const defaultValues = {
 };
 
 const QuizConditionsForm = (props: PropsType) => {
-  const [categories, setCategories] = useState<QuizQuestionCategory[]>([]);
-  const [categoriesAreLoading, setCategoriesAreLoading] =
-    useState<boolean>(false);
-
-  const getCategories = () => {
-    setCategoriesAreLoading(true);
-    CategoriesAPIInstance.getCategories()
-      .then((res) => {
-        if (res.data) {
-          setCategories(res.data);
-          defaultValues.categories = res.data.map((el) => el.id as number);
-          form.reset(defaultValues as unknown as FormInput);
-        }
-      })
-      .finally(() => {
-        setCategoriesAreLoading(false);
-      });
-  };
-
   const form = useForm<FormInput>({
     mode: 'onTouched',
     reValidateMode: 'onChange',
   });
 
   useEffect(() => {
-    getCategories();
+    const callback = (categories: QuizQuestionCategory[]) => {
+      defaultValues.categories = categories.map((el) => el.id as number);
+      form.reset(defaultValues as unknown as FormInput);
+    };
+    categoriesStore.getCategories(callback);
   }, []);
 
   const submit: SubmitHandler<FormInput> = (data) => {
@@ -154,10 +140,10 @@ const QuizConditionsForm = (props: PropsType) => {
                     status={formUtils.returnFieldStatus(fieldState)}
                     mode='multiple'
                     allowClear
-                    loading={categoriesAreLoading}
+                    loading={categoriesStore.isFetching}
                     {...field}
                   >
-                    {categories.map((category) => {
+                    {categoriesStore.categories.map((category) => {
                       return (
                         <Select.Option value={category.id} key={category.id}>
                           {category.title}
@@ -181,4 +167,4 @@ const QuizConditionsForm = (props: PropsType) => {
   );
 };
 
-export default QuizConditionsForm;
+export default observer(QuizConditionsForm);
