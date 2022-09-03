@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
-import classes from './QuestionCard.module.scss';
 import { Button, Collapse } from 'antd';
 import Title from 'antd/lib/typography/Title';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+
+import classes from './QuestionCard.module.scss';
 import { QuizQuestion } from '../../models/question.model';
 import useOnScreen from '../../hooks/useOnScreen';
 

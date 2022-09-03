@@ -1,5 +1,6 @@
 import React from 'react';
 import { Spin } from 'antd';
+
 import classes from './FullWidthLoader.module.scss';
 
 const FullWidthLoader = () => {

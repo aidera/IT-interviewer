@@ -1,12 +1,13 @@
 import { action, computed, makeObservable, observable } from 'mobx';
-import QuestionsAPIInstance from '../api/questions.api';
-import QuizAPIInstance from '../api/quiz.api';
+
 import { QuizQuestion } from '../models/question.model';
 import {
   QuizCreationData,
   QuizData,
   QuizQuestionAnswerType,
 } from '../models/quiz.model';
+import QuestionsAPIInstance from '../api/questions.api';
+import QuizAPIInstance from '../api/quiz.api';
 
 class QuizStore {
   @observable questionIds: number[] = [];

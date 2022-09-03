@@ -2,11 +2,12 @@ import React, { useEffect } from 'react';
 import { observer } from 'mobx-react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { Button, Card, Form, Input, InputNumber, Select } from 'antd';
+
 import classes from './QuizConditionsForm.module.scss';
-import { formUtils } from '../../utils';
+import { categoriesStore, quizStore } from '../../store';
+import { formUtils } from '../../utils/form.utils';
 import { QuizQuestionCategory } from '../../models/category.model';
 import { QuizCreationData } from '../../models/quiz.model';
-import { categoriesStore, quizStore } from '../../store';
 
 type FormInput = QuizCreationData;
 

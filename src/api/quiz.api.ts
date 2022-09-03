@@ -1,10 +1,10 @@
+import { db } from './indexedDB';
 import {
   QuizCreationData,
   QuizData,
   QuizQuestionAnswerType,
 } from '../models/quiz.model';
 import { APIResponse, APIResponseStatusEnum } from '../models/api.model';
-import { db } from './indexedDB';
 
 class QuizAPI {
   async getQuiz(): Promise<APIResponse<QuizData | null>> {

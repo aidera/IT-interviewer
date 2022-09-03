@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { observer } from 'mobx-react';
 import { Button, Card } from 'antd';
+
+import classes from './QuizQuestionsRunner.module.scss';
+import { quizStore } from '../../store';
 import { QuizQuestionAnswerType } from '../../models/quiz.model';
 import { QuizQuestion } from '../../models/question.model';
 import QuizQuestionCard from '../QuizQuestionCard/QuizQuestionCard';
-import classes from './QuizQuestionsRunner.module.scss';
 import QuizFinalCard from '../QuizFinalCard/QuizFinalCard';
 import FullWidthLoader from '../FullWidthLoader/FullWidthLoader';
-import { quizStore } from '../../store';
 
 const QuizQuestionsRunner = () => {
   useEffect(() => {

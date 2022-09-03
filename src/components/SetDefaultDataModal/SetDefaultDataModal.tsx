@@ -5,6 +5,7 @@ import React, {
   useState,
 } from 'react';
 import { Button, Modal } from 'antd';
+
 import { categoriesStore, questionsStore } from '../../store';
 
 type PropsType = {

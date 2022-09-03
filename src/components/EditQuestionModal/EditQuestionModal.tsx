@@ -8,11 +8,12 @@ import React, {
 import { observer } from 'mobx-react';
 import { Button, Form, Input, InputNumber, Modal, Select } from 'antd';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+
+import { categoriesStore, questionsStore } from '../../store';
 import { EditTypeEnum } from '../../models/utils.model';
 import { EditQuizQuestion } from '../../models/question.model';
 import RichEditor from '../RichEditor/RichEditor';
-import { formUtils } from '../../utils';
-import { categoriesStore, questionsStore } from '../../store';
+import { formUtils } from '../../utils/form.utils';
 
 type PropsType = {
   onOkCallback?: () => void;

@@ -1,7 +1,8 @@
 import React from 'react';
+import { Typography } from 'antd';
+
 import classes from './QuizFinalCard.module.scss';
 import { ReactComponent as CongratsSvg } from '../../icons/congratulations.svg';
-import { Typography } from 'antd';
 
 type PropsType = {
   type: 'finished' | 'iteration';

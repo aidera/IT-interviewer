@@ -1,5 +1,4 @@
 import React, { ElementRef, useEffect, useRef, useState } from 'react';
-import classes from './QuestionsPage.module.scss';
 import { observer } from 'mobx-react';
 import {
   Button,
@@ -16,13 +15,15 @@ import {
   UploadOutlined,
 } from '@ant-design/icons';
 import { saveAs } from 'file-saver';
-import QuestionCategoryList from '../../components/QuestionCategoryList/QuestionCategoryList';
-import EditQuestionModal from '../../components/EditQuestionModal/EditQuestionModal';
+
+import classes from './QuestionsPage.module.scss';
+import { questionsStore } from '../../store';
 import { EditTypeEnum } from '../../models/utils.model';
 import { QuizQuestion } from '../../models/question.model';
+import QuestionCategoryList from '../../components/QuestionCategoryList/QuestionCategoryList';
+import EditQuestionModal from '../../components/EditQuestionModal/EditQuestionModal';
 import AddOrOverwriteConfirmModal from '../../components/AddOrOverwriteConfirmModal/AddOrOverwriteConfirmModal';
 import FullWidthLoader from '../../components/FullWidthLoader/FullWidthLoader';
-import { questionsStore } from '../../store';
 
 const levelOptions: React.ReactNode[] = [];
 for (let i = 1; i <= 10; i++) {

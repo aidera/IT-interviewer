@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useMediaQuery } from '@react-hook/media-query';
 import { Button, Drawer, Layout, Menu, MenuProps } from 'antd';
 import { Content, Header } from 'antd/lib/layout/layout';
 import { ItemType } from 'antd/lib/menu/hooks/useItems';
-import classes from './MainLayout.module.scss';
-import { useMediaQuery } from '@react-hook/media-query';
 import { MenuOutlined } from '@ant-design/icons';
+
+import classes from './MainLayout.module.scss';
 
 type PropsType = {
   children?: React.ReactNode;

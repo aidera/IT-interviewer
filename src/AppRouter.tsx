@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+
 import CategoriesPage from './pages/CategoriesPage/CategoriesPage';
 import QuestionsPage from './pages/QuestionsPage/QuestionsPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';

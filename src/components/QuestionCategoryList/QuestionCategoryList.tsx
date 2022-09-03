@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { observer } from 'mobx-react';
 import { Spin } from 'antd';
+
 import classes from './QuestionCategoryList.module.scss';
-import QuestionCategory from '../QuestionCategory/QuestionCategory';
-import { QuizQuestion } from '../../models/question.model';
 import { categoriesStore } from '../../store';
+import { QuizQuestion } from '../../models/question.model';
+import QuestionCategory from '../QuestionCategory/QuestionCategory';
 
 type PropsType = {
   isUpdating?: boolean;

@@ -6,13 +6,14 @@ import React, {
 } from 'react';
 import { Button, Form, Input, Modal } from 'antd';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+
+import { categoriesStore } from '../../store';
 import { EditTypeEnum } from '../../models/utils.model';
 import {
   EditQuizQuestionCategory,
   QuizQuestionCategory,
 } from '../../models/category.model';
-import { formUtils } from '../../utils';
-import { categoriesStore } from '../../store';
+import { formUtils } from '../../utils/form.utils';
 
 type PropsType = {
   onOkCallback?: () => void;

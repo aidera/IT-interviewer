@@ -1,10 +1,11 @@
 import { action, computed, makeObservable, observable } from 'mobx';
+
+import { APIResponse } from '../models/api.model';
 import {
   EditQuizQuestionCategory,
   QuizQuestionCategory,
 } from '../models/category.model';
 import CategoriesAPIInstance from '../api/categories.api';
-import { APIResponse } from '../models/api.model';
 
 export interface ICategoriesStoreFilters {
   title: string;

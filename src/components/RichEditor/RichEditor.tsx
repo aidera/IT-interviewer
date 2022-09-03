@@ -9,14 +9,15 @@ import {
   RichUtils,
 } from 'draft-js';
 import 'draft-js/dist/Draft.css';
-import classes from './RichEditor.module.scss';
+import draftToHtml from 'draftjs-to-html';
 import { Button, Dropdown, Menu, MenuProps, Space } from 'antd';
 import {
   DownOutlined,
   OrderedListOutlined,
   UnorderedListOutlined,
 } from '@ant-design/icons';
-import draftToHtml from 'draftjs-to-html';
+
+import classes from './RichEditor.module.scss';
 
 type PropsType = {
   placeholder?: string;
