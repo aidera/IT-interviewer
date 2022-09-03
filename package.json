@@ -25,6 +25,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "file-saver": "^2.0.5",
+    "mobx": "^6.6.1",
+    "mobx-react": "^7.5.2",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -63,6 +65,7 @@
     ]
   },
   "devDependencies": {
+    "@mobx-devtools/tools": "^0.0.4",
     "@types/draft-js": "^0.11.9",
     "@types/draftjs-to-html": "^0.8.1",
     "@types/file-saver": "^2.0.5",

@@ -1,4 +1,4 @@
-import React, { ElementRef, useEffect, useMemo, useRef, useState } from 'react';
+import React, { ElementRef, useEffect, useRef, useState } from 'react';
 import {
   Button,
   Dropdown,
@@ -17,13 +17,13 @@ import {
   UploadOutlined,
 } from '@ant-design/icons';
 import { saveAs } from 'file-saver';
+import { observer } from 'mobx-react';
 import classes from './CategoriesPage.module.scss';
 import { QuizQuestionCategory } from '../../models/category.model';
 import EditCategoryModal from '../../components/EditCategoryModal/EditCategoryModal';
 import AddOrOverwriteConfirmModal from '../../components/AddOrOverwriteConfirmModal/AddOrOverwriteConfirmModal';
 import { EditTypeEnum } from '../../models/utils.model';
-import { APIResponse } from '../../models/api.model';
-import CategoriesAPIInstance from '../../api/categories.api';
+import { categoriesStore } from '../../store';
 
 const CategoriesPage = () => {
   const editModalRef = useRef<ElementRef<typeof EditCategoryModal>>(null);
@@ -31,12 +31,6 @@ const CategoriesPage = () => {
     useRef<ElementRef<typeof AddOrOverwriteConfirmModal>>(null);
   const uploadFileInput = useRef<HTMLInputElement>(null);
 
-  const [categories, setCategories] = useState<QuizQuestionCategory[]>([]);
-  const [filters, setFilters] = useState<{ title: string }>({
-    title: '',
-  });
-  const [categoriesAreLoading, setCategoriesAreLoading] =
-    useState<boolean>(false);
   const [uploadFile, setUploadFile] = useState<string | null>(null);
 
   const openAddCategoryModal = () => {
@@ -65,42 +59,25 @@ const CategoriesPage = () => {
       }
     };
   };
-
-  const uploadCommonTemplate = (request: Promise<APIResponse<number>>) => {
-    request
-      .then((res) => {
-        if (res.data) {
-          getCategories();
-        }
-      })
-      .finally(() => {
-        if (uploadFileInput?.current) {
-          uploadFileInput.current.value = '';
-        }
-        setUploadFile(null);
-      });
-  };
-
-  const uploadOverwrite = () => {
+  const bulkUpload = (type: 'add' | 'overwrite') => {
     if (!uploadFile) {
       return;
     }
-    uploadCommonTemplate(
-      CategoriesAPIInstance.addAndUpdateCategoriesBulk(JSON.parse(uploadFile)),
-    );
-  };
-
-  const uploadAdd = () => {
-    if (!uploadFile) {
-      return;
-    }
-    uploadCommonTemplate(
-      CategoriesAPIInstance.addCategoriesBulk(JSON.parse(uploadFile)),
+    const callback = () => {
+      if (uploadFileInput?.current) {
+        uploadFileInput.current.value = '';
+      }
+      setUploadFile(null);
+    };
+    categoriesStore.uploadBulkCategories(
+      type,
+      JSON.parse(uploadFile),
+      callback,
     );
   };
 
   const downloadToJSON = () => {
-    const data = new Blob([JSON.stringify(categories)], {
+    const data = new Blob([JSON.stringify(categoriesStore.categories)], {
       type: 'text/plain;charset=utf-8',
     });
     saveAs(data, 'categories.json');
@@ -115,29 +92,12 @@ const CategoriesPage = () => {
     }
   };
 
-  const getCategories = () => {
-    setCategoriesAreLoading(true);
-    CategoriesAPIInstance.getCategories()
-      .then((res) => {
-        if (res.data) {
-          setCategories(res.data);
-        }
-      })
-      .finally(() => {
-        setCategoriesAreLoading(false);
-      });
-  };
-
   const deleteCategory = (id: number) => {
-    CategoriesAPIInstance.deleteCategory(id).then((res) => {
-      if (res.data) {
-        getCategories();
-      }
-    });
+    categoriesStore.deleteCategory(id);
   };
 
   const onModalSucceed = () => {
-    getCategories();
+    categoriesStore.getCategories();
   };
 
   const handleMoreActionsMenuClick: MenuProps['onClick'] = (e) => {
@@ -169,20 +129,8 @@ const CategoriesPage = () => {
     />
   );
 
-  const getFilteredCategories = useMemo(() => {
-    const filtered = categories.filter((category) => {
-      const clearedTitle = category.title.trim().toLowerCase();
-      const clearedTitleFilter = filters.title.trim().toLowerCase();
-      const titleFits = clearedTitle.includes(clearedTitleFilter);
-
-      return titleFits;
-    });
-
-    return filtered;
-  }, [categories, filters]);
-
   useEffect(() => {
-    getCategories();
+    categoriesStore.getCategories();
   }, []);
 
   return (
@@ -196,9 +144,9 @@ const CategoriesPage = () => {
             <Input
               placeholder='Search by title...'
               allowClear
-              value={filters.title}
+              value={categoriesStore.filters.title}
               onChange={(e) => {
-                setFilters({ ...filters, title: e.target.value });
+                categoriesStore.setFilters('title', e.target.value);
               }}
             />
           </div>
@@ -227,17 +175,17 @@ const CategoriesPage = () => {
           />
         </div>
 
-        {categoriesAreLoading && (
+        {categoriesStore.isFetching && (
           <div className={classes.loaderContainer}>
             <Spin size='large' />
           </div>
         )}
 
-        {!categoriesAreLoading && (
+        {!categoriesStore.isFetching && (
           <List
             size='small'
             bordered
-            dataSource={getFilteredCategories}
+            dataSource={categoriesStore.filteredCategories}
             renderItem={(item) => (
               <List.Item key={item.id} className={classes.listElement}>
                 <Button
@@ -264,11 +212,11 @@ const CategoriesPage = () => {
       <EditCategoryModal ref={editModalRef} onOkCallback={onModalSucceed} />
       <AddOrOverwriteConfirmModal
         ref={addOrOverwriteModalRef}
-        onOverwriteSelected={uploadOverwrite}
-        onAddSelected={uploadAdd}
+        onOverwriteSelected={() => bulkUpload('overwrite')}
+        onAddSelected={() => bulkUpload('add')}
       />
     </>
   );
 };
 
-export default CategoriesPage;
+export default observer(CategoriesPage);
