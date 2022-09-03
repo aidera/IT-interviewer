@@ -5,8 +5,7 @@ import React, {
   useState,
 } from 'react';
 import { Button, Modal } from 'antd';
-import GlossaryAPIInstance from '../../api/glossary.api';
-import { categoriesStore } from '../../store';
+import { categoriesStore, questionsStore } from '../../store';
 
 type PropsType = {
   onSet?: () => void;
@@ -27,12 +26,15 @@ const SetDefaultDataModal = forwardRef(
     const setDefaults = () => {
       setIsModalVisible(false);
 
-      const categoriesCallback = () => {
-        GlossaryAPIInstance.setDefaultQuestions().then(() => {
-          localStorage.setItem('beenAskedAboutDefaults', 'true');
-          props.onSet?.();
-        });
+      const questionCallback = () => {
+        localStorage.setItem('beenAskedAboutDefaults', 'true');
+        props.onSet?.();
       };
+
+      const categoriesCallback = () => {
+        questionsStore.setDefaultQuestions(questionCallback);
+      };
+
       categoriesStore.setDefaultCategories(categoriesCallback);
     };
 

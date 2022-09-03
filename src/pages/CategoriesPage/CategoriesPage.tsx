@@ -59,6 +59,7 @@ const CategoriesPage = () => {
       }
     };
   };
+
   const bulkUpload = (type: 'add' | 'overwrite') => {
     if (!uploadFile) {
       return;

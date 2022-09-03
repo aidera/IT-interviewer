@@ -9,12 +9,10 @@ import { observer } from 'mobx-react';
 import { Button, Form, Input, InputNumber, Modal, Select } from 'antd';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { EditTypeEnum } from '../../models/utils.model';
-import GlossaryAPIInstance from '../../api/glossary.api';
 import { EditQuizQuestion } from '../../models/question.model';
-import { APIResponse } from '../../models/api.model';
 import RichEditor from '../RichEditor/RichEditor';
 import { formUtils } from '../../utils';
-import { categoriesStore } from '../../store';
+import { categoriesStore, questionsStore } from '../../store';
 
 type PropsType = {
   onOkCallback?: () => void;
@@ -75,32 +73,28 @@ const EditQuestionModal = forwardRef(
         return;
       }
 
-      let request: Promise<APIResponse<number>> | undefined;
-      switch (modalProps?.type) {
-        case EditTypeEnum.add:
-          request = GlossaryAPIInstance.addQuestion(data);
-          break;
-        case EditTypeEnum.edit:
-          if (modalProps?.initialValues?.id) {
-            request = GlossaryAPIInstance.editQuestion(
-              modalProps.initialValues.id,
-              data,
-            );
-          }
-          break;
-      }
-
-      if (!request) {
-        return;
-      }
-
-      request.then(() => {
+      const callback = () => {
         form.reset();
         if (props.onOkCallback) {
           props.onOkCallback();
         }
         closeModal();
-      });
+      };
+
+      switch (modalProps?.type) {
+        case EditTypeEnum.add:
+          questionsStore.addQuestion(data, callback);
+          break;
+        case EditTypeEnum.edit:
+          if (modalProps?.initialValues?.id) {
+            questionsStore.editQuestion(
+              modalProps.initialValues.id,
+              data,
+              callback,
+            );
+          }
+          break;
+      }
     };
 
     useEffect(() => {
@@ -137,7 +131,7 @@ const EditQuestionModal = forwardRef(
             <Controller
               name='title'
               control={form.control}
-              // rules={{ required: 'Required' }}
+              rules={{ required: 'Required' }}
               render={({ field, fieldState }) => {
                 return (
                   <>

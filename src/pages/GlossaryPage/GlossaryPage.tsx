@@ -1,5 +1,6 @@
-import React, { ElementRef, useEffect, useMemo, useRef, useState } from 'react';
+import React, { ElementRef, useEffect, useRef, useState } from 'react';
 import classes from './GlossaryPage.module.scss';
+import { observer } from 'mobx-react';
 import {
   Button,
   Dropdown,
@@ -19,11 +20,10 @@ import QuestionCategoryList from '../../components/QuestionCategoryList/Question
 import EditQuestionModal from '../../components/EditQuestionModal/EditQuestionModal';
 import { EditTypeEnum } from '../../models/utils.model';
 import { QuizQuestion } from '../../models/question.model';
-import GlossaryAPIInstance from '../../api/glossary.api';
 import AddOrOverwriteConfirmModal from '../../components/AddOrOverwriteConfirmModal/AddOrOverwriteConfirmModal';
-import { APIResponse } from '../../models/api.model';
 import FullWidthLoader from '../../components/FullWidthLoader/FullWidthLoader';
 import SetDefaultDataModal from '../../components/SetDefaultDataModal/SetDefaultDataModal';
+import { questionsStore } from '../../store';
 
 const levelOptions: React.ReactNode[] = [];
 for (let i = 1; i <= 10; i++) {
@@ -42,15 +42,6 @@ const GlossaryPage = () => {
 
   const uploadFileInput = useRef<HTMLInputElement>(null);
 
-  const [questionsAreFetching, setQuestionsAreFetching] =
-    useState<boolean>(false);
-  const [questionsAreUpdating, setQuestionsAreUpdating] =
-    useState<boolean>(false);
-  const [questions, setQuestions] = useState<QuizQuestion[]>([]);
-  const [filters, setFilters] = useState<{ title: string; level: number[] }>({
-    title: '',
-    level: [],
-  });
   const [uploadFile, setUploadFile] = useState<string | null>(null);
 
   const openAddQuestionModal = () => {
@@ -80,41 +71,21 @@ const GlossaryPage = () => {
     };
   };
 
-  const uploadCommonTemplate = (request: Promise<APIResponse<number>>) => {
-    request
-      .then((res) => {
-        if (res.data) {
-          getQuestions(true);
-        }
-      })
-      .finally(() => {
-        if (uploadFileInput?.current) {
-          uploadFileInput.current.value = '';
-        }
-        setUploadFile(null);
-      });
-  };
-
-  const uploadOverwrite = () => {
+  const bulkUpload = (type: 'add' | 'overwrite') => {
     if (!uploadFile) {
       return;
     }
-    uploadCommonTemplate(
-      GlossaryAPIInstance.addAndUpdateQuestionsBulk(JSON.parse(uploadFile)),
-    );
-  };
-
-  const uploadAdd = () => {
-    if (!uploadFile) {
-      return;
-    }
-    uploadCommonTemplate(
-      GlossaryAPIInstance.addQuestionsBulk(JSON.parse(uploadFile)),
-    );
+    const callback = () => {
+      if (uploadFileInput?.current) {
+        uploadFileInput.current.value = '';
+      }
+      setUploadFile(null);
+    };
+    questionsStore.uploadBulkQuestions(type, JSON.parse(uploadFile), callback);
   };
 
   const downloadToJSON = () => {
-    const data = new Blob([JSON.stringify(questions)], {
+    const data = new Blob([JSON.stringify(questionsStore.questions)], {
       type: 'text/plain;charset=utf-8',
     });
     saveAs(data, 'questions.json');
@@ -129,38 +100,8 @@ const GlossaryPage = () => {
     }
   };
 
-  const getQuestions = (useUpdateingInsteadOfFetching?: boolean) => {
-    if (!useUpdateingInsteadOfFetching) {
-      setQuestionsAreFetching(true);
-    } else {
-      setQuestionsAreUpdating(true);
-    }
-
-    GlossaryAPIInstance.getQuestions()
-      .then((res) => {
-        if (res.data) {
-          setQuestions(res.data);
-        }
-      })
-      .finally(() => {
-        if (!useUpdateingInsteadOfFetching) {
-          setQuestionsAreFetching(false);
-        } else {
-          setQuestionsAreUpdating(false);
-        }
-      });
-  };
-
   const deleteQuestion = (id: number) => {
-    GlossaryAPIInstance.deleteQuestion(id).then((res) => {
-      if (res.data) {
-        getQuestions(true);
-      }
-    });
-  };
-
-  const onModalSucceed = () => {
-    getQuestions(true);
+    questionsStore.deleteQuestion(id);
   };
 
   const setDefaults = () => {
@@ -169,10 +110,6 @@ const GlossaryPage = () => {
     if (!beenAskedAboutDefaults) {
       defaultsModalRef?.current?.openModal();
     }
-  };
-
-  const onSetDefaultsSucceed = () => {
-    getQuestions();
   };
 
   const handleMoreActionsMenuClick: MenuProps['onClick'] = (e) => {
@@ -204,22 +141,8 @@ const GlossaryPage = () => {
     />
   );
 
-  const getFilteredQuestions = useMemo(() => {
-    const filtered = questions.filter((question) => {
-      const clearedTitle = question.title.trim().toLowerCase();
-      const clearedTitleFilter = filters.title.trim().toLowerCase();
-      const titleFits = clearedTitle.includes(clearedTitleFilter);
-      const levelFits =
-        filters.level.includes(question.level) || filters.level.length === 0;
-
-      return titleFits && levelFits;
-    });
-
-    return filtered;
-  }, [questions, filters]);
-
   useEffect(() => {
-    getQuestions();
+    questionsStore.getQuestions();
     setDefaults();
   }, []);
 
@@ -234,9 +157,9 @@ const GlossaryPage = () => {
             <Input
               placeholder='Search by title...'
               allowClear
-              value={filters.title}
+              value={questionsStore.filters.title}
               onChange={(e) => {
-                setFilters({ ...filters, title: e.target.value });
+                questionsStore.setFilters('title', e.target.value);
               }}
             />
             <Select
@@ -244,9 +167,9 @@ const GlossaryPage = () => {
               allowClear
               placeholder='Levels'
               maxTagCount='responsive'
-              value={filters.level}
+              value={questionsStore.filters.level}
               onChange={(e) => {
-                setFilters({ ...filters, level: e });
+                questionsStore.setFilters('level', e);
               }}
             >
               {levelOptions}
@@ -277,30 +200,26 @@ const GlossaryPage = () => {
           />
         </div>
 
-        {questionsAreFetching && <FullWidthLoader />}
+        {questionsStore.isFetching && <FullWidthLoader />}
 
-        {!questionsAreFetching && (
+        {!questionsStore.isFetching && (
           <QuestionCategoryList
             editQuestion={editQuestion}
-            questions={getFilteredQuestions}
+            questions={questionsStore.filteredQuestions}
             deleteQuestion={deleteQuestion}
-            isUpdating={questionsAreUpdating}
           />
         )}
       </div>
 
-      <EditQuestionModal ref={editModalRef} onOkCallback={onModalSucceed} />
+      <EditQuestionModal ref={editModalRef} />
       <AddOrOverwriteConfirmModal
         ref={addOrOverwriteModalRef}
-        onOverwriteSelected={uploadOverwrite}
-        onAddSelected={uploadAdd}
+        onOverwriteSelected={() => bulkUpload('overwrite')}
+        onAddSelected={() => bulkUpload('add')}
       />
-      <SetDefaultDataModal
-        ref={defaultsModalRef}
-        onSet={onSetDefaultsSucceed}
-      />
+      <SetDefaultDataModal ref={defaultsModalRef} />
     </>
   );
 };
 
-export default GlossaryPage;
+export default observer(GlossaryPage);

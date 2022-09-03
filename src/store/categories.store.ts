@@ -109,11 +109,12 @@ class CategoriesStore {
 
   @action setDefaultCategories(callback?: () => void): void {
     CategoriesAPIInstance.setDefaultCategories().then(() => {
+      this.getCategories();
       callback?.();
     });
   }
 
-  @action setFilters(type: keyof ICategoriesStoreFilters, value: string) {
+  @action setFilters(type: keyof ICategoriesStoreFilters, value: any) {
     this.filters[type] = value;
   }
 
