@@ -22,7 +22,6 @@ import { EditTypeEnum } from '../../models/utils.model';
 import { QuizQuestion } from '../../models/question.model';
 import AddOrOverwriteConfirmModal from '../../components/AddOrOverwriteConfirmModal/AddOrOverwriteConfirmModal';
 import FullWidthLoader from '../../components/FullWidthLoader/FullWidthLoader';
-import SetDefaultDataModal from '../../components/SetDefaultDataModal/SetDefaultDataModal';
 import { questionsStore } from '../../store';
 
 const levelOptions: React.ReactNode[] = [];
@@ -35,7 +34,6 @@ for (let i = 1; i <= 10; i++) {
 }
 
 const QuestionsPage = () => {
-  const defaultsModalRef = useRef<ElementRef<typeof SetDefaultDataModal>>(null);
   const editModalRef = useRef<ElementRef<typeof EditQuestionModal>>(null);
   const addOrOverwriteModalRef =
     useRef<ElementRef<typeof AddOrOverwriteConfirmModal>>(null);
@@ -104,14 +102,6 @@ const QuestionsPage = () => {
     questionsStore.deleteQuestion(id);
   };
 
-  const setDefaults = () => {
-    const beenAskedAboutDefaults =
-      localStorage.getItem('beenAskedAboutDefaults') === 'true';
-    if (!beenAskedAboutDefaults) {
-      defaultsModalRef?.current?.openModal();
-    }
-  };
-
   const handleMoreActionsMenuClick: MenuProps['onClick'] = (e) => {
     switch (e.key) {
       case 'download':
@@ -143,7 +133,6 @@ const QuestionsPage = () => {
 
   useEffect(() => {
     questionsStore.getQuestions();
-    setDefaults();
   }, []);
 
   return (
@@ -217,7 +206,6 @@ const QuestionsPage = () => {
         onOverwriteSelected={() => bulkUpload('overwrite')}
         onAddSelected={() => bulkUpload('add')}
       />
-      <SetDefaultDataModal ref={defaultsModalRef} />
     </>
   );
 };
