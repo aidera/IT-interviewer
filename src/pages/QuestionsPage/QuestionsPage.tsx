@@ -1,5 +1,6 @@
 import React, { ElementRef, useEffect, useRef, useState } from 'react';
 import { observer } from 'mobx-react';
+import { Helmet } from 'react-helmet';
 import {
   Button,
   Dropdown,
@@ -138,6 +139,10 @@ const QuestionsPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>All questions - IT-interviewer</title>
+      </Helmet>
+
       <div className={classes.container}>
         <Typography.Title>All Questions</Typography.Title>
 

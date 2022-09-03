@@ -1,4 +1,5 @@
 import React, { ElementRef, useEffect, useRef, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import {
   Button,
   Dropdown,
@@ -133,6 +134,10 @@ const CategoriesPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Categories - IT-interviewer</title>
+      </Helmet>
+
       <div className={classes.container}>
         <Typography.Title>Categories</Typography.Title>
 

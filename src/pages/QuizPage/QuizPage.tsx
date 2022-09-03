@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { observer } from 'mobx-react';
+import { Helmet } from 'react-helmet';
 import { Typography } from 'antd';
 
 import { quizStore } from '../../store';
@@ -13,6 +14,10 @@ const QuizPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Quiz - IT-interviewer</title>
+      </Helmet>
+
       <Typography.Title>Quiz</Typography.Title>
 
       {!quizStore.questionIds.length && <QuizConditionsForm />}
