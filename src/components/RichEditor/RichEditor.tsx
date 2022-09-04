@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   ContentBlock,
   ContentState,
@@ -31,6 +31,16 @@ const RichEditor = (props: PropsType) => {
   );
   const [savedValue, setSavedValue] = useState<string | null>(null);
   const [isFocused, setIsFocused] = useState<boolean>(false);
+
+  const inlineStyle = useMemo(
+    () => editorState.getCurrentInlineStyle(),
+    [editorState],
+  );
+  const blockStyle = useMemo(() => {
+    const currentSelection = editorState.getSelection();
+    const blockKey = currentSelection.getStartKey();
+    return editorState.getCurrentContent().getBlockForKey(blockKey).getType();
+  }, [editorState]);
 
   useEffect(() => {
     /** Save html value and do not redraw the current view if it's the same */
@@ -84,6 +94,7 @@ const RichEditor = (props: PropsType) => {
   const headersMenu = (
     <Menu
       onClick={handleHeaderMenuClick}
+      selectedKeys={[blockStyle]}
       items={[
         {
           label: 'Header 1',
@@ -113,25 +124,52 @@ const RichEditor = (props: PropsType) => {
     <div className={classes.editorContainer}>
       <div className={classes.tooltip}>
         <div>
-          <Button onClick={() => onInlineStyleClick('BOLD')}>
+          <Button
+            type={inlineStyle.has('BOLD') ? 'primary' : 'default'}
+            onClick={() => onInlineStyleClick('BOLD')}
+          >
             <strong>B</strong>
           </Button>
-          <Button onClick={() => onInlineStyleClick('ITALIC')}>
+          <Button
+            type={inlineStyle.has('ITALIC') ? 'primary' : 'default'}
+            onClick={() => onInlineStyleClick('ITALIC')}
+          >
             <i>I</i>
           </Button>
-          <Button onClick={() => onInlineStyleClick('UNDERLINE')}>
+          <Button
+            type={inlineStyle.has('UNDERLINE') ? 'primary' : 'default'}
+            onClick={() => onInlineStyleClick('UNDERLINE')}
+          >
             <u>U</u>
           </Button>
-          <Button onClick={() => onInlineStyleClick('STRIKETHROUGH')}>
+          <Button
+            type={inlineStyle.has('STRIKETHROUGH') ? 'primary' : 'default'}
+            onClick={() => onInlineStyleClick('STRIKETHROUGH')}
+          >
             <s>S</s>
           </Button>
-          <Button onClick={() => onInlineStyleClick('CODE')}>
+          <Button
+            type={inlineStyle.has('CODE') ? 'primary' : 'default'}
+            onClick={() => onInlineStyleClick('CODE')}
+          >
             <code>M</code>
           </Button>
         </div>
         <div>
           <Dropdown overlay={headersMenu}>
-            <Button>
+            <Button
+              type={
+                [
+                  'header-one',
+                  'header-two',
+                  'header-three',
+                  'header-four',
+                  'header-five',
+                ].includes(blockStyle)
+                  ? 'primary'
+                  : 'default'
+              }
+            >
               <Space>
                 Header
                 <DownOutlined />
@@ -141,17 +179,25 @@ const RichEditor = (props: PropsType) => {
         </div>
         <div>
           <Button
+            type={blockStyle === 'unordered-list-item' ? 'primary' : 'default'}
             onClick={() => onBlockStyleClick('unordered-list-item')}
             icon={<UnorderedListOutlined />}
           />
           <Button
+            type={blockStyle === 'ordered-list-item' ? 'primary' : 'default'}
             onClick={() => onBlockStyleClick('ordered-list-item')}
             icon={<OrderedListOutlined />}
           />
-          <Button onClick={() => onBlockStyleClick('code-block')}>
+          <Button
+            type={blockStyle === 'code-block' ? 'primary' : 'default'}
+            onClick={() => onBlockStyleClick('code-block')}
+          >
             &#123; &#125;
           </Button>
-          <Button onClick={() => onBlockStyleClick('blockquote')}>
+          <Button
+            type={blockStyle === 'blockquote' ? 'primary' : 'default'}
+            onClick={() => onBlockStyleClick('blockquote')}
+          >
             &quot;
           </Button>
         </div>
