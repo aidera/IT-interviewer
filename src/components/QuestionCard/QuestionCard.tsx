@@ -4,7 +4,6 @@ import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
 import classes from './QuestionCard.module.scss';
 import { QuizQuestion } from '../../models/question.model';
-import useOnScreen from '../../hooks/useOnScreen';
 
 type PropsType = {
   isUpdating?: boolean;
@@ -15,7 +14,6 @@ type PropsType = {
 
 const QuestionCard = (props: PropsType) => {
   const ref = useRef<HTMLInputElement>(null);
-  const isVisible = useOnScreen(ref);
 
   const openEditQuestionModal = (event: React.MouseEvent<HTMLElement>) => {
     event.stopPropagation();
@@ -31,7 +29,7 @@ const QuestionCard = (props: PropsType) => {
 
   return (
     <div className={classes.wrapper} ref={ref}>
-      {props.question && props.question.id && isVisible && (
+      {props.question && props.question.id && (
         <Collapse key={props.question.id}>
           <Collapse.Panel
             header={
