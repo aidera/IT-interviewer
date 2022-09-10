@@ -70,10 +70,6 @@ const EditQuestionModal = forwardRef(
     };
 
     const submit: SubmitHandler<FormInput> = (data) => {
-      if (!form.formState.isValid) {
-        return;
-      }
-
       const callback = () => {
         form.reset();
         if (props.onOkCallback) {
