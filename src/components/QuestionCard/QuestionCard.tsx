@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import { Button, Collapse } from 'antd';
-import Title from 'antd/lib/typography/Title';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
 import classes from './QuestionCard.module.scss';
@@ -62,21 +61,6 @@ const QuestionCard = (props: PropsType) => {
                 __html: props.question.answer,
               }}
             ></div>
-
-            {props.question.links && (
-              <div className={classes.links}>
-                <Title level={5}>Ссылки на материалы:</Title>
-                <ul>
-                  {props.question.links.map((link) => {
-                    return (
-                      <li key={link.href}>
-                        <a href={link.href}>{link.label}</a>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            )}
           </Collapse.Panel>
         </Collapse>
       )}
