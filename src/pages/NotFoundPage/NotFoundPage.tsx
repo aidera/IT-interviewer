@@ -2,6 +2,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Card } from 'antd';
 
+import classes from './NotFoundPage.module.scss';
+
 const NotFoundPage = () => {
   return (
     <>
@@ -9,7 +11,9 @@ const NotFoundPage = () => {
         <title>Not found - IT-interviewer</title>
       </Helmet>
 
-      <Card>Sorry. This page is not found</Card>
+      <div className={classes.container}>
+        <Card>Sorry. This page is not found</Card>
+      </div>
     </>
   );
 };

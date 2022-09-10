@@ -18,13 +18,12 @@ import {
 import { saveAs } from 'file-saver';
 
 import classes from './QuestionsPage.module.scss';
-import { questionsStore } from '../../store';
+import { categoriesStore, questionsStore } from '../../store';
 import { EditTypeEnum } from '../../models/utils.model';
-import { QuizQuestion } from '../../models/question.model';
-import QuestionCategoryList from '../../components/QuestionCategoryList/QuestionCategoryList';
 import EditQuestionModal from '../../components/EditQuestionModal/EditQuestionModal';
 import AddOrOverwriteConfirmModal from '../../components/AddOrOverwriteConfirmModal/AddOrOverwriteConfirmModal';
 import FullWidthLoader from '../../components/FullWidthLoader/FullWidthLoader';
+import QuestionsTable from '../../components/QuestionsTable/QuestionsTable';
 
 const levelOptions: React.ReactNode[] = [];
 for (let i = 1; i <= 10; i++) {
@@ -91,19 +90,6 @@ const QuestionsPage = () => {
     saveAs(data, 'questions.json');
   };
 
-  const editQuestion = (question: QuizQuestion) => {
-    if (editModalRef.current) {
-      editModalRef.current.openModal({
-        type: EditTypeEnum.edit,
-        initialValues: question,
-      });
-    }
-  };
-
-  const deleteQuestion = (id: number) => {
-    questionsStore.deleteQuestion(id);
-  };
-
   const handleMoreActionsMenuClick: MenuProps['onClick'] = (e) => {
     switch (e.key) {
       case 'download':
@@ -135,6 +121,7 @@ const QuestionsPage = () => {
 
   useEffect(() => {
     questionsStore.getQuestions();
+    categoriesStore.getCategories();
   }, []);
 
   return (
@@ -197,13 +184,7 @@ const QuestionsPage = () => {
 
         {questionsStore.isFetching && <FullWidthLoader />}
 
-        {!questionsStore.isFetching && (
-          <QuestionCategoryList
-            editQuestion={editQuestion}
-            questions={questionsStore.filteredQuestions}
-            deleteQuestion={deleteQuestion}
-          />
-        )}
+        {!questionsStore.isFetching && <QuestionsTable />}
       </div>
 
       <EditQuestionModal ref={editModalRef} />
