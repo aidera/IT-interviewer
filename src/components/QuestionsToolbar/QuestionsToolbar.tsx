@@ -1,6 +1,7 @@
-import React, { ElementRef, useRef, useState } from 'react';
+import React, { ElementRef, useMemo, useRef, useState } from 'react';
 import { observer } from 'mobx-react';
 import {
+  CloseOutlined,
   DownloadOutlined,
   EllipsisOutlined,
   UploadOutlined,
@@ -9,10 +10,11 @@ import { Button, Dropdown, Input, Menu, MenuProps, Select } from 'antd';
 import { saveAs } from 'file-saver';
 
 import classes from './QuestionsToolbar.module.scss';
-import { questionsStore } from '../../store';
+import { categoriesStore, questionsStore } from '../../store';
 import EditQuestionModal from '../EditQuestionModal/EditQuestionModal';
 import AddOrOverwriteConfirmModal from '../AddOrOverwriteConfirmModal/AddOrOverwriteConfirmModal';
 import { EditTypeEnum } from '../../models/utils.model';
+import { useMediaQuery } from '@react-hook/media-query';
 
 const levelOptions: React.ReactNode[] = [];
 for (let i = 1; i <= 10; i++) {
@@ -31,6 +33,22 @@ const QuestionsToolbar = () => {
   const uploadFileInput = useRef<HTMLInputElement>(null);
 
   const [uploadFile, setUploadFile] = useState<string | null>(null);
+
+  const isMobileView = useMediaQuery('(max-width: 700px)');
+
+  const categoryOptions: React.ReactNode[] = useMemo(() => {
+    return categoriesStore.categories.map((category) => {
+      return (
+        <Select.Option key={category.id} value={category.id}>
+          {category.title}
+        </Select.Option>
+      );
+    });
+  }, [categoriesStore.categories]);
+
+  const onClearFiltersClick = () => {
+    questionsStore.clearFilters();
+  };
 
   const openAddQuestionModal = () => {
     if (editModalRef.current) {
@@ -121,6 +139,20 @@ const QuestionsToolbar = () => {
               questionsStore.setFilters('title', e.target.value);
             }}
           />
+
+          <Select
+            mode='multiple'
+            allowClear
+            placeholder='Categories'
+            maxTagCount='responsive'
+            value={questionsStore.filters.category}
+            onChange={(e) => {
+              questionsStore.setFilters('category', e);
+            }}
+          >
+            {categoryOptions}
+          </Select>
+
           <Select
             mode='multiple'
             allowClear
@@ -133,18 +165,34 @@ const QuestionsToolbar = () => {
           >
             {levelOptions}
           </Select>
+
+          {!isMobileView ? (
+            <Button
+              onClick={onClearFiltersClick}
+              title='Clear filters'
+              type='text'
+              icon={<CloseOutlined />}
+            ></Button>
+          ) : (
+            <Button onClick={onClearFiltersClick}>Clear filters</Button>
+          )}
         </div>
 
         <div className={classes.buttonsContainer}>
           <Button type='primary' onClick={openAddQuestionModal}>
             Add question
           </Button>
+
           <Dropdown
             overlay={moreActionsMenu}
             placement='bottomRight'
             arrow={{ pointAtCenter: true }}
           >
-            <Button icon={<EllipsisOutlined />}></Button>
+            {!isMobileView ? (
+              <Button icon={<EllipsisOutlined />}></Button>
+            ) : (
+              <Button>More actions</Button>
+            )}
           </Dropdown>
         </div>
       </div>

@@ -11,10 +11,15 @@
 
 .filters {
   display: grid;
-  grid-template-columns: auto 3fr 2fr;
+  grid-template-columns: auto 3fr 2fr 2fr auto;
   grid-gap: 8px;
   flex-grow: 1;
   align-items: center;
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+    margin-bottom: 16px;
+  }
 }
 
 .buttonsContainer {
@@ -23,4 +28,8 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   flex-shrink: 0;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
 }

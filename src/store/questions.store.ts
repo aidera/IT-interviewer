@@ -8,12 +8,17 @@ import QuestionsAPIInstance from '../api/questions.api';
 export interface IQuestionsStoreFilters {
   title: string;
   level: number[];
+  category: number[];
 }
 
 class QuestionsStore {
   @observable questions: QuizQuestion[] = [];
   @observable isFetching: boolean = false;
-  @observable filters: IQuestionsStoreFilters = { title: '', level: [] };
+  @observable filters: IQuestionsStoreFilters = {
+    title: '',
+    level: [],
+    category: [],
+  };
 
   @computed get filteredQuestions(): QuizQuestion[] {
     const filtered = this.questions.filter((question) => {
@@ -23,8 +28,11 @@ class QuestionsStore {
       const levelFits =
         this.filters.level.includes(question.level) ||
         this.filters.level.length === 0;
+      const categoryFits =
+        this.filters.category.includes(question.category) ||
+        this.filters.category.length === 0;
 
-      return titleFits && levelFits;
+      return titleFits && levelFits && categoryFits;
     });
 
     return filtered;
@@ -114,6 +122,14 @@ class QuestionsStore {
 
   @action setFilters(type: keyof IQuestionsStoreFilters, value: any) {
     this.filters[type] = value;
+  }
+
+  @action clearFilters() {
+    this.filters = {
+      title: '',
+      level: [],
+      category: [],
+    };
   }
 
   constructor() {
