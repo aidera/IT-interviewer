@@ -1,0 +1,11 @@
+.loaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.listElement {
+  justify-content: flex-start;
+  gap: 8px;
+}

@@ -10,6 +10,7 @@ import EditQuestionModal from '../EditQuestionModal/EditQuestionModal';
 import { QuizQuestion } from '../../models/question.model';
 import { EditTypeEnum } from '../../models/utils.model';
 import ShowQuestionModal from '../ShowQuestionModal/ShowQuestionModal';
+import FullWidthLoader from '../FullWidthLoader/FullWidthLoader';
 
 interface DataType {
   key: React.Key;
@@ -82,47 +83,51 @@ const QuestionsTable = () => {
 
   return (
     <>
-      <Table dataSource={questions} className={classes.table}>
-        <Column
-          title=''
-          key='action'
-          render={(_: any, record: DataType) => (
-            <Space size='small'>
-              <Button
-                shape='circle'
-                icon={<EyeOutlined />}
-                onClick={() => openShowQuestionModal(record.id)}
-              />
-              <Button
-                shape='circle'
-                icon={<EditOutlined />}
-                onClick={() => openEditQuestionModal(record.id)}
-              />
-              <Button
-                shape='circle'
-                icon={<DeleteOutlined />}
-                onClick={() => openDeleteQuestionModal(record.id)}
-              />
-            </Space>
-          )}
-        />
+      {questionsStore.isFetching && <FullWidthLoader />}
 
-        <Column
-          title='Title'
-          dataIndex='title'
-          key='title'
-          className={classes.titleColumn}
-        />
+      {!questionsStore.isFetching && (
+        <Table dataSource={questions} className={classes.table}>
+          <Column
+            title=''
+            key='action'
+            render={(_: any, record: DataType) => (
+              <Space size='small'>
+                <Button
+                  shape='circle'
+                  icon={<EyeOutlined />}
+                  onClick={() => openShowQuestionModal(record.id)}
+                />
+                <Button
+                  shape='circle'
+                  icon={<EditOutlined />}
+                  onClick={() => openEditQuestionModal(record.id)}
+                />
+                <Button
+                  shape='circle'
+                  icon={<DeleteOutlined />}
+                  onClick={() => openDeleteQuestionModal(record.id)}
+                />
+              </Space>
+            )}
+          />
 
-        <Column
-          title='Category'
-          dataIndex='category'
-          key='category'
-          className={classes.categoryColumn}
-        />
+          <Column
+            title='Title'
+            dataIndex='title'
+            key='title'
+            className={classes.titleColumn}
+          />
 
-        <Column title='Level' dataIndex='level' key='level' />
-      </Table>
+          <Column
+            title='Category'
+            dataIndex='category'
+            key='category'
+            className={classes.categoryColumn}
+          />
+
+          <Column title='Level' dataIndex='level' key='level' />
+        </Table>
+      )}
 
       <ShowQuestionModal ref={showModalRef} />
       <EditQuestionModal ref={editModalRef} />
