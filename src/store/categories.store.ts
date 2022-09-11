@@ -119,6 +119,12 @@ class CategoriesStore {
     this.filters[type] = value;
   }
 
+  @action clearFilters() {
+    this.filters = {
+      title: '',
+    };
+  }
+
   constructor() {
     makeObservable(this);
   }

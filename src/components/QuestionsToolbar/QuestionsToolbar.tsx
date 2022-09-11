@@ -8,13 +8,13 @@ import {
 } from '@ant-design/icons';
 import { Button, Dropdown, Input, Menu, MenuProps, Select } from 'antd';
 import { saveAs } from 'file-saver';
+import { useMediaQuery } from '@react-hook/media-query';
 
 import classes from './QuestionsToolbar.module.scss';
 import { categoriesStore, questionsStore } from '../../store';
 import EditQuestionModal from '../EditQuestionModal/EditQuestionModal';
 import AddOrOverwriteConfirmModal from '../AddOrOverwriteConfirmModal/AddOrOverwriteConfirmModal';
 import { EditTypeEnum } from '../../models/utils.model';
-import { useMediaQuery } from '@react-hook/media-query';
 
 const levelOptions: React.ReactNode[] = [];
 for (let i = 1; i <= 10; i++) {
@@ -131,6 +131,7 @@ const QuestionsToolbar = () => {
       <div className={classes.toolbar}>
         <div className={classes.filters}>
           <span>Filters: </span>
+
           <Input
             placeholder='Search by title...'
             allowClear

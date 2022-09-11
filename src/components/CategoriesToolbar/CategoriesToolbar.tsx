@@ -2,11 +2,13 @@ import React, { ElementRef, useRef, useState } from 'react';
 import { observer } from 'mobx-react';
 import { Button, Dropdown, Input, Menu, MenuProps } from 'antd';
 import {
+  CloseOutlined,
   DownloadOutlined,
   EllipsisOutlined,
   UploadOutlined,
 } from '@ant-design/icons';
 import { saveAs } from 'file-saver';
+import { useMediaQuery } from '@react-hook/media-query';
 
 import classes from './CategoriesToolbar.module.scss';
 import { categoriesStore } from '../../store';
@@ -21,6 +23,12 @@ const CategoriesToolbar = () => {
   const uploadFileInput = useRef<HTMLInputElement>(null);
 
   const [uploadFile, setUploadFile] = useState<string | null>(null);
+
+  const isMobileView = useMediaQuery('(max-width: 700px)');
+
+  const onClearFiltersClick = () => {
+    categoriesStore.clearFilters();
+  };
 
   const openAddCategoryModal = () => {
     if (editModalRef.current) {
@@ -107,6 +115,7 @@ const CategoriesToolbar = () => {
       <div className={classes.toolbar}>
         <div className={classes.filters}>
           <span>Filters: </span>
+
           <Input
             placeholder='Search by title...'
             allowClear
@@ -115,6 +124,17 @@ const CategoriesToolbar = () => {
               categoriesStore.setFilters('title', e.target.value);
             }}
           />
+
+          {!isMobileView ? (
+            <Button
+              onClick={onClearFiltersClick}
+              title='Clear filters'
+              type='text'
+              icon={<CloseOutlined />}
+            ></Button>
+          ) : (
+            <Button onClick={onClearFiltersClick}>Clear filters</Button>
+          )}
         </div>
 
         <div className={classes.buttonsContainer}>
@@ -126,7 +146,11 @@ const CategoriesToolbar = () => {
             placement='bottomRight'
             arrow={{ pointAtCenter: true }}
           >
-            <Button icon={<EllipsisOutlined />}></Button>
+            {!isMobileView ? (
+              <Button icon={<EllipsisOutlined />}></Button>
+            ) : (
+              <Button>More actions</Button>
+            )}
           </Dropdown>
         </div>
       </div>
