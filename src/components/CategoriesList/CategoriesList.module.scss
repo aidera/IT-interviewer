@@ -5,6 +5,10 @@
   width: 100%;
 }
 
+.listIsUpdating {
+  opacity: 0.6;
+}
+
 .listElement {
   justify-content: flex-start;
   gap: 8px;

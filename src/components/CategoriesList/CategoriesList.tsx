@@ -38,6 +38,7 @@ const CategoriesList = () => {
           size='small'
           bordered
           dataSource={categoriesStore.filteredCategories}
+          className={categoriesStore.isUpdating ? classes.listIsUpdating : ''}
           renderItem={(item) => (
             <List.Item key={item.id} className={classes.listElement}>
               <Button
@@ -46,6 +47,7 @@ const CategoriesList = () => {
                 onClick={() => {
                   editCategory(item);
                 }}
+                disabled={categoriesStore.isUpdating}
               />
               <Button
                 shape='circle'
@@ -53,6 +55,7 @@ const CategoriesList = () => {
                 onClick={() => {
                   deleteCategory(item.id as number);
                 }}
+                disabled={categoriesStore.isUpdating}
               />
               <strong>{item.title}</strong>
             </List.Item>

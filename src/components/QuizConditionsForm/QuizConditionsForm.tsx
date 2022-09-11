@@ -6,7 +6,6 @@ import { Button, Card, Form, Input, InputNumber, Select } from 'antd';
 import classes from './QuizConditionsForm.module.scss';
 import { categoriesStore, quizStore } from '../../store';
 import { formUtils } from '../../utils/form.utils';
-import { QuizQuestionCategory } from '../../models/category.model';
 import { QuizCreationData } from '../../models/quiz.model';
 
 type FormInput = QuizCreationData;
@@ -23,12 +22,11 @@ const QuizConditionsForm = () => {
   });
 
   useEffect(() => {
-    const callback = (categories: QuizQuestionCategory[]) => {
-      defaultValues.categories = categories.map((el) => el.id as number);
-      form.reset(defaultValues as unknown as FormInput);
-    };
-    categoriesStore.getCategories(callback);
-  }, []);
+    defaultValues.categories = categoriesStore.categories.map(
+      (el) => el.id as number,
+    );
+    form.reset(defaultValues as unknown as FormInput);
+  }, [categoriesStore.categories]);
 
   const submit: SubmitHandler<FormInput> = (data) => {
     quizStore.createQuiz(data);

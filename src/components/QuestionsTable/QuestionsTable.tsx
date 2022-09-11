@@ -80,7 +80,14 @@ const QuestionsTable = () => {
       {questionsStore.isFetching && <FullWidthLoader />}
 
       {!questionsStore.isFetching && (
-        <Table dataSource={questions} className={classes.table}>
+        <Table
+          dataSource={questions}
+          className={
+            classes.table +
+            ' ' +
+            (questionsStore.isUpdating ? classes.tableIsUpdating : '')
+          }
+        >
           <Column
             title=''
             key='action'
@@ -90,16 +97,19 @@ const QuestionsTable = () => {
                   shape='circle'
                   icon={<EyeOutlined />}
                   onClick={() => openShowQuestionModal(record.id)}
+                  disabled={questionsStore.isUpdating}
                 />
                 <Button
                   shape='circle'
                   icon={<EditOutlined />}
                   onClick={() => openEditQuestionModal(record.id)}
+                  disabled={questionsStore.isUpdating}
                 />
                 <Button
                   shape='circle'
                   icon={<DeleteOutlined />}
                   onClick={() => openDeleteQuestionModal(record.id)}
+                  disabled={questionsStore.isUpdating}
                 />
               </Space>
             )}

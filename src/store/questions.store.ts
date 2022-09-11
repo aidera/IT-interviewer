@@ -13,6 +13,7 @@ export interface IQuestionsStoreFilters {
 class QuestionsStore {
   @observable questions: GetQuizQuestion[] = [];
   @observable isFetching: boolean = false;
+  @observable isUpdating: boolean = false;
   @observable filters: IQuestionsStoreFilters = {
     title: '',
     level: [],
@@ -45,25 +46,35 @@ class QuestionsStore {
     this.isFetching = status;
   }
 
-  @action getQuestions(
-    callback?: (questions: GetQuizQuestion[]) => void,
-  ): void {
-    this.setIsFetching(true);
+  @action setIsUpdating(status: boolean): void {
+    this.isUpdating = status;
+  }
+
+  @action getQuestions(useUpdatingInsteadOfetching: boolean = false): void {
+    if (useUpdatingInsteadOfetching) {
+      this.setIsUpdating(true);
+    } else {
+      this.setIsFetching(true);
+    }
+
     QuestionsAPIInstance.getQuestions()
       .then((res) => {
         if (res.data) {
           this.setQuestions(res.data);
-          callback?.(res.data);
         }
       })
       .finally(() => {
-        this.setIsFetching(false);
+        if (useUpdatingInsteadOfetching) {
+          this.setIsUpdating(false);
+        } else {
+          this.setIsFetching(false);
+        }
       });
   }
 
   @action addQuestion(question: EditQuizQuestion, callback?: () => void): void {
     QuestionsAPIInstance.addQuestion(question).then(() => {
-      this.getQuestions();
+      this.getQuestions(true);
       callback?.();
     });
   }
@@ -74,7 +85,7 @@ class QuestionsStore {
     callback?: () => void,
   ): void {
     QuestionsAPIInstance.editQuestion(id, question).then(() => {
-      this.getQuestions();
+      this.getQuestions(true);
       callback?.();
     });
   }

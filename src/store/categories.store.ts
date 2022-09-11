@@ -14,6 +14,7 @@ export interface ICategoriesStoreFilters {
 class CategoriesStore {
   @observable categories: QuizQuestionCategory[] = [];
   @observable isFetching: boolean = false;
+  @observable isUpdating: boolean = false;
   @observable filters: ICategoriesStoreFilters = { title: '' };
 
   @computed get filteredCategories(): QuizQuestionCategory[] {
@@ -36,19 +37,29 @@ class CategoriesStore {
     this.isFetching = status;
   }
 
-  @action getCategories(
-    callback?: (categories: QuizQuestionCategory[]) => void,
-  ): void {
-    this.setIsFetching(true);
+  @action setIsUpdating(status: boolean): void {
+    this.isUpdating = status;
+  }
+
+  @action getCategories(useUpdatingInsteadOfetching: boolean = false): void {
+    if (useUpdatingInsteadOfetching) {
+      this.setIsUpdating(true);
+    } else {
+      this.setIsFetching(true);
+    }
+
     CategoriesAPIInstance.getCategories()
       .then((res) => {
         if (res.data) {
           this.setCategories(res.data);
-          callback?.(res.data);
         }
       })
       .finally(() => {
-        this.setIsFetching(false);
+        if (useUpdatingInsteadOfetching) {
+          this.setIsUpdating(false);
+        } else {
+          this.setIsFetching(false);
+        }
       });
   }
 
@@ -57,7 +68,7 @@ class CategoriesStore {
     callback?: () => void,
   ): void {
     CategoriesAPIInstance.addCategory(category).then(() => {
-      this.getCategories();
+      this.getCategories(true);
       callback?.();
     });
   }
@@ -68,7 +79,7 @@ class CategoriesStore {
     callback?: () => void,
   ): void {
     CategoriesAPIInstance.editCategory(id, category).then(() => {
-      this.getCategories();
+      this.getCategories(true);
       callback?.();
     });
   }
