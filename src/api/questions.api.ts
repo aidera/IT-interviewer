@@ -18,7 +18,7 @@ class QuestionsAPI {
 
       const modifiedQuestions = quesitons.map((question) => {
         const foundCategory = categories.find(
-          (category) => category.id === question.id,
+          (category) => category.id === question.category,
         );
         return {
           id: question.id,
@@ -51,7 +51,7 @@ class QuestionsAPI {
 
       const modifiedQuestions = quesitons.map((question) => {
         const foundCategory = categories.find(
-          (category) => category.id === question.id,
+          (category) => category.id === question.category,
         );
         return {
           id: question.id,
