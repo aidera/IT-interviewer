@@ -1,8 +1,7 @@
 import { action, computed, makeObservable, observable } from 'mobx';
 
-import { EditQuizQuestion } from './../models/question.model';
+import { EditQuizQuestion, GetQuizQuestion } from './../models/question.model';
 import { APIResponse } from '../models/api.model';
-import { QuizQuestion } from '../models/question.model';
 import QuestionsAPIInstance from '../api/questions.api';
 
 export interface IQuestionsStoreFilters {
@@ -12,7 +11,7 @@ export interface IQuestionsStoreFilters {
 }
 
 class QuestionsStore {
-  @observable questions: QuizQuestion[] = [];
+  @observable questions: GetQuizQuestion[] = [];
   @observable isFetching: boolean = false;
   @observable filters: IQuestionsStoreFilters = {
     title: '',
@@ -20,7 +19,7 @@ class QuestionsStore {
     category: [],
   };
 
-  @computed get filteredQuestions(): QuizQuestion[] {
+  @computed get filteredQuestions(): GetQuizQuestion[] {
     const filtered = this.questions.filter((question) => {
       const clearedTitle = question.title.trim().toLowerCase();
       const clearedTitleFilter = this.filters.title.trim().toLowerCase();
@@ -29,7 +28,7 @@ class QuestionsStore {
         this.filters.level.includes(question.level) ||
         this.filters.level.length === 0;
       const categoryFits =
-        this.filters.category.includes(question.category) ||
+        this.filters.category.includes(question.categoryId) ||
         this.filters.category.length === 0;
 
       return titleFits && levelFits && categoryFits;
@@ -38,7 +37,7 @@ class QuestionsStore {
     return filtered;
   }
 
-  @action setQuestions(questions: QuizQuestion[]): void {
+  @action setQuestions(questions: GetQuizQuestion[]): void {
     this.questions = questions;
   }
 
@@ -46,7 +45,9 @@ class QuestionsStore {
     this.isFetching = status;
   }
 
-  @action getQuestions(callback?: (questions: QuizQuestion[]) => void): void {
+  @action getQuestions(
+    callback?: (questions: GetQuizQuestion[]) => void,
+  ): void {
     this.setIsFetching(true);
     QuestionsAPIInstance.getQuestions()
       .then((res) => {

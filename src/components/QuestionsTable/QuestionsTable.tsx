@@ -5,19 +5,16 @@ import Column from 'antd/lib/table/Column';
 import { DeleteOutlined, EditOutlined, EyeOutlined } from '@ant-design/icons';
 
 import classes from './QuestionsTable.module.scss';
-import { questionsStore, categoriesStore } from '../../store';
+import { questionsStore } from '../../store';
 import EditQuestionModal from '../EditQuestionModal/EditQuestionModal';
-import { QuizQuestion } from '../../models/question.model';
+import { GetQuizQuestion, QuizQuestion } from '../../models/question.model';
 import { EditTypeEnum } from '../../models/utils.model';
 import ShowQuestionModal from '../ShowQuestionModal/ShowQuestionModal';
 import FullWidthLoader from '../FullWidthLoader/FullWidthLoader';
+import { convertGetQuestionToBare } from '../../utils/api.utils';
 
-interface DataType {
+interface DataType extends GetQuizQuestion {
   key: React.Key;
-  id: number;
-  title: string;
-  level: number;
-  category: string;
 }
 
 const QuestionsTable = () => {
@@ -45,7 +42,9 @@ const QuestionsTable = () => {
     if (!question) {
       return;
     }
-    showModalRef?.current?.openModal({ question });
+    showModalRef?.current?.openModal({
+      question: convertGetQuestionToBare(question),
+    });
   };
 
   const openEditQuestionModal = (questionId: number) => {
@@ -55,7 +54,7 @@ const QuestionsTable = () => {
     if (!question) {
       return;
     }
-    editQuestion(question);
+    editQuestion(convertGetQuestionToBare(question));
   };
 
   const openDeleteQuestionModal = (questionId: number) => {
@@ -69,13 +68,8 @@ const QuestionsTable = () => {
   useEffect(() => {
     const tableQuestions = questionsStore.filteredQuestions.map((q) => {
       return {
+        ...q,
         key: q.id,
-        id: q.id,
-        title: q.title,
-        level: q.level,
-        category:
-          categoriesStore.categories.find((c) => q.category === c.id)?.title ||
-          '',
       } as DataType;
     });
     setQuestions(tableQuestions);
@@ -120,8 +114,8 @@ const QuestionsTable = () => {
 
           <Column
             title='Category'
-            dataIndex='category'
-            key='category'
+            dataIndex='categoryName'
+            key='categoryName'
             className={classes.categoryColumn}
           />
 

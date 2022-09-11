@@ -1,6 +1,6 @@
 import { action, computed, makeObservable, observable } from 'mobx';
 
-import { QuizQuestion } from '../models/question.model';
+import { GetQuizQuestion } from '../models/question.model';
 import {
   QuizCreationData,
   QuizData,
@@ -13,7 +13,7 @@ class QuizStore {
   @observable questionIds: number[] = [];
   @observable completedQuestionIds: number[] = [];
   @observable notCompletedQuestionIds: number[] = [];
-  @observable questions: QuizQuestion[] = [];
+  @observable questions: GetQuizQuestion[] = [];
   @observable areQuestionsFetching: boolean = false;
   @observable currentQuestionId: number | null = null;
 
@@ -28,7 +28,7 @@ class QuizStore {
     return this.questionIds.length === this.completedQuestionIds.length;
   }
 
-  @computed get currentQuestion(): QuizQuestion | undefined {
+  @computed get currentQuestion(): GetQuizQuestion | undefined {
     return this.questions.find((el) => el.id === this.currentQuestionId);
   }
 
@@ -44,7 +44,7 @@ class QuizStore {
     this.notCompletedQuestionIds = ids;
   }
 
-  @observable setQuestions(questions: QuizQuestion[]): void {
+  @observable setQuestions(questions: GetQuizQuestion[]): void {
     this.questions = questions;
   }
 

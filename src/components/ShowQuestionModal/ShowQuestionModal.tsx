@@ -1,7 +1,6 @@
 import React, {
   ForwardedRef,
   forwardRef,
-  useEffect,
   useImperativeHandle,
   useMemo,
   useState,
@@ -54,10 +53,6 @@ const ShowQuestionModal = forwardRef(
         return '';
       }
     }, [modalProps?.question.category]);
-
-    useEffect(() => {
-      categoriesStore.getCategories();
-    }, []);
 
     return (
       <Modal

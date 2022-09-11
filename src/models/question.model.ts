@@ -6,6 +6,12 @@ export interface QuizQuestion {
   answer: string;
 }
 
+export interface GetQuizQuestion extends Omit<QuizQuestion, 'category'> {
+  id: number;
+  categoryId: number;
+  categoryName: string;
+}
+
 export type AddQuizQuestion = Pick<
   QuizQuestion,
   'title' | 'category' | 'level' | 'answer'

@@ -1,5 +1,6 @@
 import React, { ElementRef, useEffect, useRef } from 'react';
 
+import { categoriesStore, questionsStore } from './store';
 import AppRouter from './AppRouter';
 import SetDefaultDataModal from './components/SetDefaultDataModal/SetDefaultDataModal';
 import MainLayout from './pages/MainLayout/MainLayout';
@@ -17,6 +18,8 @@ const App = () => {
 
   useEffect(() => {
     setDefaults();
+    questionsStore.getQuestions();
+    categoriesStore.getCategories();
   }, []);
 
   return (

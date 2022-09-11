@@ -5,7 +5,7 @@ import { Button, Card } from 'antd';
 import classes from './QuizQuestionsRunner.module.scss';
 import { quizStore } from '../../store';
 import { QuizQuestionAnswerType } from '../../models/quiz.model';
-import { QuizQuestion } from '../../models/question.model';
+import { GetQuizQuestion } from '../../models/question.model';
 import QuizQuestionCard from '../QuizQuestionCard/QuizQuestionCard';
 import QuizFinalCard from '../QuizFinalCard/QuizFinalCard';
 import FullWidthLoader from '../FullWidthLoader/FullWidthLoader';
@@ -49,7 +49,7 @@ const QuizQuestionsRunner = () => {
                 !quizStore.isQuizFullyCompleted &&
                 !quizStore.isIterationCompleted && (
                   <QuizQuestionCard
-                    question={quizStore.currentQuestion as QuizQuestion}
+                    question={quizStore.currentQuestion as GetQuizQuestion}
                   />
                 )}
               {quizStore.isIterationCompleted &&

@@ -1,19 +1,38 @@
 import { IndexableType } from 'dexie';
 
 import { db } from './indexedDB';
-import { QuizQuestion, AddQuizQuestion } from '../models/question.model';
+import {
+  QuizQuestion,
+  AddQuizQuestion,
+  GetQuizQuestion,
+} from '../models/question.model';
 import { APIResponse, APIResponseStatusEnum } from '../models/api.model';
 import DEFAULT_QUESTIONS from '../data/questions.json';
+import { QuizQuestionCategory } from '../models/category.model';
 
 class QuestionsAPI {
-  async getQuestions(): Promise<APIResponse<QuizQuestion[]>> {
+  async getQuestions(): Promise<APIResponse<GetQuizQuestion[]>> {
     try {
       const quesitons = await db.questions.toArray();
+      const categories = await db.categories.toArray();
+
+      const modifiedQuestions = quesitons.map((question) => {
+        const foundCategory = categories.find(
+          (category) => category.id === question.id,
+        );
+        return {
+          id: question.id,
+          categoryId: question.category,
+          categoryName: foundCategory?.title || '',
+          title: question.title,
+          level: question.level,
+          answer: question.answer,
+        } as GetQuizQuestion;
+      });
+
       return {
         status: APIResponseStatusEnum.success,
-        data: quesitons.sort((a, b) => {
-          return a.level - b.level || a.title.localeCompare(b.title);
-        }),
+        data: modifiedQuestions,
       };
     } catch (error) {
       return {
@@ -23,12 +42,30 @@ class QuestionsAPI {
     }
   }
 
-  async getQuestionsByIds(ids: number[]): Promise<APIResponse<QuizQuestion[]>> {
+  async getQuestionsByIds(
+    ids: number[],
+  ): Promise<APIResponse<GetQuizQuestion[]>> {
     try {
       const quesitons = await db.questions.where('id').anyOf(ids).toArray();
+      const categories = await db.categories.toArray();
+
+      const modifiedQuestions = quesitons.map((question) => {
+        const foundCategory = categories.find(
+          (category) => category.id === question.id,
+        );
+        return {
+          id: question.id,
+          categoryId: question.category,
+          categoryName: foundCategory?.title || '',
+          title: question.title,
+          level: question.level,
+          answer: question.answer,
+        } as GetQuizQuestion;
+      });
+
       return {
         status: APIResponseStatusEnum.success,
-        data: quesitons,
+        data: modifiedQuestions,
       };
     } catch (error) {
       return {
@@ -38,12 +75,26 @@ class QuestionsAPI {
     }
   }
 
-  async getQuestion(id: number): Promise<APIResponse<QuizQuestion>> {
+  async getQuestion(id: number): Promise<APIResponse<GetQuizQuestion | null>> {
     try {
-      const quesiton = await db.questions.get(id);
+      const question = await db.questions.get(id);
+      let category: QuizQuestionCategory | undefined;
+      let modifiedQuestion: GetQuizQuestion | null = null;
+      if (question) {
+        category = await db.categories.get(question?.category);
+        modifiedQuestion = {
+          id: question.id as number,
+          categoryId: question.category,
+          categoryName: category?.title || '',
+          title: question.title,
+          level: question.level,
+          answer: question.answer,
+        };
+      }
+
       return {
         status: APIResponseStatusEnum.success,
-        data: quesiton,
+        data: modifiedQuestion,
       };
     } catch (error) {
       return {

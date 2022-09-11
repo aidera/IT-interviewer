@@ -1,7 +1,6 @@
 import React, {
   ForwardedRef,
   forwardRef,
-  useEffect,
   useImperativeHandle,
   useState,
 } from 'react';
@@ -93,10 +92,6 @@ const EditQuestionModal = forwardRef(
           break;
       }
     };
-
-    useEffect(() => {
-      categoriesStore.getCategories();
-    }, []);
 
     return (
       <Modal
