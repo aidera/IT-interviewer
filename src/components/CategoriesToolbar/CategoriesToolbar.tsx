@@ -4,8 +4,10 @@ import { Button, Dropdown, Input, Menu, MenuProps } from 'antd';
 import {
   CloseOutlined,
   DownloadOutlined,
+  DownOutlined,
   EllipsisOutlined,
   UploadOutlined,
+  UpOutlined,
 } from '@ant-design/icons';
 import { saveAs } from 'file-saver';
 import { useMediaQuery } from '@react-hook/media-query';
@@ -23,6 +25,8 @@ const CategoriesToolbar = () => {
   const uploadFileInput = useRef<HTMLInputElement>(null);
 
   const [uploadFile, setUploadFile] = useState<string | null>(null);
+  const [isMobileFiltersOpen, setIsMobileFiltersOpen] =
+    useState<boolean>(false);
 
   const isMobileView = useMediaQuery('(max-width: 700px)');
 
@@ -113,8 +117,26 @@ const CategoriesToolbar = () => {
   return (
     <>
       <div className={classes.toolbar}>
-        <div className={classes.filters}>
-          <span>Filters: </span>
+        {isMobileView && (
+          <div className={classes.mobileFiltersTrigger}>
+            <Button
+              onClick={() => setIsMobileFiltersOpen(!isMobileFiltersOpen)}
+              type='link'
+              icon={isMobileFiltersOpen ? <UpOutlined /> : <DownOutlined />}
+            >
+              Filters
+            </Button>
+          </div>
+        )}
+
+        <div
+          className={
+            classes.filters +
+            ' ' +
+            (!isMobileFiltersOpen ? classes.filtersClosed : '')
+          }
+        >
+          {!isMobileView && <span>Filters: </span>}
 
           <Input
             placeholder='Search by title...'

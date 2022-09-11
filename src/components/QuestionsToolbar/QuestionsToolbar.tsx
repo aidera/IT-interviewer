@@ -3,8 +3,10 @@ import { observer } from 'mobx-react';
 import {
   CloseOutlined,
   DownloadOutlined,
+  DownOutlined,
   EllipsisOutlined,
   UploadOutlined,
+  UpOutlined,
 } from '@ant-design/icons';
 import { Button, Dropdown, Input, Menu, MenuProps, Select } from 'antd';
 import { saveAs } from 'file-saver';
@@ -33,6 +35,8 @@ const QuestionsToolbar = () => {
   const uploadFileInput = useRef<HTMLInputElement>(null);
 
   const [uploadFile, setUploadFile] = useState<string | null>(null);
+  const [isMobileFiltersOpen, setIsMobileFiltersOpen] =
+    useState<boolean>(false);
 
   const isMobileView = useMediaQuery('(max-width: 700px)');
 
@@ -129,8 +133,26 @@ const QuestionsToolbar = () => {
   return (
     <>
       <div className={classes.toolbar}>
-        <div className={classes.filters}>
-          <span>Filters: </span>
+        {isMobileView && (
+          <div className={classes.mobileFiltersTrigger}>
+            <Button
+              onClick={() => setIsMobileFiltersOpen(!isMobileFiltersOpen)}
+              type='link'
+              icon={isMobileFiltersOpen ? <UpOutlined /> : <DownOutlined />}
+            >
+              Filters
+            </Button>
+          </div>
+        )}
+
+        <div
+          className={
+            classes.filters +
+            ' ' +
+            (!isMobileFiltersOpen ? classes.filtersClosed : '')
+          }
+        >
+          {!isMobileView && <span>Filters: </span>}
 
           <Input
             placeholder='Search by title...'
