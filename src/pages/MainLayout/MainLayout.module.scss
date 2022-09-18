@@ -8,7 +8,7 @@
   z-index: 1;
   display: flex;
   align-items: center;
-  @media (max-width: 600px) {
+  @media (max-width: 750px) {
     justify-content: space-between;
   }
   @media (max-width: 576px) {

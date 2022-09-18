@@ -5,11 +5,13 @@ import { AddLearnLog, GetLearnLog } from '../models/log.model';
 class LogsAPI {
   async getLearnLogs(): Promise<APIResponse<GetLearnLog[]>> {
     try {
-      const logs = (await db.learnLogs.toArray()) as GetLearnLog[];
+      const logs = await db.learnLogs.toArray();
 
       return {
         status: APIResponseStatusEnum.success,
-        data: logs,
+        data: (logs as GetLearnLog[]).sort((a, b) => {
+          return +new Date(b.date) - +new Date(a.date);
+        }),
       };
     } catch (error) {
       return {

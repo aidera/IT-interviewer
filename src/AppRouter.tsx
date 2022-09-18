@@ -5,6 +5,7 @@ import CategoriesPage from './pages/CategoriesPage/CategoriesPage';
 import QuestionsPage from './pages/QuestionsPage/QuestionsPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import QuizPage from './pages/QuizPage/QuizPage';
+import AnalyticsPage from './pages/AnalyticsPage/AnalyticsPage';
 
 const AppRouter = () => {
   return (
@@ -14,6 +15,7 @@ const AppRouter = () => {
         <Route path='/questions' element={<QuestionsPage />} />
         <Route path='/categories' element={<CategoriesPage />} />
         <Route path='/quiz' element={<QuizPage />} />
+        <Route path='/analytics' element={<AnalyticsPage />} />
       </Route>
       <Route path='*' element={<NotFoundPage />} />
     </Routes>

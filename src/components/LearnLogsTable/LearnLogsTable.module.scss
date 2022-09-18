@@ -1,0 +1,12 @@
+.table {
+  :global {
+    .ant-table-content {
+      max-width: 100%;
+      overflow-x: auto;
+    }
+  }
+}
+
+.tableIsUpdating {
+  opacity: 0.6;
+}

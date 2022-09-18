@@ -25,13 +25,17 @@ const menuItems: ItemType[] = [
     key: '/quiz',
     label: 'Quiz',
   },
+  {
+    key: '/analytics',
+    label: 'Analytics',
+  },
 ];
 
 const MainLayout = (props: PropsType) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isDrawerVisible, setIsDrawerVisible] = useState<boolean>(false);
-  const isHeaderSmallScreen = useMediaQuery('(max-width: 600px)');
+  const isHeaderSmallScreen = useMediaQuery('(max-width: 750px)');
 
   let selectedRoutes: string[] = [];
 
