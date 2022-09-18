@@ -5,6 +5,7 @@ import {
   QuizQuestionAnswerType,
 } from '../models/quiz.model';
 import { APIResponse, APIResponseStatusEnum } from '../models/api.model';
+import LogsAPIInstance from './logs.api';
 
 class QuizAPI {
   async getQuiz(): Promise<APIResponse<QuizData | null>> {
@@ -140,14 +141,22 @@ class QuizAPI {
       if (quiz?.[0]) {
         const newQuiz: QuizData = JSON.parse(JSON.stringify(quiz[0]));
 
+        const isFinished =
+          newQuiz.questionIds.length === newQuiz.completedQuestionIds.length;
+
         newQuiz.questionIds = newQuiz.questionIds.filter(
           (id) => !newQuiz.completedQuestionIds.includes(id),
         );
+
         newQuiz.completedQuestionIds = [];
         newQuiz.notCompletedQuestionIds = [];
 
         await db.quiz.clear();
         await db.quiz.add(newQuiz);
+
+        await LogsAPIInstance.addLearnLog({
+          type: isFinished ? 'FINISHING' : 'ITERATION',
+        });
 
         response = 'Finished Iteration';
       } else {
