@@ -1,6 +1,6 @@
 import { QuizQuestionCategory } from './../models/category.model';
 
-export const cateforiesMock: QuizQuestionCategory[] = [
+export const categoriesMock: QuizQuestionCategory[] = [
   { id: 1, title: 'Category title 1' },
   { id: 2, title: 'Category title 2' },
   { id: 3, title: 'Category title 3' },

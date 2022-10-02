@@ -3,13 +3,13 @@ import { observable } from 'mobx';
 import { Provider } from 'mobx-react';
 
 import CategoriesList from './CategoriesList';
-import { cateforiesMock } from '../../mocks/categories.mock';
+import { categoriesMock } from '../../mocks/categories.mock';
 
 describe('CategoriesList', () => {
   test('should describe a list of categories', async () => {
     const categoriesStore = observable({
-      categories: cateforiesMock,
-      filteredCategories: cateforiesMock,
+      categories: categoriesMock,
+      filteredCategories: categoriesMock,
       isFetching: false,
       isUpdating: false,
     });
@@ -22,14 +22,14 @@ describe('CategoriesList', () => {
 
     const categories = view.getAllByRole('listitem');
 
-    expect(categories).toHaveLength(cateforiesMock.length);
+    expect(categories).toHaveLength(categoriesMock.length);
     expect(categories[0].textContent).toContain('Category title 1');
   });
 
   test('category should have two buttons - edit and remove', async () => {
     const categoriesStore = observable({
-      categories: cateforiesMock,
-      filteredCategories: cateforiesMock,
+      categories: categoriesMock,
+      filteredCategories: categoriesMock,
       isFetching: false,
       isUpdating: false,
     });
@@ -41,10 +41,10 @@ describe('CategoriesList', () => {
     );
 
     const editButtons = view.queryAllByLabelText('edit');
-    const removeButtons = view.queryAllByLabelText('remove');
+    const removeButtons = view.queryAllByLabelText('delete');
 
-    expect(editButtons).toHaveLength(cateforiesMock.length);
-    expect(removeButtons).toHaveLength(cateforiesMock.length);
+    expect(editButtons).toHaveLength(categoriesMock.length);
+    expect(removeButtons).toHaveLength(categoriesMock.length);
   });
 });
 
