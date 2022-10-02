@@ -62,10 +62,6 @@ const QuestionsTable = () => {
   };
 
   useEffect(() => {
-    questionsStore;
-  }, []);
-
-  useEffect(() => {
     const tableQuestions = questionsStore.filteredQuestions.map((q) => {
       return {
         ...q,

@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'mobx-react';
 
 import './styles/antd.css';
 import './styles/index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import * as stores from './store';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -13,7 +15,9 @@ const root = ReactDOM.createRoot(
 root.render(
   // <React.StrictMode>
   <BrowserRouter>
-    <App />
+    <Provider {...stores}>
+      <App />
+    </Provider>
   </BrowserRouter>,
   // </React.StrictMode>
 );
