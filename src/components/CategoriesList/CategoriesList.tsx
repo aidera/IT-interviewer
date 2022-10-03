@@ -34,7 +34,7 @@ const CategoriesList = inject('categoriesStore')(
       <>
         {props.categoriesStore?.isFetching && (
           <div className={classes.loaderContainer}>
-            <Spin size='large' />
+            <Spin size='large' aria-label='spinner' />
           </div>
         )}
 
@@ -55,6 +55,7 @@ const CategoriesList = inject('categoriesStore')(
                     editCategory(item);
                   }}
                   disabled={props.categoriesStore?.isUpdating}
+                  aria-label='edit-button'
                 />
                 <Button
                   shape='circle'
@@ -63,6 +64,7 @@ const CategoriesList = inject('categoriesStore')(
                     deleteCategory(item.id as number);
                   }}
                   disabled={props.categoriesStore?.isUpdating}
+                  aria-label='delete-button'
                 />
                 <strong>{item.title}</strong>
               </List.Item>
