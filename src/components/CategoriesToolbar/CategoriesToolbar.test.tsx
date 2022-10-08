@@ -26,7 +26,7 @@ describe('CategoriesToolbar', () => {
     });
   });
 
-  test('not display "Filters" button if it\'s not a mobile view', async () => {
+  test('not display "Filters" button if it\'s not a mobile view', () => {
     const view = render(
       <Provider categoriesStore={categoriesStore}>
         <CategoriesToolbar />
@@ -40,7 +40,7 @@ describe('CategoriesToolbar', () => {
     expect(filtersButton).not.toBeInTheDocument();
   });
 
-  test('display "Filters" button if it\'s a mobile view', async () => {
+  test('display "Filters" button if it\'s a mobile view', () => {
     (useMediaQuery as unknown as jest.Mock).mockReturnValue(true);
 
     const view = render(
@@ -56,7 +56,7 @@ describe('CategoriesToolbar', () => {
     expect(filtersButton).toBeInTheDocument();
   });
 
-  test('there are no visible filters at the beginning if the view is mobile', async () => {
+  test('there are no visible filters at the beginning if the view is mobile', () => {
     (useMediaQuery as unknown as jest.Mock).mockReturnValue(true);
 
     const view = render(
@@ -70,7 +70,7 @@ describe('CategoriesToolbar', () => {
     expect(filters).toHaveClass(classes.filtersClosed);
   });
 
-  test('display filters by clicking on filters button if the view is mobile', async () => {
+  test('display filters by clicking on filters button if the view is mobile', () => {
     (useMediaQuery as unknown as jest.Mock).mockReturnValue(true);
 
     const view = render(
@@ -90,7 +90,7 @@ describe('CategoriesToolbar', () => {
     expect(filters).not.toHaveClass(classes.filtersClosed);
   });
 
-  test('display the title filter', async () => {
+  test('display the title filter', () => {
     const view = render(
       <Provider categoriesStore={categoriesStore}>
         <CategoriesToolbar />
@@ -102,7 +102,7 @@ describe('CategoriesToolbar', () => {
     expect(titleFilter).toBeInTheDocument();
   });
 
-  test('execute category set filters store function with expected parameters', async () => {
+  test('execute category set filters store function with expected parameters', () => {
     const view = render(
       <Provider categoriesStore={categoriesStore}>
         <CategoriesToolbar />
@@ -118,7 +118,7 @@ describe('CategoriesToolbar', () => {
     expect(categoriesStoreSetFilters).toBeCalledWith('title', 'a');
   });
 
-  test('display the clear filters button', async () => {
+  test('display the clear filters button', () => {
     const view = render(
       <Provider categoriesStore={categoriesStore}>
         <CategoriesToolbar />
@@ -130,7 +130,7 @@ describe('CategoriesToolbar', () => {
     expect(clearButton).toBeInTheDocument();
   });
 
-  test('execute category clear filters store function', async () => {
+  test('execute category clear filters store function', () => {
     const view = render(
       <Provider categoriesStore={categoriesStore}>
         <CategoriesToolbar />
@@ -145,7 +145,7 @@ describe('CategoriesToolbar', () => {
     expect(categoriesStoreClearFilters).toBeCalledTimes(1);
   });
 
-  test('display add category button', async () => {
+  test('display add category button', () => {
     const view = render(
       <Provider categoriesStore={categoriesStore}>
         <CategoriesToolbar />
@@ -157,7 +157,7 @@ describe('CategoriesToolbar', () => {
     expect(addButton).toBeInTheDocument();
   });
 
-  test('display dialog by clicking on add category button', async () => {
+  test('display dialog by clicking on add category button', () => {
     const view = render(
       <Provider categoriesStore={categoriesStore}>
         <CategoriesToolbar />
@@ -174,7 +174,7 @@ describe('CategoriesToolbar', () => {
     expect(modalAfter).toBeInTheDocument();
   });
 
-  test('display "More actions" button', async () => {
+  test('display "More actions" button', () => {
     const view = render(
       <Provider categoriesStore={categoriesStore}>
         <CategoriesToolbar />

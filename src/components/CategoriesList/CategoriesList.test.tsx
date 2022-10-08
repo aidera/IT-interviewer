@@ -9,7 +9,7 @@ import { categoriesMock } from '../../mocks/categories.mock';
 const deleteCategoryMock = jest.fn();
 
 describe('CategoriesList', () => {
-  test('should describe a list of categories', async () => {
+  test('should describe a list of categories', () => {
     const categoriesStore = observable({
       categories: categoriesMock,
       filteredCategories: categoriesMock,
@@ -29,7 +29,7 @@ describe('CategoriesList', () => {
     expect(categories[0].textContent).toContain('Category title 1');
   });
 
-  test('category should have two buttons - edit and remove', async () => {
+  test('category should have two buttons - edit and remove', () => {
     const categoriesStore = observable({
       categories: categoriesMock,
       filteredCategories: categoriesMock,
@@ -50,7 +50,7 @@ describe('CategoriesList', () => {
     expect(removeButtons).toHaveLength(categoriesMock.length);
   });
 
-  test('by clicking on edit - the new modal should appear', async () => {
+  test('by clicking on edit - the new modal should appear', () => {
     const categoriesStore = observable({
       categories: categoriesMock,
       filteredCategories: categoriesMock,
@@ -71,7 +71,7 @@ describe('CategoriesList', () => {
     expect(modal).toBeInTheDocument();
   });
 
-  test('by clicking on delete - should run store remove function', async () => {
+  test('by clicking on delete - should run store remove function', () => {
     const categoriesStore = observable({
       categories: categoriesMock,
       filteredCategories: categoriesMock,
@@ -93,7 +93,7 @@ describe('CategoriesList', () => {
     expect(deleteCategoryMock).toHaveBeenCalledTimes(1);
   });
 
-  test('should display spinner if it is fetching', async () => {
+  test('should display spinner if it is fetching', () => {
     const categoriesStore = observable({
       categories: categoriesMock,
       filteredCategories: categoriesMock,
@@ -112,7 +112,7 @@ describe('CategoriesList', () => {
     expect(spinner).toBeInTheDocument();
   });
 
-  test('should not display spinner if it is not fetching', async () => {
+  test('should not display spinner if it is not fetching', () => {
     const categoriesStore = observable({
       categories: categoriesMock,
       filteredCategories: categoriesMock,
@@ -131,7 +131,7 @@ describe('CategoriesList', () => {
     expect(spinner).not.toBeInTheDocument();
   });
 
-  test('while updating the buttons should be disabled', async () => {
+  test('while updating the buttons should be disabled', () => {
     const categoriesStore = observable({
       categories: categoriesMock,
       filteredCategories: categoriesMock,
@@ -152,7 +152,7 @@ describe('CategoriesList', () => {
     expect(deleteButtons[0]).toBeDisabled();
   });
 
-  test('while not updating the buttons should not be disabled', async () => {
+  test('while not updating the buttons should not be disabled', () => {
     const categoriesStore = observable({
       categories: categoriesMock,
       filteredCategories: categoriesMock,
