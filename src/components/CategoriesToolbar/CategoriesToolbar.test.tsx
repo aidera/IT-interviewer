@@ -18,7 +18,7 @@ const categoriesStoreClearFilters = jest.fn();
 describe('CategoriesToolbar', () => {
   let categoriesStore: any;
 
-  beforeAll(() => {
+  beforeEach(() => {
     categoriesStore = observable({
       filters: { title: '' },
       setFilters: categoriesStoreSetFilters,
@@ -116,6 +116,22 @@ describe('CategoriesToolbar', () => {
     expect(categoriesStoreSetFilters).toBeCalled();
     expect(categoriesStoreSetFilters).toBeCalledTimes(1);
     expect(categoriesStoreSetFilters).toBeCalledWith('title', 'a');
+  });
+
+  test('display initial filters value', () => {
+    categoriesStore = observable({
+      filters: { title: 'initial' },
+    });
+
+    const view = render(
+      <Provider categoriesStore={categoriesStore}>
+        <CategoriesToolbar />
+      </Provider>,
+    );
+
+    const titleFilter = view.queryByPlaceholderText(/Search by title/i);
+
+    expect((titleFilter as HTMLInputElement).value).toBe('initial');
   });
 
   test('display the clear filters button', () => {
