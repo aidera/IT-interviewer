@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import { observable } from 'mobx';
 import { Provider } from 'mobx-react';
+import userEvent from '@testing-library/user-event';
 
 import CategoriesList from './CategoriesList';
 import { categoriesMock } from '../../mocks/categories.mock';
-import userEvent from '@testing-library/user-event';
 
 const deleteCategoryMock = jest.fn();
 

@@ -4,10 +4,10 @@ import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { inject, observer } from 'mobx-react';
 
 import classes from './CategoriesList.module.scss';
+import CategoriesStore from '../../store/categories.store';
 import { QuizQuestionCategory } from '../../models/category.model';
 import { EditTypeEnum } from '../../models/utils.model';
 import EditCategoryModal from '../../components/EditCategoryModal/EditCategoryModal';
-import CategoriesStore from '../../store/categories.store';
 
 type PropsType = {
   categoriesStore?: CategoriesStore;
